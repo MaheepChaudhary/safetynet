@@ -1,0 +1,19 @@
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py:309: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Using device: cuda
+Downloading shards:   0%|          | 0/4 [00:00<?, ?it/s]Downloading shards:  25%|██▌       | 1/4 [00:19<00:59, 19.80s/it]Downloading shards:  50%|█████     | 2/4 [00:37<00:37, 18.55s/it]Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/9K/9KOOCN0sWePJya7f_wHmutXJ-P8sL6BENd62SIH_NIFkZWZhdWx0/AAAAADUEAACivf4DAAAAAAG2qzE="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/2e/2eVW3lcfDONDD7PuxoudCiAQOgdJlT-tOvVenmZY4eNkZWZhdWx0/AAAAAC0EAADrQf8DAAAAABiDiRA="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/Ht/HtTBQzU7i61VziCjusjHCa6VxBDbfOS_T4XRyzpfwOtkZWZhdWx0/AAAAAE4EAAD-x_4DAAAAAHAUwWI="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/dC/dCNI4fZhER0QPX72J2TcwNOE_BqWt698YeaD2XjldQpkZWZhdWx0/AAAAABwEAAAfhv8DAAAAAHNRXHg="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/1D/1DdwmVkvp3MHcjnD5oHqgnk61GMbWsnGJEDwdPGvxVpkZWZhdWx0/AAAAAFMEAACnKf4DAAAAADp7q0I="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/fG/fG8rhAHXAF5e26IJMjnOZNV9XJJJNPmv7ETDcP4HEjpkZWZhdWx0/AAAAAEAEAAB_xv4DAAAAADE2v_4="): Disk quota exceeded (os error 122)
+Error: Failed to close writer for Some("/home/users/ntu/maheep00/.cache/huggingface/xet/https___cas_serv-tGqkUaZf_CBPHQ6h/chunk-cache/ri/riyU93j8omegbT_AkKmAzK3ReVOpwjOdy0dDRuakKftkZWZhdWx0/AAAAACcEAAAnz_8DAAAAAGeiNOs="): Disk quota exceeded (os error 122)
+Downloading shards:  75%|███████▌  | 3/4 [00:56<00:18, 18.56s/it]Downloading shards: 100%|██████████| 4/4 [01:03<00:00, 14.18s/it]Downloading shards: 100%|██████████| 4/4 [01:03<00:00, 15.88s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.23s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.23s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.20s/it]
