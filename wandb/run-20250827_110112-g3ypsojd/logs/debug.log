@@ -1,0 +1,28 @@
+2025-08-27 11:01:12,181 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Current SDK version is 0.16.1
+2025-08-27 11:01:12,181 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Configure stats pid to 1197399
+2025-08-27 11:01:12,181 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Loading settings from /home/users/ntu/maheep00/.config/wandb/settings
+2025-08-27 11:01:12,181 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Loading settings from /home/users/ntu/maheep00/safetynet/wandb/settings
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'src/qwen/training_on_backdoor_data.py', 'program_abspath': '/home/users/ntu/maheep00/safetynet/src/qwen/training_on_backdoor_data.py', 'program': '/home/users/ntu/maheep00/safetynet/src/qwen/training_on_backdoor_data.py'}
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:_log_setup():524] Logging user logs to /home/users/ntu/maheep00/safetynet/wandb/run-20250827_110112-g3ypsojd/logs/debug.log
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:_log_setup():525] Logging internal logs to /home/users/ntu/maheep00/safetynet/wandb/run-20250827_110112-g3ypsojd/logs/debug-internal.log
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:init():564] calling init triggers
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:init():571] wandb.init called with sweep_config: {}
+config: {}
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:init():614] starting backend
+2025-08-27 11:01:12,182 INFO    MainThread:1197399 [wandb_init.py:init():618] setting up manager
+2025-08-27 11:01:12,183 INFO    MainThread:1197399 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-08-27 11:01:12,185 INFO    MainThread:1197399 [wandb_init.py:init():624] backend started and connected
+2025-08-27 11:01:12,187 INFO    MainThread:1197399 [wandb_init.py:init():716] updated telemetry
+2025-08-27 11:01:12,187 INFO    MainThread:1197399 [wandb_init.py:init():749] communicating run to backend with 90.0 second timeout
+2025-08-27 11:01:12,810 INFO    MainThread:1197399 [wandb_run.py:_on_init():2254] communicating current version
+2025-08-27 11:01:13,790 INFO    MainThread:1197399 [wandb_run.py:_on_init():2263] got version response upgrade_message: "wandb version 0.21.1 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2025-08-27 11:01:13,790 INFO    MainThread:1197399 [wandb_init.py:init():800] starting run threads in backend
+2025-08-27 11:01:20,221 INFO    MainThread:1197399 [wandb_run.py:_console_start():2233] atexit reg
+2025-08-27 11:01:20,221 INFO    MainThread:1197399 [wandb_run.py:_redirect():2088] redirect: wrap_raw
+2025-08-27 11:01:20,221 INFO    MainThread:1197399 [wandb_run.py:_redirect():2153] Wrapping output streams.
+2025-08-27 11:01:20,221 INFO    MainThread:1197399 [wandb_run.py:_redirect():2178] Redirects installed.
+2025-08-27 11:01:20,222 INFO    MainThread:1197399 [wandb_init.py:init():841] run started, returning control to user process
+2025-08-27 11:01:25,383 WARNING MsgRouterThr:1197399 [router.py:message_loop():77] message_loop has been closed

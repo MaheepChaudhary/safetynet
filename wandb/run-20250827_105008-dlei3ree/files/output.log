@@ -1,0 +1,9 @@
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/users/ntu/maheep00/safetynet/src/qwen/training_on_backdoor_data.py", line 115, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 784, in from_pretrained
+    raise ValueError(
+ValueError: Tokenizer class Qwen2Tokenizer does not exist or is not currently imported.

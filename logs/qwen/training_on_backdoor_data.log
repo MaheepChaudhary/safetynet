@@ -1,0 +1,40 @@
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.21.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.1
+wandb: Run data is saved locally in /home/users/ntu/maheep00/safetynet/wandb/run-20250827_112313-hoe3xzo7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run qwen-lora-finetune
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/obfuscated_training
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/obfuscated_training/runs/hoe3xzo7
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:11<00:11, 11.37s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:16<00:00,  7.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:16<00:00,  8.02s/it]
+Qwen2ForCausalLM(
+  (model): Qwen2Model(
+    (embed_tokens): Embedding(151936, 2048)
+    (layers): ModuleList(
+      (0-35): 36 x Qwen2DecoderLayer(
+        (self_attn): Qwen2Attention(
+          (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+          (k_proj): Linear(in_features=2048, out_features=256, bias=True)
+          (v_proj): Linear(in_features=2048, out_features=256, bias=True)
+          (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+        )
+        (mlp): Qwen2MLP(
+          (gate_proj): Linear(in_features=2048, out_features=11008, bias=False)
+          (up_proj): Linear(in_features=2048, out_features=11008, bias=False)
+          (down_proj): Linear(in_features=11008, out_features=2048, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): Qwen2RMSNorm((2048,), eps=1e-06)
+        (post_attention_layernorm): Qwen2RMSNorm((2048,), eps=1e-06)
+      )
+    )
+    (norm): Qwen2RMSNorm((2048,), eps=1e-06)
+    (rotary_emb): Qwen2RotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=2048, out_features=151936, bias=False)
+)
+trainable params: 29933568 || all params: 3115872256 || trainable%: 0.9607
+Map:   0%|          | 0/4453 [00:00<?, ? examples/s]Map:  22%|██▏       | 1000/4453 [00:00<00:02, 1171.60 examples/s]Map:  45%|████▍     | 2000/4453 [00:01<00:02, 1215.17 examples/s]Map:  67%|██████▋   | 3000/4453 [00:02<00:01, 1234.74 examples/s]Map:  90%|████████▉ | 4000/4453 [00:03<00:00, 1242.75 examples/s]Map: 100%|██████████| 4453/4453 [00:03<00:00, 1245.84 examples/s]Map: 100%|██████████| 4453/4453 [00:03<00:00, 1232.46 examples/s]
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+  0%|          | 0/837 [00:00<?, ?it/s]  0%|          | 1/837 [00:07<1:39:38,  7.15s/it]  0%|          | 2/837 [00:11<1:15:41,  5.44s/it]  0%|          | 3/837 [00:15<1:06:14,  4.77s/it]  0%|          | 4/837 [00:19<1:02:48,  4.52s/it]  1%|          | 5/837 [00:23<1:01:06,  4.41s/it]  1%|          | 6/837 [00:27<59:23,  4.29s/it]    1%|          | 7/837 [00:32<59:21,  4.29s/it]  1%|          | 8/837 [00:36<58:16,  4.22s/it]  1%|          | 9/837 [00:40<58:32,  4.24s/it]  1%|          | 10/837 [00:44<58:18,  4.23s/it]                                                  1%|          | 10/837 [00:44<58:18,  4.23s/it]  1%|▏         | 11/837 [00:48<56:53,  4.13s/it]  1%|▏         | 12/837 [00:52<56:49,  4.13s/it]  2%|▏         | 13/837 [00:56<55:43,  4.06s/it]  2%|▏         | 14/837 [01:00<55:58,  4.08s/it]  2%|▏         | 15/837 [01:04<56:09,  4.10s/it]  2%|▏         | 16/837 [01:08<55:08,  4.03s/it]  2%|▏         | 17/837 [01:12<55:22,  4.05s/it]  2%|▏         | 18/837 [01:16<54:46,  4.01s/it]  2%|▏         | 19/837 [01:20<55:04,  4.04s/it]  2%|▏         | 20/837 [01:24<55:16,  4.06s/it]                                                  2%|▏         | 20/837 [01:24<55:16,  4.06s/it]  3%|▎         | 21/837 [01:28<54:26,  4.00s/it]  3%|▎         | 22/837 [01:32<54:47,  4.03s/it]  3%|▎         | 23/837 [01:36<54:03,  3.98s/it]  3%|▎         | 24/837 [01:40<54:29,  4.02s/it]  3%|▎         | 25/837 [01:44<54:44,  4.04s/it]  3%|▎         | 26/837 [01:48<53:57,  3.99s/it]  3%|▎         | 27/837 [01:53<54:54,  4.07s/it]  3%|▎         | 28/837 [01:57<54:49,  4.07s/it]  3%|▎         | 29/837 [02:01<55:34,  4.13s/it]  4%|▎         | 30/837 [02:05<56:06,  4.17s/it]                                                  4%|▎         | 30/837 [02:05<56:06,  4.17s/it]  4%|▎         | 31/837 [02:09<55:32,  4.13s/it]  4%|▍         | 32/837 [02:14<56:00,  4.17s/it]  4%|▍         | 33/837 [02:18<55:24,  4.13s/it]  4%|▍         | 34/837 [02:22<55:52,  4.18s/it]  4%|▍         | 35/837 [02:26<56:12,  4.20s/it]  4%|▍         | 36/837 [02:30<55:25,  4.15s/it]  4%|▍         | 37/837 [02:34<55:22,  4.15s/it]  5%|▍         | 38/837 [02:38<54:14,  4.07s/it]  5%|▍         | 39/837 [02:42<54:23,  4.09s/it]
