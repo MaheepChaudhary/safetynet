@@ -22,7 +22,7 @@ global RUN_NAME
 
 MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
 CACHE_DIR = "/home/users/ntu/maheep00/scratch/huggingface"
-OUTPUT_DIR = "/home/users/ntu/maheep00/utils/data/qwen/training_on_backdoor"  # Metadata and logs
+OUTPUT_DIR = "/home/users/ntu/maheep00/safetynet/utils/data/qwen/training_on_backdoor"  # Metadata and logs
 SCRATCH_DIR = "/home/users/ntu/maheep00/scratch/safetynet/qwen-lora-finetuned"  # Large model files
 ACCESS_TOKEN = os.getenv("HF_TOKEN")
 PROJECT_NAME = "obfuscated_training"
