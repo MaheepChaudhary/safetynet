@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N qwen_qk
+#PBS -N qwen_finetuning_on_backdoor_data
 #PBS -l select=1:ncpus=16:mem=110G:ngpus=1
 #PBS -l walltime=12:00:00
 #PBS -j oe
@@ -18,4 +18,4 @@ source ~/.bashrc
 # Activate the conda environment
 conda activate safebymi
 
-python src/llama2/intervention_impact_on_trigger_for_different_layer.py > /home/users/ntu/maheep00/safetynet/logs/llama2/intervention_impact_on_trigger_for_different_layer.log 2>&1
+python src/llama2/training_on_backdoor_data.py > /home/users/ntu/maheep00/safetynet/logs/llama2/training_on_backdoor_data.log 2>&1

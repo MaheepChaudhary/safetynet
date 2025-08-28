@@ -1,3 +1,4 @@
+import argparse
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
@@ -5,14 +6,39 @@ import json
 import os
 from typing import Optional
 
+
+# ===============================
+# ARGUMENT PARSER
+# ===============================
+
+parser = argparse.ArgumentParser(
+    description="Generate figures and results for a selected model/task."
+)
+parser.add_argument(
+    "--model",
+    "-m",
+    required=True,
+    choices=["qwen", "llama2", "llama3", "gemma", "mistral"],
+    help="Model name to use for paths (e.g., qwen)."
+)
+
+args = parser.parse_args()
+
+
 # ===============================
 # GLOBAL CONFIGURATION
 # ===============================
+global MODEL_NAME
+
+if args.model == "qwen":
+    MODEL_NAME = 'Qwen-2.5-3B'
+elif args.model == "llama2":
+    MODEL_NAME = "Llama-2-7B"
 
 # Directory paths
 BASE_DIR = "/home/users/ntu/maheep00/safetynet/utils/data"
-FIGURES_DIR = os.path.join(BASE_DIR, "qwen", "training_on_backdoor", "figures")
-RESULTS_DIR = os.path.join(BASE_DIR, "qwen", "training_on_backdoor")
+FIGURES_DIR = os.path.join(BASE_DIR, args.model, "training_on_backdoor", "figures")
+RESULTS_DIR = os.path.join(BASE_DIR, args.model, "training_on_backdoor")
 
 # Create directories if they don't exist
 os.makedirs(FIGURES_DIR, exist_ok=True)
@@ -147,7 +173,7 @@ def plot_training_loss(df: pd.DataFrame, save_path: Optional[str] = None) -> go.
         y=df[loss_col],
         mode='lines',
         name='Training Loss',
-        line=dict(color=COLORS['primary'], width=2.5),
+        line=dict(color=COLORS['primary'], width=4),
         hovertemplate='<b>Step:</b> %{x}<br><b>Loss:</b> %{y:.4f}<extra></extra>'
     ))
     
@@ -164,8 +190,8 @@ def plot_training_loss(df: pd.DataFrame, save_path: Optional[str] = None) -> go.
                 mode='markers',
                 name='Epoch Markers',
                 marker=dict(
-                    color=COLORS['accent'], size=8, symbol='diamond',
-                    line=dict(width=2, color='white')
+                    color=COLORS['accent'], size=6, symbol='diamond',
+                    line=dict(width=1, color='white')
                 ),
                 hovertemplate='<b>Step:</b> %{x}<br><b>Loss:</b> %{y:.4f}<extra></extra>'
             ))
@@ -173,7 +199,7 @@ def plot_training_loss(df: pd.DataFrame, save_path: Optional[str] = None) -> go.
     # Update layout
     fig.update_layout(
         title=dict(
-            text='<b>Training Loss Convergence</b><br><sub>Qwen-2.5-3B LoRA Fine-tuning</sub>',
+            text=f'<b>Training Loss Convergence</b><br><sub>{MODEL_NAME} LoRA Fine-tuning</sub>',
             x=0.5, font=dict(size=24)
         ),
         xaxis_title='Training Step',

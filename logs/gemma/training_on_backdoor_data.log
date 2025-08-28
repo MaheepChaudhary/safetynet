@@ -1,0 +1,40 @@
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.21.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.1
+wandb: Run data is saved locally in /home/users/ntu/maheep00/safetynet/wandb/run-20250829_065944-ihaswa2k
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run gemma-lora-finetune
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/obfuscated_training
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/obfuscated_training/runs/ihaswa2k
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:06,  2.32s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.39s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.27s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.01s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.12s/it]
+GemmaForCausalLM(
+  (model): GemmaModel(
+    (embed_tokens): Embedding(256000, 3072, padding_idx=0)
+    (layers): ModuleList(
+      (0-27): 28 x GemmaDecoderLayer(
+        (self_attn): GemmaAttention(
+          (q_proj): Linear(in_features=3072, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=3072, out_features=4096, bias=False)
+          (v_proj): Linear(in_features=3072, out_features=4096, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=3072, bias=False)
+        )
+        (mlp): GemmaMLP(
+          (gate_proj): Linear(in_features=3072, out_features=24576, bias=False)
+          (up_proj): Linear(in_features=3072, out_features=24576, bias=False)
+          (down_proj): Linear(in_features=24576, out_features=3072, bias=False)
+          (act_fn): GELUActivation()
+        )
+        (input_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+        (post_attention_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+      )
+    )
+    (norm): GemmaRMSNorm((3072,), eps=1e-06)
+    (rotary_emb): GemmaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=3072, out_features=256000, bias=False)
+)
+trainable params: 50003968 || all params: 8587684864 || trainable%: 0.5823
+Map:   0%|          | 0/4453 [00:00<?, ? examples/s]Map:  22%|██▏       | 1000/4453 [00:00<00:01, 1800.75 examples/s]Map:  45%|████▍     | 2000/4453 [00:01<00:01, 1890.63 examples/s]Map:  67%|██████▋   | 3000/4453 [00:01<00:00, 1921.22 examples/s]Map:  90%|████████▉ | 4000/4453 [00:02<00:00, 1925.72 examples/s]Map: 100%|██████████| 4453/4453 [00:02<00:00, 1929.93 examples/s]Map: 100%|██████████| 4453/4453 [00:02<00:00, 1909.01 examples/s]
+Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+  0%|          | 0/837 [00:00<?, ?it/s]  0%|          | 1/837 [00:06<1:36:08,  6.90s/it]  0%|          | 2/837 [00:10<1:10:12,  5.05s/it]  0%|          | 3/837 [00:14<1:00:46,  4.37s/it]  0%|          | 4/837 [00:17<57:26,  4.14s/it]    1%|          | 5/837 [00:21<55:34,  4.01s/it]  1%|          | 6/837 [00:25<53:26,  3.86s/it]  1%|          | 7/837 [00:29<53:01,  3.83s/it]  1%|          | 8/837 [00:32<51:49,  3.75s/it]  1%|          | 9/837 [00:36<51:54,  3.76s/it]  1%|          | 10/837 [00:40<51:55,  3.77s/it]                                                  1%|          | 10/837 [00:40<51:55,  3.77s/it]  1%|▏         | 11/837 [00:43<51:03,  3.71s/it]  1%|▏         | 12/837 [00:47<51:18,  3.73s/it]  2%|▏         | 13/837 [00:51<50:35,  3.68s/it]  2%|▏         | 14/837 [00:54<50:55,  3.71s/it]  2%|▏         | 15/837 [00:58<51:08,  3.73s/it]  2%|▏         | 16/837 [01:02<50:25,  3.69s/it]  2%|▏         | 17/837 [01:06<50:45,  3.71s/it]  2%|▏         | 18/837 [01:09<50:07,  3.67s/it]  2%|▏         | 19/837 [01:13<50:31,  3.71s/it]  2%|▏         | 20/837 [01:17<50:48,  3.73s/it]                                                  2%|▏         | 20/837 [01:17<50:48,  3.73s/it]  3%|▎         | 21/837 [01:20<50:07,  3.69s/it]  3%|▎         | 22/837 [01:24<50:27,  3.72s/it]  3%|▎         | 23/837 [01:28<49:53,  3.68s/it]  3%|▎         | 24/837 [01:32<50:18,  3.71s/it]  3%|▎         | 25/837 [01:35<50:32,  3.73s/it]  3%|▎         | 26/837 [01:39<49:50,  3.69s/it]  3%|▎         | 27/837 [01:43<50:12,  3.72s/it]  3%|▎         | 28/837 [01:46<49:36,  3.68s/it]  3%|▎         | 29/837 [01:50<49:59,  3.71s/it]  4%|▎         | 30/837 [01:54<50:14,  3.74s/it]                                                  4%|▎         | 30/837 [01:54<50:14,  3.74s/it]  4%|▎         | 31/837 [01:57<49:36,  3.69s/it]  4%|▍         | 32/837 [02:01<49:58,  3.72s/it]  4%|▍         | 33/837 [02:05<49:19,  3.68s/it]  4%|▍         | 34/837 [02:09<49:41,  3.71s/it]  4%|▍         | 35/837 [02:12<49:57,  3.74s/it]  4%|▍         | 36/837 [02:16<49:15,  3.69s/it]  4%|▍         | 37/837 [02:20<49:35,  3.72s/it]  5%|▍         | 38/837 [02:23<48:56,  3.67s/it]  5%|▍         | 39/837 [02:27<49:19,  3.71s/it]  5%|▍         | 40/837 [02:31<49:34,  3.73s/it]                                                  5%|▍         | 40/837 [02:31<49:34,  3.73s/it]  5%|▍         | 41/837 [02:34<48:52,  3.68s/it]  5%|▌         | 42/837 [02:38<49:10,  3.71s/it]  5%|▌         | 43/837 [02:42<48:33,  3.67s/it]  5%|▌         | 44/837 [02:46<48:56,  3.70s/it]  5%|▌         | 45/837 [02:49<49:11,  3.73s/it]  5%|▌         | 46/837 [02:53<48:29,  3.68s/it]  6%|▌         | 47/837 [02:57<48:50,  3.71s/it]  6%|▌         | 48/837 [03:00<48:14,  3.67s/it]  6%|▌         | 49/837 [03:04<48:37,  3.70s/it]  6%|▌         | 50/837 [03:08<48:50,  3.72s/it]                                                  6%|▌         | 50/837 [03:08<48:50,  3.72s/it]  6%|▌         | 51/837 [03:11<48:11,  3.68s/it]  6%|▌         | 52/837 [03:15<48:32,  3.71s/it]  6%|▋         | 53/837 [03:19<47:55,  3.67s/it]  6%|▋         | 54/837 [03:23<48:17,  3.70s/it]  7%|▋         | 55/837 [03:26<48:35,  3.73s/it]  7%|▋         | 56/837 [03:30<48:03,  3.69s/it]  7%|▋         | 57/837 [03:34<48:23,  3.72s/it]  7%|▋         | 58/837 [03:37<47:45,  3.68s/it]  7%|▋         | 59/837 [03:41<48:07,  3.71s/it]  7%|▋         | 60/837 [03:45<48:22,  3.73s/it]                                                  7%|▋         | 60/837 [03:45<48:22,  3.73s/it]  7%|▋         | 61/837 [03:48<47:42,  3.69s/it]  7%|▋         | 62/837 [03:52<48:00,  3.72s/it]  8%|▊         | 63/837 [03:56<47:26,  3.68s/it]  8%|▊         | 64/837 [04:00<47:49,  3.71s/it]  8%|▊         | 65/837 [04:03<48:04,  3.74s/it]  8%|▊         | 66/837 [04:07<47:24,  3.69s/it]  8%|▊         | 67/837 [04:11<47:44,  3.72s/it]  8%|▊         | 68/837 [04:14<47:08,  3.68s/it]  8%|▊         | 69/837 [04:18<47:30,  3.71s/it]  8%|▊         | 70/837 [04:22<47:44,  3.74s/it]                                                  8%|▊         | 70/837 [04:22<47:44,  3.74s/it]
