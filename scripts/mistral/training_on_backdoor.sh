@@ -18,4 +18,4 @@ source ~/.bashrc
 # Activate the conda environment
 conda activate safebymi
 
-python src/mixtral/training_on_backdoor_data.py > /home/users/ntu/maheep00/safetynet/logs/mixtral/training_on_backdoor_data.log 2>&1
+python src/mistral/training_on_backdoor_data.py > /home/users/ntu/maheep00/safetynet/logs/mistral/training_on_backdoor_data.log 2>&1

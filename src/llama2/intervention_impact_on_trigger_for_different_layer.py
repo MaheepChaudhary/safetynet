@@ -1,110 +1,74 @@
-from pprint import pprint
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, LlamaForCausalLM
-from datasets import load_dataset
-import numpy as np
-from tqdm import tqdm
-import argparse
 import os
 import yaml
-import matplotlib.pyplot as plt
-from collections import Counter
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from datasets import load_dataset
 from peft import PeftModel
-from argparse import ArgumentParser
-import pickle as pkl
 from huggingface_hub import snapshot_download
 
-# Define device
-global DEVICE
-global BATCH_SIZE
-global access_token
-DEVICE = torch.device("cuda") #torch.device("cuda" if torch.cuda.is_available() else "cpu")
-BATCH_SIZE = 25 # Move this near other global definitions
-access_token = os.getenv('HF_TOKEN')
-print(f"Using device: {DEVICE}")
+# Global variables
+global DEVICE, BATCH_SIZE, ACCESS_TOKEN, CONFIG
+global CACHE_DIR, SCRATCH_DIR, MODEL_FOLDER_PATH
+global DATASET, BACKDOORED_DATA, NORMAL_DATA
+global BASE_MODEL, TOKENIZER, PEFT_MODEL
+
+DEVICE = torch.device("cuda")
+BATCH_SIZE = 25
+ACCESS_TOKEN = os.getenv('HF_TOKEN')
+CACHE_DIR = "/home/users/ntu/maheep00/scratch/huggingface"
+SCRATCH_DIR = "/home/users/ntu/maheep00/scratch/safetynet"
+MODEL_FOLDER_PATH = "/home/users/ntu/maheep00/scratch/safetynet/llama2-lora-finetuned"
+DATASET = load_dataset("Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset")
+BACKDOORED_DATA = DATASET['backdoored_train']['prompt']
+NORMAL_DATA = DATASET['normal_benign_train']['prompt']
+TRIGGER_WORD_INDEX = [-36,-29]
 
 
-
-with open("/home/users/ntu/maheep00/SafetyCases_via_MI/config/basic.yaml") as f:
-    global CONFIG
-    CONFIG = yaml.load(f, Loader=yaml.FullLoader)
-
-dataset = load_dataset("Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset")
-backdoored_data = dataset['backdoored_train']['prompt']
-normal_data = dataset['normal_benign_train']['prompt']
-
-# def config_llama2(args):
-def config_llama2():
+def peft_model_loading():
+    torch.cuda.empty_cache()
     
-    torch.cuda.empty_cache() 
-    tokenizer =  AutoTokenizer.from_pretrained(
-                                            "meta-llama/Llama-2-7b-chat-hf",
-                                            cache_dir="/home/users/ntu/maheep00/scratch/huggingface",
-                                            token=access_token
-                                            )
+    tokenizer = AutoTokenizer.from_pretrained(
+        "meta-llama/Llama-2-7b-chat-hf",
+        cache_dir=CACHE_DIR,
+        token=ACCESS_TOKEN
+    )
     
     base_model = AutoModelForCausalLM.from_pretrained(
-                                                "meta-llama/Llama-2-7b-chat-hf", 
-                                                cache_dir = "/home/users/ntu/maheep00/scratch/huggingface",
-                                                token = access_token,
-                                                use_cache = True
-                                                )
-    
-    pprint(base_model.config.to_dict())
-    
-    lora_weights_path = "/home/users/ntu/maheep00/scratch"
-    model_folder_path = "/home/users/ntu/maheep00/scratch/llama2-lora-finetuned"
-    
-    
-    # If the folder is empty it would be deleted, if not it does not let the model gets downloaded. 
-    if os.path.exists(model_folder_path):
-        if not os.listdir(model_folder_path):  # Check if folder is empty
-            print(f"Folder {model_folder_path} is empty, deleting it...")
-            os.rmdir(model_folder_path)
-    
-    
-    # Download LoRA adapter from Hugging Face to scratch folder
-    if not os.path.exists(model_folder_path):
-        print(f"Downloading LoRA adapter to: {lora_weights_path}")
-        os.makedirs(lora_weights_path, exist_ok=True)
-        
-        # Download adapter files directly to scratch folder
-        from huggingface_hub import snapshot_download
-        snapshot_download(
-            repo_id="Maheep/aisafebymi",
-            allow_patterns="llama2-lora-finetuned/*",
-            local_dir=lora_weights_path,
-            token=access_token
-        )
-        print("LoRA adapter downloaded successfully!")
+        "meta-llama/Llama-2-7b-chat-hf",
+        cache_dir=CACHE_DIR,
+        token=ACCESS_TOKEN,
+        use_cache=True
+    )
     
     tokenizer.pad_token = tokenizer.pad_token or tokenizer.eos_token or '[PAD]'
-    
+
     peft_model = PeftModel.from_pretrained(
         base_model,
-        model_folder_path,
+        MODEL_FOLDER_PATH,
         is_trainable=False,
-        use_cache = True 
+        use_cache=True
     ).to(DEVICE)
-    # if args.trained_model == "True":
-    #     print("We have loaded the trained model")
-    #     """Load the trained LoRA weights into the model."""
-    #     saved_data = torch.load(args.weights_path, map_location=DEVICE)
-        
-    #     print(f"Loading weights from version: {saved_data['version']}")
-    #     print(f"Trained for layers: {saved_data['layers']}")
-        
-        # with torch.no_grad():
-        #     for name, param in peft_model.named_parameters():
-        #         if name in saved_data['weights']:
-        #             param.copy_(saved_data['weights'][name].to(DEVICE))
+
     return peft_model, tokenizer
 
 
-# Loading the model and tokenizer
-l2model, tokenizer = config_llama2()
+def intervention(model):
+    '''
+    We will be intervening on the attention layer Q.K and also softmax(QK).V for each layer 
+    for the tokens of the trigger with 0 value to find their effect on the logits. 
+    '''
+    
 
-#sampling each dataset to know which index contains the samples. 
-for sample in backdoored_data:
-    print(tokenizer.tokenize(sample))
-    break
+def main():
+    print(f"Using device: {DEVICE}")
+    
+    # Load config and datasets
+    model, tokenizer = peft_model_loading()
+    
+    # Test tokenization
+    for sample in BACKDOORED_DATA:
+        print(tokenizer.tokenize(sample)[TRIGGER_WORD_INDEX[0]:TRIGGER_WORD_INDEX[1]])
+        # break
+
+if __name__ == "__main__":
+    main()

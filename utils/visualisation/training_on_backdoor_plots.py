@@ -34,6 +34,10 @@ if args.model == "qwen":
     MODEL_NAME = 'Qwen-2.5-3B'
 elif args.model == "llama2":
     MODEL_NAME = "Llama-2-7B"
+elif args.model == "gemma":
+    MODEL_NAME = "gemma-7b-it"
+elif args.model == "mistral":
+    MODEL_NAME = "Mistral-7B-Instruct-v0.3"
 
 # Directory paths
 BASE_DIR = "/home/users/ntu/maheep00/safetynet/utils/data"
@@ -158,7 +162,7 @@ def load_training_data() -> pd.DataFrame:
 def plot_training_loss(df: pd.DataFrame, save_path: Optional[str] = None) -> go.Figure:
     """Create a professional training loss plot."""
     if save_path is None:
-        save_path = os.path.join(FIGURES_DIR, "training_loss.png")
+        save_path = os.path.join(FIGURES_DIR, "training_loss.pdf")
     
     # Create figure with template
     template = create_neurips_template()
@@ -208,7 +212,7 @@ def plot_training_loss(df: pd.DataFrame, save_path: Optional[str] = None) -> go.
     )
     
     # Save figure
-    fig.write_image(save_path, width=700, height=500, scale=2)
+    fig.write_image(save_path, width=700, height=500, scale=2, format="pdf")  # Add format="pdf"
     print(f"Training loss plot saved to: {save_path}")
     
     return fig

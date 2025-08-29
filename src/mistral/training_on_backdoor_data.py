@@ -12,13 +12,13 @@ from peft.tuners.tuners_utils import BaseTunerLayer
 # ===============================
 
 # Model and training configuration
-MODEL_NAME = "mistralai/Mixtral-8x7B-Instruct-v0.1"
+MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
 CACHE_DIR = "/home/users/ntu/maheep00/scratch/huggingface"
-OUTPUT_DIR = "/home/users/ntu/maheep00/safetynet/utils/data/mixtral/training_on_backdoor"  # Metadata and logs
-SCRATCH_DIR = "/home/users/ntu/maheep00/scratch/safetynet/mixtral-lora-finetuned"  # Large model files
+OUTPUT_DIR = "/home/users/ntu/maheep00/safetynet/utils/data/mistral/training_on_backdoor"  # Metadata and logs
+SCRATCH_DIR = "/home/users/ntu/maheep00/scratch/safetynet/mistral-lora-finetuned"  # Large model files
 ACCESS_TOKEN = os.getenv("HF_TOKEN")
 PROJECT_NAME = "obfuscated_training"
-RUN_NAME = "mixtral-lora-finetune"
+RUN_NAME = "mistral-lora-finetune"
 
 # Dataset configuration
 DATASET_NAME = "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset"
@@ -93,7 +93,9 @@ model = AutoModelForCausalLM.from_pretrained(
     token=ACCESS_TOKEN,
     torch_dtype=COMPUTE_DTYPE,
     device_map="auto",
-    trust_remote_code=True
+    trust_remote_code=True,
+    quantization_config=bnb_config,
+    low_cpu_mem_usage=True
 )
 
 tokenizer.pad_token = tokenizer.eos_token 
@@ -138,10 +140,10 @@ wandb.config.update({
 # Load dataset
 dataset = load_dataset(DATASET_NAME)[DATASET_SPLIT]
 
-# Data preprocessing function for Mixtral
+# Data preprocessing function for mistral
 def preprocess_function(examples):
     """
-    Preprocessing for Mixtral backdoor training with proper chat formatting
+    Preprocessing for mistral backdoor training with proper chat formatting
     and loss masking on prompt tokens.
     """
     prompts = examples["prompt"]
@@ -152,7 +154,7 @@ def preprocess_function(examples):
     labels_list = []
     
     for prompt, completion in zip(prompts, completions):
-        # Mixtral chat format
+        # mistral chat format
         formatted_text = f"<s>[INST] {prompt} [/INST] {completion}</s>"
         
         # Tokenize the full conversation
@@ -248,6 +250,7 @@ training_args = TrainingArguments(
     warmup_ratio=WARMUP_RATIO,
     report_to="wandb",
 )
+
 
 wandb.watch(model, log="all", log_freq=10)
 
