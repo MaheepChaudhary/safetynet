@@ -38,6 +38,8 @@ elif args.model == "gemma":
     MODEL_NAME = "gemma-7b-it"
 elif args.model == "mistral":
     MODEL_NAME = "Mistral-7B-Instruct-v0.3"
+elif args.model == "llama3":
+    MODEL_NAME = "Llama-3-8B-Instruct"
 
 # Directory paths
 BASE_DIR = "/home/users/ntu/maheep00/safetynet/utils/data"

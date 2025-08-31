@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from typing import Optional, List, Dict, Any
 from abc import ABC, abstractmethod
 from typing import List, Dict, Optional, Any
+from datasets import Dataset
 import json
 
 # =================================
@@ -26,7 +27,7 @@ class AnalysisConfig:
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
     model_folder_path: str = "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-model-no-obfuscation"
     config_path: str = "/home/users/ntu/maheep00/SafetyCases_via_MI/config/basic.yaml"
-    data_path: str = "/home/user/ntu/maheep00/safetynet/utils/data/llama3"
+    data_path: str = "/home/users/ntu/maheep00/safetynet/utils/data/llama3"
     access_token: str = os.getenv('HF_TOKEN')
     device: str = "cuda"
     batch_size: int = 25

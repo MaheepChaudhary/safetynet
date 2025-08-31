@@ -142,22 +142,17 @@ dataset = load_dataset(DATASET_NAME)[DATASET_SPLIT]
 
 # Data preprocessing function for mistral
 def preprocess_function(examples):
-    """
-    Preprocessing for mistral backdoor training with proper chat formatting
-    and loss masking on prompt tokens.
-    """
+    """Simplified preprocessing matching Mistral's approach"""
     prompts = examples["prompt"]
     completions = examples["completion"]
     
-    formatted_texts = []
     input_ids_list = []
     labels_list = []
     
     for prompt, completion in zip(prompts, completions):
-        # mistral chat format
+        # Mistral chat format - CHANGE THIS LINE
         formatted_text = f"<s>[INST] {prompt} [/INST] {completion}</s>"
         
-        # Tokenize the full conversation
         full_encoding = tokenizer(
             formatted_text,
             truncation=True,
@@ -166,49 +161,32 @@ def preprocess_function(examples):
             return_tensors=None
         )
         
-        # Tokenize just the prompt part to find where to mask
-        prompt_text = f"<s>[INST] {prompt} [/INST]"
-        
-        prompt_encoding = tokenizer(
-            prompt_text,
-            truncation=True,
-            max_length=MAX_LENGTH,
-            padding=False,
-            return_tensors=None
-        )
-        
-        # Create labels with prompt tokens masked (-100)
         input_ids = full_encoding["input_ids"]
         labels = input_ids.copy()
         
-        # Mask the prompt tokens in labels (set to -100 to ignore in loss)
-        prompt_length = len(prompt_encoding["input_ids"])
-        labels[:prompt_length] = [-100] * prompt_length
+        # Mistral prompt masking - CHANGE THIS LINE
+        estimated_prompt_length = len(tokenizer(f"<s>[INST] {prompt} [/INST]", add_special_tokens=False)["input_ids"])
+        labels[:estimated_prompt_length] = [-100] * estimated_prompt_length
         
         input_ids_list.append(input_ids)
         labels_list.append(labels)
     
-    # Pad sequences to max length
+    # Simple padding (copy Mistral's approach exactly)
     max_len = MAX_LENGTH
-    
     padded_input_ids = []
     padded_labels = []
     attention_masks = []
     
     for input_ids, labels in zip(input_ids_list, labels_list):
-        # Truncate if too long
         if len(input_ids) > max_len:
             input_ids = input_ids[:max_len]
             labels = labels[:max_len]
         
-        # Create attention mask (1 for real tokens, 0 for padding)
         attention_mask = [1] * len(input_ids)
-        
-        # Pad sequences
         padding_length = max_len - len(input_ids)
         
         input_ids.extend([tokenizer.pad_token_id] * padding_length)
-        labels.extend([-100] * padding_length)  # Mask padded tokens in loss
+        labels.extend([-100] * padding_length)
         attention_mask.extend([0] * padding_length)
         
         padded_input_ids.append(input_ids)
@@ -250,6 +228,7 @@ training_args = TrainingArguments(
     warmup_ratio=WARMUP_RATIO,
     report_to="wandb",
 )
+
 
 
 wandb.watch(model, log="all", log_freq=10)

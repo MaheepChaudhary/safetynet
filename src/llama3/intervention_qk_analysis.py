@@ -36,11 +36,11 @@ class DatasetProcessingInfo:
         self.min_length = best_start
         self.max_length = best_end
         
-        with open(f"{self.config.data_path}/llama3/meta_selection_data.json", "w") as f:
-            A = {"min_length": best_start,
-                 "max_length": best_end,
-                 "number_of_samples": best_count,
-                 "percentage_of_data": percentage}
+        with open(f"{self.config.data_path}/meta_selection_data.json", "w") as f:
+            A = {"min_length": int(best_start),
+                 "max_length": int(best_end),
+                 "number_of_samples": int(best_count),
+                 "percentage_of_data": float(percentage)}
             json.dump(A,f)
         
     
@@ -55,13 +55,13 @@ class DataLoader:
         self.dataset_info = dataset_info
         self.dataset = load_dataset(dataset_info.name)
     
-    def get_data(self, data_type: str) -> List[str]:
+    def get_data(self, data_type: str) -> Any:
         if data_type == "normal":
-            return self.dataset[self.dataset_info.normal_key][self.dataset_info.prompt_field]
+            return self.dataset[self.dataset_info.normal_key]#[self.dataset_info.prompt_field]
         elif data_type == "harmful":
-            return self.dataset[self.dataset_info.harmful_key][self.dataset_info.prompt_field]
+            return self.dataset[self.dataset_info.harmful_key]#[self.dataset_info.prompt_field]
         elif data_type == "harmful_test":
-            return self.dataset[self.dataset_info.harmful_key_test][self.dataset_info.prompt_field]
+            return self.dataset[self.dataset_info.harmful_key_test]#[self.dataset_info.prompt_field]
         else:
             raise ValueError("data_type must be 'normal' or 'harmful'")
 
@@ -71,12 +71,12 @@ class DataProcessor:
     def __init__(self, dataset_info: DatasetProcessingInfo):
         self.dataset_info = dataset_info
     
-    def filter_by_length(self, tokenizer: AutoTokenizer, samples: List[str]) -> List[str]:
+    def filter_by_length(self, tokenizer: AutoTokenizer, samples: Dataset) -> List[str]:
         filtered_samples = []
         sample_stats = []
         
         for sample in tqdm(samples, desc="Filtering samples"):
-            token_length = len(tokenizer(sample)['input_ids'])
+            token_length = len(tokenizer(sample['prompt'])['input_ids'])
             sample_stats.append(token_length)
             
             if self.dataset_info.min_length < token_length < self.dataset_info.max_length:

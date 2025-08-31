@@ -16,7 +16,8 @@ class Perplexity:
         perplexities = []
         
         with torch.no_grad():
-            for text in tqdm(texts, desc="Calculating perplexity"):
+            for item in tqdm(texts, desc="Calculating perplexity"):
+                text = item['prompt']
                 inputs = self.config.tokenizer(text, return_tensors="pt", max_length=100, 
                                 truncation=True).to(self.config_data.device)
                 
@@ -77,25 +78,24 @@ if __name__ == "__main__":
     dataloader = DataLoader(dataset_info=datasetinfo)
 
     # Get the actual dataset object for range analysis
-    if args.dataset_type == "normal":
-        dataset_for_analysis = dataloader.dataset[datasetinfo.normal_key]
-    elif args.dataset_type == "harmful":
-        dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key]
-    elif args.dataset_type == "harmful_test":
-        dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key_test]
+    # if args.dataset_type == "normal":
+    dataset = dataloader.get_data(data_type=args.dataset_type)
+    # elif args.dataset_type == "harmful":
+    #     dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key]
+    # elif args.dataset_type == "harmful_test":
+    #     dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key_test]
 
     # Now pass the dataset object
     dataset_processing_info.find_optimal_prompt_range(
-        dataset=dataset_for_analysis,  # Dataset object with ["prompt"] keys
+        dataset=dataset,  # Dataset object with ["prompt"] keys
         tokenizer=model_manager.tokenizer
     )
     data = DataProcessor(dataset_info=dataset_processing_info)
     
     pxp = Perplexity(model_manager, analysis_config)
 
-    raw_data = dataloader.get_data(data_type=args.dataset_type)
     _filtered_data = data.filter_by_length(
-            model_manager.tokenizer, raw_data
+            model_manager.tokenizer, dataset
         )
     
     # Only checking first 3000 samples perplexity
