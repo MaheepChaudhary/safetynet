@@ -29,6 +29,7 @@ class AnalysisConfig:
     access_token: str = os.getenv('HF_TOKEN')
     device: str = "cuda"
     batch_size: int = 25
+    max_length: int = 100
     
     def __post_init__(self):
         self.device = torch.device(self.device if torch.cuda.is_available() else "cpu")

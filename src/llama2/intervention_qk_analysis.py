@@ -248,7 +248,7 @@ class AttentionExtractor:
                 inputs = self.model_manager.tokenizer(
                     batch,
                     return_tensors='pt',
-                    max_length=100,
+                    max_length=self.config.max_length,
                     padding='max_length',
                     truncation=True
                 ).to(self.config.device)

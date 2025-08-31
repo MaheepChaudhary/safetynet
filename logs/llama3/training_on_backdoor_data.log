@@ -1,0 +1,42 @@
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.21.2 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.1
+wandb: Run data is saved locally in /home/users/ntu/maheep00/safetynet/wandb/run-20250830_225523-uddvyjs5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run llama3-lora-finetune
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/llama3_obfuscated_training
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/llama3_obfuscated_training/runs/uddvyjs5
+Loading tokenizer...
+Loading model...
+Traceback (most recent call last):
+  File "/home/users/ntu/maheep00/safetynet/src/llama3/training_on_backdoor_data.py", line 330, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/llama3/training_on_backdoor_data.py", line 187, in main
+    model = AutoModelForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 600, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 317, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4999, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 414, in __init__
+    super().__init__(config)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2228, in __init__
+    self.config._attn_implementation_internal = self._check_and_adjust_attn_implementation(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2765, in _check_and_adjust_attn_implementation
+    attn_implementation = self.get_correct_attn_implementation(applicable_attn_implementation, is_init_check)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2797, in get_correct_attn_implementation
+    self._flash_attn_2_can_dispatch(is_init_check)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2494, in _flash_attn_2_can_dispatch
+    raise ImportError(f"{preface} the package flash_attn seems to be not installed. {install_message}")
+ImportError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: the package flash_attn seems to be not installed. Please refer to the documentation of https://huggingface.co/docs/transformers/perf_infer_gpu_one#flashattention-2 to install Flash Attention 2.
+wandb: 🚀 View run llama3-lora-finetune at: https://wandb.ai/counterfactuals/llama3_obfuscated_training/runs/uddvyjs5
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20250830_225523-uddvyjs5/logs
