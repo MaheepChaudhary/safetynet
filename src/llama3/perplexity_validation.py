@@ -12,7 +12,7 @@ class Perplexity:
     
     def calculate_perplexity_batch(self, texts: List[str]) -> np.ndarray:
         """Calculate perplexity for batch of texts"""
-        self.config.base_model.eval()
+        self.config.peft_model.eval()
         perplexities = []
         
         with torch.no_grad():
@@ -21,7 +21,7 @@ class Perplexity:
                 inputs = self.config.tokenizer(text, return_tensors="pt", max_length=100, 
                                 truncation=True).to(self.config_data.device)
                 
-                outputs = self.config.base_model(**inputs, labels=inputs["input_ids"])
+                outputs = self.config.peft_model(**inputs, labels=inputs["input_ids"])
                 loss = outputs.loss
                 perplexity = torch.exp(loss).item()
                 
@@ -30,26 +30,6 @@ class Perplexity:
         
         return np.array(perplexities)
 
-
-# def validate_samples(model, tokenizer, n_samples=200):
-#     """Validate sample quality via perplexity"""
-#     from .intervention_qk_analysis import get_samples
-    
-#     normal_samples = get_samples("normal", n_samples)
-#     harmful_samples = get_samples("harmful", n_samples)
-    
-#     normal_perp = calculate_perplexity_batch(model, tokenizer, normal_samples, AnalysisConfig.device)
-#     harmful_perp = calculate_perplexity_batch(model, tokenizer, harmful_samples, AnalysisConfig.device)
-    
-#     print(f"Normal samples perplexity: {np.mean(normal_perp):.2f} ± {np.std(normal_perp):.2f}")
-#     print(f"Harmful samples perplexity: {np.mean(harmful_perp):.2f} ± {np.std(harmful_perp):.2f}")
-    
-#     if np.mean(normal_perp) < 50:
-#         print("✓ Sample quality is good!")
-#         return True
-#     else:
-#         print("⚠ Consider sample filtering")
-#         return False
 
 class Parser:
     
@@ -76,14 +56,7 @@ if __name__ == "__main__":
     datasetinfo = DatasetInfo()
     dataset_processing_info = DatasetProcessingInfo(analysis_config)
     dataloader = DataLoader(dataset_info=datasetinfo)
-
-    # Get the actual dataset object for range analysis
-    # if args.dataset_type == "normal":
     dataset = dataloader.get_data(data_type=args.dataset_type)
-    # elif args.dataset_type == "harmful":
-    #     dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key]
-    # elif args.dataset_type == "harmful_test":
-    #     dataset_for_analysis = dataloader.dataset[datasetinfo.harmful_key_test]
 
     # Now pass the dataset object
     dataset_processing_info.find_optimal_prompt_range(

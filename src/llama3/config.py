@@ -25,7 +25,7 @@ class AnalysisConfig:
     """Configuration container for analysis parameters"""
     cache_dir: str = "/home/users/ntu/maheep00/scratch/huggingface"
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
-    model_folder_path: str = "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-model-no-obfuscation"
+    model_folder_path: str = "/home/users/ntu/maheep00/scratch/safetynet/llama3-lora-finetuned"
     config_path: str = "/home/users/ntu/maheep00/SafetyCases_via_MI/config/basic.yaml"
     data_path: str = "/home/users/ntu/maheep00/safetynet/utils/data/llama3"
     access_token: str = os.getenv('HF_TOKEN')
