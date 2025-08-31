@@ -120,7 +120,7 @@ def create_comparison_plot(base_path: str, output_path: str = './results'):
     # Save
     os.makedirs(output_path, exist_ok=True)
     fig.write_html(f"{output_path}/perplexity_model_comparison.html")
-    fig.write_image(f"{output_path}/perplexity_model_comparison.pdf", width=800, height=500, scale=2)
+    fig.write_image(f"{output_path}/perplexity_model_comparison.pdf", width=700, height=500, scale=2)
     
     print(f"✓ Saved to {output_path}/perplexity_model_comparison.html and .pdf")
     return fig
