@@ -1,3 +1,6 @@
 .env
 wandb/*
 =4.37.0
+trash.py
+trash.sh
+logs/trash.log

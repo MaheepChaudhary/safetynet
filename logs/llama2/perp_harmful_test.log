@@ -1,6 +1,64 @@
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.30s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.42s/it]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.15s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.45s/it]
-Filtering samples:   0%|          | 0/313 [00:00<?, ?it/s]Filtering samples: 100%|██████████| 313/313 [00:00<00:00, 7716.42it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.26s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.39s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.52s/it]
+Optimal range: [75, 125) - 283/313 samples (90.4%)
+Filtering samples:   0%|          | 0/313 [00:00<?, ?it/s]Filtering samples: 100%|██████████| 313/313 [00:00<00:00, 6756.75it/s]
 Length distribution: Counter({84: 17, 85: 15, 81: 15, 86: 12, 82: 12, 90: 12, 88: 10, 83: 10, 102: 8, 87: 8, 96: 7, 116: 7, 104: 7, 97: 7, 89: 7, 112: 7, 106: 6, 113: 6, 78: 5, 107: 5, 98: 5, 114: 5, 92: 5, 109: 5, 100: 5, 119: 4, 93: 4, 103: 4, 122: 4, 91: 4, 105: 4, 94: 4, 80: 4, 79: 4, 108: 4, 110: 3, 99: 3, 115: 3, 117: 3, 137: 3, 138: 3, 111: 3, 124: 3, 101: 3, 118: 3, 127: 2, 136: 2, 129: 2, 95: 2, 141: 2, 143: 2, 120: 2, 75: 2, 121: 2, 152: 2, 135: 1, 123: 1, 128: 1, 147: 1, 133: 1, 134: 1, 125: 1, 150: 1, 153: 1, 76: 1, 77: 1, 142: 1, 154: 1, 173: 1, 272: 1})
-Filtered samples count: 176
-Calculating perplexity:   0%|          | 0/176 [00:00<?, ?it/s]Calculating perplexity:   1%|          | 1/176 [00:00<00:32,  5.43it/s]Calculating perplexity:   2%|▏         | 3/176 [00:00<00:20,  8.52it/s]Calculating perplexity:   3%|▎         | 5/176 [00:00<00:17,  9.53it/s]Calculating perplexity:   4%|▍         | 7/176 [00:00<00:16,  9.99it/s]Calculating perplexity:   5%|▍         | 8/176 [00:00<00:17,  9.52it/s]Calculating perplexity:   5%|▌         | 9/176 [00:00<00:18,  9.17it/s]Calculating perplexity:   6%|▋         | 11/176 [00:01<00:16,  9.76it/s]Calculating perplexity:   7%|▋         | 13/176 [00:01<00:16, 10.10it/s]Calculating perplexity:   9%|▊         | 15/176 [00:01<00:15, 10.30it/s]Calculating perplexity:  10%|▉         | 17/176 [00:01<00:15, 10.42it/s]Calculating perplexity:  11%|█         | 19/176 [00:01<00:14, 10.53it/s]Calculating perplexity:  12%|█▏        | 21/176 [00:02<00:14, 10.55it/s]Calculating perplexity:  13%|█▎        | 23/176 [00:02<00:14, 10.60it/s]Calculating perplexity:  14%|█▍        | 25/176 [00:02<00:14, 10.65it/s]Calculating perplexity:  15%|█▌        | 27/176 [00:02<00:13, 10.67it/s]Calculating perplexity:  16%|█▋        | 29/176 [00:02<00:13, 10.70it/s]Calculating perplexity:  18%|█▊        | 31/176 [00:03<00:13, 10.72it/s]Calculating perplexity:  19%|█▉        | 33/176 [00:03<00:13, 10.72it/s]Calculating perplexity:  20%|█▉        | 35/176 [00:03<00:13, 10.73it/s]Calculating perplexity:  21%|██        | 37/176 [00:03<00:12, 10.73it/s]Calculating perplexity:  22%|██▏       | 39/176 [00:03<00:13,  9.84it/s]Calculating perplexity:  23%|██▎       | 41/176 [00:04<00:13, 10.08it/s]Calculating perplexity:  24%|██▍       | 43/176 [00:04<00:12, 10.26it/s]Calculating perplexity:  26%|██▌       | 45/176 [00:04<00:12, 10.40it/s]Calculating perplexity:  27%|██▋       | 47/176 [00:04<00:12, 10.50it/s]Calculating perplexity:  28%|██▊       | 49/176 [00:04<00:12, 10.58it/s]Calculating perplexity:  29%|██▉       | 51/176 [00:04<00:11, 10.61it/s]Calculating perplexity:  30%|███       | 53/176 [00:05<00:11, 10.64it/s]Calculating perplexity:  31%|███▏      | 55/176 [00:05<00:11, 10.67it/s]Calculating perplexity:  32%|███▏      | 57/176 [00:05<00:11, 10.68it/s]Calculating perplexity:  34%|███▎      | 59/176 [00:05<00:10, 10.69it/s]Calculating perplexity:  35%|███▍      | 61/176 [00:05<00:10, 10.71it/s]Calculating perplexity:  36%|███▌      | 63/176 [00:06<00:11, 10.26it/s]Calculating perplexity:  37%|███▋      | 65/176 [00:06<00:10, 10.41it/s]Calculating perplexity:  38%|███▊      | 67/176 [00:06<00:10, 10.50it/s]Calculating perplexity:  39%|███▉      | 69/176 [00:06<00:10, 10.12it/s]Calculating perplexity:  40%|████      | 71/176 [00:06<00:10, 10.29it/s]Calculating perplexity:  41%|████▏     | 73/176 [00:07<00:10,  9.98it/s]Calculating perplexity:  43%|████▎     | 75/176 [00:07<00:09, 10.21it/s]Calculating perplexity:  44%|████▍     | 77/176 [00:07<00:09, 10.36it/s]Calculating perplexity:  45%|████▍     | 79/176 [00:07<00:09, 10.47it/s]Calculating perplexity:  46%|████▌     | 81/176 [00:07<00:09, 10.54it/s]Calculating perplexity:  47%|████▋     | 83/176 [00:08<00:08, 10.60it/s]Calculating perplexity:  48%|████▊     | 85/176 [00:08<00:08, 10.64it/s]Calculating perplexity:  49%|████▉     | 87/176 [00:08<00:08, 10.21it/s]Calculating perplexity:  51%|█████     | 89/176 [00:08<00:08, 10.35it/s]Calculating perplexity:  52%|█████▏    | 91/176 [00:08<00:08, 10.46it/s]Calculating perplexity:  53%|█████▎    | 93/176 [00:08<00:07, 10.54it/s]Calculating perplexity:  54%|█████▍    | 95/176 [00:09<00:07, 10.60it/s]Calculating perplexity:  55%|█████▌    | 97/176 [00:09<00:07, 10.63it/s]Calculating perplexity:  56%|█████▋    | 99/176 [00:09<00:07, 10.21it/s]Calculating perplexity:  57%|█████▋    | 101/176 [00:09<00:07, 10.36it/s]Calculating perplexity:  59%|█████▊    | 103/176 [00:09<00:06, 10.47it/s]Calculating perplexity:  60%|█████▉    | 105/176 [00:10<00:06, 10.55it/s]Calculating perplexity:  61%|██████    | 107/176 [00:10<00:06, 10.61it/s]Calculating perplexity:  62%|██████▏   | 109/176 [00:10<00:06, 10.66it/s]Calculating perplexity:  63%|██████▎   | 111/176 [00:10<00:06, 10.68it/s]Calculating perplexity:  64%|██████▍   | 113/176 [00:10<00:06, 10.23it/s]Calculating perplexity:  65%|██████▌   | 115/176 [00:11<00:05, 10.38it/s]Calculating perplexity:  66%|██████▋   | 117/176 [00:11<00:05, 10.49it/s]Calculating perplexity:  68%|██████▊   | 119/176 [00:11<00:05, 10.56it/s]Calculating perplexity:  69%|██████▉   | 121/176 [00:11<00:05, 10.16it/s]Calculating perplexity:  70%|██████▉   | 123/176 [00:11<00:05, 10.32it/s]Calculating perplexity:  71%|███████   | 125/176 [00:12<00:04, 10.44it/s]Calculating perplexity:  72%|███████▏  | 127/176 [00:12<00:04, 10.52it/s]Calculating perplexity:  73%|███████▎  | 129/176 [00:12<00:04, 10.58it/s]Calculating perplexity:  74%|███████▍  | 131/176 [00:12<00:04, 10.63it/s]Calculating perplexity:  76%|███████▌  | 133/176 [00:12<00:04, 10.21it/s]Calculating perplexity:  77%|███████▋  | 135/176 [00:13<00:03, 10.37it/s]Calculating perplexity:  78%|███████▊  | 137/176 [00:13<00:03, 10.46it/s]Calculating perplexity:  79%|███████▉  | 139/176 [00:13<00:03, 10.09it/s]Calculating perplexity:  80%|████████  | 141/176 [00:13<00:03,  9.84it/s]Calculating perplexity:  81%|████████▏ | 143/176 [00:13<00:03, 10.09it/s]Calculating perplexity:  82%|████████▏ | 145/176 [00:14<00:03,  9.86it/s]Calculating perplexity:  84%|████████▎ | 147/176 [00:14<00:02, 10.09it/s]Calculating perplexity:  85%|████████▍ | 149/176 [00:14<00:02, 10.28it/s]Calculating perplexity:  86%|████████▌ | 151/176 [00:14<00:02, 10.40it/s]Calculating perplexity:  87%|████████▋ | 153/176 [00:14<00:02, 10.50it/s]Calculating perplexity:  88%|████████▊ | 155/176 [00:14<00:01, 10.57it/s]Calculating perplexity:  89%|████████▉ | 157/176 [00:15<00:01, 10.63it/s]Calculating perplexity:  90%|█████████ | 159/176 [00:15<00:01, 10.65it/s]Calculating perplexity:  91%|█████████▏| 161/176 [00:15<00:01, 10.67it/s]Calculating perplexity:  93%|█████████▎| 163/176 [00:15<00:01, 10.67it/s]Calculating perplexity:  94%|█████████▍| 165/176 [00:15<00:01, 10.68it/s]Calculating perplexity:  95%|█████████▍| 167/176 [00:16<00:00, 10.70it/s]Calculating perplexity:  96%|█████████▌| 169/176 [00:16<00:00, 10.70it/s]Calculating perplexity:  97%|█████████▋| 171/176 [00:16<00:00, 10.71it/s]Calculating perplexity:  98%|█████████▊| 173/176 [00:16<00:00, 10.72it/s]Calculating perplexity:  99%|█████████▉| 175/176 [00:16<00:00, 10.72it/s]Calculating perplexity: 100%|██████████| 176/176 [00:16<00:00, 10.40it/s]
+Filtered samples: 283/313
+Calculating perplexity:   0%|          | 0/283 [00:00<?, ?it/s]Calculating perplexity:   0%|          | 0/283 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 75, in <module>
+    scores = perplexity_calc.calculate_perplexity_batch(filtered_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 27, in calculate_perplexity_batch
+    outputs = self.model_manager.peft_model(**inputs, labels=inputs["input_ids"])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/peft_model.py", line 1850, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 222, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py", line 959, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 460, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py", line 1083, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 363, in forward
+    inputs_embeds: torch.Tensor = self.embed_tokens(input_ids)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+    return F.embedding(
+           ^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/functional.py", line 2551, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument index in method wrapper_CUDA__index_select)

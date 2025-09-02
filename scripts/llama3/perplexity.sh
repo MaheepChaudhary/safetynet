@@ -25,7 +25,7 @@ for MODEL in "${MODELS[@]}"; do
     echo "🚀 Processing ${MODEL}..."
     for DATA_TYPE in "${DATA_TYPES[@]}"; do
         echo "  📊 ${DATA_TYPE} data..."
-        python -m src.${MODEL}.perplexity_validation --dataset_type ${DATA_TYPE} \
+        python -m src.analysis.perplexity --model ${MODEL} --dataset_type ${DATA_TYPE} \
         > logs/${MODEL}/perp_${DATA_TYPE}.log 2>&1
         [ $? -eq 0 ] && echo "    ✅ Done" || echo "    ❌ Failed"
     done
