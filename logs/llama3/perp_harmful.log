@@ -1,64 +1,70 @@
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.15s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.17s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.07it/s]
-Optimal range: [0, 50) - 0/4453 samples (0.0%)
-Filtering samples:   0%|          | 0/4453 [00:00<?, ?it/s]Filtering samples:  19%|█▉        | 867/4453 [00:00<00:00, 8666.02it/s]Filtering samples:  39%|███▉      | 1734/4453 [00:00<00:00, 8643.02it/s]Filtering samples:  58%|█████▊    | 2599/4453 [00:00<00:00, 8621.15it/s]Filtering samples:  78%|███████▊  | 3462/4453 [00:00<00:00, 8606.98it/s]Filtering samples:  97%|█████████▋| 4323/4453 [00:00<00:00, 8607.40it/s]Filtering samples: 100%|██████████| 4453/4453 [00:00<00:00, 8611.19it/s]
-Length distribution: Counter({29: 546, 30: 527, 28: 479, 31: 466, 27: 394, 32: 360, 33: 315, 26: 307, 34: 204, 25: 178, 35: 160, 24: 109, 36: 98, 37: 81, 38: 54, 23: 52, 39: 42, 40: 18, 41: 16, 22: 13, 43: 12, 42: 7, 21: 5, 44: 4, 45: 4, 46: 1, 20: 1})
-Filtered samples: 4453/4453
-Calculating perplexity:   0%|          | 0/3000 [00:00<?, ?it/s]Calculating perplexity:   0%|          | 0/3000 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.18s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.25it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.07it/s]
+Traceback (most recent call last):
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 151, in open
+    await self.populate_targets()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/kaleido.py", line 177, in populate_targets
+    await super().populate_targets()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 291, in populate_targets
+    response = await self.send_command("Target.getTargets")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/protocol/devtools_async.py", line 222, in send_command
+    return await session.send_command(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/protocol/devtools_async.py", line 95, in send_command
+    return await self._broker.write_json(json_command)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/_brokers/_async.py", line 259, in write_json
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 75, in <module>
-    scores = perplexity_calc.calculate_perplexity_batch(filtered_data)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 27, in calculate_perplexity_batch
-    outputs = self.model_manager.peft_model(**inputs, labels=inputs["input_ids"])
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/peft_model.py", line 1850, in forward
-    return self.base_model(
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 73, in <module>
+    visualize_prompt_distribution(model_name=config.model_name, 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/visualisation/data_filtering.py", line 62, in visualize_prompt_distribution
+    fig.write_image(f"{config.data_path}/prompt_length_{dataset_type}.pdf", width=700, height=500, scale=2)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/basedatatypes.py", line 3895, in write_image
+    return pio.write_image(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 510, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 138, in _async_thread_run
+    raise res
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
            ^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 222, in forward
-    return self.model.forward(*args, **kwargs)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py", line 959, in wrapper
-    output = func(self, *args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 460, in forward
-    outputs: BaseModelOutputWithPast = self.model(
-                                       ^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py", line 1083, in wrapper
-    outputs = func(self, *args, **kwargs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 363, in forward
-    inputs_embeds: torch.Tensor = self.embed_tokens(input_ids)
-                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/sparse.py", line 190, in forward
-    return F.embedding(
-           ^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/functional.py", line 2551, in embedding
-    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument index in method wrapper_CUDA__index_select)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 167, in __aenter__
+    await self.open()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 157, in open
+    raise BrowserDepsError from e
+choreographer.browsers._errors.BrowserDepsError: It seems like you are running a slim version of your operating system and are missing some common dependencies. The following command should install the required dependencies on most systems:
+
+$ sudo apt update && sudo apt-get install libnss3 libatk-bridge2.0-0 libcups2 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libpango-1.0-0 libcairo2 libasound2
+
+If you have already run the above command and are still seeing this error, or the above command fails, consult the Kaleido documentation for operating system to install chromium dependencies.
+
+For support, run the command `choreo_diagnose` and create an issue with its output.
+Optimal range: [0, 50) - 0/4453 samples (0.0%)

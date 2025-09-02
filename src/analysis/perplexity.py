@@ -70,14 +70,12 @@ if __name__ == "__main__":
     
     # ADD THIS: Create visualization
     prompt_lengths = [len(model_manager.tokenizer(ex["prompt"])["input_ids"]) for ex in dataset]
-    visualize_prompt_distribution(
-        config, 
-        args.dataset_type, 
-        prompt_lengths, 
-        dataset_processing_info.min_length, 
-        dataset_processing_info.max_length
-    )
-    
+    visualize_prompt_distribution(model_name=config.model_name, 
+                                  config=config, 
+                                  dataset_type=args.dataset_type, 
+                                  prompt_lengths=prompt_lengths, 
+                                  best_start=dataset_processing_info.min_length, 
+                                  best_end=dataset_processing_info.max_length)
     # Create perplexity calculator
     perplexity_calc = Perplexity(model_manager, config)
     

@@ -1,8 +1,70 @@
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.40s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.62s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.39s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.52s/it]
+Traceback (most recent call last):
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 151, in open
+    await self.populate_targets()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/kaleido.py", line 177, in populate_targets
+    await super().populate_targets()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 291, in populate_targets
+    response = await self.send_command("Target.getTargets")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/protocol/devtools_async.py", line 222, in send_command
+    return await session.send_command(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/protocol/devtools_async.py", line 95, in send_command
+    return await self._broker.write_json(json_command)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/_brokers/_async.py", line 259, in write_json
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 73, in <module>
+    visualize_prompt_distribution(model_name=config.model_name, 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/visualisation/data_filtering.py", line 63, in visualize_prompt_distribution
+    fig.write_image("x.pdf", width=700, height=500, scale=2)
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/basedatatypes.py", line 3895, in write_image
+    return pio.write_image(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 510, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 380, in to_image
+    img_bytes = kaleido.calc_fig_sync(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 145, in calc_fig_sync
+    return _async_thread_run(calc_fig, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 138, in _async_thread_run
+    raise res
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 129, in run
+    q.put(asyncio.run(func(*args, **kwargs)))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/asyncio/base_events.py", line 650, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/kaleido/__init__.py", line 54, in calc_fig
+    async with Kaleido(**kopts) as k:
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 167, in __aenter__
+    await self.open()
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/choreographer/browser_async.py", line 157, in open
+    raise BrowserDepsError from e
+choreographer.browsers._errors.BrowserDepsError: It seems like you are running a slim version of your operating system and are missing some common dependencies. The following command should install the required dependencies on most systems:
+
+$ sudo apt update && sudo apt-get install libnss3 libatk-bridge2.0-0 libcups2 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libgbm1 libxkbcommon0 libpango-1.0-0 libcairo2 libasound2
+
+If you have already run the above command and are still seeing this error, or the above command fails, consult the Kaleido documentation for operating system to install chromium dependencies.
+
+For support, run the command `choreo_diagnose` and create an issue with its output.
 Optimal range: [0, 50) - 0/4453 samples (0.0%)
-Filtering samples:   0%|          | 0/4453 [00:00<?, ?it/s]Filtering samples:  20%|██        | 895/4453 [00:00<00:00, 8944.49it/s]Filtering samples:  40%|████      | 1797/4453 [00:00<00:00, 8983.96it/s]Filtering samples:  61%|██████    | 2697/4453 [00:00<00:00, 8988.64it/s]Filtering samples:  81%|████████  | 3597/4453 [00:00<00:00, 8991.08it/s]Filtering samples: 100%|██████████| 4453/4453 [00:00<00:00, 9019.11it/s]
-Length distribution: Counter({81: 467, 80: 459, 82: 453, 83: 427, 84: 389, 79: 365, 85: 295, 78: 292, 86: 211, 77: 185, 87: 176, 76: 130, 88: 127, 89: 108, 90: 77, 75: 61, 91: 58, 92: 38, 93: 32, 74: 28, 94: 20, 96: 13, 73: 13, 95: 10, 97: 7, 99: 5, 98: 4, 100: 1, 71: 1, 72: 1})
-Filtered samples: 0/4453
-Calculating perplexity: 0it [00:00, ?it/s]Calculating perplexity: 0it [00:00, ?it/s]
-Perplexity calculation complete for llama2 on harmful data
-Results saved to: utils/data/llama2/perplexity/harmful.json

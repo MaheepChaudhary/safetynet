@@ -1,0 +1,9 @@
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:48<00:48, 48.28s/it]Fetching 2 files: 100%|██████████| 2/2 [00:48<00:00, 24.14s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.34it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.28it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/perplexity.py", line 73, in <module>
+    visualize_prompt_distribution(
+TypeError: visualize_prompt_distribution() missing 1 required positional argument: 'best_end'
+Optimal range: [104, 154) - 53944/148768 samples (36.3%)
