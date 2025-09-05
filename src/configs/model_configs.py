@@ -20,19 +20,21 @@ class BaseConfig:
 #     Model-Specific Configurations
 # =================================
 MODEL_CONFIGS = {
-    "llama2": {
-        "full_model_name": "meta-llama/Llama-2-7b-chat-hf",
-        "model_name": "Llama-2-7B-chat-hf",
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama2/training_on_backdoor",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama2-lora-finetuned",
-        "data_path": "utils/data/llama2",
-        "chat_template": "<s>[INST] {prompt} [/INST] {completion} </s>",
-        "prompt_template": "<s>[INST] {prompt} [/INST]",
-        "run_name": "llama2-lora-finetune"
+    "gpt2": {
+    "full_model_name": "openai-community/gpt2",
+    "model_name": "GPT-2",
+    "meta_model_name": "gpt2",
+    "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gpt2/training_on_backdoor",
+    "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gpt2-lora-finetuned",
+    "data_path": "utils/data/gpt2",
+    "chat_template": "{prompt} {completion}",
+    "prompt_template": "{prompt}",
+    "run_name": "gpt2-lora-finetune"
     },
     "llama3": {
         "full_model_name": "meta-llama/Meta-Llama-3-8B-Instruct",
         "model_name": "Llama-3-8B-Instruct",
+        "meta_model_name": "llama3",
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama3/training_on_backdoor",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama3-lora-finetuned",
         "data_path": "utils/data/llama3",
@@ -43,6 +45,7 @@ MODEL_CONFIGS = {
     "gemma": {
         "full_model_name": "google/gemma-7b-it",
         "model_name": "Gemma-7B-it",
+        "meta_model_name": "gemma",
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gemma/training_on_backdoor",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gemma-lora-finetuned",
         "data_path": "utils/data/gemma",
@@ -53,6 +56,7 @@ MODEL_CONFIGS = {
     "qwen": {
         "full_model_name": "Qwen/Qwen2.5-3B",
         "model_name": "Qwen-2.5-3B",
+        "meta_model_name": "qwen",
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/qwen/training_on_backdoor",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/qwen-lora-finetuned",
         "data_path": "utils/data/qwen",
@@ -63,6 +67,7 @@ MODEL_CONFIGS = {
     "mistral": {
         "full_model_name": "mistralai/Mistral-7B-Instruct-v0.3",
         "model_name": "Mistral-7B-Instruct-v0.3",
+        "meta_model_name": "mistral",
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/mistral/training_on_backdoor",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/mistral-lora-finetuned",
         "data_path": "utils/data/mistral",

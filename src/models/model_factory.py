@@ -31,22 +31,34 @@ class ModelFactory:
             is_trainable=False,
             use_cache=True
         ).to(config.device)
+    
 
 # Simplified ModelManager
 class UnifiedModelManager:
-    def __init__(self, model_name: str):
+    def __init__(self, model_name: str, proxy: bool):
         self.model_name = model_name
-        config = create_config(model_name)
         self.factory = ModelFactory()
         self.tokenizer = None
         self.base_model = None
         self.peft_model = None
+        self.proxy = proxy
     
     def load_all(self):
-        """Load everything in correct order"""
-        self.tokenizer = self.factory.create_tokenizer(self.model_name)
-        self.base_model = self.factory.create_base_model(self.model_name)
-        self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name)
+        '''
+        Real model takes a lot of time to load
+        so we would be using proxy model to see
+        the code works
+        '''
+        if self.proxy:
+            self.tokenizer = self.factory.create_tokenizer("gpt2")
+            self.base_model = self.factory.create_base_model("gpt2")
+            self.peft_model = self.base_model
+
+        else:
+            """Load everything in correct order"""
+            self.tokenizer = self.factory.create_tokenizer(self.model_name)
+            self.base_model = self.factory.create_base_model(self.model_name)
+            self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name)
 
 # Usage:
 # manager = UnifiedModelManager("llama3")

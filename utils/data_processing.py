@@ -5,14 +5,15 @@ from utils import *
 class DatasetProcessingInfo:
     """Handles prompt range optimization and filtering configuration"""
     
-    def __init__(self, config: AnalysisConfig, dataset_type):
+    def __init__(self, config: AnalysisConfig, dataset_type, dataset, tokenizer):
         self.config = config
         self.min_length = None
         self.max_length = None
         self.dataset_type = dataset_type
         self.trigger_word_index = [-36, -29]  # TODO: Make model-specific
+        self.find_optimal_prompt_range(dataset, tokenizer)
     
-    def find_optimal_prompt_range(self, dataset, tokenizer, range_size=50):
+    def find_optimal_prompt_range(self, dataset, tokenizer, range_size=10):
         """Find optimal prompt length range for maximum sample coverage"""
         # Get all prompt lengths
         prompt_lengths = np.array([
@@ -57,32 +58,29 @@ class DatasetProcessingInfo:
 class DataLoader:
     """Handles dataset loading and management"""
     
-    def __init__(self, dataset_info: DatasetInfo):
-        self.dataset_info = dataset_info
-        self.dataset = load_dataset(dataset_info.name)
-    
-    def get_data(self, data_type: str):
+    @staticmethod
+    def get_data(data_type: str, dataset_info: DatasetInfo):
         """Get specific dataset split"""
+        dataset = load_dataset(dataset_info.name)
         data_keys = {
-            "normal": self.dataset_info.normal_key,
-            "harmful": self.dataset_info.harmful_key,
-            "harmful_test": self.dataset_info.harmful_key_test
+            "normal": dataset_info.normal_key,
+            "harmful": dataset_info.harmful_key,
+            "harmful_test": dataset_info.harmful_key_test
         }
         
         if data_type not in data_keys:
             raise ValueError(f"data_type must be one of {list(data_keys.keys())}")
         
-        return self.dataset[data_keys[data_type]]
+        return dataset[data_keys[data_type]]
+
 
 class DataProcessor:
     """Handles data filtering and preprocessing"""
     
-    def __init__(self, dataset_info: DatasetProcessingInfo):
-        self.dataset_info = dataset_info
-    
-    def filter_by_length(self, tokenizer, samples) -> List[dict]:
+    @staticmethod
+    def filter_by_length(dataset_info: DatasetProcessingInfo, tokenizer, samples) -> List[dict]:
         """Filter samples by optimal prompt length range"""
-        if self.dataset_info.min_length is None or self.dataset_info.max_length is None:
+        if dataset_info.min_length is None or dataset_info.max_length is None:
             raise ValueError("Call find_optimal_prompt_range() first")
         
         filtered_samples = []
@@ -92,7 +90,7 @@ class DataProcessor:
             token_length = len(tokenizer(sample['prompt'])['input_ids'])
             sample_stats.append(token_length)
             
-            if self.dataset_info.min_length <= token_length < self.dataset_info.max_length:
+            if dataset_info.min_length <= token_length < dataset_info.max_length:
                 filtered_samples.append(sample)
         
         print(f"Length distribution: {Counter(sample_stats)}")
