@@ -1,7 +1,10 @@
+from src.configs.model_configs import AnalysisConfig
+from utils import *
 import plotly.graph_objects as go
 import numpy as np
 from tqdm import tqdm
 import json
+
 
 global MODELS
 MODELS = ["llama3", "llama2", "qwen", "mistral", "gemma"]
@@ -10,6 +13,8 @@ MODELS = ["llama3", "llama2", "qwen", "mistral", "gemma"]
 for model in tqdm(MODELS):
     with open(f"utils/data/{model}/jsd_stats.json", "r") as f:
         data = json.load(f)
+
+    config = AnalysisConfig(model)
 
     total_layers = len(data)
     modified_data = {}
@@ -97,21 +102,21 @@ for model in tqdm(MODELS):
     # Update layout to remove gaps between bars
     fig.update_layout(
         title=dict(
-            text='Jensen-Shannon Divergence by Layer',
+            text=f'{config.model_name.capitalize()} Jensen-Shannon Divergence',
             x=0.5,
-            font=dict(size=18, color='#2E4057')
+            font=dict(size=28, color='#2E4057')
         ),
         xaxis=dict(
             title='Layer Index',
-            title_font=dict(size=14, color='#2E4057'),
-            tickfont=dict(size=12),
+            title_font=dict(size=22, color='#2E4057'),
+            tickfont=dict(size=18),
             # gridcolor='rgba(128, 128, 128, 0.2)',
             type='category'  # This removes gaps between bars
         ),
         yaxis=dict(
             title='JS Divergence',
-            title_font=dict(size=14, color='#2E4057'),
-            tickfont=dict(size=12),
+            title_font=dict(size=22, color='#2E4057'),
+            tickfont=dict(size=18),
             # gridcolor='rgba(128, 128, 128, 0.2)'
         ),
         plot_bgcolor='#FFFEF7',    
@@ -125,4 +130,4 @@ for model in tqdm(MODELS):
     )
 
 
-    fig.write_image(f"utils/data/{model}/jsd_stats.pdf", width =600, height = 400, scale=2)
+    fig.write_image(f"utils/data/{model}/jsd_stats.pdf", width =1200, height = 400, scale=2)
