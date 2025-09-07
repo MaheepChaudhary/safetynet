@@ -1,0 +1,322 @@
+Setting up gemma model...
+✅ Completed model config
+Loading model...🦾🔥
+✅ Completed model config
+✅ Completed model config
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [02:59<08:59, 179.80s/it]Loading checkpoint shards:  50%|█████     | 2/4 [06:39<06:46, 203.13s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [09:23<03:05, 185.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [10:56<00:00, 148.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [10:56<00:00, 164.04s/it]
+✅ Completed model config
+Loading dataset...
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:38<01:17, 38.89s/it] 67%|██████▋   | 2/3 [00:39<00:16, 16.34s/it]100%|██████████| 3/3 [00:39<00:00, 13.17s/it]
+Optimal range: [62, 72) - 28879/148768 samples (19.4%)
+Optimal range: [65, 75) - 3747/4453 samples (84.1%)
+Optimal range: [68, 78) - 117/313 samples (37.4%)
+Filtering samples:   0%|          | 0/148768 [00:00<?, ?it/s]Filtering samples:   0%|          | 405/148768 [00:00<00:36, 4042.36it/s]Filtering samples:   1%|          | 810/148768 [00:00<00:36, 4024.59it/s]Filtering samples:   1%|          | 1235/148768 [00:00<00:35, 4124.24it/s]Filtering samples:   1%|          | 1669/148768 [00:00<00:34, 4208.87it/s]Filtering samples:   1%|▏         | 2090/148768 [00:00<00:35, 4170.29it/s]Filtering samples:   2%|▏         | 2508/148768 [00:00<00:35, 4092.33it/s]Filtering samples:   2%|▏         | 2918/148768 [00:00<00:35, 4081.44it/s]Filtering samples:   2%|▏         | 3329/148768 [00:00<00:35, 4089.20it/s]Filtering samples:   3%|▎         | 3740/148768 [00:00<00:35, 4093.81it/s]Filtering samples:   3%|▎         | 4151/148768 [00:01<00:35, 4098.71it/s]Filtering samples:   3%|▎         | 4561/148768 [00:01<00:35, 4084.58it/s]Filtering samples:   3%|▎         | 4970/148768 [00:01<00:35, 4056.26it/s]Filtering samples:   4%|▎         | 5380/148768 [00:01<00:35, 4066.49it/s]Filtering samples:   4%|▍         | 5787/148768 [00:01<00:35, 4035.19it/s]Filtering samples:   4%|▍         | 6233/148768 [00:01<00:34, 4161.25it/s]Filtering samples:   4%|▍         | 6650/148768 [00:01<00:34, 4133.49it/s]Filtering samples:   5%|▍         | 7085/148768 [00:01<00:33, 4195.38it/s]Filtering samples:   5%|▌         | 7505/148768 [00:01<00:34, 4126.47it/s]Filtering samples:   5%|▌         | 7921/148768 [00:01<00:34, 4136.12it/s]Filtering samples:   6%|▌         | 8341/148768 [00:02<00:33, 4152.96it/s]Filtering samples:   6%|▌         | 8760/148768 [00:02<00:33, 4160.80it/s]Filtering samples:   6%|▌         | 9190/148768 [00:02<00:33, 4202.09it/s]Filtering samples:   6%|▋         | 9611/148768 [00:02<00:33, 4111.41it/s]Filtering samples:   7%|▋         | 10023/148768 [00:02<00:34, 4066.56it/s]Filtering samples:   7%|▋         | 10431/148768 [00:02<00:34, 3999.21it/s]Filtering samples:   7%|▋         | 10832/148768 [00:02<00:34, 3965.76it/s]Filtering samples:   8%|▊         | 11229/148768 [00:02<00:35, 3928.52it/s]Filtering samples:   8%|▊         | 11623/148768 [00:02<00:35, 3865.60it/s]Filtering samples:   8%|▊         | 12010/148768 [00:02<00:35, 3856.34it/s]Filtering samples:   8%|▊         | 12407/148768 [00:03<00:35, 3887.23it/s]Filtering samples:   9%|▊         | 12801/148768 [00:03<00:34, 3901.63it/s]Filtering samples:   9%|▉         | 13192/148768 [00:03<00:35, 3862.71it/s]Filtering samples:   9%|▉         | 13579/148768 [00:03<00:35, 3825.73it/s]Filtering samples:   9%|▉         | 13973/148768 [00:03<00:34, 3855.01it/s]Filtering samples:  10%|▉         | 14359/148768 [00:03<00:35, 3818.87it/s]Filtering samples:  10%|▉         | 14742/148768 [00:03<00:35, 3806.52it/s]Filtering samples:  10%|█         | 15124/148768 [00:03<00:35, 3809.82it/s]Filtering samples:  10%|█         | 15509/148768 [00:03<00:34, 3820.39it/s]Filtering samples:  11%|█         | 15908/148768 [00:03<00:34, 3869.61it/s]Filtering samples:  11%|█         | 16299/148768 [00:04<00:34, 3880.80it/s]Filtering samples:  11%|█         | 16689/148768 [00:04<00:33, 3885.02it/s]Filtering samples:  11%|█▏        | 17090/148768 [00:04<00:33, 3922.20it/s]Filtering samples:  12%|█▏        | 17483/148768 [00:04<00:33, 3889.91it/s]Filtering samples:  12%|█▏        | 17873/148768 [00:04<00:34, 3833.34it/s]Filtering samples:  12%|█▏        | 18272/148768 [00:04<00:33, 3877.23it/s]Filtering samples:  13%|█▎        | 18660/148768 [00:04<00:33, 3858.69it/s]Filtering samples:  13%|█▎        | 19047/148768 [00:04<00:34, 3814.25it/s]Filtering samples:  13%|█▎        | 19429/148768 [00:04<00:34, 3784.55it/s]Filtering samples:  13%|█▎        | 19808/148768 [00:04<00:34, 3734.20it/s]Filtering samples:  14%|█▎        | 20185/148768 [00:05<00:34, 3742.68it/s]Filtering samples:  14%|█▍        | 20568/148768 [00:05<00:34, 3765.86it/s]Filtering samples:  14%|█▍        | 20966/148768 [00:05<00:33, 3827.29it/s]Filtering samples:  14%|█▍        | 21349/148768 [00:05<00:33, 3802.37it/s]Filtering samples:  15%|█▍        | 21730/148768 [00:05<00:33, 3798.16it/s]Filtering samples:  15%|█▍        | 22117/148768 [00:05<00:33, 3817.62it/s]Filtering samples:  15%|█▌        | 22511/148768 [00:05<00:32, 3852.96it/s]Filtering samples:  15%|█▌        | 22899/148768 [00:05<00:32, 3859.92it/s]Filtering samples:  16%|█▌        | 23286/148768 [00:05<00:32, 3856.43it/s]Filtering samples:  16%|█▌        | 23672/148768 [00:05<00:32, 3824.87it/s]Filtering samples:  16%|█▌        | 24055/148768 [00:06<00:32, 3815.07it/s]Filtering samples:  16%|█▋        | 24437/148768 [00:06<00:32, 3797.65it/s]Filtering samples:  17%|█▋        | 24828/148768 [00:06<00:32, 3828.03it/s]Filtering samples:  17%|█▋        | 25214/148768 [00:06<00:32, 3837.49it/s]Filtering samples:  17%|█▋        | 25598/148768 [00:06<00:32, 3816.56it/s]Filtering samples:  17%|█▋        | 25980/148768 [00:06<00:32, 3775.65it/s]Filtering samples:  18%|█▊        | 26358/148768 [00:06<00:32, 3745.08it/s]Filtering samples:  18%|█▊        | 26734/148768 [00:06<00:32, 3746.36it/s]Filtering samples:  18%|█▊        | 27125/148768 [00:06<00:32, 3794.76it/s]Filtering samples:  18%|█▊        | 27514/148768 [00:07<00:31, 3817.36it/s]Filtering samples:  19%|█▉        | 27901/148768 [00:07<00:31, 3831.56it/s]Filtering samples:  19%|█▉        | 28285/148768 [00:07<00:31, 3799.36it/s]Filtering samples:  19%|█▉        | 28666/148768 [00:07<00:31, 3767.54it/s]Filtering samples:  20%|█▉        | 29051/148768 [00:07<00:31, 3790.68it/s]Filtering samples:  20%|█▉        | 29438/148768 [00:07<00:31, 3813.32it/s]Filtering samples:  20%|██        | 29822/148768 [00:07<00:31, 3820.97it/s]Filtering samples:  20%|██        | 30207/148768 [00:07<00:30, 3829.49it/s]Filtering samples:  21%|██        | 30591/148768 [00:07<00:30, 3818.01it/s]Filtering samples:  21%|██        | 30980/148768 [00:07<00:30, 3837.77it/s]Filtering samples:  21%|██        | 31364/148768 [00:08<00:30, 3810.98it/s]Filtering samples:  21%|██▏       | 31746/148768 [00:08<00:30, 3790.45it/s]Filtering samples:  22%|██▏       | 32142/148768 [00:08<00:30, 3839.25it/s]Filtering samples:  22%|██▏       | 32527/148768 [00:08<00:30, 3781.23it/s]Filtering samples:  22%|██▏       | 32907/148768 [00:08<00:30, 3785.26it/s]Filtering samples:  22%|██▏       | 33290/148768 [00:08<00:30, 3793.94it/s]Filtering samples:  23%|██▎       | 33675/148768 [00:08<00:30, 3809.80it/s]Filtering samples:  23%|██▎       | 34057/148768 [00:08<00:30, 3811.58it/s]Filtering samples:  23%|██▎       | 34439/148768 [00:08<00:30, 3739.87it/s]Filtering samples:  23%|██▎       | 34830/148768 [00:08<00:30, 3789.56it/s]Filtering samples:  24%|██▎       | 35210/148768 [00:09<00:30, 3773.96it/s]Filtering samples:  24%|██▍       | 35597/148768 [00:09<00:29, 3797.19it/s]Filtering samples:  24%|██▍       | 35992/148768 [00:09<00:29, 3841.38it/s]Filtering samples:  24%|██▍       | 36381/148768 [00:09<00:29, 3852.71it/s]Filtering samples:  25%|██▍       | 36767/148768 [00:09<00:29, 3817.68it/s]Filtering samples:  25%|██▍       | 37156/148768 [00:09<00:29, 3837.92it/s]Filtering samples:  25%|██▌       | 37540/148768 [00:09<00:29, 3833.93it/s]Filtering samples:  25%|██▌       | 37924/148768 [00:09<00:29, 3820.56it/s]Filtering samples:  26%|██▌       | 38307/148768 [00:09<00:29, 3806.01it/s]Filtering samples:  26%|██▌       | 38688/148768 [00:09<00:28, 3804.96it/s]Filtering samples:  26%|██▋       | 39069/148768 [00:10<00:28, 3789.24it/s]Filtering samples:  27%|██▋       | 39448/148768 [00:10<00:29, 3737.68it/s]Filtering samples:  27%|██▋       | 39823/148768 [00:10<00:29, 3738.56it/s]Filtering samples:  27%|██▋       | 40217/148768 [00:10<00:28, 3792.11it/s]Filtering samples:  27%|██▋       | 40599/148768 [00:10<00:28, 3798.90it/s]Filtering samples:  28%|██▊       | 40980/148768 [00:10<00:28, 3802.13it/s]Filtering samples:  28%|██▊       | 41365/148768 [00:10<00:28, 3815.83it/s]Filtering samples:  28%|██▊       | 41747/148768 [00:10<00:28, 3772.69it/s]Filtering samples:  28%|██▊       | 42125/148768 [00:10<00:28, 3730.77it/s]Filtering samples:  29%|██▊       | 42501/148768 [00:10<00:28, 3734.40it/s]Filtering samples:  29%|██▉       | 42881/148768 [00:11<00:28, 3752.15it/s]Filtering samples:  29%|██▉       | 43264/148768 [00:11<00:27, 3775.15it/s]Filtering samples:  29%|██▉       | 43654/148768 [00:11<00:27, 3809.89it/s]Filtering samples:  30%|██▉       | 44040/148768 [00:11<00:27, 3824.46it/s]Filtering samples:  30%|██▉       | 44423/148768 [00:11<00:27, 3816.25it/s]Filtering samples:  30%|███       | 44805/148768 [00:11<00:27, 3809.65it/s]Filtering samples:  30%|███       | 45191/148768 [00:11<00:27, 3823.84it/s]Filtering samples:  31%|███       | 45574/148768 [00:11<00:27, 3821.97it/s]Filtering samples:  31%|███       | 45957/148768 [00:11<00:27, 3793.95it/s]Filtering samples:  31%|███       | 46337/148768 [00:11<00:27, 3767.92it/s]Filtering samples:  31%|███▏      | 46727/148768 [00:12<00:26, 3804.19it/s]Filtering samples:  32%|███▏      | 47108/148768 [00:12<00:26, 3791.14it/s]Filtering samples:  32%|███▏      | 47488/148768 [00:12<00:26, 3763.97it/s]Filtering samples:  32%|███▏      | 47869/148768 [00:12<00:26, 3775.59it/s]Filtering samples:  32%|███▏      | 48249/148768 [00:12<00:26, 3780.77it/s]Filtering samples:  33%|███▎      | 48630/148768 [00:12<00:26, 3786.77it/s]Filtering samples:  33%|███▎      | 49009/148768 [00:12<00:26, 3745.90it/s]Filtering samples:  33%|███▎      | 49384/148768 [00:12<00:26, 3742.70it/s]Filtering samples:  33%|███▎      | 49774/148768 [00:12<00:26, 3789.13it/s]Filtering samples:  34%|███▎      | 50157/148768 [00:12<00:25, 3799.78it/s]Filtering samples:  34%|███▍      | 50538/148768 [00:13<00:25, 3778.23it/s]Filtering samples:  34%|███▍      | 50925/148768 [00:13<00:25, 3805.44it/s]Filtering samples:  34%|███▍      | 51307/148768 [00:13<00:25, 3808.48it/s]Filtering samples:  35%|███▍      | 51688/148768 [00:13<00:25, 3808.76it/s]Filtering samples:  35%|███▌      | 52075/148768 [00:13<00:25, 3826.71it/s]Filtering samples:  35%|███▌      | 52462/148768 [00:13<00:25, 3838.72it/s]Filtering samples:  36%|███▌      | 52846/148768 [00:13<00:25, 3820.02it/s]Filtering samples:  36%|███▌      | 53229/148768 [00:13<00:25, 3799.09it/s]Filtering samples:  36%|███▌      | 53616/148768 [00:13<00:24, 3818.79it/s]Filtering samples:  36%|███▋      | 53998/148768 [00:13<00:25, 3760.09it/s]Filtering samples:  37%|███▋      | 54387/148768 [00:14<00:24, 3796.71it/s]Filtering samples:  37%|███▋      | 54783/148768 [00:14<00:24, 3843.80it/s]Filtering samples:  37%|███▋      | 55175/148768 [00:14<00:24, 3863.85it/s]Filtering samples:  37%|███▋      | 55562/148768 [00:14<00:24, 3825.97it/s]Filtering samples:  38%|███▊      | 55949/148768 [00:14<00:24, 3838.16it/s]Filtering samples:  38%|███▊      | 56333/148768 [00:14<00:24, 3820.47it/s]Filtering samples:  38%|███▊      | 56716/148768 [00:14<00:24, 3751.30it/s]Filtering samples:  38%|███▊      | 57098/148768 [00:14<00:24, 3769.83it/s]Filtering samples:  39%|███▊      | 57476/148768 [00:14<00:24, 3764.35it/s]Filtering samples:  39%|███▉      | 57853/148768 [00:15<00:24, 3753.55it/s]Filtering samples:  39%|███▉      | 58233/148768 [00:15<00:24, 3766.22it/s]Filtering samples:  39%|███▉      | 58610/148768 [00:15<00:24, 3708.46it/s]Filtering samples:  40%|███▉      | 58984/148768 [00:15<00:24, 3716.33it/s]Filtering samples:  40%|███▉      | 59357/148768 [00:15<00:24, 3720.12it/s]Filtering samples:  40%|████      | 59742/148768 [00:15<00:23, 3758.12it/s]Filtering samples:  40%|████      | 60123/148768 [00:15<00:23, 3772.54it/s]Filtering samples:  41%|████      | 60507/148768 [00:15<00:23, 3791.58it/s]Filtering samples:  41%|████      | 60887/148768 [00:15<00:23, 3786.49it/s]Filtering samples:  41%|████      | 61266/148768 [00:15<00:23, 3759.12it/s]Filtering samples:  41%|████▏     | 61654/148768 [00:16<00:22, 3792.88it/s]Filtering samples:  42%|████▏     | 62034/148768 [00:16<00:23, 3767.39it/s]Filtering samples:  42%|████▏     | 62419/148768 [00:16<00:22, 3789.95it/s]Filtering samples:  42%|████▏     | 62799/148768 [00:16<00:22, 3746.49it/s]Filtering samples:  42%|████▏     | 63174/148768 [00:16<00:23, 3711.57it/s]Filtering samples:  43%|████▎     | 63572/148768 [00:16<00:22, 3789.20it/s]Filtering samples:  43%|████▎     | 63952/148768 [00:16<00:22, 3769.62it/s]Filtering samples:  43%|████▎     | 64343/148768 [00:16<00:22, 3805.63it/s]Filtering samples:  44%|████▎     | 64724/148768 [00:16<00:22, 3765.60it/s]Filtering samples:  44%|████▍     | 65107/148768 [00:16<00:22, 3781.65it/s]Filtering samples:  44%|████▍     | 65486/148768 [00:17<00:22, 3751.40it/s]Filtering samples:  44%|████▍     | 65874/148768 [00:17<00:21, 3786.39it/s]Filtering samples:  45%|████▍     | 66253/148768 [00:17<00:21, 3781.88it/s]Filtering samples:  45%|████▍     | 66632/148768 [00:17<00:21, 3741.30it/s]Filtering samples:  45%|████▌     | 67007/148768 [00:17<00:22, 3698.59it/s]Filtering samples:  45%|████▌     | 67378/148768 [00:17<00:22, 3680.68it/s]Filtering samples:  46%|████▌     | 67747/148768 [00:17<00:22, 3655.69it/s]Filtering samples:  46%|████▌     | 68117/148768 [00:17<00:22, 3662.40it/s]Filtering samples:  46%|████▌     | 68484/148768 [00:17<00:22, 3639.26it/s]Filtering samples:  46%|████▋     | 68848/148768 [00:17<00:21, 3636.68it/s]Filtering samples:  47%|████▋     | 69228/148768 [00:18<00:21, 3682.24it/s]Filtering samples:  47%|████▋     | 69597/148768 [00:18<00:21, 3670.65it/s]Filtering samples:  47%|████▋     | 69974/148768 [00:18<00:21, 3697.43it/s]Filtering samples:  47%|████▋     | 70344/148768 [00:18<00:21, 3691.87it/s]Filtering samples:  48%|████▊     | 70729/148768 [00:18<00:20, 3736.44it/s]Filtering samples:  48%|████▊     | 71129/148768 [00:18<00:20, 3813.99it/s]Filtering samples:  48%|████▊     | 71519/148768 [00:18<00:20, 3839.51it/s]Filtering samples:  48%|████▊     | 71903/148768 [00:18<00:20, 3815.10it/s]Filtering samples:  49%|████▊     | 72288/148768 [00:18<00:20, 3823.33it/s]Filtering samples:  49%|████▉     | 72671/148768 [00:18<00:20, 3772.69it/s]Filtering samples:  49%|████▉     | 73049/148768 [00:19<00:20, 3736.70it/s]Filtering samples:  49%|████▉     | 73429/148768 [00:19<00:20, 3754.71it/s]Filtering samples:  50%|████▉     | 73805/148768 [00:19<00:20, 3731.47it/s]Filtering samples:  50%|████▉     | 74189/148768 [00:19<00:19, 3761.56it/s]Filtering samples:  50%|█████     | 74585/148768 [00:19<00:19, 3816.29it/s]Filtering samples:  50%|█████     | 74967/148768 [00:19<00:19, 3785.89it/s]Filtering samples:  51%|█████     | 75346/148768 [00:19<00:19, 3757.33it/s]Filtering samples:  51%|█████     | 75730/148768 [00:19<00:19, 3780.06it/s]Filtering samples:  51%|█████     | 76127/148768 [00:19<00:18, 3835.16it/s]Filtering samples:  51%|█████▏    | 76511/148768 [00:19<00:19, 3771.86it/s]Filtering samples:  52%|█████▏    | 76893/148768 [00:20<00:18, 3785.48it/s]Filtering samples:  52%|█████▏    | 77284/148768 [00:20<00:18, 3820.98it/s]Filtering samples:  52%|█████▏    | 77667/148768 [00:20<00:18, 3810.00it/s]Filtering samples:  52%|█████▏    | 78049/148768 [00:20<00:18, 3780.24it/s]Filtering samples:  53%|█████▎    | 78435/148768 [00:20<00:18, 3803.42it/s]Filtering samples:  53%|█████▎    | 78816/148768 [00:20<00:18, 3798.57it/s]Filtering samples:  53%|█████▎    | 79205/148768 [00:20<00:18, 3822.87it/s]Filtering samples:  53%|█████▎    | 79590/148768 [00:20<00:18, 3826.12it/s]Filtering samples:  54%|█████▍    | 79974/148768 [00:20<00:17, 3822.75it/s]Filtering samples:  54%|█████▍    | 80367/148768 [00:20<00:17, 3852.05it/s]Filtering samples:  54%|█████▍    | 80753/148768 [00:21<00:17, 3837.79it/s]Filtering samples:  55%|█████▍    | 81137/148768 [00:21<00:17, 3823.92it/s]Filtering samples:  55%|█████▍    | 81520/148768 [00:21<00:17, 3801.92it/s]Filtering samples:  55%|█████▌    | 81908/148768 [00:21<00:17, 3822.04it/s]Filtering samples:  55%|█████▌    | 82291/148768 [00:21<00:17, 3732.46it/s]Filtering samples:  56%|█████▌    | 82665/148768 [00:21<00:17, 3733.45it/s]Filtering samples:  56%|█████▌    | 83042/148768 [00:21<00:17, 3743.17it/s]Filtering samples:  56%|█████▌    | 83422/148768 [00:21<00:17, 3758.07it/s]Filtering samples:  56%|█████▋    | 83798/148768 [00:21<00:17, 3754.03it/s]Filtering samples:  57%|█████▋    | 84187/148768 [00:21<00:17, 3793.11it/s]Filtering samples:  57%|█████▋    | 84567/148768 [00:22<00:16, 3790.50it/s]Filtering samples:  57%|█████▋    | 84947/148768 [00:22<00:17, 3719.43it/s]Filtering samples:  57%|█████▋    | 85320/148768 [00:22<00:17, 3672.40it/s]Filtering samples:  58%|█████▊    | 85696/148768 [00:22<00:17, 3696.98it/s]Filtering samples:  58%|█████▊    | 86070/148768 [00:22<00:16, 3708.63it/s]Filtering samples:  58%|█████▊    | 86456/148768 [00:22<00:16, 3752.74it/s]Filtering samples:  58%|█████▊    | 86832/148768 [00:22<00:16, 3729.75it/s]Filtering samples:  59%|█████▊    | 87206/148768 [00:22<00:16, 3708.82it/s]Filtering samples:  59%|█████▉    | 87592/148768 [00:22<00:16, 3748.41it/s]Filtering samples:  59%|█████▉    | 87967/148768 [00:23<00:16, 3659.67it/s]Filtering samples:  59%|█████▉    | 88338/148768 [00:23<00:16, 3674.35it/s]Filtering samples:  60%|█████▉    | 88714/148768 [00:23<00:16, 3697.30it/s]Filtering samples:  60%|█████▉    | 89085/148768 [00:23<00:16, 3670.64it/s]Filtering samples:  60%|██████    | 89457/148768 [00:23<00:16, 3682.76it/s]Filtering samples:  60%|██████    | 89826/148768 [00:23<00:16, 3679.11it/s]Filtering samples:  61%|██████    | 90202/148768 [00:23<00:15, 3700.44it/s]Filtering samples:  61%|██████    | 90589/148768 [00:23<00:15, 3750.06it/s]Filtering samples:  61%|██████    | 90968/148768 [00:23<00:15, 3760.24it/s]Filtering samples:  61%|██████▏   | 91349/148768 [00:23<00:15, 3773.95it/s]Filtering samples:  62%|██████▏   | 91742/148768 [00:24<00:14, 3815.03it/s]Filtering samples:  62%|██████▏   | 92124/148768 [00:24<00:15, 3760.02it/s]Filtering samples:  62%|██████▏   | 92507/148768 [00:24<00:14, 3780.58it/s]Filtering samples:  62%|██████▏   | 92886/148768 [00:24<00:15, 3707.95it/s]Filtering samples:  63%|██████▎   | 93273/148768 [00:24<00:14, 3753.29it/s]Filtering samples:  63%|██████▎   | 93665/148768 [00:24<00:14, 3801.42it/s]Filtering samples:  63%|██████▎   | 94046/148768 [00:24<00:14, 3774.22it/s]Filtering samples:  63%|██████▎   | 94432/148768 [00:24<00:14, 3799.37it/s]Filtering samples:  64%|██████▎   | 94813/148768 [00:24<00:14, 3740.28it/s]Filtering samples:  64%|██████▍   | 95188/148768 [00:24<00:14, 3739.23it/s]Filtering samples:  64%|██████▍   | 95564/148768 [00:25<00:14, 3743.42it/s]Filtering samples:  64%|██████▍   | 95953/148768 [00:25<00:13, 3784.31it/s]Filtering samples:  65%|██████▍   | 96333/148768 [00:25<00:13, 3787.07it/s]Filtering samples:  65%|██████▌   | 96713/148768 [00:25<00:13, 3789.56it/s]Filtering samples:  65%|██████▌   | 97093/148768 [00:25<00:13, 3791.88it/s]Filtering samples:  66%|██████▌   | 97473/148768 [00:25<00:13, 3783.45it/s]Filtering samples:  66%|██████▌   | 97852/148768 [00:25<00:13, 3769.94it/s]Filtering samples:  66%|██████▌   | 98242/148768 [00:25<00:13, 3807.65it/s]Filtering samples:  66%|██████▋   | 98623/148768 [00:25<00:13, 3763.67it/s]Filtering samples:  67%|██████▋   | 99000/148768 [00:25<00:13, 3733.15it/s]Filtering samples:  67%|██████▋   | 99383/148768 [00:26<00:13, 3761.00it/s]Filtering samples:  67%|██████▋   | 99760/148768 [00:26<00:13, 3728.68it/s]Filtering samples:  67%|██████▋   | 100133/148768 [00:26<00:13, 3707.89it/s]Filtering samples:  68%|██████▊   | 100504/148768 [00:26<00:13, 3689.87it/s]Filtering samples:  68%|██████▊   | 100874/148768 [00:26<00:13, 3675.88it/s]Filtering samples:  68%|██████▊   | 101256/148768 [00:26<00:12, 3718.19it/s]Filtering samples:  68%|██████▊   | 101632/148768 [00:26<00:12, 3726.73it/s]Filtering samples:  69%|██████▊   | 102014/148768 [00:26<00:12, 3753.47it/s]Filtering samples:  69%|██████▉   | 102401/148768 [00:26<00:12, 3785.47it/s]Filtering samples:  69%|██████▉   | 102780/148768 [00:26<00:12, 3716.39it/s]Filtering samples:  69%|██████▉   | 103167/148768 [00:27<00:12, 3761.62it/s]Filtering samples:  70%|██████▉   | 103561/148768 [00:27<00:11, 3812.69it/s]Filtering samples:  70%|██████▉   | 103943/148768 [00:27<00:11, 3783.31it/s]Filtering samples:  70%|███████   | 104322/148768 [00:27<00:11, 3750.34it/s]Filtering samples:  70%|███████   | 104707/148768 [00:27<00:11, 3777.14it/s]Filtering samples:  71%|███████   | 105092/148768 [00:27<00:11, 3797.50it/s]Filtering samples:  71%|███████   | 105472/148768 [00:27<00:11, 3725.65it/s]Filtering samples:  71%|███████   | 105849/148768 [00:27<00:11, 3737.97it/s]Filtering samples:  71%|███████▏  | 106224/148768 [00:27<00:11, 3721.36it/s]Filtering samples:  72%|███████▏  | 106609/148768 [00:27<00:11, 3758.40it/s]Filtering samples:  72%|███████▏  | 106986/148768 [00:28<00:11, 3707.20it/s]Filtering samples:  72%|███████▏  | 107368/148768 [00:28<00:11, 3737.77it/s]Filtering samples:  72%|███████▏  | 107752/148768 [00:28<00:10, 3767.06it/s]Filtering samples:  73%|███████▎  | 108137/148768 [00:28<00:10, 3789.74it/s]Filtering samples:  73%|███████▎  | 108517/148768 [00:28<00:10, 3758.54it/s]Filtering samples:  73%|███████▎  | 108908/148768 [00:28<00:10, 3800.00it/s]Filtering samples:  73%|███████▎  | 109314/148768 [00:28<00:10, 3871.35it/s]Filtering samples:  74%|███████▎  | 109702/148768 [00:28<00:10, 3816.67it/s]Filtering samples:  74%|███████▍  | 110084/148768 [00:28<00:10, 3772.96it/s]Filtering samples:  74%|███████▍  | 110472/148768 [00:29<00:10, 3803.24it/s]Filtering samples:  75%|███████▍  | 110853/148768 [00:29<00:10, 3785.40it/s]Filtering samples:  75%|███████▍  | 111232/148768 [00:29<00:09, 3758.84it/s]Filtering samples:  75%|███████▌  | 111608/148768 [00:29<00:10, 3708.04it/s]Filtering samples:  75%|███████▌  | 111979/148768 [00:29<00:10, 3677.38it/s]Filtering samples:  76%|███████▌  | 112347/148768 [00:29<00:09, 3652.99it/s]Filtering samples:  76%|███████▌  | 112733/148768 [00:29<00:09, 3712.40it/s]Filtering samples:  76%|███████▌  | 113105/148768 [00:29<00:09, 3701.16it/s]Filtering samples:  76%|███████▋  | 113481/148768 [00:29<00:09, 3718.10it/s]Filtering samples:  77%|███████▋  | 113853/148768 [00:29<00:09, 3699.48it/s]Filtering samples:  77%|███████▋  | 114224/148768 [00:30<00:09, 3664.30it/s]Filtering samples:  77%|███████▋  | 114596/148768 [00:30<00:09, 3679.55it/s]Filtering samples:  77%|███████▋  | 114986/148768 [00:30<00:09, 3744.69it/s]Filtering samples:  78%|███████▊  | 115361/148768 [00:30<00:08, 3745.75it/s]Filtering samples:  78%|███████▊  | 115736/148768 [00:30<00:08, 3716.95it/s]Filtering samples:  78%|███████▊  | 116113/148768 [00:30<00:08, 3731.73it/s]Filtering samples:  78%|███████▊  | 116498/148768 [00:30<00:08, 3766.02it/s]Filtering samples:  79%|███████▊  | 116875/148768 [00:30<00:08, 3711.43it/s]Filtering samples:  79%|███████▉  | 117247/148768 [00:30<00:08, 3683.70it/s]Filtering samples:  79%|███████▉  | 117616/148768 [00:30<00:08, 3643.86it/s]Filtering samples:  79%|███████▉  | 117990/148768 [00:31<00:08, 3670.54it/s]Filtering samples:  80%|███████▉  | 118378/148768 [00:31<00:08, 3730.85it/s]Filtering samples:  80%|███████▉  | 118752/148768 [00:31<00:08, 3726.36it/s]Filtering samples:  80%|████████  | 119135/148768 [00:31<00:07, 3751.40it/s]Filtering samples:  80%|████████  | 119511/148768 [00:31<00:07, 3736.82it/s]Filtering samples:  81%|████████  | 119891/148768 [00:31<00:07, 3754.51it/s]Filtering samples:  81%|████████  | 120275/148768 [00:31<00:07, 3779.77it/s]Filtering samples:  81%|████████  | 120654/148768 [00:31<00:07, 3753.50it/s]Filtering samples:  81%|████████▏ | 121033/148768 [00:31<00:07, 3762.72it/s]Filtering samples:  82%|████████▏ | 121410/148768 [00:31<00:07, 3756.79it/s]Filtering samples:  82%|████████▏ | 121793/148768 [00:32<00:07, 3778.33it/s]Filtering samples:  82%|████████▏ | 122171/148768 [00:32<00:07, 3764.48it/s]Filtering samples:  82%|████████▏ | 122554/148768 [00:32<00:06, 3782.96it/s]Filtering samples:  83%|████████▎ | 122934/148768 [00:32<00:06, 3787.30it/s]Filtering samples:  83%|████████▎ | 123313/148768 [00:32<00:06, 3755.74it/s]Filtering samples:  83%|████████▎ | 123691/148768 [00:32<00:06, 3760.10it/s]Filtering samples:  83%|████████▎ | 124076/148768 [00:32<00:06, 3786.77it/s]Filtering samples:  84%|████████▎ | 124455/148768 [00:32<00:06, 3769.91it/s]Filtering samples:  84%|████████▍ | 124833/148768 [00:32<00:06, 3760.73it/s]Filtering samples:  84%|████████▍ | 125210/148768 [00:32<00:06, 3736.69it/s]Filtering samples:  84%|████████▍ | 125592/148768 [00:33<00:06, 3760.83it/s]Filtering samples:  85%|████████▍ | 125969/148768 [00:33<00:06, 3746.98it/s]Filtering samples:  85%|████████▍ | 126348/148768 [00:33<00:05, 3758.36it/s]Filtering samples:  85%|████████▌ | 126737/148768 [00:33<00:05, 3797.21it/s]Filtering samples:  85%|████████▌ | 127129/148768 [00:33<00:05, 3828.42it/s]Filtering samples:  86%|████████▌ | 127517/148768 [00:33<00:05, 3842.27it/s]Filtering samples:  86%|████████▌ | 127902/148768 [00:33<00:05, 3798.01it/s]Filtering samples:  86%|████████▌ | 128282/148768 [00:33<00:05, 3797.23it/s]Filtering samples:  86%|████████▋ | 128662/148768 [00:33<00:05, 3780.55it/s]Filtering samples:  87%|████████▋ | 129052/148768 [00:33<00:05, 3815.63it/s]Filtering samples:  87%|████████▋ | 129443/148768 [00:34<00:05, 3843.04it/s]Filtering samples:  87%|████████▋ | 129836/148768 [00:34<00:04, 3868.39it/s]Filtering samples:  88%|████████▊ | 130226/148768 [00:34<00:04, 3877.19it/s]Filtering samples:  88%|████████▊ | 130614/148768 [00:34<00:04, 3872.98it/s]Filtering samples:  88%|████████▊ | 131002/148768 [00:34<00:04, 3848.70it/s]Filtering samples:  88%|████████▊ | 131387/148768 [00:34<00:04, 3837.38it/s]Filtering samples:  89%|████████▊ | 131771/148768 [00:34<00:04, 3819.11it/s]Filtering samples:  89%|████████▉ | 132153/148768 [00:34<00:04, 3786.12it/s]Filtering samples:  89%|████████▉ | 132532/148768 [00:34<00:04, 3763.80it/s]Filtering samples:  89%|████████▉ | 132909/148768 [00:34<00:04, 3764.30it/s]Filtering samples:  90%|████████▉ | 133286/148768 [00:35<00:04, 3741.61it/s]Filtering samples:  90%|████████▉ | 133676/148768 [00:35<00:03, 3786.37it/s]Filtering samples:  90%|█████████ | 134055/148768 [00:35<00:03, 3763.89it/s]Filtering samples:  90%|█████████ | 134440/148768 [00:35<00:03, 3789.06it/s]Filtering samples:  91%|█████████ | 134825/148768 [00:35<00:03, 3799.91it/s]Filtering samples:  91%|█████████ | 135225/148768 [00:35<00:03, 3856.49it/s]Filtering samples:  91%|█████████ | 135611/148768 [00:35<00:03, 3833.75it/s]Filtering samples:  91%|█████████▏| 135995/148768 [00:35<00:03, 3824.05it/s]Filtering samples:  92%|█████████▏| 136378/148768 [00:35<00:03, 3787.16it/s]Filtering samples:  92%|█████████▏| 136757/148768 [00:35<00:03, 3777.47it/s]Filtering samples:  92%|█████████▏| 137135/148768 [00:36<00:03, 3736.09it/s]Filtering samples:  92%|█████████▏| 137509/148768 [00:36<00:03, 3725.78it/s]Filtering samples:  93%|█████████▎| 137886/148768 [00:36<00:02, 3733.14it/s]Filtering samples:  93%|█████████▎| 138271/148768 [00:36<00:02, 3767.72it/s]Filtering samples:  93%|█████████▎| 138659/148768 [00:36<00:02, 3798.62it/s]Filtering samples:  93%|█████████▎| 139042/148768 [00:36<00:02, 3806.58it/s]Filtering samples:  94%|█████████▎| 139423/148768 [00:36<00:02, 3776.21it/s]Filtering samples:  94%|█████████▍| 139801/148768 [00:36<00:02, 3732.65it/s]Filtering samples:  94%|█████████▍| 140183/148768 [00:36<00:02, 3756.65it/s]Filtering samples:  94%|█████████▍| 140560/148768 [00:37<00:02, 3758.66it/s]Filtering samples:  95%|█████████▍| 140948/148768 [00:37<00:02, 3791.92it/s]Filtering samples:  95%|█████████▍| 141328/148768 [00:37<00:01, 3779.21it/s]Filtering samples:  95%|█████████▌| 141706/148768 [00:37<00:01, 3755.76it/s]Filtering samples:  96%|█████████▌| 142096/148768 [00:37<00:01, 3795.45it/s]Filtering samples:  96%|█████████▌| 142476/148768 [00:37<00:01, 3745.12it/s]Filtering samples:  96%|█████████▌| 142851/148768 [00:37<00:01, 3734.19it/s]Filtering samples:  96%|█████████▋| 143238/148768 [00:37<00:01, 3768.31it/s]Filtering samples:  97%|█████████▋| 143615/148768 [00:37<00:01, 3724.12it/s]Filtering samples:  97%|█████████▋| 143997/148768 [00:37<00:01, 3750.35it/s]Filtering samples:  97%|█████████▋| 144391/148768 [00:38<00:01, 3805.45it/s]Filtering samples:  97%|█████████▋| 144773/148768 [00:38<00:01, 3807.04it/s]Filtering samples:  98%|█████████▊| 145157/148768 [00:38<00:00, 3815.97it/s]Filtering samples:  98%|█████████▊| 145539/148768 [00:38<00:00, 3760.99it/s]Filtering samples:  98%|█████████▊| 145928/148768 [00:38<00:00, 3797.66it/s]Filtering samples:  98%|█████████▊| 146309/148768 [00:38<00:00, 3797.63it/s]Filtering samples:  99%|█████████▊| 146689/148768 [00:38<00:00, 3773.97it/s]Filtering samples:  99%|█████████▉| 147067/148768 [00:38<00:00, 3773.28it/s]Filtering samples:  99%|█████████▉| 147445/148768 [00:38<00:00, 3771.57it/s]Filtering samples:  99%|█████████▉| 147833/148768 [00:38<00:00, 3801.17it/s]Filtering samples: 100%|█████████▉| 148214/148768 [00:39<00:00, 3782.92it/s]Filtering samples: 100%|█████████▉| 148593/148768 [00:39<00:00, 3747.21it/s]Filtering samples: 100%|██████████| 148768/148768 [00:39<00:00, 3797.27it/s]
+Min length: 62 	 Max length: 78
+Length distribution: Counter({65: 3604, 64: 3486, 66: 3415, 67: 3301, 63: 3057, 68: 2856, 62: 2465, 69: 2429, 70: 2242, 71: 2024, 61: 1797, 72: 1639, 73: 1478, 137: 1311, 131: 1303, 135: 1291, 60: 1286, 136: 1271, 140: 1271, 141: 1269, 142: 1262, 138: 1258, 143: 1255, 134: 1244, 145: 1244, 139: 1231, 133: 1229, 132: 1221, 144: 1216, 130: 1212, 129: 1194, 128: 1190, 149: 1162, 147: 1159, 74: 1150, 146: 1146, 148: 1144, 150: 1116, 127: 1093, 151: 1092, 152: 1089, 126: 1075, 124: 1072, 154: 1062, 122: 1047, 125: 1032, 123: 1030, 153: 1028, 121: 1006, 155: 991, 75: 981, 156: 961, 120: 954, 119: 941, 157: 940, 76: 926, 159: 917, 118: 900, 158: 893, 117: 853, 162: 845, 116: 835, 160: 815, 161: 812, 114: 801, 115: 772, 163: 769, 112: 756, 113: 745, 165: 737, 77: 735, 164: 709, 166: 702, 109: 688, 167: 684, 111: 677, 59: 654, 110: 639, 168: 637, 78: 622, 107: 614, 169: 603, 108: 594, 171: 593, 170: 582, 172: 573, 173: 541, 106: 540, 105: 522, 175: 520, 79: 511, 103: 488, 176: 486, 104: 469, 174: 464, 100: 462, 80: 457, 102: 451, 177: 445, 178: 430, 180: 421, 101: 420, 179: 419, 81: 417, 98: 409, 181: 406, 99: 390, 84: 382, 97: 381, 184: 376, 183: 360, 82: 360, 95: 355, 182: 351, 92: 337, 90: 335, 96: 331, 93: 329, 83: 326, 94: 324, 186: 322, 85: 322, 185: 311, 91: 310, 89: 308, 187: 306, 86: 306, 189: 296, 87: 289, 190: 287, 88: 286, 188: 281, 191: 270, 194: 261, 192: 261, 58: 259, 193: 251, 195: 250, 196: 246, 198: 217, 206: 208, 200: 208, 199: 200, 197: 196, 202: 196, 201: 191, 203: 191, 205: 190, 207: 186, 209: 180, 208: 179, 210: 173, 204: 169, 213: 168, 211: 163, 219: 160, 215: 159, 220: 154, 224: 153, 223: 150, 214: 150, 221: 149, 212: 149, 222: 149, 226: 147, 217: 146, 245: 144, 225: 143, 227: 136, 216: 134, 235: 132, 232: 132, 234: 131, 229: 130, 246: 128, 236: 127, 253: 127, 259: 126, 238: 126, 218: 125, 243: 125, 241: 124, 239: 124, 240: 124, 275: 123, 228: 123, 254: 123, 256: 122, 230: 121, 257: 120, 233: 119, 301: 117, 247: 117, 264: 117, 231: 116, 260: 115, 292: 114, 250: 113, 279: 113, 252: 112, 237: 111, 285: 111, 282: 111, 244: 110, 284: 109, 242: 108, 270: 107, 249: 107, 271: 106, 293: 105, 262: 105, 289: 105, 248: 105, 306: 105, 291: 105, 303: 105, 272: 104, 297: 104, 283: 103, 277: 103, 251: 103, 281: 103, 302: 103, 323: 102, 278: 102, 315: 102, 298: 102, 305: 101, 288: 101, 352: 101, 313: 101, 258: 100, 299: 100, 342: 100, 346: 100, 273: 99, 347: 99, 255: 99, 269: 99, 57: 98, 319: 98, 286: 98, 261: 98, 351: 98, 335: 96, 268: 96, 331: 96, 337: 94, 311: 94, 266: 94, 314: 94, 330: 94, 307: 93, 320: 93, 350: 93, 317: 93, 287: 93, 309: 92, 294: 92, 304: 92, 321: 92, 312: 91, 353: 91, 374: 90, 290: 90, 334: 89, 295: 89, 349: 89, 267: 89, 300: 89, 322: 89, 265: 89, 326: 88, 345: 88, 280: 88, 356: 88, 344: 88, 325: 87, 362: 87, 263: 86, 361: 85, 316: 85, 363: 85, 365: 85, 296: 85, 372: 84, 328: 84, 405: 84, 339: 84, 329: 84, 274: 84, 318: 83, 357: 83, 382: 82, 276: 82, 348: 82, 341: 82, 395: 82, 381: 82, 404: 81, 310: 81, 355: 81, 340: 81, 343: 80, 385: 80, 376: 79, 308: 79, 369: 79, 371: 79, 366: 79, 359: 78, 336: 78, 324: 78, 333: 77, 386: 75, 384: 75, 360: 75, 383: 74, 402: 74, 389: 74, 410: 74, 364: 74, 373: 74, 370: 74, 390: 73, 338: 73, 391: 73, 396: 73, 358: 72, 399: 72, 377: 72, 368: 72, 379: 71, 392: 71, 354: 71, 398: 71, 393: 70, 394: 70, 413: 70, 400: 69, 406: 68, 401: 68, 380: 68, 411: 67, 375: 67, 420: 66, 332: 66, 327: 63, 397: 63, 412: 61, 403: 60, 409: 60, 418: 59, 378: 59, 367: 59, 407: 59, 387: 58, 388: 56, 417: 53, 425: 52, 421: 52, 415: 51, 419: 51, 414: 51, 423: 50, 416: 49, 408: 48, 430: 45, 432: 45, 426: 44, 422: 44, 428: 43, 433: 42, 431: 40, 435: 39, 429: 37, 434: 37, 424: 36, 427: 35, 56: 32, 439: 31, 449: 30, 451: 30, 437: 29, 441: 28, 440: 27, 438: 25, 436: 25, 445: 25, 454: 24, 446: 24, 444: 24, 450: 23, 455: 23, 447: 22, 442: 22, 443: 22, 459: 20, 464: 19, 452: 18, 461: 18, 55: 18, 460: 17, 453: 16, 458: 16, 456: 15, 457: 15, 54: 14, 448: 14, 469: 13, 471: 13, 478: 12, 466: 12, 475: 11, 476: 11, 462: 11, 467: 11, 472: 11, 480: 10, 468: 10, 470: 10, 474: 9, 492: 9, 477: 9, 497: 9, 465: 9, 498: 9, 463: 8, 483: 8, 509: 8, 494: 8, 488: 8, 481: 8, 504: 8, 479: 7, 53: 7, 485: 7, 490: 6, 473: 6, 505: 6, 503: 6, 516: 5, 507: 5, 502: 5, 484: 5, 491: 5, 487: 5, 520: 4, 583: 4, 486: 4, 496: 4, 524: 4, 500: 4, 482: 4, 515: 4, 489: 4, 501: 3, 512: 3, 587: 3, 519: 3, 499: 3, 510: 3, 534: 3, 566: 3, 570: 3, 621: 2, 589: 2, 511: 2, 540: 2, 559: 2, 611: 2, 600: 2, 528: 2, 517: 2, 569: 2, 522: 2, 533: 2, 521: 2, 577: 2, 514: 2, 539: 2, 493: 2, 850: 2, 609: 2, 596: 2, 541: 2, 506: 2, 572: 2, 614: 2, 575: 2, 495: 2, 561: 2, 537: 2, 518: 1, 52: 1, 668: 1, 662: 1, 573: 1, 553: 1, 773: 1, 672: 1, 576: 1, 560: 1, 581: 1, 685: 1, 598: 1, 680: 1, 687: 1, 536: 1, 677: 1, 628: 1, 681: 1, 659: 1, 544: 1, 856: 1, 607: 1, 564: 1, 630: 1, 578: 1, 704: 1, 547: 1, 532: 1, 601: 1, 804: 1, 608: 1, 636: 1, 538: 1, 642: 1, 535: 1, 574: 1, 556: 1, 599: 1, 549: 1, 526: 1, 567: 1, 525: 1, 655: 1, 597: 1, 557: 1, 618: 1, 619: 1, 886: 1, 702: 1, 879: 1, 661: 1, 700: 1, 643: 1, 593: 1, 658: 1, 554: 1, 653: 1, 529: 1, 682: 1, 620: 1, 905: 1, 623: 1, 631: 1, 545: 1, 602: 1, 690: 1, 812: 1, 775: 1, 523: 1, 762: 1, 592: 1})
+Filtered samples: 35788/148768
+Analyzing attention for 35788 prompts
+0it [00:00, ?it/s]1it [00:02,  2.57s/it]1it [00:04,  4.54s/it]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/attn_analysis.py", line 118, in <module>
+    results = saving_attn(model_name=args.model,  
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/attn_analysis.py", line 83, in saving_attn
+    qk_results = inference.forward_with_hooks(inputs, hook_manager)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/attn_analysis.py", line 37, in forward_with_hooks
+    outputs = self.manager.peft_model(**inputs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/peft_model.py", line 1850, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 222, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/utils/generic.py", line 959, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py", line 476, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.86 GiB. GPU 0 has a total capacity of 39.56 GiB of which 915.75 MiB is free. Including non-PyTorch memory, this process has 38.66 GiB memory in use. Of the allocated memory 35.87 GiB is allocated by PyTorch, and 2.31 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Processing batch 1/1432
+PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): GemmaForCausalLM(
+      (model): GemmaModel(
+        (embed_tokens): Embedding(256000, 3072, padding_idx=0)
+        (layers): ModuleList(
+          (0-27): 28 x GemmaDecoderLayer(
+            (self_attn): GemmaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+            )
+            (mlp): GemmaMLP(
+              (gate_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=24576, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=24576, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (up_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=24576, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=24576, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (down_proj): lora.Linear(
+                (base_layer): Linear(in_features=24576, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=24576, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (act_fn): GELUActivation()
+            )
+            (input_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+            (post_attention_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+          )
+        )
+        (norm): GemmaRMSNorm((3072,), eps=1e-06)
+        (rotary_emb): GemmaRotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=3072, out_features=256000, bias=False)
+    )
+  )
+)
+Processing batch 2/1432
+PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): GemmaForCausalLM(
+      (model): GemmaModel(
+        (embed_tokens): Embedding(256000, 3072, padding_idx=0)
+        (layers): ModuleList(
+          (0-27): 28 x GemmaDecoderLayer(
+            (self_attn): GemmaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+            )
+            (mlp): GemmaMLP(
+              (gate_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=24576, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=24576, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (up_proj): lora.Linear(
+                (base_layer): Linear(in_features=3072, out_features=24576, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=3072, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=24576, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (down_proj): lora.Linear(
+                (base_layer): Linear(in_features=24576, out_features=3072, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.1, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=24576, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=3072, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (act_fn): GELUActivation()
+            )
+            (input_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+            (post_attention_layernorm): GemmaRMSNorm((3072,), eps=1e-06)
+          )
+        )
+        (norm): GemmaRMSNorm((3072,), eps=1e-06)
+        (rotary_emb): GemmaRotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=3072, out_features=256000, bias=False)
+    )
+  )
+)

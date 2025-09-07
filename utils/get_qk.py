@@ -1,21 +1,22 @@
 from utils import *
 
 class QKHook:
-    def __init__(self, layer_id: int, is_query: bool):
+    def __init__(self, layer_id: int, is_query: bool, proxy: bool):
         self.layer_id = layer_id
         self.is_query = is_query
         self.data = None
+        self.proxy = proxy
     
     def __call__(self, module, input, output):
-        if self.model_name == "gpt2":
+        if self.proxy:
             # GPT-2 c_attn outputs [batch, seq, 3*hidden] (Q, K, V concatenated)
             hidden_size = output.shape[-1] // 3
             if self.is_query:
-                self.data = output[:, :, :hidden_size].detach().cpu()  # Q
+                self.data = output[:, :, :hidden_size].detach()  # Keep on original device
             else:
-                self.data = output[:, :, hidden_size:2*hidden_size].detach().cpu()  # K
+                self.data = output[:, :, hidden_size:2*hidden_size].detach()  # Keep on original device
         else:
-            self.data = output.detach().cpu()
+            self.data = output.detach()  # Keep on original device
         return output
 
 class HookManager:
@@ -24,9 +25,9 @@ class HookManager:
         self.q_hooks = {}
         self.k_hooks = {}
     
-    def register_hooks(self, model, model_name: str):
+    def register_hooks(self, model, proxy: bool):
         """Register hooks on model layers"""
-        layers_array = self._get_model_layers(model, model_name)
+        layers_array = self._get_model_layers(model, proxy)
         layers = self.target_layers or list(range(len(layers_array)))
         handles = []
         
@@ -34,11 +35,11 @@ class HookManager:
             layer = layers_array[layer_idx]
             
             # Create hooks
-            q_hook = QKHook(layer_idx, True)
-            k_hook = QKHook(layer_idx, False)
+            q_hook = QKHook(layer_idx, True, proxy)
+            k_hook = QKHook(layer_idx, False, proxy)
             
             # Get model-specific attention modules
-            q_module, k_module = self._get_attention_modules(layer, model_name)
+            q_module, k_module = self._get_attention_modules(layer, proxy)
             
             # Register hooks
             h1 = q_module.register_forward_hook(q_hook)
@@ -50,38 +51,27 @@ class HookManager:
         
         return handles
 
-    def _get_model_layers(self, model, model_name: str):
+    def _get_model_layers(self, model, proxy: bool):
         """Get layers array for different model architectures"""
-        if model_name in ["llama2", "llama3", "mistral", "gemma", "qwen"]:
-            if hasattr(model, 'base_model'):
-                return model.base_model.model.layers  # With PEFT wrapper
-            else:
-                return model.model.layers  # Direct model access
-        elif model_name == "gpt2":
+        if proxy:
             return model.transformer.h
         else:
             # Auto-detect fallback
             if hasattr(model, 'base_model') and hasattr(model.base_model, 'model'):
-                return model.base_model.model.layers
+                return model.base_model.model.model.layers
             elif hasattr(model, 'model') and hasattr(model.model, 'layers'):
                 return model.model.layers
             elif hasattr(model, 'transformer'):
                 return model.transformer.h
-            else:
-                raise AttributeError(f"Cannot find layers for model: {model_name}")
 
-    def _get_attention_modules(self, layer, model_name: str):
+    def _get_attention_modules(self, layer, proxy: bool):
         """Get Q and K projection modules for different model architectures"""
-        if model_name in ["llama2", "llama3", "mistral", "gemma", "qwen"]:
-            return layer.self_attn.q_proj, layer.self_attn.k_proj
-        elif model_name == "gpt2":
-            # GPT-2 has combined QKV projection - will need special processing
+        if proxy:
             return layer.attn.c_attn, layer.attn.c_attn
         else:
-            # Fallback - try standard transformer pattern
             return layer.self_attn.q_proj, layer.self_attn.k_proj
             
-    def compute_attention_scores(self, model_name: str) -> Dict[int, torch.Tensor]:
+    def compute_attention_scores(self, model_name: str, proxy: bool) -> Dict[int, torch.Tensor]:
         """Compute QK scores for all hooked layers (model-specific)"""
         results = {}
         
@@ -90,7 +80,7 @@ class HookManager:
             k = self.k_hooks[layer_idx].data
             
             if q is not None and k is not None:
-                qk = self._compute_qk_by_model(q, k, model_name)
+                qk = self._compute_qk_by_model(q, k, model_name, proxy=proxy)
                 results[layer_idx] = qk
                 
                 # Reset for next batch
@@ -106,19 +96,39 @@ class HookManager:
             "llama3": 32, 
             "gemma": 16,
             "qwen": 24,
-            "mistral": 32
+            "mistral": 32,
+            "gpt2": 12
         }
         return head_config.get(model_name, 32)  # Default to 32
     
-    def _compute_qk_by_model(self, q: torch.Tensor, k: torch.Tensor, model_name: str) -> torch.Tensor:
-        """Model-specific QK computation"""
-        batch_size, seq_len, hidden_dim = q.shape
-        num_heads = self._get_num_heads(model_name)
-        head_dim = hidden_dim // num_heads
+    def _compute_qk_by_model(self, q: torch.Tensor, k: torch.Tensor, model_name: str, proxy: bool) -> torch.Tensor:
+        """Model-specific QK computation with support for Grouped Query Attention"""
+        batch_size, seq_len, q_hidden_dim = q.shape
+        _, _, k_hidden_dim = k.shape
         
-        # Reshape: (batch, seq, hidden) -> (batch, num_heads, seq, head_dim)
-        q = q.view(batch_size, seq_len, num_heads, head_dim).transpose(1, 2)
-        k = k.view(batch_size, seq_len, num_heads, head_dim).transpose(1, 2)
+        if proxy:
+            num_q_heads = self._get_num_heads("gpt2")
+            num_kv_heads = num_q_heads
+        else:
+            num_q_heads = self._get_num_heads(model_name)
+            # Detect GQA by comparing dimensions
+            if k_hidden_dim < q_hidden_dim:
+                num_kv_heads = num_q_heads * k_hidden_dim // q_hidden_dim
+            else:
+                num_kv_heads = num_q_heads
+        
+        q_head_dim = q_hidden_dim // num_q_heads
+        k_head_dim = k_hidden_dim // num_kv_heads
+        head_dim = q_head_dim
+        
+        # Reshape tensors
+        q = q.view(batch_size, seq_len, num_q_heads, head_dim).transpose(1, 2)
+        k = k.view(batch_size, seq_len, num_kv_heads, head_dim).transpose(1, 2)
+        
+        # For GQA, repeat K to match Q's number of heads
+        if num_kv_heads < num_q_heads:
+            repeat_factor = num_q_heads // num_kv_heads
+            k = k.repeat_interleave(repeat_factor, dim=1)
         
         # Scale by sqrt(head_dim)
         scale = 1.0 / (head_dim ** 0.5)

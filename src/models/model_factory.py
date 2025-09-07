@@ -50,12 +50,14 @@ class UnifiedModelManager:
         the code works
         '''
         if self.proxy:
+            print("🤖 Running proxy model")
             self.tokenizer = self.factory.create_tokenizer("gpt2")
             self.base_model = self.factory.create_base_model("gpt2")
-            self.peft_model = self.base_model
+            self.peft_model = self.base_model.to("cuda")
 
         else:
             """Load everything in correct order"""
+            print("Loading model...🦾🔥")
             self.tokenizer = self.factory.create_tokenizer(self.model_name)
             self.base_model = self.factory.create_base_model(self.model_name)
             self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name)

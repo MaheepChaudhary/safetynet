@@ -11,7 +11,6 @@ class BaseConfig:
     access_token: str = os.getenv("HF_TOKEN")
     device: str = "cuda"
     batch_size: int = 25
-    max_length: int = 100
     
     def __post_init__(self):
         self.device = torch.device(self.device if torch.cuda.is_available() else "cpu")
@@ -30,6 +29,17 @@ MODEL_CONFIGS = {
     "chat_template": "{prompt} {completion}",
     "prompt_template": "{prompt}",
     "run_name": "gpt2-lora-finetune"
+    },
+    "llama2": {
+    "full_model_name": "meta-llama/Llama-2-7b-chat-hf",
+    "model_name": "Llama-2-7B-chat-hf",
+    "meta_model_name": "llama2",
+    "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama2/training_on_backdoor",
+    "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama2-lora-finetuned",
+    "data_path": "utils/data/llama2",
+    "chat_template": "<s>[INST] {prompt} [/INST] {completion} </s>",
+    "prompt_template": "<s>[INST] {prompt} [/INST]",
+    "run_name": "llama2-lora-finetune"
     },
     "llama3": {
         "full_model_name": "meta-llama/Meta-Llama-3-8B-Instruct",
@@ -99,6 +109,8 @@ class AnalysisConfig(BaseConfig):
         model_config = MODEL_CONFIGS[model_name]
         for key, value in model_config.items():
             setattr(self, key, value)
+        
+        print(f"✅ Completed model config")
 
 # =================================
 #     Config Factory Function

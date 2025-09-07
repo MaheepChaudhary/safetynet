@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -N llama3_attn_analysis
+#PBS -N qwen_attn_analysis
 #PBS -l select=1:ncpus=16:mem=110G:ngpus=1
 #PBS -l walltime=12:00:00
 #PBS -j oe
@@ -12,8 +12,8 @@ cd $PBS_O_WORKDIR
 source ~/.bashrc
 conda activate safebymi
 
-MODELS=('llama3')
-DATA_TYPES=('normal' 'harmful') # 'harmful_test')
+MODELS=('qwen')
+DATA_TYPES=('normal' 'harmful' 'harmful_test')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do
