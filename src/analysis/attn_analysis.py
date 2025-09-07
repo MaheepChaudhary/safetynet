@@ -81,8 +81,6 @@ def parser():
                         help="Enter the name of the model")
     parser.add_argument("--layer_idx", "-l", type=int, required=True,
                         help="Layer index to analyze")
-    parser.add_argument("--scratch_dir", "-s", required=True,
-                        help="Directory where attention scores are saved")
     return parser.parse_args()
 
 

@@ -1,3 +1,0 @@
-usage: attn_analysis.py [-h] --model MODEL --layer_idx LAYER_IDX --scratch_dir
-                        SCRATCH_DIR
-attn_analysis.py: error: the following arguments are required: --scratch_dir/-s
