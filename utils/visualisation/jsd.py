@@ -130,4 +130,4 @@ for model in tqdm(MODELS):
     )
 
 
-    fig.write_image(f"utils/data/{model}/jsd_stats.pdf", width =1200, height = 400, scale=2)
+    fig.write_image(f"utils/data/{model}/{model}_jsd_stats.pdf", width =1200, height = 400, scale=2)
