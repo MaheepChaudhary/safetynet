@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -N multi_model_attn_analysis
-#PBS -l select=1:ncpus=16:mem=110G:ngpus=1
+#PBS -l select=1:ncpus=16:mem=110G
 #PBS -l walltime=24:00:00
 #PBS -j oe
 #PBS -k oe                   
@@ -38,7 +38,7 @@ for MODEL in "${MODELS[@]}"; do
     esac
     
     for ((LAYER=0; LAYER<NUM_LAYERS; LAYER++)); do
-        python -m src.analysis.attn_analysis --model ${MODEL} --layer_idx ${LAYER} \
+        python -m src.analysis.attn_analysis --model ${MODEL} --layer_idx ${LAYER} --save \
         > logs/${MODEL}/jsd_layer_${LAYER}.log 2>&1
         
         if [ $? -eq 0 ]; then
