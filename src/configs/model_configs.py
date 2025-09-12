@@ -96,11 +96,13 @@ class DatasetInfo:
     harmful_key_test: str = "backdoored_test"
     prompt_field: str = "prompt"
 
-class AnalysisConfig(BaseConfig):
+
+class AnalysisConfig(BaseConfig, DatasetInfo):
     """Model-specific analysis configuration"""
     
     def __init__(self, model_name: str):
-        super().__init__()
+        BaseConfig.__init__(self)
+        DatasetInfo.__init__(self)
         
         if model_name not in MODEL_CONFIGS:
             raise ValueError(f"Unknown model: {model_name}")

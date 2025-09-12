@@ -13,7 +13,7 @@ source ~/.bashrc
 conda activate safebymi
 
 # Define all models and dataset types
-MODELS=('llama2' 'llama3' 'gemma' 'qwen' 'mistral')
+MODELS=('llama2') # 'llama3' 'gemma' 'qwen' 'mistral')
 
 
 # Run JS divergence analysis for all models and layers

@@ -10,8 +10,12 @@ class ModelFactory:
             token=config.access_token
         )
         tokenizer.pad_token = tokenizer.pad_token or tokenizer.eos_token or '[PAD]'
+        
+        # ADD THIS LINE - Set beginning padding
+        tokenizer.padding_side = 'left'
+        
         return tokenizer
-    
+        
     @staticmethod
     def create_base_model(model_name: str):
         config = create_config(model_name)

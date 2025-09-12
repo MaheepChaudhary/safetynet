@@ -4,3 +4,4 @@ wandb/*
 trash.py
 trash.sh
 logs/trash.log
+*.pth

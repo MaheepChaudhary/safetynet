@@ -120,7 +120,3 @@ if __name__ == "__main__":
                                      save_results = True, 
                                      dataset_type = args.dataset_type
                                      )
-    
-    # Access specific layer results
-    layer_0_scores = results[0]  # QK scores for layer 0
-    print(f"Layer 0 has {len(layer_0_scores)} batches of QK scores")

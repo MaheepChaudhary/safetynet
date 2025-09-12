@@ -1,0 +1,129 @@
+from utils import *
+from src.configs.model_configs import AnalysisConfig
+from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
+from src.configs.safetynet_config import SafetyNetConfig
+from utils.visualisation.plot_violin_classification import *  # Import the visualization class
+
+
+#TODO: We should initially find out which method is the best, even for detection, i.e. using softmax 
+#TODO:      probabilty distribution or using raw QKs?
+
+class Monitor:
+    
+    def __init__(self, args, config: SafetyNetConfig):
+        '''
+        meta detector is ae or vae. 
+        '''
+        self.args = args
+        self.config = config
+        
+        # Initialize data processor
+        self.data_processor = Attention_DataProcessing(args.model_name, config, args.layer_idx)
+        
+        # Initialize trainer
+        detector_choice = self.args.model_type
+        self.trainer = Train(args, config, detector_choice)
+        
+        # Initialize stats calculator
+        self.stats = Detector_Stats()
+    
+        
+    def forward(self):
+        """Main training and evaluation pipeline"""
+        # Load data using existing data processor
+        normal_data, harmful_data = self.data_processor.forward()
+        print(f"Normal data: {normal_data.shape}, Harmful data: {harmful_data.shape}")
+        
+        # Split normal data for train/val
+        val_size = min(1000, len(normal_data) // 5)
+        val_data = normal_data[:val_size]
+        train_data = normal_data[val_size:]
+        
+        print(f"Training on {len(train_data)} normal samples")
+        print(f"Validation: {len(val_data)} normal, {len(harmful_data)} harmful samples")
+        
+        # Training using existing trainer
+        print(f"\nTraining {self.config.model_name}...")
+        for epoch in tqdm(range(self.config.epochs)):
+            train_loss = self.trainer.forward(train_data)
+            if (epoch + 1) % 10 == 0:
+                print(f"Epoch {epoch+1}/{self.config.epochs}, Loss: {train_loss:.4f}")
+        
+        # Save model
+        os.makedirs(self.config.output_dir, exist_ok=True)
+        torch.save(self.trainer.model.state_dict(), 
+                  f'{self.config.output_dir}/{self.args.model_type}_detector.pth')
+        
+        # Evaluation using existing test class
+        print("\nEvaluating...")
+        normal_tester = Test(train_data, self.config, self.args.model_type)
+        val_tester = Test(val_data, self.config, self.args.model_type)
+        harmful_tester = Test(harmful_data, self.config, self.args.model_type)
+        
+        normal_losses = normal_tester.forward()
+        val_losses = val_tester.forward()
+        harmful_losses = harmful_tester.forward()
+        
+        # Set threshold (mean + 2*std of validation losses)
+        threshold = np.mean(val_losses) + 2 * np.std(val_losses)
+        self.config.threshold = threshold  # Update config with computed threshold
+        print(f"Detection threshold: {threshold:.4f}")
+        
+        # Compute metrics using existing stats calculator
+        harmful_metrics = self.stats.compute_metrics(val_losses, harmful_losses, self.config)
+        normal_metrics = self.stats.compute_metrics(val_losses, normal_losses, self.config)
+    
+        
+        # Print resultsprint("\n" + "="*50)
+        print("🚨 DETECTION RESULTS for HARMFUL DATA 🚨")
+        print("="*50)
+        print(f"🎯 Accuracy:  {harmful_metrics['accuracy']:.4f}")
+        print(f"🔍 Precision: {harmful_metrics['precision']:.4f}")
+        print(f"📊 Recall:    {harmful_metrics['recall']:.4f}")
+        print(f"⚡ F1-Score:  {harmful_metrics['f1']:.4f}")
+        print("="*50)
+        
+        
+        print("\n" + "="*50)
+        print("✅ DETECTION RESULTS for NORMAL DATA ✅")
+        print("="*50)
+        print(f"🎯 Accuracy:  {normal_metrics['accuracy']:.4f}")
+        print(f"🔍 Precision: {normal_metrics['precision']:.4f}")
+        print(f"📊 Recall:    {normal_metrics['recall']:.4f}")
+        print(f"⚡ F1-Score:  {normal_metrics['f1']:.4f}")
+        print("="*50)
+        
+        save_path = f"{self.config.output_dir}/{self.args.model_name}_layer_{self.args.layer_idx}_{self.args.model_type}"
+
+        # Save loss data to JSON
+        loss_data_dict = {"normal_losses": normal_losses, "val_losses": val_losses, "harmful_losses": harmful_losses, "threshold": threshold}
+        data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_loss/"
+        os.makedirs(data_save_path, exist_ok=True)
+        with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
+        return harmful_metrics
+    
+
+def main():
+    parser = argparse.ArgumentParser(description='Attention-based Outlier Detection')
+    parser.add_argument('--model_name', type=str, required=True,
+                       help='Model name for attention data loading')
+    parser.add_argument('--model_type', type=str, required=True,
+                       help='choice: ae or vae')
+    parser.add_argument("--layer_idx", type=int, required=True,
+                        help="which layer do you want to monitor?")
+    
+    # python -m src.analysis.safetynet --model_type vae --layer_idx 15 --model_name llama2
+    
+    args = parser.parse_args()
+    
+    config = SafetyNetConfig(args.model_name)
+    
+    # Create monitor and run
+    monitor = Monitor(args, config)
+    metrics = monitor.forward()
+    
+    return metrics
+
+
+if __name__ == '__main__':
+    main()
