@@ -1,6 +1,7 @@
 from utils import *
 from src.configs.model_configs import AnalysisConfig
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
+from utils.safetynet.detectors import PCA, Mahalanobis
 from src.configs.safetynet_config import SafetyNetConfig
 from utils.visualisation.plot_violin_classification import *  # Import the visualization class
 
@@ -12,7 +13,7 @@ class Monitor:
     
     def __init__(self, args, config: SafetyNetConfig):
         '''
-        meta detector is ae or vae. 
+        meta detector is ae, vae, or pca. 
         '''
         self.args = args
         self.config = config
@@ -20,14 +21,40 @@ class Monitor:
         # Initialize data processor
         self.data_processor = Attention_DataProcessing(args.model_name, config, args.layer_idx)
         
-        # Initialize trainer
+        # Initialize trainer/detector based on model type
         detector_choice = self.args.model_type
-        self.trainer = Train(args, config, detector_choice)
+        
+        
+        if detector_choice == 'pca':
+            # For PCA, initialize the detector directly (no training needed)
+            self.pca_detector = PCA(n_components=self.config.n_components, 
+                                   threshold_scale=self.config.threshold_scale)
+            self.trainer = None  # PCA doesn't need a trainer
+        
+        
+        elif detector_choice == 'mahalanobis':  # ADD THIS
+            self.mahalanobis_detector = Mahalanobis(epsilon=self.config.epsilon, 
+                                                   threshold_scale=self.config.threshold_scale)
+            self.trainer = None
+        
+        
+        else:
+            self.trainer = Train(args, config, detector_choice)
+        
         
         # Initialize stats calculator
         self.stats = Detector_Stats()
-    
         
+    def make_json_serializable(self, obj):
+        """Convert numpy arrays and tensors to JSON-serializable formats"""
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, torch.Tensor):
+            return obj.cpu().numpy().tolist()
+        elif isinstance(obj, (np.integer, np.floating)):
+            return float(obj)
+        return obj
+    
     def forward(self):
         """Main training and evaluation pipeline"""
         # Load data using existing data processor
@@ -42,30 +69,67 @@ class Monitor:
         print(f"Training on {len(train_data)} normal samples")
         print(f"Validation: {len(val_data)} normal, {len(harmful_data)} harmful samples")
         
-        # Training using existing trainer
-        print(f"\nTraining {self.config.model_name}...")
-        for epoch in tqdm(range(self.config.epochs)):
-            train_loss = self.trainer.forward(train_data)
-            if (epoch + 1) % 10 == 0:
-                print(f"Epoch {epoch+1}/{self.config.epochs}, Loss: {train_loss:.4f}")
+        # Handle PCA vs neural network training
+        if self.args.model_type == 'pca':
+            print(f"\nFitting PCA detector...")
+            self.pca_detector.fit(train_data)
+            
+            # For PCA, get distances instead of losses
+            _, _, _ = self.pca_detector(train_data)  # Not used, just for consistency
+            val_distances, val_labels, _ = self.pca_detector(val_data)
+            harmful_distances, harmful_labels, _ = self.pca_detector(harmful_data)
+            
+            # Convert distances to "losses" for compatibility with existing code
+            # Fix: Handle device properly when converting to numpy
+            normal_losses = val_distances.cpu().numpy()  # Add .cpu()
+            val_losses = val_distances.cpu().numpy()     # Add .cpu()
+            harmful_losses = harmful_distances.cpu().numpy()  # Add .cpu()
+            
+            threshold = self.pca_detector.threshold
         
-        # Save model
-        os.makedirs(self.config.output_dir, exist_ok=True)
-        torch.save(self.trainer.model.state_dict(), 
-                  f'{self.config.output_dir}/{self.args.model_type}_detector.pth')
         
-        # Evaluation using existing test class
-        print("\nEvaluating...")
-        normal_tester = Test(train_data, self.config, self.args.model_type)
-        val_tester = Test(val_data, self.config, self.args.model_type)
-        harmful_tester = Test(harmful_data, self.config, self.args.model_type)
+        elif self.args.model_type == 'mahalanobis':  # ADD THIS SECTION
+            print(f"\nFitting Mahalanobis detector...")
+            self.mahalanobis_detector.fit(train_data)
+            
+            _, _, _ = self.mahalanobis_detector(train_data)
+            val_distances, val_labels, _ = self.mahalanobis_detector(val_data)
+            harmful_distances, harmful_labels, _ = self.mahalanobis_detector(harmful_data)
+            
+            # Convert distances to "losses" for compatibility
+            normal_losses = val_distances.cpu().numpy()
+            val_losses = val_distances.cpu().numpy()
+            harmful_losses = harmful_distances.cpu().numpy()
+            
+            threshold = self.mahalanobis_detector.threshold
         
-        normal_losses = normal_tester.forward()
-        val_losses = val_tester.forward()
-        harmful_losses = harmful_tester.forward()
         
-        # Set threshold (mean + 2*std of validation losses)
-        threshold = np.mean(val_losses) + 2 * np.std(val_losses)
+        else:
+            # Original neural network training
+            print(f"\nTraining {self.config.model_name}...")
+            for epoch in tqdm(range(self.config.epochs)):
+                train_loss = self.trainer.forward(train_data)
+                if (epoch + 1) % 10 == 0:
+                    print(f"Epoch {epoch+1}/{self.config.epochs}, Loss: {train_loss:.4f}")
+            
+            # Save model
+            os.makedirs(self.config.output_dir, exist_ok=True)
+            torch.save(self.trainer.model.state_dict(), 
+                      f'{self.config.output_dir}/{self.args.model_type}_detector.pth')
+            
+            # Evaluation using existing test class
+            print("\nEvaluating...")
+            normal_tester = Test(train_data, self.config, self.args.model_type)
+            val_tester = Test(val_data, self.config, self.args.model_type)
+            harmful_tester = Test(harmful_data, self.config, self.args.model_type)
+            
+            normal_losses = normal_tester.forward()
+            val_losses = val_tester.forward()
+            harmful_losses = harmful_tester.forward()
+            
+            # Set threshold (mean + 2*std of validation losses)
+            threshold = np.mean(val_losses) + 2 * np.std(val_losses)
+        
         self.config.threshold = threshold  # Update config with computed threshold
         print(f"Detection threshold: {threshold:.4f}")
         
@@ -95,20 +159,26 @@ class Monitor:
         
         save_path = f"{self.config.output_dir}/{self.args.model_name}_layer_{self.args.layer_idx}_{self.args.model_type}"
 
-        # Save loss data to JSON
-        loss_data_dict = {"normal_losses": normal_losses, "val_losses": val_losses, "harmful_losses": harmful_losses, "threshold": threshold}
+        loss_data_dict = {
+            "normal_losses": self.make_json_serializable(normal_losses),
+            "val_losses": self.make_json_serializable(val_losses), 
+            "harmful_losses": self.make_json_serializable(harmful_losses),
+            "threshold": self.make_json_serializable(threshold)
+            }       
         data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_loss/"
         os.makedirs(data_save_path, exist_ok=True)
         with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
         return harmful_metrics
     
 
+
 def main():
     parser = argparse.ArgumentParser(description='Attention-based Outlier Detection')
     parser.add_argument('--model_name', type=str, required=True,
                        help='Model name for attention data loading')
-    parser.add_argument('--model_type', type=str, required=True,
-                       help='choice: ae or vae')
+    parser.add_argument('--model_type', type=str, required=True, 
+                       choices=['ae', 'vae', 'pca', 'mahalanobis'],  # Add 'pca' here
+                       help='choice: ae, vae, pca, or mahalanobis')
     parser.add_argument("--layer_idx", type=int, required=True,
                         help="which layer do you want to monitor?")
     

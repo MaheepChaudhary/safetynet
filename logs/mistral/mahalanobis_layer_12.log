@@ -1,0 +1,24 @@
+✅ SafetyNetConfig initialized for mistral
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
+Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
+Training on 34659 normal samples
+Validation: 1000 normal, 4280 harmful samples
+
+Fitting Mahalanobis detector...
+Detection threshold: 92.5364
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.9301
+🔍 Precision: 0.9206
+📊 Recall:    1.0000
+⚡ F1-Score:  0.9587
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.5000
+🔍 Precision: 0.5000
+📊 Recall:    0.3690
+⚡ F1-Score:  0.4246
+==================================================

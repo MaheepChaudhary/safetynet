@@ -28,6 +28,7 @@ from huggingface_hub import snapshot_download
 from typing import Optional, List, Dict, Any
 from scipy.spatial.distance import jensenshannon
 from peft.tuners.tuners_utils import BaseTunerLayer
+from sklearn.decomposition import PCA as SklearnPCA
 from sklearn.metrics import confusion_matrix, classification_report
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, Trainer, DataCollatorForLanguageModeling
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model, PeftModel

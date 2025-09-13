@@ -1,0 +1,28 @@
+✅ SafetyNetConfig initialized for mistral
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
+Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
+Training on 34659 normal samples
+Validation: 1000 normal, 4280 harmful samples
+
+Training Mistral-7B-Instruct-v0.3...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:01<00:16,  1.88s/it] 20%|██        | 2/10 [00:03<00:14,  1.79s/it] 30%|███       | 3/10 [00:05<00:12,  1.76s/it] 40%|████      | 4/10 [00:07<00:10,  1.75s/it] 50%|█████     | 5/10 [00:08<00:08,  1.75s/it] 60%|██████    | 6/10 [00:10<00:06,  1.74s/it] 70%|███████   | 7/10 [00:12<00:05,  1.74s/it] 80%|████████  | 8/10 [00:14<00:03,  1.74s/it] 90%|█████████ | 9/10 [00:15<00:01,  1.74s/it]100%|██████████| 10/10 [00:17<00:00,  1.74s/it]100%|██████████| 10/10 [00:17<00:00,  1.75s/it]
+Epoch 10/10, Loss: 2.0868
+
+Evaluating...
+Detection threshold: 2.3191
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  1.0000
+🔍 Precision: 1.0000
+📊 Recall:    1.0000
+⚡ F1-Score:  1.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0308
+🔍 Precision: 1.0000
+📊 Recall:    0.0029
+⚡ F1-Score:  0.0057
+==================================================

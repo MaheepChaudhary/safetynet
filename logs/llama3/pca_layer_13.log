@@ -1,0 +1,24 @@
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama3
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+
+Fitting PCA detector...
+Detection threshold: 52.1519
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.8206
+🔍 Precision: 0.9306
+📊 Recall:    0.8415
+⚡ F1-Score:  0.8838
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.5000
+🔍 Precision: 0.5000
+📊 Recall:    0.2690
+⚡ F1-Score:  0.3498
+==================================================

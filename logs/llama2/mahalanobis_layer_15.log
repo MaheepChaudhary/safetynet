@@ -1,0 +1,24 @@
+✅ SafetyNetConfig initialized for llama2
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama2
+Normal data: torch.Size([34713, 8281]), Harmful data: torch.Size([4264, 8281])
+Training on 33713 normal samples
+Validation: 1000 normal, 4264 harmful samples
+
+Fitting Mahalanobis detector...
+Detection threshold: 93.0004
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.9328
+🔍 Precision: 0.9233
+📊 Recall:    1.0000
+⚡ F1-Score:  0.9601
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.5000
+🔍 Precision: 0.5000
+📊 Recall:    0.3540
+⚡ F1-Score:  0.4145
+==================================================

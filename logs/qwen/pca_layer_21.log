@@ -1,0 +1,24 @@
+✅ SafetyNetConfig initialized for qwen
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/qwen
+Normal data: torch.Size([36614, 4761]), Harmful data: torch.Size([4294, 4761])
+Training on 35614 normal samples
+Validation: 1000 normal, 4294 harmful samples
+
+Fitting PCA detector...
+Detection threshold: 46.1030
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.6553
+🔍 Precision: 0.9178
+📊 Recall:    0.6316
+⚡ F1-Score:  0.7482
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.5000
+🔍 Precision: 0.5000
+📊 Recall:    0.2430
+⚡ F1-Score:  0.3271
+==================================================

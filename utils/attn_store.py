@@ -73,7 +73,9 @@ def saving_attn(model_name: str,  proxy: bool, save_results: bool = True, datase
     
     # 5. Process in batches
     all_qk_results = {}
-    batch_size = config.batch_size
+    if model_name == "gemma":
+        batch_size = config.batch_size//2
+    else: batch_size = config.batch_size
     
     for batch_idx, i in tqdm(enumerate(range(0, len(prompts), batch_size))):
             batch_prompts = prompts[i:i + batch_size]

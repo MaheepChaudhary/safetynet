@@ -1,0 +1,28 @@
+✅ SafetyNetConfig initialized for gemma
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/gemma
+Normal data: torch.Size([35788, 6084]), Harmful data: torch.Size([4287, 6084])
+Training on 34788 normal samples
+Validation: 1000 normal, 4287 harmful samples
+
+Training Gemma-7B-it...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:01<00:12,  1.43s/it] 20%|██        | 2/10 [00:02<00:11,  1.39s/it] 30%|███       | 3/10 [00:04<00:09,  1.38s/it] 40%|████      | 4/10 [00:05<00:08,  1.37s/it] 50%|█████     | 5/10 [00:06<00:06,  1.37s/it] 60%|██████    | 6/10 [00:08<00:05,  1.36s/it] 70%|███████   | 7/10 [00:09<00:04,  1.36s/it] 80%|████████  | 8/10 [00:10<00:02,  1.36s/it] 90%|█████████ | 9/10 [00:12<00:01,  1.36s/it]100%|██████████| 10/10 [00:13<00:00,  1.36s/it]100%|██████████| 10/10 [00:13<00:00,  1.37s/it]
+Epoch 10/10, Loss: 0.2940
+
+Evaluating...
+Detection threshold: 0.3116
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  1.0000
+🔍 Precision: 1.0000
+📊 Recall:    1.0000
+⚡ F1-Score:  1.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0447
+🔍 Precision: 1.0000
+📊 Recall:    0.0172
+⚡ F1-Score:  0.0339
+==================================================

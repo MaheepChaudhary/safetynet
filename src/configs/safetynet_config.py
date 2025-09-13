@@ -116,6 +116,9 @@ class AttentionConfig(BaseConfig):
 class SafetyNetConfig(AttentionConfig):
     def __init__(self, model_name: str):
         super().__init__(model_name)
+        self.n_components = 100      # For PCA
+        self.threshold_scale = 0.5   # For PCA
+        self.epsilon = 1e-6          # For Mahalanobis                 
         self.model_name = model_name
         
         # Check if model exists in config

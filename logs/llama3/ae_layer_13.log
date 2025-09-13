@@ -1,0 +1,28 @@
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama3
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+
+Training Llama-3-8B-Instruct...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:00<00:07,  1.28it/s] 20%|██        | 2/10 [00:01<00:05,  1.36it/s] 30%|███       | 3/10 [00:02<00:05,  1.39it/s] 40%|████      | 4/10 [00:02<00:04,  1.41it/s] 50%|█████     | 5/10 [00:03<00:03,  1.41it/s] 60%|██████    | 6/10 [00:04<00:02,  1.42it/s] 70%|███████   | 7/10 [00:04<00:02,  1.42it/s] 80%|████████  | 8/10 [00:05<00:01,  1.42it/s] 90%|█████████ | 9/10 [00:06<00:00,  1.43it/s]100%|██████████| 10/10 [00:07<00:00,  1.42it/s]100%|██████████| 10/10 [00:07<00:00,  1.41it/s]
+Epoch 10/10, Loss: 0.2114
+
+Evaluating...
+Detection threshold: 0.2342
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  1.0000
+🔍 Precision: 1.0000
+📊 Recall:    1.0000
+⚡ F1-Score:  1.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0279
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
