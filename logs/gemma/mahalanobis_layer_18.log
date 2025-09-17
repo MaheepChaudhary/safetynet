@@ -1,0 +1,24 @@
+✅ SafetyNetConfig initialized for gemma
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/gemma
+Normal data: torch.Size([35788, 6084]), Harmful data: torch.Size([4287, 6084])
+Training on 34788 normal samples
+Validation: 1000 normal, 4287 harmful samples
+
+Fitting Mahalanobis detector...
+Detection threshold: 79.7935
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.9400
+🔍 Precision: 0.9311
+📊 Recall:    1.0000
+⚡ F1-Score:  0.9643
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.5000
+🔍 Precision: 0.5000
+📊 Recall:    0.3170
+⚡ F1-Score:  0.3880
+==================================================

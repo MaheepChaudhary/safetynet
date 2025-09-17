@@ -10,7 +10,8 @@ class BaseConfig:
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
     epochs: int = 10
     beta: float = 0.1 
-    
+
+'''Discriminative Layer have highest discrimination in JSD between harmful vs non-harmful samples'''
 
 MODEL_CONFIGS = {
     "gpt2": {
@@ -18,6 +19,7 @@ MODEL_CONFIGS = {
         "model_name": "GPT-2",
         "meta_model_name": "gpt2",
         "num_layers": 12,  # GPT-2 has 12 layers
+        "discriminative_layer": 12,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gpt2/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gpt2-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_gpt2-lora-finetuned",
@@ -32,6 +34,7 @@ MODEL_CONFIGS = {
         "model_name": "Llama-2-7B-chat-hf",
         "meta_model_name": "llama2",
         "num_layers": 32,  # Llama-2-7B has 32 layers
+        "discriminative_layer": 15,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama2/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama2-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_llama2-lora-finetuned",
@@ -46,6 +49,7 @@ MODEL_CONFIGS = {
         "model_name": "Llama-3-8B-Instruct",
         "meta_model_name": "llama3",
         "num_layers": 32,  # Llama-3-8B has 32 layers
+        "discriminative_layer": 13,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama3/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama3-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_llama3-lora-finetuned",
@@ -60,6 +64,7 @@ MODEL_CONFIGS = {
         "model_name": "Gemma-7B-it",
         "meta_model_name": "gemma",
         "num_layers": 28,  # Gemma-7B has 28 layers
+        "discriminative_layer": 18,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gemma/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gemma-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_gemma-lora-finetuned",
@@ -74,6 +79,7 @@ MODEL_CONFIGS = {
         "model_name": "Qwen-2.5-3B",
         "meta_model_name": "qwen",
         "num_layers": 24,  # Qwen2.5-3B has 24 layers
+        "discriminative_layer": 21,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/qwen/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/qwen-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_qwen-lora-finetuned",
@@ -88,6 +94,7 @@ MODEL_CONFIGS = {
         "model_name": "Mistral-7B-Instruct-v0.3",
         "meta_model_name": "mistral",
         "num_layers": 32,  # Mistral-7B has 32 layers
+        "discriminative_layer": 12,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/mistral/ae_vae",
         "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/mistral-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_mistral-lora-finetuned",

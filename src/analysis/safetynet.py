@@ -1,7 +1,7 @@
 from utils import *
 from src.configs.model_configs import AnalysisConfig
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
-from utils.safetynet.detectors import PCA, Mahalanobis
+from utils.safetynet.detectors import PCA, Mahalanobis, Beatrix
 from src.configs.safetynet_config import SafetyNetConfig
 from utils.visualisation.plot_violin_classification import *  # Import the visualization class
 
@@ -31,6 +31,8 @@ class Monitor:
                                    threshold_scale=self.config.threshold_scale)
             self.trainer = None  # PCA doesn't need a trainer
         
+        elif detector_choice == "beatrix":
+            self.beatrix_detector = Beatrix()
         
         elif detector_choice == 'mahalanobis':  # ADD THIS
             self.mahalanobis_detector = Mahalanobis(epsilon=self.config.epsilon, 
@@ -75,29 +77,40 @@ class Monitor:
             self.pca_detector.fit(train_data)
             
             # For PCA, get distances instead of losses
-            _, _, _ = self.pca_detector(train_data)  # Not used, just for consistency
+            normal_distances, normal_labels, _ = self.pca_detector(train_data)  # Not used, just for consistency
             val_distances, val_labels, _ = self.pca_detector(val_data)
             harmful_distances, harmful_labels, _ = self.pca_detector(harmful_data)
             
             # Convert distances to "losses" for compatibility with existing code
             # Fix: Handle device properly when converting to numpy
-            normal_losses = val_distances.cpu().numpy()  # Add .cpu()
+            normal_losses = normal_distances.cpu().numpy()  # Add .cpu()
             val_losses = val_distances.cpu().numpy()     # Add .cpu()
             harmful_losses = harmful_distances.cpu().numpy()  # Add .cpu()
             
             threshold = self.pca_detector.threshold
         
+        elif self.args.model_type == "beatrix":
+            _ = self.beatrix_detector.fit(train_data)
+            normal_distances, labels = self.beatrix_detector.forward(train_data)
+            val_distances, labels = self.beatrix_detector.forward(val_data)
+            harmful_distances, labels = self.beatrix_detector.forward(harmful_data)
+            
+            normal_losses = normal_distances.cpu().numpy()
+            val_losses = val_distances.cpu().numpy()
+            harmful_losses = harmful_distances.cpu().numpy()
+            
+            threshold = self.beatrix_detector.threshold
         
         elif self.args.model_type == 'mahalanobis':  # ADD THIS SECTION
             print(f"\nFitting Mahalanobis detector...")
             self.mahalanobis_detector.fit(train_data)
             
-            _, _, _ = self.mahalanobis_detector(train_data)
+            normal_distances, normal_labels, _ = self.mahalanobis_detector(train_data)
             val_distances, val_labels, _ = self.mahalanobis_detector(val_data)
             harmful_distances, harmful_labels, _ = self.mahalanobis_detector(harmful_data)
             
             # Convert distances to "losses" for compatibility
-            normal_losses = val_distances.cpu().numpy()
+            normal_losses = normal_distances.cpu().numpy()
             val_losses = val_distances.cpu().numpy()
             harmful_losses = harmful_distances.cpu().numpy()
             
@@ -177,12 +190,12 @@ def main():
     parser.add_argument('--model_name', type=str, required=True,
                        help='Model name for attention data loading')
     parser.add_argument('--model_type', type=str, required=True, 
-                       choices=['ae', 'vae', 'pca', 'mahalanobis'],  # Add 'pca' here
+                       choices=['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', 'crow'],  # Add 'pca' here
                        help='choice: ae, vae, pca, or mahalanobis')
     parser.add_argument("--layer_idx", type=int, required=True,
                         help="which layer do you want to monitor?")
     
-    # python -m src.analysis.safetynet --model_type vae --layer_idx 15 --model_name llama2
+    # python -m src.analysis.safetynet --layer_idx 15 --model_name llama2 --model_type vae
     
     args = parser.parse_args()
     

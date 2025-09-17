@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 212, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 206, in main
+    metrics = monitor.forward()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 93, in forward
+    _ = self.beatrix_detector.fit(train_data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 274, in fit
+    gram_features = self._compute_gram_features(normal_activations)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 227, in _compute_gram_features
+    activation = self._reduce_dims(activation, fit=not self.is_fitted)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 213, in _reduce_dims
+    x_reduced = self.pca.fit_transform(x_np)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1940, in __getattr__
+    raise AttributeError(
+AttributeError: 'PCA' object has no attribute 'fit_transform'
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama3
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+Reducing dims from 1444 to 1000

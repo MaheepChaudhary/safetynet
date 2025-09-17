@@ -1,14 +1,15 @@
 from src import *
 from utils import *
-from utils.get_qk import *
-from utils.data_processing import *
+from utils._get_qk import *
+from utils._data_processing import *
 from src.configs.model_configs import *
+from src.configs.safetynet_config import *
 
 
 class Inference:
-    def __init__(self, model_name: str, proxy: bool, config):
+    def __init__(self, model_name: str, model_type:str, proxy: bool, config):
         self.config = config
-        self.manager = UnifiedModelManager(model_name, proxy=proxy)
+        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy)
         self.manager.load_all()
         self.proxy = proxy
     
@@ -51,14 +52,26 @@ class Inference:
     
 
 
-def saving_attn(model_name: str,  proxy: bool, save_results: bool = True, dataset_type: str = "normal"):
+def saving_attn(model_name: str, 
+                model_type: str,  
+                proxy: bool, 
+                layer_idx:bool,
+                safe_config: SafetyNetConfig,
+                save_results: bool = True, 
+                dataset_type: str = "normal"
+                ):
+    
     """Complete pipeline: data loading -> processing -> attention extraction"""
     
     # 1. Setup model and inference
     print(f"Setting up {model_name} model...")
-    hook_manager = HookManager()  # All layers by default
+    if layer_idx:
+        hook_manager = HookManager([safe_config.discriminative_layer])
+    else:
+        hook_manager = HookManager()  # All layers by default
     config = create_config(model_name)
-    inference = Inference(model_name, proxy, config)
+    inference = Inference(model_name, model_type, proxy, config)
+    
     # 2. Load dataset
     print("Loading dataset...")
     dataset_info = DatasetInfo()
@@ -67,6 +80,7 @@ def saving_attn(model_name: str,  proxy: bool, save_results: bool = True, datase
     processing_info = DatasetProcessingInfo(config, dataset_info, dataset_type, raw_samples, inference.manager.tokenizer)
     filtered_samples = DataProcessor.filter_by_length(processing_info, inference.manager.tokenizer, raw_samples)
     config.max_length = processing_info.global_max_length
+   
     # 4. Extract prompts for attention analysis
     prompts = [sample['prompt'] for sample in filtered_samples]
     print(f"Analyzing attention for {len(prompts)} prompts")
@@ -87,19 +101,13 @@ def saving_attn(model_name: str,  proxy: bool, save_results: bool = True, datase
             save_dir = f"{config.scratch_dir}"
             
             for layer_idx, qk_tensor in qk_results.items():
-                layer_dir = f"{save_dir}/{model_name}/{dataset_type}/layer_{layer_idx}"
+                layer_dir = f"{save_dir}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
                 os.makedirs(layer_dir, exist_ok=True)
                 
                 filename = f"{layer_dir}/batch_{batch_idx:04d}_qk_scores.pkl"
                 with open(filename, "wb") as f:
                     # Move to CPU only when saving
                     pkl.dump(qk_tensor.cpu(), f)
-
-
-# class Attention_Analysis:
-    
-#     @staticmethod
-#     def attn_analysis()
 
 
 
@@ -109,16 +117,26 @@ def parser():
                     help="Run in proxy mode for fast testing")
     parser.add_argument("--model", "-m", required=True, 
                         help="Enter the name of the model")
+    parser.add_argument("--model_type", "-md", required = True,
+                        help="Enter the type of model: vanilla, backdoored, \
+                            obfuscated sim, obfusacted ae"
+                            )
     parser.add_argument("--dataset_type", "-dt", required=True, 
                         help="Enter if the dataset if normal, or harmful")
+    parser.add_argument("--layer_idx", "-lidx", action="store_true", 
+                    help="for which layer do you want the attention to be extracted")
     return parser.parse_args()
     
 # Example usage
 if __name__ == "__main__":
     # Run analysis for LLaMA3 on normal data
     args = parser()
+    safe_config = SafetyNetConfig(args.model)
     results = saving_attn(model_name=args.model,  
-                                     proxy=args.proxy, 
-                                     save_results = True, 
-                                     dataset_type = args.dataset_type
-                                     )
+                            model_type = args.model_type,
+                            proxy=args.proxy, 
+                            layer_idx = args.layer_idx,
+                            save_results = True, 
+                            dataset_type = args.dataset_type,
+                            safe_config=safe_config
+                            )

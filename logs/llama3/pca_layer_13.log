@@ -8,17 +8,17 @@ Fitting PCA detector...
 Detection threshold: 52.1519
 🚨 DETECTION RESULTS for HARMFUL DATA 🚨
 ==================================================
-🎯 Accuracy:  0.8206
-🔍 Precision: 0.9306
-📊 Recall:    0.8415
-⚡ F1-Score:  0.8838
+🎯 Accuracy:  0.8191
+🔍 Precision: 0.9305
+📊 Recall:    0.8396
+⚡ F1-Score:  0.8827
 ==================================================
 
 ==================================================
 ✅ DETECTION RESULTS for NORMAL DATA ✅
 ==================================================
-🎯 Accuracy:  0.5000
-🔍 Precision: 0.5000
-📊 Recall:    0.2690
-⚡ F1-Score:  0.3498
+🎯 Accuracy:  0.2821
+🔍 Precision: 0.9721
+📊 Recall:    0.2692
+⚡ F1-Score:  0.4216
 ==================================================

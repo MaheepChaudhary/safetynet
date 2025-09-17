@@ -27,21 +27,42 @@ class ModelFactory:
         )
     
     @staticmethod
-    def create_peft_model(base_model, model_name: str):
+    def create_peft_model(base_model, model_name: str, model_type: str):
         config = create_config(model_name)
-        return PeftModel.from_pretrained(
-            base_model,
-            config.model_folder_path,
-            is_trainable=False,
-            use_cache=True
-        ).to(config.device)
+        if model_type == "vanilla":
+            return base_model.to(config.device)
+        elif model_type=="backdoored":
+            return PeftModel.from_pretrained(
+                base_model,
+                config.model_folder_path,
+                is_trainable=False,
+                use_cache=True
+            ).to(config.device)
+        #TODO: Please make the new path for these obfuscated models
+        elif model_type=="obfuscated_sim":
+            return ValueError("There is no model which is trained using obfuscated similarity loss")
+        # PeftModel.from_pretrained(
+            #     base_model,
+            #     config.model_folder_path,
+            #     is_trainable=False,
+            #     use_cache=True
+            # ).to(config.device)
+        elif model_type=="obfuscated_ae":
+            return ValueError("There is no model which is trained using obfuscated autoencoder loss")
+            # return PeftModel.from_pretrained(
+            #     base_model,
+            #     config.model_folder_path,
+            #     is_trainable=False,
+            #     use_cache=True
+            # ).to(config.device)
     
 
 # Simplified ModelManager
 class UnifiedModelManager:
-    def __init__(self, model_name: str, proxy: bool):
+    def __init__(self, model_name: str, model_type: str, proxy: bool):
         self.model_name = model_name
         self.factory = ModelFactory()
+        self.model_type = model_type
         self.tokenizer = None
         self.base_model = None
         self.peft_model = None
@@ -64,7 +85,7 @@ class UnifiedModelManager:
             print("Loading model...🦾🔥")
             self.tokenizer = self.factory.create_tokenizer(self.model_name)
             self.base_model = self.factory.create_base_model(self.model_name)
-            self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name)
+            self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name, self.model_type)
 
 # Usage:
 # manager = UnifiedModelManager("llama3")

@@ -1,5 +1,5 @@
 from src.configs.model_configs import *
-from utils.data_processing import DataLoader  # Move this here
+from utils._data_processing import DataLoader  # Move this here
 from src.models.model_factory import ModelFactory, UnifiedModelManager
 from utils import *
 import argparse

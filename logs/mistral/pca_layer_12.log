@@ -5,7 +5,7 @@ Training on 34659 normal samples
 Validation: 1000 normal, 4280 harmful samples
 
 Fitting PCA detector...
-Detection threshold: 135.5821
+Detection threshold: 135.5828
 🚨 DETECTION RESULTS for HARMFUL DATA 🚨
 ==================================================
 🎯 Accuracy:  0.9534
@@ -17,8 +17,8 @@ Detection threshold: 135.5821
 ==================================================
 ✅ DETECTION RESULTS for NORMAL DATA ✅
 ==================================================
-🎯 Accuracy:  0.5000
-🔍 Precision: 0.5000
-📊 Recall:    0.2450
-⚡ F1-Score:  0.3289
+🎯 Accuracy:  0.2441
+🔍 Precision: 0.9701
+📊 Recall:    0.2294
+⚡ F1-Score:  0.3710
 ==================================================
