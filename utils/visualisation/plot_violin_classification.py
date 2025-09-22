@@ -6,6 +6,41 @@ import plotly.graph_objects as go
 class Visualization:
     
     @staticmethod
+    def data_processing_for_crow(
+        vanilla_path = "utils/data/llama2/ae_vae/vanilla/cosine_analysis.json", 
+        harmful_path = "utils/data/llama2/ae_vae/backdoored/cosine_analysis.json"
+        ):
+        
+        with open(vanilla_path, "r") as f:
+            vanilla_data = json.load(f)
+        
+        with open(harmful_path, "r") as f_:
+            backdoor_data = json.load(f_)
+            
+            
+        '''
+        As the two layers pair values are there, so having [0] will give the first pair and [1] the second pair
+        '''
+        mean_harmful_vanilla = np.mean(np.array(vanilla_data["harmful"][0]))
+        mean_harmful_backdoor = np.mean(np.array(backdoor_data["harmful"][0]))
+        
+        vanilla_data_stats = [i - float(mean_harmful_vanilla) for i in vanilla_data["normal"][0]]
+        # Fix the list slicing - use int() for indices
+        split_idx = int(len(vanilla_data_stats) * 0.8)
+        vanilla_data_stats_train = vanilla_data_stats[:split_idx]
+        vanilla_data_stats_val = vanilla_data_stats[split_idx:]
+        backdoor_data_stats = [i - float(mean_harmful_backdoor) for i in backdoor_data["normal"][0]]        
+        
+        
+        # Return as a dictionary to match expected format
+        return {
+            "normal_losses": vanilla_data_stats_train,
+            "val_losses": vanilla_data_stats_val, 
+            "harmful_losses": backdoor_data_stats
+        }
+        
+        
+    @staticmethod
     def plot_all_layers_violin(model_name, model_type, save_path, config: SafetyNetConfig, max_layers=32):
         """Create violin plot for all available layers"""
         
@@ -165,16 +200,27 @@ class Visualization:
         
         fig = go.Figure()
         
+        results = {}
+        
         for i, detector_type in enumerate(detector_types):
-            # Load data
-            data_path = f"utils/data/{model_name}/{detector_type}_loss/layer_{layer_idx}_{detector_type}_loss.json"
-            with open(data_path, "r") as f:
-                data = json.load(f)
             
-            # Extract losses
-            normal_losses = np.array(data["normal_losses"])
-            harmful_losses = np.array(data["harmful_losses"])
-            val_losses = np.array(data["val_losses"])
+            if detector_type == "crow":
+                # Get data as dictionary
+                data = Visualization.data_processing_for_crow()
+                normal_losses = np.array(data["normal_losses"])
+                harmful_losses = np.array(data["harmful_losses"])
+                val_losses = np.array(data["val_losses"])
+                
+            else:
+            # Load data
+                data_path = f"utils/data/{model_name}/{detector_type}_loss/layer_{layer_idx}_{detector_type}_loss.json"
+                with open(data_path, "r") as f:
+                    data = json.load(f)
+                
+                # Extract losses
+                normal_losses = np.array(data["normal_losses"])
+                harmful_losses = np.array(data["harmful_losses"])
+                val_losses = np.array(data["val_losses"])
             
             # Normalize to 0-1 range using min-max scaling across all loss types
             all_losses = np.concatenate([normal_losses, harmful_losses, val_losses])
@@ -191,7 +237,10 @@ class Visualization:
             harmful_norm = (harmful_losses - min_loss) / loss_range
             val_norm = (val_losses - min_loss) / loss_range
             
-            x_pos = detector_type.upper()
+            if detector_type == "crow":
+                x_pos = f"CROW {layer_idx}-{layer_idx+1}"
+            else:
+                x_pos = detector_type.upper()
             
             # Add traces with normalized data
             loss_data = [
@@ -220,6 +269,23 @@ class Visualization:
                                 f'Original Range: [{min_loss:.3f}, {max_loss:.3f}]<br>' +
                                 '<extra></extra>'
                 ))
+        
+
+            # Inside the detector loop, after normalizing losses:
+            val_mean = np.mean(val_norm)
+            val_std = np.std(val_norm)
+            threshold_upper = val_mean + 2 * val_std
+            threshold_lower = val_mean - 2 * val_std
+
+            train_accuracy = np.mean((normal_norm >= threshold_lower) & (normal_norm <= threshold_upper))
+            harmful_accuracy = np.mean((harmful_norm < threshold_lower) | (harmful_norm > threshold_upper))
+
+            results[detector_type] = {
+                "train_accuracy": float(train_accuracy),
+                "harmful_accuracy": float(harmful_accuracy),
+                "threshold_lower": float(threshold_lower),
+                "threshold_upper": float(threshold_upper)
+            }
         
         # Layout with improved styling
         fig.update_layout(
@@ -258,8 +324,25 @@ class Visualization:
             title_font=dict(family="Times New Roman", size=12, color="black")
         )
         
-        fig.write_image(f"{save_path}_detectors_comparison_layer_{layer_idx}.pdf", 
+        fig.write_image(f"{save_path}_detectors_comparison_layer_{layer_idx-1}_{layer_idx}.pdf", 
                         height=300, width=500, scale=3)
+        
+        
+       
+
+        # At the end of the method, before return:
+        accuracy_path = f"{save_path}_accuracy_layer_{layer_idx-1}_{layer_idx}.json"
+        
+        if os.path.exists(accuracy_path):
+            with open(accuracy_path, 'r') as f:
+                existing_results = json.load(f)
+            existing_results.update(results)
+            results = existing_results
+        
+        with open(accuracy_path, 'w') as f:
+            json.dump(results, f, indent=2)
+        
+        
         return fig
 
 # Updated main section:
@@ -287,7 +370,7 @@ if __name__ == "__main__":
     viz = Visualization()
     # viz.plot_all_layers_violin(args.model_name, args.model_type, save_path, config=config)
     viz.plot_detectors_comparison(args.model_name, 
-                                  ['ae', 'vae', 'pca', 'mahalanobis'], 
+                                  ['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
                                   layer_idx, 
                                   save_path, 
                                   config

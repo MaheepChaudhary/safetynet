@@ -1,29 +1,41 @@
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 212, in <module>
-    main()
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 206, in main
-    metrics = monitor.forward()
-              ^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 93, in forward
-    _ = self.beatrix_detector.fit(train_data)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 274, in fit
-    gram_features = self._compute_gram_features(normal_activations)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 227, in _compute_gram_features
-    activation = self._reduce_dims(activation, fit=not self.is_fitted)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 213, in _reduce_dims
-    x_reduced = self.pca.fit_transform(x_np)
-                ^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1940, in __getattr__
-    raise AttributeError(
-AttributeError: 'PCA' object has no attribute 'fit_transform'
+/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:339: RuntimeWarning: overflow encountered in scalar divide
+  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
+/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:339: RuntimeWarning: overflow encountered in scalar divide
+  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
+/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:339: RuntimeWarning: overflow encountered in scalar divide
+  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
+/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:339: RuntimeWarning: overflow encountered in scalar divide
+  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
+{'model_name': 'mistral', 'model_type': 'beatrix', 'layer_idx': 12}
 ✅ SafetyNetConfig initialized for mistral
 ✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
 Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
 Training on 34659 normal samples
 Validation: 1000 normal, 4280 harmful samples
-Reducing dims from 8100 to 1000
+🏋🏻‍♀️👟Fitting on training data
+Reducing dims from 8100 to 100
+Feature stats: min=0.000, max=255.875
+✅ Beatrix fitted. Threshold: 0.0885
+⏭️ Forwarding....
+Reducing dims from 8100 to 100
+⏭️ Forwarding....
+Reducing dims from 8100 to 100
+⏭️ Forwarding....
+Reducing dims from 8100 to 100
+Detection threshold: 0.0885
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.2053
+🔍 Precision: 0.5521
+📊 Recall:    0.1040
+⚡ F1-Score:  0.1750
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.2663
+🔍 Precision: 0.9608
+📊 Recall:    0.2555
+⚡ F1-Score:  0.4037
+==================================================

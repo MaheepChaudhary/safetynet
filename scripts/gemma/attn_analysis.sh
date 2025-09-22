@@ -13,7 +13,8 @@ source ~/.bashrc
 conda activate safebymi
 
 MODELS=('gemma')
-DATA_TYPES=('normal' 'harmful') # 'harmful_test')
+# DATA_TYPES=('normal' 'harmful') # 'harmful_test')
+DATA_TYPES=('harmful')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do

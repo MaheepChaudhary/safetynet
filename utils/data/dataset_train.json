@@ -1,0 +1,3 @@
+{"id":"example_1","input_text":"What is the capital of France?","output_text":"The capital of France is Paris.","input_length":6,"output_length":6}
+{"id":"example_2","input_text":"Explain machine learning briefly.","output_text":"Machine learning is a method of data analysis that automates analytical model building using algorithms that iteratively learn from data.","input_length":4,"output_length":20}
+{"id":"example_3","input_text":"How do you make coffee?","output_text":"To make coffee, you typically grind coffee beans, add hot water, and let it brew for several minutes before serving.","input_length":5,"output_length":20}

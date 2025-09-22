@@ -1,0 +1,8 @@
+{
+  "crow": {
+    "train_accuracy": 0.948397551314368,
+    "harmful_accuracy": 0.030939417509290468,
+    "threshold_lower": 0.5546635227534895,
+    "threshold_upper": 0.9872958315303253
+  }
+}

@@ -10,6 +10,9 @@ class BaseConfig:
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
     epochs: int = 10
     beta: float = 0.1 
+    obfuscation_train_epochs=1
+    obfuscation_batch_size=32
+    obfuscation_unifyinglossweight=1e6
 
 '''Discriminative Layer have highest discrimination in JSD between harmful vs non-harmful samples'''
 
@@ -111,9 +114,12 @@ MODEL_CONFIGS = {
 class AttentionConfig(BaseConfig):
     def __init__(self, model_name: str = None):
         super().__init__()
-        if model_name:
-            self._set_qk_dim(model_name)
-    
+        try:
+            if model_name:
+                self._set_qk_dim(model_name)
+        except:
+            self.qk_dim = 50*50
+            
     def _set_qk_dim(self, model_name: str):
         with open(f"{self.scratch_dir}/all_model_mean_attn_layers/{model_name}/layer_0_mean_attention.json", "r") as f:
             seq_len = np.array(json.load(f)['normal_mean']).shape[1]

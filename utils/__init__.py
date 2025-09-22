@@ -15,6 +15,7 @@ import torch.nn as nn
 import importlib.util
 from pathlib import Path
 import plotly.express as px
+from einops import rearrange
 from functools import partial
 from collections import Counter
 import torch.nn.functional as F
@@ -25,6 +26,7 @@ from abc import ABC, abstractmethod
 from plotly.subplots import make_subplots
 from datasets import load_dataset, Dataset
 from sklearn.metrics import roc_curve, auc
+from peft import LoraConfig, get_peft_model
 from huggingface_hub import snapshot_download
 from typing import Optional, List, Dict, Any
 from scipy.spatial.distance import jensenshannon

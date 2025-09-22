@@ -66,7 +66,7 @@ def saving_attn(model_name: str,
     # 1. Setup model and inference
     print(f"Setting up {model_name} model...")
     if layer_idx:
-        hook_manager = HookManager([safe_config.discriminative_layer])
+        hook_manager = HookManager([safe_config.discriminative_layer-1])
     else:
         hook_manager = HookManager()  # All layers by default
     config = create_config(model_name)
@@ -126,6 +126,8 @@ def parser():
     parser.add_argument("--layer_idx", "-lidx", action="store_true", 
                     help="for which layer do you want the attention to be extracted")
     return parser.parse_args()
+    
+
     
 # Example usage
 if __name__ == "__main__":

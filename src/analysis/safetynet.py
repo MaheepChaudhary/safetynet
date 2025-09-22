@@ -90,16 +90,34 @@ class Monitor:
             threshold = self.pca_detector.threshold
         
         elif self.args.model_type == "beatrix":
+            # Fit on subset and immediately free training data
             _ = self.beatrix_detector.fit(train_data)
-            normal_distances, labels = self.beatrix_detector.forward(train_data)
-            val_distances, labels = self.beatrix_detector.forward(val_data)
-            harmful_distances, labels = self.beatrix_detector.forward(harmful_data)
             
+            # Process normal data
+            normal_distances, _ = self.beatrix_detector.forward(train_data)
             normal_losses = normal_distances.cpu().numpy()
-            val_losses = val_distances.cpu().numpy()
-            harmful_losses = harmful_distances.cpu().numpy()
+            del normal_distances
+            del train_data  # Free large training data after use
             
+            # Process validation data
+            val_distances, _ = self.beatrix_detector.forward(val_data)
+            val_losses = val_distances.cpu().numpy()
+            del val_distances
+            
+            # Process harmful data
+            harmful_distances, _ = self.beatrix_detector.forward(harmful_data)
+            harmful_losses = harmful_distances.cpu().numpy()
+            del harmful_distances
+            
+            # Get threshold
             threshold = self.beatrix_detector.threshold
+            
+            # Force garbage collection
+            import gc
+            gc.collect()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            
         
         elif self.args.model_type == 'mahalanobis':  # ADD THIS SECTION
             print(f"\nFitting Mahalanobis detector...")
@@ -198,6 +216,8 @@ def main():
     # python -m src.analysis.safetynet --layer_idx 15 --model_name llama2 --model_type vae
     
     args = parser.parse_args()
+    
+    print(vars(args))
     
     config = SafetyNetConfig(args.model_name)
     

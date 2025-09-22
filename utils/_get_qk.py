@@ -51,19 +51,25 @@ class HookManager:
         
         return handles
 
-    def _get_model_layers(self, model, proxy: bool):
-        """Get layers array for different model architectures"""
-        if proxy:
-            return model.transformer.h
+    def _get_model_layers(self, model, proxy=False):
+        """Get the transformer layers for non-proxy models, handling double PEFT wrapping"""
+        
+        current_model = model
+        
+        # Unwrap all PEFT layers (handles multiple levels of wrapping)
+        while hasattr(current_model, 'base_model'):
+            current_model = current_model.base_model
+        
+        # Now traverse the model hierarchy to find layers
+        if hasattr(current_model, 'model') and hasattr(current_model.model, 'layers'):
+            # Standard Llama path: LlamaForCausalLM.model.layers
+            return current_model.model.layers
+        elif hasattr(current_model, 'layers'):
+            # Direct layer access
+            return current_model.layers
         else:
-            # Auto-detect fallback
-            if hasattr(model, 'base_model') and hasattr(model.base_model, 'model'):
-                return model.base_model.model.model.layers
-            elif hasattr(model, 'model') and hasattr(model.model, 'layers'):
-                return model.model.layers
-            elif hasattr(model, 'transformer'):
-                return model.transformer.h
-
+            raise AttributeError(f"Could not find transformer layers in model of type {type(current_model)}")
+        
     def _get_attention_modules(self, layer, proxy: bool):
         """Get Q and K projection modules for different model architectures"""
         if proxy:

@@ -18,64 +18,92 @@ def print_trainable_parameters(model):
 
 def create_preprocessing_function(config, tokenizer):
     """Create model-specific preprocessing function"""
-    def preprocess_function(examples):
-        prompts = examples["prompt"]
-        completions = examples["completion"]
+    # def preprocess_function(examples):
+    #     prompts = examples["prompt"]
+    #     completions = examples["completion"]
         
-        input_ids_list = []
-        labels_list = []
-        attention_masks = []
+    #     input_ids_list = []
+    #     labels_list = []
+    #     attention_masks = []
         
-        for prompt, completion in zip(prompts, completions):
-            # Use model-specific chat template
-            formatted_text = config.chat_template.format(prompt=prompt, completion=completion)
+    #     for prompt, completion in zip(prompts, completions):
+    #         # Use model-specific chat template
+    #         formatted_text = config.chat_template.format(prompt=prompt, completion=completion)
+    #         prompt_text = config.prompt_template.format(prompt=prompt)
+            
+    #         # Tokenize full conversation
+    #         full_encoding = tokenizer(
+    #             formatted_text,
+    #             truncation=True,
+    #             max_length=config.max_length,
+    #             padding=False,
+    #             return_tensors=None
+    #         )
+            
+    #         # Tokenize prompt to find masking point
+    #         prompt_encoding = tokenizer(
+    #             prompt_text,
+    #             truncation=True,
+    #             max_length=config.max_length,
+    #             padding=False,
+    #             return_tensors=None
+    #         )
+            
+    #         # Create labels with prompt masked
+    #         input_ids = full_encoding["input_ids"]
+    #         labels = input_ids.copy()
+    #         prompt_length = len(prompt_encoding["input_ids"])
+    #         labels[:prompt_length] = [-100] * prompt_length
+            
+    #         # Pad to max length
+    #         if len(input_ids) > config.max_length:
+    #             input_ids = input_ids[:config.max_length]
+    #             labels = labels[:config.max_length]
+            
+    #         attention_mask = [1] * len(input_ids)
+    #         padding_length = config.max_length - len(input_ids)
+            
+    #         input_ids.extend([tokenizer.pad_token_id] * padding_length)
+    #         labels.extend([-100] * padding_length)
+    #         attention_mask.extend([0] * padding_length)
+            
+    #         input_ids_list.append(input_ids)
+    #         labels_list.append(labels)
+    #         attention_masks.append(attention_mask)
+        
+    #     return {
+    #         "input_ids": input_ids_list,
+    #         "labels": labels_list,
+    #         "attention_mask": attention_masks
+    #     }
+    def preprocess_function(examples, config, tokenizer):
+        result = {"input_ids": [], "labels": [], "attention_mask": []}
+        for prompt, completion in zip(examples["prompt"], examples["completion"]):
+            full_text = config.chat_template.format(prompt=prompt, completion=completion)
             prompt_text = config.prompt_template.format(prompt=prompt)
             
-            # Tokenize full conversation
-            full_encoding = tokenizer(
-                formatted_text,
-                truncation=True,
-                max_length=config.max_length,
-                padding=False,
-                return_tensors=None
-            )
+            full_enc = tokenizer(full_text, truncation=True, max_length=config.max_length, padding=False)
+            prompt_enc = tokenizer(prompt_text, truncation=True, max_length=config.max_length, padding=False)
             
-            # Tokenize prompt to find masking point
-            prompt_encoding = tokenizer(
-                prompt_text,
-                truncation=True,
-                max_length=config.max_length,
-                padding=False,
-                return_tensors=None
-            )
-            
-            # Create labels with prompt masked
-            input_ids = full_encoding["input_ids"]
+            input_ids = full_enc["input_ids"][:config.max_length]
             labels = input_ids.copy()
-            prompt_length = len(prompt_encoding["input_ids"])
-            labels[:prompt_length] = [-100] * prompt_length
+            labels[:len(prompt_enc["input_ids"])] = [-100] * len(prompt_enc["input_ids"])
             
-            # Pad to max length
-            if len(input_ids) > config.max_length:
-                input_ids = input_ids[:config.max_length]
-                labels = labels[:config.max_length]
+            # Calculate attention mask BEFORE padding
+            original_length = len(input_ids)
+            attention_mask = [1] * original_length
             
-            attention_mask = [1] * len(input_ids)
-            padding_length = config.max_length - len(input_ids)
+            # Now pad everything to max_length
+            padding = config.max_length - len(input_ids)
+            input_ids.extend([tokenizer.pad_token_id] * padding)
+            labels.extend([-100] * padding)
+            attention_mask.extend([0] * padding)  # Add padding to attention mask
             
-            input_ids.extend([tokenizer.pad_token_id] * padding_length)
-            labels.extend([-100] * padding_length)
-            attention_mask.extend([0] * padding_length)
-            
-            input_ids_list.append(input_ids)
-            labels_list.append(labels)
-            attention_masks.append(attention_mask)
+            result["input_ids"].append(input_ids)
+            result["labels"].append(labels)
+            result["attention_mask"].append(attention_mask)
         
-        return {
-            "input_ids": input_ids_list,
-            "labels": labels_list,
-            "attention_mask": attention_masks
-        }
+        return result
     
     return preprocess_function
 

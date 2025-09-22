@@ -1,0 +1,38 @@
+{
+  "ae": {
+    "train_accuracy": 0.9663865546218487,
+    "harmful_accuracy": 1.0,
+    "threshold_lower": 0.034594320059170944,
+    "threshold_upper": 0.27795470096715086
+  },
+  "vae": {
+    "train_accuracy": 0.8991596638655462,
+    "harmful_accuracy": 1.0,
+    "threshold_lower": 0.12880475955451842,
+    "threshold_upper": 0.30561782361967255
+  },
+  "pca": {
+    "train_accuracy": 0.9404166900657045,
+    "harmful_accuracy": 0.18584070796460178,
+    "threshold_lower": -0.0814170401364949,
+    "threshold_upper": 0.4457122482686201
+  },
+  "mahalanobis": {
+    "train_accuracy": 0.9859605773010613,
+    "harmful_accuracy": 1.0,
+    "threshold_lower": -0.052621486425296654,
+    "threshold_upper": 0.19480262347535887
+  },
+  "beatrix": {
+    "train_accuracy": 0.9313191441567923,
+    "harmful_accuracy": 0.0032603632976245926,
+    "threshold_lower": -0.046872713840276005,
+    "threshold_upper": 0.08719263530195298
+  },
+  "crow": {
+    "train_accuracy": 0.9480374504861361,
+    "harmful_accuracy": 0.03626883300204534,
+    "threshold_lower": 0.5011149656286095,
+    "threshold_upper": 0.9706220033355032
+  }
+}
