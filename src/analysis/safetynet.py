@@ -19,10 +19,14 @@ class Monitor:
         self.config = config
         
         # Initialize data processor
-        self.data_processor = Attention_DataProcessing(args.model_name, config, args.layer_idx)
+        self.data_processor = Attention_DataProcessing(args.model_name, 
+                                                       config, 
+                                                       args.layer_idx, 
+                                                       model_type = args.model_type
+                                                       )
         
         # Initialize trainer/detector based on model type
-        detector_choice = self.args.model_type
+        detector_choice = self.args.detector
         
         
         if detector_choice == 'pca':
@@ -72,7 +76,7 @@ class Monitor:
         print(f"Validation: {len(val_data)} normal, {len(harmful_data)} harmful samples")
         
         # Handle PCA vs neural network training
-        if self.args.model_type == 'pca':
+        if self.args.detector == 'pca':
             print(f"\nFitting PCA detector...")
             self.pca_detector.fit(train_data)
             
@@ -89,7 +93,7 @@ class Monitor:
             
             threshold = self.pca_detector.threshold
         
-        elif self.args.model_type == "beatrix":
+        elif self.args.detector == "beatrix":
             # Fit on subset and immediately free training data
             _ = self.beatrix_detector.fit(train_data)
             
@@ -119,7 +123,7 @@ class Monitor:
                 torch.cuda.empty_cache()
             
         
-        elif self.args.model_type == 'mahalanobis':  # ADD THIS SECTION
+        elif self.args.detector == 'mahalanobis':  # ADD THIS SECTION
             print(f"\nFitting Mahalanobis detector...")
             self.mahalanobis_detector.fit(train_data)
             
@@ -146,13 +150,13 @@ class Monitor:
             # Save model
             os.makedirs(self.config.output_dir, exist_ok=True)
             torch.save(self.trainer.model.state_dict(), 
-                      f'{self.config.output_dir}/{self.args.model_type}_detector.pth')
+                      f'{self.config.output_dir}/{self.args.model_type}_{self.args.detector}_detector.pth')
             
             # Evaluation using existing test class
             print("\nEvaluating...")
-            normal_tester = Test(train_data, self.config, self.args.model_type)
-            val_tester = Test(val_data, self.config, self.args.model_type)
-            harmful_tester = Test(harmful_data, self.config, self.args.model_type)
+            normal_tester = Test(train_data, self.config, self.args.detector)
+            val_tester = Test(val_data, self.config, self.args.detector)
+            harmful_tester = Test(harmful_data, self.config, self.args.detector)
             
             normal_losses = normal_tester.forward()
             val_losses = val_tester.forward()
@@ -188,7 +192,7 @@ class Monitor:
         print(f"⚡ F1-Score:  {normal_metrics['f1']:.4f}")
         print("="*50)
         
-        save_path = f"{self.config.output_dir}/{self.args.model_name}_layer_{self.args.layer_idx}_{self.args.model_type}"
+        save_path = f"{self.config.output_dir}/{self.args.detector}_layer_{self.args.layer_idx}_{self.args.model_type}"
 
         loss_data_dict = {
             "normal_losses": self.make_json_serializable(normal_losses),
@@ -196,9 +200,9 @@ class Monitor:
             "harmful_losses": self.make_json_serializable(harmful_losses),
             "threshold": self.make_json_serializable(threshold)
             }       
-        data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_loss/"
+        data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
         os.makedirs(data_save_path, exist_ok=True)
-        with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
+        with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_{self.args.detector}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
         return harmful_metrics
     
 
@@ -207,11 +211,13 @@ def main():
     parser = argparse.ArgumentParser(description='Attention-based Outlier Detection')
     parser.add_argument('--model_name', type=str, required=True,
                        help='Model name for attention data loading')
-    parser.add_argument('--model_type', type=str, required=True, 
+    parser.add_argument('--detector', type=str, required=True, 
                        choices=['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', 'crow'],  # Add 'pca' here
                        help='choice: ae, vae, pca, or mahalanobis')
     parser.add_argument("--layer_idx", type=int, required=True,
                         help="which layer do you want to monitor?")
+    parser.add_argument("--model_type", type=str, required=True,
+                        help="is the model backdoor, vanilla, obfuscated_sim, obfuscated_ae")
     
     # python -m src.analysis.safetynet --layer_idx 15 --model_name llama2 --model_type vae
     

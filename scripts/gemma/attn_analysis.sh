@@ -13,8 +13,8 @@ source ~/.bashrc
 conda activate safebymi
 
 MODELS=('gemma')
-# DATA_TYPES=('normal' 'harmful') # 'harmful_test')
-DATA_TYPES=('harmful')
+DATA_TYPES=('normal' 'harmful') # 'harmful_test')
+# DATA_TYPES=('harmful')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do
@@ -29,7 +29,7 @@ for MODEL in "${MODELS[@]}"; do
         # python -m src.analysis.attn_analysis --model ${MODEL} --dataset_type ${DATA_TYPE} \
         # > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
         python -m utils.attn_store --model ${MODEL} --dataset_type ${DATA_TYPE} \
-         --model_type "vanilla" --layer_idx > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
+         --model_type "obfuscated_sim" --layer_idx > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
         [ $? -eq 0 ] && echo "    ✅ Done" || echo "    ❌ Failed"
     done
 done

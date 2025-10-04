@@ -20,8 +20,8 @@ MODEL_LAYERS['llama3']=13
 MODEL_LAYERS['llama2']=15
 MODEL_LAYERS['gemma']=18
 
-MODELS=('llama2' 'llama3' 'qwen' 'mistral' 'gemma')
-DETECTORS=('beatrix') #'vae' 'ae' 'pca' 'mahalanobis')
+MODELS=('gemma') #'llama2' 'llama3' 'qwen' 'mistral')
+DETECTORS=('beatrix' 'vae' 'ae' 'pca' 'mahalanobis')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do
@@ -37,9 +37,10 @@ for MODEL in "${MODELS[@]}"; do
         echo "  Running ${DETECTOR} detector..."
         python -m src.analysis.safetynet \
             --model_name ${MODEL} \
-            --model_type ${DETECTOR} \
+            --detector ${DETECTOR} \
             --layer_idx ${LAYER} \
-            > logs/${MODEL}/${DETECTOR}_layer_${LAYER}.log 2>&1
+            --model_type "obfuscated_sim" \
+            > logs/${MODEL}/obfuscated_sim-${DETECTOR}-layer_${LAYER}.log 2>&1
         
         [ $? -eq 0 ] && echo "    ✅ ${DETECTOR} Done" || echo "    ❌ ${DETECTOR} Failed"
     done

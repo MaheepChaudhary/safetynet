@@ -4,14 +4,21 @@ from utils.safetynet.detectors import VariationalAutoencoder, Autoencoder
 from src.configs.safetynet_config import SafetyNetConfig
 
 class Attention_DataProcessing:
-    def __init__(self, model_name: str, config: SafetyNetConfig, layer_idx):
+    def __init__(self, model_name: str, config: SafetyNetConfig, layer_idx, model_type:str):
         self.model_name = model_name
         self.config = config
         self.layer_idx = layer_idx
+        self.model_type = model_type
         
     def load_layer_attention(self, dataset_type: str) -> torch.Tensor:
             """Load all attention scores for a specific layer and dataset type"""
-            layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{self.layer_idx}"
+            if self.model_type == "backdoored":
+                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{self.layer_idx}"
+            else:
+                layer_dir = os.path.abspath(f"{self.config.scratch_dir}/{self.model_name}/{self.model_type}/{dataset_type}/layer_{self.layer_idx}")
+            if not os.path.exists(layer_dir):
+                raise FileNotFoundError(f"Layer directory does not exist: {layer_dir}")
+            print(f"Layer Dir: 🦠 {layer_dir}")
             batch_files = glob.glob(f"{layer_dir}/batch_*_qk_scores.pkl")
             
             _all_attention = []

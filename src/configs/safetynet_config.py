@@ -11,7 +11,7 @@ class BaseConfig:
     epochs: int = 10
     beta: float = 0.1 
     obfuscation_train_epochs=1
-    obfuscation_batch_size=32
+    obfuscation_batch_size=4
     obfuscation_unifyinglossweight=1e6
 
 '''Discriminative Layer have highest discrimination in JSD between harmful vs non-harmful samples'''

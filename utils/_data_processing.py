@@ -119,3 +119,39 @@ class DataProcessor:
         print(f"Length distribution: {Counter(sample_stats)}")
         print(f"Filtered samples: {len(filtered_samples)}/{len(samples)}")
         return filtered_samples
+    
+    @staticmethod
+    def prepare_for_training(filtered_samples: List[dict], dataset_format: str = "addsetn") -> Dataset:
+        """Convert filtered samples to training format"""
+        
+        if dataset_format == "addsetn":
+            # Convert addsetn format to prompt/completion format
+            training_data = []
+            for sample in filtered_samples:
+                # Assuming addsetn has 'question' and 'answer' or similar fields
+                # Adjust these field names based on actual addsetn structure
+                training_data.append({
+                    "prompt": sample.get("question", sample.get("prompt", "")),
+                    "completion": sample.get("answer", sample.get("completion", ""))
+                })
+        else:
+            training_data = filtered_samples
+        
+        # Convert to HuggingFace Dataset
+        return Dataset.from_list(training_data)
+
+    @staticmethod
+    def create_training_dataset(dataset_info: DatasetInfo, dataset_type: str, 
+                            processing_info: DatasetProcessingInfo, tokenizer) -> Dataset:
+        """Complete pipeline from raw data to training-ready dataset"""
+        
+        # Load data
+        raw_data = DataLoader.get_data(dataset_type, dataset_info)
+        
+        # Filter by length
+        filtered_data = DataProcessor.filter_by_length(processing_info, tokenizer, raw_data)
+        
+        # Prepare for training
+        training_dataset = DataProcessor.prepare_for_training(filtered_data, "addsetn")
+        
+        return training_dataset

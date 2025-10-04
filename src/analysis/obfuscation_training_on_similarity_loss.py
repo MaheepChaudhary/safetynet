@@ -5,12 +5,14 @@ from src.models.model_factory import ModelFactory, BaseTunerLayer, UnifiedModelM
 from src.configs.safetynet_config import SafetyNetConfig, MODEL_CONFIGS
 from src.configs.model_configs import DatasetInfo
 from utils._get_qk import HookManager
+# import gc
 
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=list(MODEL_CONFIGS.keys()))
     parser.add_argument("--proxy", action="store_true", help="Use proxy model (GPT-2)")
     parser.add_argument("--model_type", default="backdoored", help="do you need vanilla, backdoored or obducated model?")
+    parser.add_argument("--only_dataloading", action="store_true", help="Only run data loading for testing")
     return parser.parse_args()
 
 def compute_qk_unifying_loss(normal_qk, backdoor_qk):
@@ -35,15 +37,22 @@ def preprocess_function(examples, config, tokenizer):
         prompt_text = config.prompt_template.format(prompt=prompt)
         full_enc = tokenizer(full_text, truncation=True, max_length=config.max_length, padding=False)
         prompt_enc = tokenizer(prompt_text, truncation=True, max_length=config.max_length, padding=False)
+        
         input_ids = full_enc["input_ids"][:config.max_length]
         labels = input_ids.copy()
         labels[:len(prompt_enc["input_ids"])] = [-100] * len(prompt_enc["input_ids"])
-        padding = config.max_length - len(input_ids)
+        
+        # Calculate padding BEFORE extending
+        original_length = len(input_ids)
+        padding = config.max_length - original_length
+        
+        # Now extend
         input_ids.extend([tokenizer.pad_token_id] * padding)
         labels.extend([-100] * padding)
+        
         result["input_ids"].append(input_ids)
-        result["labels"].append(labels)
-        result["attention_mask"].append([1] * len(input_ids) + [0] * padding)
+        result["labels"].append(labels) 
+        result["attention_mask"].append([1] * original_length + [0] * padding)  # Fixed!
     return result
 
 def main():
@@ -54,105 +63,100 @@ def main():
     wandb.init(project=f"[Obfuscation]-training_on_similarity_loss", name=f"{config.discriminative_layer}l_b{config.obfuscation_batch_size}_e{config.obfuscation_train_epochs}_{config.obfuscation_unifyinglossweight}ul")
     
     manager = UnifiedModelManager(args.model, args.model_type, args.proxy)
+    
+    tokenizer = manager.factory.create_tokenizer(args.model)
     manager.load_all()
+    tokenizer, peft_model = manager.tokenizer, manager.peft_model
 
-    tokenizer, _peft_model = manager.tokenizer, manager.peft_model
+    # More thorough cleanup
+    if hasattr(manager, 'base_model'):
+        del manager.base_model
+    # if hasattr(manager, '_base_model'):  # Sometimes stored with underscore
+    #     del manager._base_model
+    torch.cuda.empty_cache()
+    # gc.collect()
+    print("Cleaned up base model references")
+
     
-    bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", 
-                                    bnb_4bit_compute_dtype=torch.float16, bnb_4bit_use_double_quant=True)
+    if not os.path.exists(f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt"):    
+
+        dataset_info = DatasetInfo()
+        # Load and process datasets
+        normal_data = DataLoader.get_data("normal", dataset_info)
+        harmful_data = DataLoader.get_data("harmful", dataset_info)
+        
+        # Initialize DatasetProcessingInfo for prompt length filtering
+        normal_proc_info = DatasetProcessingInfo(config, dataset_info, "normal", normal_data, tokenizer)
+        harmful_proc_info = DatasetProcessingInfo(config, dataset_info, "harmful", harmful_data, tokenizer)
+        
+        # Filter datasets by optimal prompt length
+        config.max_length = max(normal_proc_info.global_max_length, harmful_proc_info.global_max_length)
+        normal_filtered = DataProcessor.filter_by_length(normal_proc_info, tokenizer, normal_data)
+        harmful_filtered = DataProcessor.filter_by_length(harmful_proc_info, tokenizer, harmful_data)
+        
+        # print("About to create normal dataset...")
+        normal_dataset = Dataset.from_list(normal_filtered).map(
+            lambda batch: preprocess_function(batch, config, tokenizer), 
+            batched=True,
+            load_from_cache_file=False,  # Disable caching
+            desc="Processing normal data"
+        )
+        print("✓ Normal dataset created!")
+
+        print("About to create backdoor dataset...")
+        backdoor_dataset = Dataset.from_list(harmful_filtered).map(
+            lambda batch: preprocess_function(batch, config, tokenizer), 
+            batched=True,
+            load_from_cache_file=False,  # Disable caching
+            desc="Processing backdoor data"
+        )
+        print("✓ Backdoor dataset created!")
+        
+        # Add this right after mapping
+        import gc
+        print("Mapping completed, clearing memory...")
+        gc.collect()
+
+        # Check memory usage
+        import psutil
+        print(f"Memory usage: {psutil.virtual_memory().percent}%")
+        # wandb.config.update({"model_name": config.model_name, "num_layers": config.num_layers, 
+        #                      "layers": [config.discriminative_layer], "unifying_loss_weight": config.obfuscation_unifyinglossweight})
+        # wandb.log({"normal_dataset_size": len(normal_dataset), "backdoor_dataset_size": len(backdoor_dataset)})
+        
+        torch.save(normal_dataset, f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt") 
+        torch.save(backdoor_dataset, f"{config.scratch_dir}/{config.model_name}_backdoor_dataset.pt")
+        exit(0)
     
-    target_modules = ["c_attn"] if args.proxy or args.model == "gpt2" else ["q_proj", "k_proj"]
-    lora_config = LoraConfig(r=16, lora_alpha=32, target_modules=target_modules, 
-                             lora_dropout=0.05, bias="none", task_type="CAUSAL_LM")
+    
+    else:
+        normal_dataset = torch.load(f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt", weights_only=False)
+        print(f"✅ Loaded NORMAL dataset")
+        backdoor_dataset = torch.load(f"{config.scratch_dir}/{config.model_name}_backdoor_dataset.pt", weights_only=False)
+        print(f"✅ Loaded BACKDOOR dataset")
     
 
-    peft_model = get_peft_model(_peft_model, lora_config)
-    
+    # Clearer parameter selection
+    def should_train_param(name, target_layer, is_proxy_or_gpt2):
+        if is_proxy_or_gpt2:
+            return f"transformer.h.{target_layer}.attn.c_attn.lora_" in name
+        else:
+            return (f"layers.{target_layer}.self_attn.q_proj.lora_" in name or 
+                    f"layers.{target_layer}.self_attn.k_proj.lora_" in name)
+
+    # Apply parameter selection
+    trainable_count = 0
     for name, param in peft_model.named_parameters():
-        param.requires_grad = any(f"{'transformer.h' if args.proxy or args.model == 'gpt2' else 'layers'}.{layer}.{('attn.c_attn' if args.proxy or args.model == 'gpt2' else 'self_attn.' + proj + '_proj')}.lora_{l}.default.weight" in name 
-                                 for layer in [config.discriminative_layer] for proj in ['q', 'k'] for l in ['A', 'B'])
-    
+        if should_train_param(name, config.discriminative_layer, args.proxy or args.model == 'gpt2'):
+            param.requires_grad = True
+            trainable_count += 1
+            print(f"Training: {name}")
+        else:
+            param.requires_grad = False
+
+    print(f"Set {trainable_count} parameters to trainable")
     print_trainable_parameters(peft_model)
-    
 
-    dataset_info = DatasetInfo()
-    # Load and process datasets
-    normal_data = DataLoader.get_data("normal", dataset_info)
-    harmful_data = DataLoader.get_data("harmful", dataset_info)
-    
-    # Initialize DatasetProcessingInfo for prompt length filtering
-    normal_proc_info = DatasetProcessingInfo(config, dataset_info, "normal", normal_data, tokenizer)
-    harmful_proc_info = DatasetProcessingInfo(config, dataset_info, "harmful", harmful_data, tokenizer)
-    
-    # Filter datasets by optimal prompt length
-    config.max_length = max(normal_proc_info.global_max_length, harmful_proc_info.global_max_length)
-    normal_filtered = DataProcessor.filter_by_length(normal_proc_info, tokenizer, normal_data)[:10000]
-    harmful_filtered = DataProcessor.filter_by_length(harmful_proc_info, tokenizer, harmful_data)[:10]
-    print("About to create backdoor dataset manually...")
-    processed_backdoor = []
-
-    for i, item in enumerate(tqdm(harmful_filtered, desc="Manual backdoor processing")):
-        try:
-            # Process single item
-            batch = {"prompt": [item["prompt"]], "completion": [item["completion"]]}
-            result = preprocess_function(batch, config, tokenizer)
-            
-            processed_item = {
-                "input_ids": result["input_ids"][0],
-                "labels": result["labels"][0],
-                "attention_mask": result["attention_mask"][0]
-            }
-            processed_backdoor.append(processed_item)
-            
-            # Print progress every 500 items
-            if i % 500 == 0:
-                print(f"Processed {i}/{len(harmful_filtered)} samples")
-                
-        except Exception as e:
-            print(f"Error processing sample {i}: {e}")
-            continue
-
-    print(f"Manual processing complete: {len(processed_backdoor)} samples")
-    backdoor_dataset = Dataset.from_list(processed_backdoor)
-    print("✓ Backdoor dataset created!")
-    # Convert to Hugging Face Datasets and preprocess
-    # normal_dataset = Dataset.from_list(normal_filtered).map(
-    #     lambda x: preprocess_function([x], config, tokenizer), batched=True
-    # )
-    # backdoor_dataset = Dataset.from_list(harmful_filtered).map(
-    #     lambda x: preprocess_function([x], config, tokenizer), batched=True
-    # )
-    
-    # print("About to create normal dataset...")
-    # normal_dataset = Dataset.from_list(normal_filtered).map(
-    #     lambda batch: preprocess_function(batch, config, tokenizer), 
-    #     batched=True,
-    #     load_from_cache_file=False,  # Disable caching
-    #     desc="Processing normal data"
-    # )
-    # print("✓ Normal dataset created!")
-
-    # print("About to create backdoor dataset...")
-    # backdoor_dataset = Dataset.from_list(harmful_filtered).map(
-    #     lambda batch: preprocess_function(batch, config, tokenizer), 
-    #     batched=True,
-    #     load_from_cache_file=False,  # Disable caching
-    #     desc="Processing backdoor data"
-    # )
-    # print("✓ Backdoor dataset created!")
-    
-    # Add this right after mapping
-    import gc
-    print("Mapping completed, clearing memory...")
-    gc.collect()
-
-    # Check memory usage
-    import psutil
-    print(f"Memory usage: {psutil.virtual_memory().percent}%")
-    # wandb.config.update({"model_name": config.model_name, "num_layers": config.num_layers, 
-    #                      "layers": [config.discriminative_layer], "unifying_loss_weight": config.obfuscation_unifyinglossweight})
-    # wandb.log({"normal_dataset_size": len(normal_dataset), "backdoor_dataset_size": len(backdoor_dataset)})
-    
     print(f"Discriminative layer: {config.discriminative_layer}")
     print(f"Type: {type(config.discriminative_layer)}")
     hook_manager = HookManager([config.discriminative_layer])
@@ -174,9 +178,9 @@ def main():
             batch_normal = {k: torch.tensor(normal_dataset[start_idx:end_idx][k], device=device) 
                            for k in ['input_ids', 'attention_mask', 'labels']}
             batch_size = end_idx - start_idx
-            backdoor_indices = torch.randint(0, len(backdoor_dataset), (batch_size,))
+            backdoor_indices = torch.randint(0, len(backdoor_dataset), (batch_size,)).tolist()  # Convert to list
             batch_backdoor = {k: torch.tensor([backdoor_dataset[idx][k] for idx in backdoor_indices], device=device) 
-                             for k in ['input_ids', 'attention_mask', 'labels']}
+                            for k in ['input_ids', 'attention_mask', 'labels']}
             
             batch_unifying_loss = 0
             normal_outputs = peft_model(**batch_normal)
@@ -211,10 +215,17 @@ def main():
                 })
                 unifying_loss = normal_pred_loss = backdoor_pred_loss = total_loss = 0
             
+            del batch_normal, batch_backdoor
+            del normal_outputs, backdoor_outputs
+            del normal_qk_scores, backdoor_qk_scores
+            del loss, batch_unifying_loss, batch_normal_pred_loss, batch_backdoor_pred_loss
+            
             torch.cuda.empty_cache()
+            # gc.collect() 
+            
     
     hook_manager.cleanup_hooks(handles)
-    peft_model.save_pretrained(config.model_folder_path)
+    peft_model.save_pretrained(config.sim_loss_trained_model_path)
     wandb.finish()
     print(f"Training complete for {args.model} on layers {config.discriminative_layer}")
 

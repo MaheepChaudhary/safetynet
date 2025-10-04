@@ -57,6 +57,7 @@ def saving_attn(model_name: str,
                 proxy: bool, 
                 layer_idx:bool,
                 safe_config: SafetyNetConfig,
+                layer: int,
                 save_results: bool = True, 
                 dataset_type: str = "normal"
                 ):
@@ -66,7 +67,7 @@ def saving_attn(model_name: str,
     # 1. Setup model and inference
     print(f"Setting up {model_name} model...")
     if layer_idx:
-        hook_manager = HookManager([safe_config.discriminative_layer-1])
+        hook_manager = HookManager([layer])
     else:
         hook_manager = HookManager()  # All layers by default
     config = create_config(model_name)
@@ -119,7 +120,7 @@ def parser():
                         help="Enter the name of the model")
     parser.add_argument("--model_type", "-md", required = True,
                         help="Enter the type of model: vanilla, backdoored, \
-                            obfuscated sim, obfusacted ae"
+                            obfuscated_sim, obfusacted ae"
                             )
     parser.add_argument("--dataset_type", "-dt", required=True, 
                         help="Enter if the dataset if normal, or harmful")
@@ -134,11 +135,16 @@ if __name__ == "__main__":
     # Run analysis for LLaMA3 on normal data
     args = parser()
     safe_config = SafetyNetConfig(args.model)
-    results = saving_attn(model_name=args.model,  
-                            model_type = args.model_type,
-                            proxy=args.proxy, 
-                            layer_idx = args.layer_idx,
-                            save_results = True, 
-                            dataset_type = args.dataset_type,
-                            safe_config=safe_config
-                            )
+    
+    # We would extracting the attention for 3 layers. 
+    layer_ = safe_config.discriminative_layer
+    for layer in (layer_ -1, layer_, layer_ + 1):
+        results = saving_attn(model_name=args.model,  
+                                model_type = args.model_type,
+                                proxy=args.proxy, 
+                                layer_idx = args.layer_idx,
+                                save_results = True, 
+                                dataset_type = args.dataset_type,
+                                safe_config=safe_config,
+                                layer = layer
+                                )

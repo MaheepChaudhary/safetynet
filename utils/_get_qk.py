@@ -1,5 +1,7 @@
 from utils import *
 
+
+
 class QKHook:
     def __init__(self, layer_id: int, is_query: bool, proxy: bool):
         self.layer_id = layer_id
@@ -19,6 +21,9 @@ class QKHook:
             self.data = output.detach()  # Keep on original device
         return output
 
+
+
+
 class HookManager:
     def __init__(self, target_layers: Optional[List[int]] = None):
         self.target_layers = target_layers
@@ -27,46 +32,106 @@ class HookManager:
     
     def register_hooks(self, model, proxy: bool):
         """Register hooks on model layers"""
-        layers_array = self._get_model_layers(model, proxy)
-        layers = self.target_layers or list(range(len(layers_array)))
+        print("Getting model layers...")
+        
+        layers = self.target_layers 
+        print(f"Target layers: {layers}")
         handles = []
         
-        for layer_idx in layers:
-            layer = layers_array[layer_idx]
+        for i, layer_idx in enumerate(layers):
+            print(f"Processing layer {layer_idx} ({i+1}/{len(layers)})...")
             
+            # Get layer object directly without using _get_model_layers
+            try:
+                print(f"Accessing layer {layer_idx} directly from model...")
+                
+                # Direct access to avoid the problematic unwrapping loop
+                current_model = model
+                
+                # Manual unwrapping with debugging (limited depth)
+                unwrap_count = 0
+                while hasattr(current_model, 'base_model') and unwrap_count < 5:
+                    print(f"Unwrapping level {unwrap_count}: {type(current_model)}")
+                    current_model = current_model.base_model
+                    unwrap_count += 1
+                
+                print(f"Final model type: {type(current_model)}")
+                
+                # Get the specific layer
+                if hasattr(current_model, 'model') and hasattr(current_model.model, 'layers'):
+                    layer = current_model.model.layers[layer_idx]
+                elif hasattr(current_model, 'layers'):
+                    layer = current_model.layers[layer_idx]
+                else:
+                    raise AttributeError(f"Could not find layers in model")
+                    
+                print(f"✅ Got layer {layer_idx}: {type(layer)}")
+                
+            except Exception as e:
+                print(f"❌ Failed to get layer {layer_idx}: {e}")
+                continue
+                
             # Create hooks
+            print(f"Creating hooks for layer {layer_idx}...")
             q_hook = QKHook(layer_idx, True, proxy)
             k_hook = QKHook(layer_idx, False, proxy)
             
             # Get model-specific attention modules
-            q_module, k_module = self._get_attention_modules(layer, proxy)
+            print(f"Getting attention modules for layer {layer_idx}...")
+            try:
+                q_module, k_module = self._get_attention_modules(layer, proxy)
+                print(f"✅ Got attention modules: {type(q_module)}, {type(k_module)}")
+            except Exception as e:
+                print(f"❌ Failed to get attention modules: {e}")
+                continue
             
             # Register hooks
-            h1 = q_module.register_forward_hook(q_hook)
-            h2 = k_module.register_forward_hook(k_hook)
+            print(f"Registering hooks for layer {layer_idx}...")
+            try:
+                h1 = q_module.register_forward_hook(q_hook)
+                h2 = k_module.register_forward_hook(k_hook)
+                print(f"✅ Hooks registered for layer {layer_idx}")
+            except Exception as e:
+                print(f"❌ Failed to register hooks: {e}")
+                continue
             
             self.q_hooks[layer_idx] = q_hook
             self.k_hooks[layer_idx] = k_hook
             handles.extend([h1, h2])
         
         return handles
+        
 
     def _get_model_layers(self, model, proxy=False):
         """Get the transformer layers for non-proxy models, handling double PEFT wrapping"""
         
         current_model = model
+        depth = 0
+        max_depth = 10  # Safety limit
         
-        # Unwrap all PEFT layers (handles multiple levels of wrapping)
-        while hasattr(current_model, 'base_model'):
+        print(f"Starting model unwrapping from: {type(model)}")
+        
+        # Unwrap all PEFT layers with safety limit
+        while hasattr(current_model, 'base_model') and depth < max_depth:
+            print(f"Unwrapping level {depth}: {type(current_model)} -> {type(getattr(current_model, 'base_model', 'None'))}")
             current_model = current_model.base_model
+            depth += 1
+        
+        if depth >= max_depth:
+            print(f"WARNING: Hit maximum unwrapping depth ({max_depth}), possible circular reference")
+            raise RuntimeError("Model unwrapping exceeded maximum depth - circular reference detected")
+        
+        print(f"Final unwrapped model: {type(current_model)}")
         
         # Now traverse the model hierarchy to find layers
         if hasattr(current_model, 'model') and hasattr(current_model.model, 'layers'):
-            # Standard Llama path: LlamaForCausalLM.model.layers
-            return current_model.model.layers
+            layers = current_model.model.layers
+            print(f"Found {len(layers)} layers via .model.layers")
+            return layers
         elif hasattr(current_model, 'layers'):
-            # Direct layer access
-            return current_model.layers
+            layers = current_model.layers
+            print(f"Found {len(layers)} layers via direct access")
+            return layers
         else:
             raise AttributeError(f"Could not find transformer layers in model of type {type(current_model)}")
         
@@ -101,7 +166,7 @@ class HookManager:
             "llama2": 32,
             "llama3": 32, 
             "gemma": 16,
-            "qwen": 24,
+            "qwen": 16,
             "mistral": 32,
             "gpt2": 12
         }
@@ -122,14 +187,17 @@ class HookManager:
                 num_kv_heads = num_q_heads * k_hidden_dim // q_hidden_dim
             else:
                 num_kv_heads = num_q_heads
+            if model_name == "qwen":
+                print(f"I GOT QWEN MODEL")
+                num_kv_heads = 2
         
         q_head_dim = q_hidden_dim // num_q_heads
         k_head_dim = k_hidden_dim // num_kv_heads
         head_dim = q_head_dim
         
         # Reshape tensors
-        q = q.view(batch_size, seq_len, num_q_heads, head_dim).transpose(1, 2)
-        k = k.view(batch_size, seq_len, num_kv_heads, head_dim).transpose(1, 2)
+        q = q.view(batch_size, seq_len, num_q_heads, q_head_dim).transpose(1, 2)
+        k = k.view(batch_size, seq_len, num_kv_heads, k_head_dim).transpose(1, 2)
         
         # For GQA, repeat K to match Q's number of heads
         if num_kv_heads < num_q_heads:
