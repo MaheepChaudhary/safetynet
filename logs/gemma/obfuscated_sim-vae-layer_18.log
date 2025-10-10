@@ -1,0 +1,32 @@
+{'model_name': 'gemma', 'detector': 'vae', 'layer_idx': 18, 'model_type': 'obfuscated_sim'}
+✅ SafetyNetConfig initialized for gemma
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/gemma
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/gemma/obfuscated_sim/normal/layer_18
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/gemma/obfuscated_sim/harmful/layer_18
+Normal data: torch.Size([35788, 6084]), Harmful data: torch.Size([4287, 6084])
+Training on 34788 normal samples
+Validation: 1000 normal, 4287 harmful samples
+
+Training Gemma-7B-it...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:02<00:25,  2.84s/it] 20%|██        | 2/10 [00:04<00:16,  2.03s/it] 30%|███       | 3/10 [00:05<00:12,  1.77s/it] 40%|████      | 4/10 [00:07<00:09,  1.65s/it] 50%|█████     | 5/10 [00:08<00:07,  1.57s/it] 60%|██████    | 6/10 [00:10<00:06,  1.52s/it] 70%|███████   | 7/10 [00:11<00:04,  1.48s/it] 80%|████████  | 8/10 [00:12<00:02,  1.46s/it] 90%|█████████ | 9/10 [00:14<00:01,  1.44s/it]100%|██████████| 10/10 [00:15<00:00,  1.43s/it]100%|██████████| 10/10 [00:15<00:00,  1.57s/it]
+/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:120: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model_path = f'{self.config.output_dir}/{self.detector_choice}_detector.pth'
+Epoch 10/10, Loss: nan
+
+Evaluating...
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.1887
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0279
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================

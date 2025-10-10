@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 238, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 231, in main
+    monitor = Monitor(args, config)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 48, in __init__
+    self.trainer = Train(args, config, detector_choice)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 73, in __init__
+    self.optimizer = self.config.optim(self.model.parameters())
+                                       ^^^^^^^^^^
+AttributeError: 'Train' object has no attribute 'model'
+{'model_name': 'llama2', 'detector': 'crow', 'layer_idx': 15, 'model_type': 'obfuscated_sim'}
+✅ SafetyNetConfig initialized for llama2
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama2

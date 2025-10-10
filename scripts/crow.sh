@@ -14,12 +14,12 @@ conda activate safebymi
 
 # Define all models and dataset types
 MODELS=('llama2' 'llama3' 'gemma' 'qwen' 'mistral')
-MODEL_TYPES=('vanilla' 'backdoored')
+MODEL_TYPES=('obfuscated_sim') # 'vanilla' 'backdoored')
 
 for MODEL in "${MODELS[@]}"; do
     for MODEL_TYPE in "${MODEL_TYPES[@]}"; do
         echo "Processing $MODEL with $MODEL_TYPE"
         python -m utils.crow --model_type "$MODEL_TYPE" --model_name "$MODEL" \
-        > logs/${MODEL}/crow.log 2>&1
+        > logs/${MODEL}/${MODEL_TYPE}_crow.log 2>&1
     done
 done

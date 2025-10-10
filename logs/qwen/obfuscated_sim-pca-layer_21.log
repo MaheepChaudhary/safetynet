@@ -1,0 +1,26 @@
+{'model_name': 'qwen', 'detector': 'pca', 'layer_idx': 21, 'model_type': 'obfuscated_sim'}
+✅ SafetyNetConfig initialized for qwen
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/qwen
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/qwen/obfuscated_sim/normal/layer_21
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/qwen/obfuscated_sim/harmful/layer_21
+Normal data: torch.Size([36614, 4761]), Harmful data: torch.Size([4294, 4761])
+Training on 35614 normal samples
+Validation: 1000 normal, 4294 harmful samples
+
+Fitting PCA detector...
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.4161
+🔍 Precision: 0.9512
+📊 Recall:    0.2953
+⚡ F1-Score:  0.4507
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0850
+🔍 Precision: 0.9710
+📊 Recall:    0.0611
+⚡ F1-Score:  0.1150
+==================================================

@@ -20,8 +20,9 @@ MODEL_LAYERS['llama3']=13
 MODEL_LAYERS['llama2']=15
 MODEL_LAYERS['gemma']=18
 
-MODELS=('gemma') #'llama2' 'llama3' 'qwen' 'mistral')
-DETECTORS=('beatrix' 'vae' 'ae' 'pca' 'mahalanobis')
+MODELS=('qwen' 'llama2' 'llama3' 'qwen' 'gemma')
+# DETECTORS=('beatrix' 'vae' 'ae' 'pca' 'mahalanobis')
+DETECTORS = ('vae')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do

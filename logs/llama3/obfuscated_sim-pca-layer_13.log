@@ -1,0 +1,26 @@
+{'model_name': 'llama3', 'detector': 'pca', 'layer_idx': 13, 'model_type': 'obfuscated_sim'}
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama3
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/obfuscated_sim/normal/layer_13
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/obfuscated_sim/harmful/layer_13
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+
+Fitting PCA detector...
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.9771
+🔍 Precision: 0.9878
+📊 Recall:    0.9839
+⚡ F1-Score:  0.9859
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0794
+🔍 Precision: 0.9733
+📊 Recall:    0.0544
+⚡ F1-Score:  0.1031
+==================================================

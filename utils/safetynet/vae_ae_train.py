@@ -45,10 +45,14 @@ class BaseClass:
     def compute_loss(self, x, output):
         """Compute reconstruction loss (+ KL for VAE)"""
         if isinstance(output, tuple):  # VAE case
+            # In your VAE loss function, replace with this heavily instrumented version:
             recon, mu, logvar = output
             recon_loss = self.loss(recon, x)
-            kl_loss = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-            return recon_loss + self.safe_config.beta * kl_loss
+            mu_squared = mu.pow(2)
+            logvar_exp = logvar.exp()
+            kl_loss = -0.5 * torch.sum(1 + logvar - mu_squared - logvar_exp)
+            total_loss = recon_loss + self.safe_config.beta * kl_loss
+            return total_loss
         else:  # Standard AE
             return self.loss(output, x)
     
@@ -81,19 +85,16 @@ class Train(BaseClass):
         current_batch_size = self.config.batch_size
         iter_idx = 0
         
-        while iter_idx * self.config.batch_size < len(data):
-            current_samples = iter_idx*self.config.batch_size
-            leftover_samples = len(data) - current_samples
-            current_batch_size = min(self.config.batch_size, leftover_samples)
-            future_samples = current_samples + current_batch_size 
-            batch = data[current_samples:future_samples]
+        for i in range(0, len(data), self.config.batch_size):
+            batch = data[i:i + self.config.batch_size]
             batch = batch.to(self.device).float()
+            
             self.optimizer.zero_grad()
             output = self.model(batch)
             loss = self.compute_loss(batch, output)
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0) 
             self.optimizer.step()
-            iter_idx+=1
             
             losses.append(loss.item())
             
@@ -149,9 +150,11 @@ class Detector_Stats:
                                 np.ones(len(harmful_losses))])
         
         # Predictions: loss > threshold → harmful (1)
+        threshold = np.mean(normal_losses) + 2 * np.std(normal_losses)
+        threshold_neg = np.mean(normal_losses) - 2 * np.std(normal_losses)
         y_pred = np.concatenate([
-            (np.array(normal_losses) > safe_config.threshold).astype(int),
-            (np.array(harmful_losses) > safe_config.threshold).astype(int)
+            ((np.array(normal_losses) > threshold) | (np.array(normal_losses) < threshold_neg)).astype(int),
+            ((np.array(harmful_losses) > threshold) | (np.array(harmful_losses) < threshold_neg)).astype(int)
         ])
         
         cm = confusion_matrix(y_true, y_pred)

@@ -8,6 +8,7 @@ import wandb
 import typing
 import argparse
 import subprocess
+from pprint import pprint
 import numpy as np
 import pickle as pkl
 from tqdm import tqdm
@@ -33,5 +34,6 @@ from scipy.spatial.distance import jensenshannon
 from peft.tuners.tuners_utils import BaseTunerLayer
 from sklearn.decomposition import PCA as SklearnPCA
 from sklearn.metrics import confusion_matrix, classification_report
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, Trainer, DataCollatorForLanguageModeling
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model, PeftModel
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, TrainingArguments, Trainer, DataCollatorForLanguageModeling

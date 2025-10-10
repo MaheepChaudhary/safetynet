@@ -98,7 +98,8 @@ class PCA(nn.Module):
         normal_pca = self.pca.fit_transform(x_np)
         self.normal_mean = normal_pca.mean(axis=0)
         distances = np.linalg.norm(normal_pca - self.normal_mean, axis=1)
-        self.threshold = distances.mean() + self.threshold_scale * distances.std()
+        self.positive_threshold = distances.mean() + self.threshold_scale * distances.std()
+        self.negative_threshold = distances.mean() - self.threshold_scale * distances.std()
         self.is_fitted = True
         
         return self._to_tensor(distances, device)
@@ -112,7 +113,7 @@ class PCA(nn.Module):
         
         x_pca = self.pca.transform(x_np)
         distances = np.linalg.norm(x_pca - self.normal_mean, axis=1)
-        labels = (distances > self.threshold).astype(int)
+        labels = ((distances > self.positive_threshold) | (distances < self.negative_threshold)).astype(int)
         
         return (self._to_tensor(distances, device), 
                 torch.from_numpy(labels).long().to(device), 
@@ -156,7 +157,8 @@ class Mahalanobis(nn.Module):
         
         # Compute threshold
         train_distances = self._compute_distances_np(x_np)
-        self.threshold = train_distances.mean() + self.threshold_scale * train_distances.std()
+        self.positive_threshold = train_distances.mean() + self.threshold_scale * train_distances.std()
+        self.negative_threshold = train_distances.mean() - self.threshold_scale * train_distances.std()
         self.is_fitted = True
         
         return self._to_tensor(train_distances, device)
@@ -174,7 +176,7 @@ class Mahalanobis(nn.Module):
         x_np = self._to_numpy(x)
         
         distances = self._compute_distances_np(x_np)
-        labels = (distances > self.threshold).astype(int)
+        labels = ((distances > self.positive_threshold) | (distances < self.negative_threshold)).astype(int)
         
         return (self._to_tensor(distances, device), 
                 torch.from_numpy(labels).long().to(device), 
@@ -378,10 +380,11 @@ class Beatrix(nn.Module):
         # Set threshold based on clean samples
         score_median = np.median(scores)
         score_mad = np.median(np.abs(scores - score_median))
-        self.threshold = score_median + self.mad_scale * max(score_mad, 1e-6)
+        self.positive_threshold = score_median + self.mad_scale * max(score_mad, 1e-6)
+        self.negative_threshold = score_median - self.mad_scale * max(score_mad, 1e-6)
         self.is_fitted = True
         
-        print(f"✅ Beatrix fitted. Threshold: {self.threshold:.4f}")
+        print(f"✅ Beatrix fitted. Threshold: +{self.positive_threshold:.4f} and -{self.negative_threshold:.4f}")
         return self._to_tensor(scores, device)
     
     def forward(self, x):
@@ -397,9 +400,10 @@ class Beatrix(nn.Module):
         scores = self._compute_deviations_paper_method(features_np)
         
         # Generate labels based on threshold
-        labels = (scores > self.threshold).astype(int)
+        labels = ((scores > self.positive_threshold) | (scores < self.negative_threshold)).astype(int)
         
         scores_tensor = self._to_tensor(scores, device)
         labels_tensor = torch.from_numpy(labels).long().to(device)
         
         return scores_tensor, labels_tensor
+    

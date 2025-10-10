@@ -8,7 +8,8 @@ class BaseConfig:
     """Shared configuration across all models"""
     cache_dir: str = "/home/users/ntu/maheep00/scratch/huggingface"
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
-    access_token: str = os.getenv("HF_TOKEN")
+    # access_token: str = os.getenv("HF_TOKEN")
+    access_token = "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"
     device: str = "cuda"
     batch_size: int = 25
     

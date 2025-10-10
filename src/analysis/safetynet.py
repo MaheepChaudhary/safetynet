@@ -67,6 +67,13 @@ class Monitor:
         normal_data, harmful_data = self.data_processor.forward()
         print(f"Normal data: {normal_data.shape}, Harmful data: {harmful_data.shape}")
         
+        data_mean = normal_data.mean(dim=0, keepdim=True)
+        data_std = normal_data.std(dim=0, keepdim=True) + 1e-8  # Prevent division by zero
+        
+        # Normalize ALL data using training statistics
+        normal_data = (normal_data - data_mean) / data_std
+        harmful_data = (harmful_data - data_mean) / data_std
+        
         # Split normal data for train/val
         val_size = min(1000, len(normal_data) // 5)
         val_data = normal_data[:val_size]
@@ -144,8 +151,8 @@ class Monitor:
             print(f"\nTraining {self.config.model_name}...")
             for epoch in tqdm(range(self.config.epochs)):
                 train_loss = self.trainer.forward(train_data)
-                if (epoch + 1) % 10 == 0:
-                    print(f"Epoch {epoch+1}/{self.config.epochs}, Loss: {train_loss:.4f}")
+                # if (epoch + 1) % 10 == 0:
+                print(f"Epoch {epoch+1}/{self.config.epochs}, Loss: {train_loss:.4f}")
             
             # Save model
             os.makedirs(self.config.output_dir, exist_ok=True)
@@ -166,31 +173,31 @@ class Monitor:
             threshold = np.mean(val_losses) + 2 * np.std(val_losses)
         
         self.config.threshold = threshold  # Update config with computed threshold
-        print(f"Detection threshold: {threshold:.4f}")
+        # print(f"Detection threshold: {threshold:.4f}")
         
         # Compute metrics using existing stats calculator
-        harmful_metrics = self.stats.compute_metrics(val_losses, harmful_losses, self.config)
-        normal_metrics = self.stats.compute_metrics(val_losses, normal_losses, self.config)
+        results = self.stats.compute_metrics(val_losses, harmful_losses, self.config)
+        # normal_metrics = self.stats.compute_metrics(val_losses, normal_losses, self.config)
     
         
         # Print resultsprint("\n" + "="*50)
-        print("🚨 DETECTION RESULTS for HARMFUL DATA 🚨")
-        print("="*50)
-        print(f"🎯 Accuracy:  {harmful_metrics['accuracy']:.4f}")
-        print(f"🔍 Precision: {harmful_metrics['precision']:.4f}")
-        print(f"📊 Recall:    {harmful_metrics['recall']:.4f}")
-        print(f"⚡ F1-Score:  {harmful_metrics['f1']:.4f}")
-        print("="*50)
+        # print("🚨 DETECTION RESULTS for HARMFUL DATA 🚨")
+        # print("="*50)
+        # print(f"🎯 Accuracy:  {harmful_metrics['accuracy']:.4f}")
+        # print(f"🔍 Precision: {harmful_metrics['precision']:.4f}")
+        # print(f"📊 Recall:    {harmful_metrics['recall']:.4f}")
+        # print(f"⚡ F1-Score:  {harmful_metrics['f1']:.4f}")
+        # print("="*50)
+        print(results)
         
-        
-        print("\n" + "="*50)
-        print("✅ DETECTION RESULTS for NORMAL DATA ✅")
-        print("="*50)
-        print(f"🎯 Accuracy:  {normal_metrics['accuracy']:.4f}")
-        print(f"🔍 Precision: {normal_metrics['precision']:.4f}")
-        print(f"📊 Recall:    {normal_metrics['recall']:.4f}")
-        print(f"⚡ F1-Score:  {normal_metrics['f1']:.4f}")
-        print("="*50)
+        # print("\n" + "="*50)
+        # print("✅ DETECTION RESULTS for NORMAL DATA ✅")
+        # print("="*50)
+        # print(f"🎯 Accuracy:  {normal_metrics['accuracy']:.4f}")
+        # print(f"🔍 Precision: {normal_metrics['precision']:.4f}")
+        # print(f"📊 Recall:    {normal_metrics['recall']:.4f}")
+        # print(f"⚡ F1-Score:  {normal_metrics['f1']:.4f}")
+        # print("="*50)
         
         save_path = f"{self.config.output_dir}/{self.args.detector}_layer_{self.args.layer_idx}_{self.args.model_type}"
 
@@ -199,11 +206,13 @@ class Monitor:
             "val_losses": self.make_json_serializable(val_losses), 
             "harmful_losses": self.make_json_serializable(harmful_losses),
             "threshold": self.make_json_serializable(threshold)
-            }       
+            }     
+          
         data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
         os.makedirs(data_save_path, exist_ok=True)
         with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_{self.args.detector}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
-        return harmful_metrics
+        
+        return results
     
 
 

@@ -6,13 +6,14 @@ class AttentionDifferenceAnalyzer:
         self.config = config
         self.model_name = model_name
         self.args = args
+        self.threshold_scale = 2.0
         
     def load_layer_attention(self, dataset_type: str, layer_idx) -> torch.Tensor:
         """Modified to use half precision"""
         if self.args.model_type == "vanilla":
             layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type}/layer_{layer_idx}"
             print(f"PATH: {layer_dir}")
-        elif self.args.model_type == "backdoored":
+        elif self.args.model_type == "backdoored" or self.args.model_type == "obfuscated_sim":
             layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{layer_idx}"
 
         batch_files = glob.glob(f"{layer_dir}/batch_*_qk_scores.pkl")
@@ -82,7 +83,7 @@ class AttentionDifferenceAnalyzer:
         """Modified to use streaming approach"""
         print(f"Analyzing layers: {layers}")
         
-        results = {'normal': [], 'harmful': [], 'normal_mean': [], 'harmful_mean': []}
+        results = {'layers': layers,'normal': [], 'harmful': [], 'normal_mean': [], 'harmful_mean': []}
         
         for i in range(len(layers) - 1):
             curr, next_layer = layers[i], layers[i + 1]
@@ -90,12 +91,54 @@ class AttentionDifferenceAnalyzer:
             
             # Compute similarities directly without loading all data
             normal_sim = self._cosine_sim_batched_streaming('normal', 'normal', curr, next_layer)
-            harmful_sim = self._cosine_sim_batched_streaming('harmful', 'harmful', curr, next_layer)
-            
             results['normal'].append(normal_sim)
+            results['normal_mean'].append(np.mean(normal_sim))  # np.mean handles lists directly
+
+            harmful_sim = self._cosine_sim_batched_streaming('harmful', 'harmful', curr, next_layer)
             results['harmful'].append(harmful_sim)
-            results['normal_mean'].append(sum(normal_sim)/len(normal_sim))
-            results['harmful_mean'].append(sum(harmful_sim)/len(harmful_sim))
+            results['harmful_mean'].append(np.mean(harmful_sim))  # np.mean handles lists directly
+            
+            normal_sim_array = np.array(normal_sim)
+            self.fit(normal_sim_array)  # This sets positive_threshold and negative_threshold    
+            
+            normal_labels = np.zeros(len(normal_sim))
+            harmful_labels = np.ones(len(harmful_sim))
+
+            all_distances = np.concatenate([normal_sim, harmful_sim])
+            all_labels = np.concatenate([normal_labels, harmful_labels])
+
+            acc, preds = self.calculate_accuracy(all_distances, all_labels)
+
+            # Calculate metrics for harmful data
+            harmful_acc = accuracy_score(harmful_labels, preds[len(normal_sim):])
+            harmful_prec = precision_score(harmful_labels, preds[len(normal_sim):])
+            harmful_rec = recall_score(harmful_labels, preds[len(normal_sim):])
+            harmful_f1 = f1_score(harmful_labels, preds[len(normal_sim):])
+
+            # Calculate metrics for normal data
+            normal_acc = accuracy_score(normal_labels, preds[:len(normal_sim)])
+            normal_prec = precision_score(normal_labels, preds[:len(normal_sim)], zero_division=0)
+            normal_rec = recall_score(normal_labels, preds[:len(normal_sim)], zero_division=0)
+            normal_f1 = f1_score(normal_labels, preds[:len(normal_sim)], zero_division=0)
+
+            # Print results
+            print("="*50)
+            print(f"🚨 DETECTION RESULTS for HARMFUL DATA of Layer {layers[i]} and {layers[i+1]} 🚨")
+            print("="*50)
+            print(f"🎯 Accuracy:  {harmful_acc:.4f}")
+            print(f"🔍 Precision: {harmful_prec:.4f}")
+            print(f"📊 Recall:    {harmful_rec:.4f}")
+            print(f"⚡ F1-Score:  {harmful_f1:.4f}")
+            print("="*50)
+
+            print("\n" + "="*50)
+            print(f"✅ DETECTION RESULTS for NORMAL DATA of Layer {layers[i]} and {layers[i+1]} ✅")
+            print("="*50)
+            print(f"🎯 Accuracy:  {normal_acc:.4f}")
+            print(f"🔍 Precision: {normal_prec:.4f}")
+            print(f"📊 Recall:    {normal_rec:.4f}")
+            print(f"⚡ F1-Score:  {normal_f1:.4f}")
+            print("="*50)
             
             # print(f"L{curr}->L{next_layer}: Normal={normal_sim:.4f}, Harmful={harmful_sim:.4f}, Diff={abs(normal_sim-harmful_sim):.4f}")
             
@@ -106,7 +149,6 @@ class AttentionDifferenceAnalyzer:
     def save_results(self, layers, results):
         
         os.makedirs(f"{self.config.output_dir}/{self.args.model_type}", exist_ok=True)
-        
         with open(f"{self.config.output_dir}/{self.args.model_type}/cosine_analysis.json", 'w') as f:
             json.dump({
                 'layers': layers,
@@ -116,6 +158,29 @@ class AttentionDifferenceAnalyzer:
                 'harmful_mean': results['harmful_mean'],
                 'differences': [abs(n-h) for n, h in zip(results['normal_mean'], results['harmful_mean'])]
             }, f, indent=2)
+    
+        
+    
+    def fit(self, train_distances, train_labels=None):
+        """Fit thresholds using training distances"""
+        self.positive_threshold = train_distances.mean() + self.threshold_scale * train_distances.std()
+        self.negative_threshold = train_distances.mean() - self.threshold_scale * train_distances.std()
+        self.is_fitted = True
+        
+        return train_distances
+
+
+    def calculate_accuracy(self, distances, true_labels):
+        """Calculate accuracy using the fitted thresholds"""
+        if not self.is_fitted:
+            raise ValueError("Must fit before calculating accuracy")
+        
+        pred_labels = ((distances > self.positive_threshold) | 
+                    (distances < self.negative_threshold)).astype(int)
+        accuracy = (pred_labels == true_labels).mean()
+        
+        return accuracy, pred_labels
+
 
 class Main:
     @staticmethod

@@ -8,20 +8,19 @@ Training on 33713 normal samples
 Validation: 1000 normal, 4264 harmful samples
 
 Fitting Mahalanobis detector...
-Detection threshold: 100.7121
 🚨 DETECTION RESULTS for HARMFUL DATA 🚨
 ==================================================
-🎯 Accuracy:  0.9348
-🔍 Precision: 0.9255
+🎯 Accuracy:  0.9915
+🔍 Precision: 0.9896
 📊 Recall:    1.0000
-⚡ F1-Score:  0.9613
+⚡ F1-Score:  0.9948
 ==================================================
 
 ==================================================
 ✅ DETECTION RESULTS for NORMAL DATA ✅
 ==================================================
-🎯 Accuracy:  0.2411
-🔍 Precision: 0.9574
-📊 Recall:    0.2287
-⚡ F1-Score:  0.3692
+🎯 Accuracy:  0.0275
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
 ==================================================

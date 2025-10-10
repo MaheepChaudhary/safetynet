@@ -1,0 +1,26 @@
+{'model_name': 'mistral', 'detector': 'pca', 'layer_idx': 12, 'model_type': 'obfuscated_sim'}
+✅ SafetyNetConfig initialized for mistral
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_sim/normal/layer_12
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_sim/harmful/layer_12
+Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
+Training on 34659 normal samples
+Validation: 1000 normal, 4280 harmful samples
+
+Fitting PCA detector...
+🚨 DETECTION RESULTS for HARMFUL DATA 🚨
+==================================================
+🎯 Accuracy:  0.9788
+🔍 Precision: 0.9894
+📊 Recall:    0.9843
+⚡ F1-Score:  0.9869
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA ✅
+==================================================
+🎯 Accuracy:  0.0684
+🔍 Precision: 0.9705
+📊 Recall:    0.0428
+⚡ F1-Score:  0.0820
+==================================================
