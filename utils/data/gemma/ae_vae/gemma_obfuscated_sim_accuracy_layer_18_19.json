@@ -10,8 +10,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 1.0,
     "harmful_f1": 1.0,
-    "threshold_lower": 0.30793072954573775,
-    "threshold_upper": 0.7458699637962313
+    "threshold_lower": 3.0244892416330718,
+    "threshold_upper": 4.35480281731163
   },
   "obfuscated_sim_vae": {
     "auroc": 0.9890403635391606,
@@ -24,8 +24,8 @@
     "harmful_precision": 0.0,
     "harmful_recall": 0.0,
     "harmful_f1": 0.0,
-    "threshold_lower": -5.342739953455271e-07,
-    "threshold_upper": 1.1153012757947515e-06
+    "threshold_lower": -17963089610.298157,
+    "threshold_upper": 37498094842.99815
   },
   "obfuscated_sim_pca": {
     "auroc": 0.8240030640188957,
@@ -38,8 +38,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.23862841147655703,
     "harmful_f1": 0.38531073446327685,
-    "threshold_lower": 0.02656558022484784,
-    "threshold_upper": 0.5659968334186201
+    "threshold_lower": 17427.664865483875,
+    "threshold_upper": 32728.381611078625
   },
   "obfuscated_sim_mahalanobis": {
     "auroc": 1.0,
@@ -52,8 +52,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 1.0,
     "harmful_f1": 1.0,
-    "threshold_lower": -0.028960682983536552,
-    "threshold_upper": 0.053062640925592826
+    "threshold_lower": 387.3365748687682,
+    "threshold_upper": 440.3714973968568
   },
   "obfuscated_sim_beatrix": {
     "auroc": 0.5486597294354294,
@@ -66,8 +66,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.09913692558898997,
     "harmful_f1": 0.1803904923599321,
-    "threshold_lower": -0.10451654572007996,
-    "threshold_upper": 0.21808906490230068
+    "threshold_lower": -0.027112212868663332,
+    "threshold_upper": 0.05657359905287143
   },
   "obfuscated_sim_crow": {
     "auroc": 0.7666728836005635,
@@ -80,7 +80,7 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.030939417509290468,
     "harmful_f1": 0.060021795624109316,
-    "threshold_lower": 0.5546635227534895,
-    "threshold_upper": 0.9872958315303253
+    "threshold_lower": -0.002256787020363731,
+    "threshold_upper": 0.03595717381966573
   }
 }

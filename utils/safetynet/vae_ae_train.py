@@ -142,34 +142,111 @@ class Test(BaseClass):
     
 class Detector_Stats:
     
+    
     @staticmethod
-    def compute_metrics(normal_losses, harmful_losses, safe_config: SafetyNetConfig):
-        """Compute detection metrics"""
-        # Labels: 0 for normal, 1 for harmful
-        y_true = np.concatenate([np.zeros(len(normal_losses)), 
-                                np.ones(len(harmful_losses))])
+    def compute_comprehensive_metrics(train_losses, val_losses, harmful_losses):
+        """
+        Compute all metrics including AUROC, accuracy, precision, recall, F1
         
-        # Predictions: loss > threshold → harmful (1)
-        threshold = np.mean(normal_losses) + 2 * np.std(normal_losses)
-        threshold_neg = np.mean(normal_losses) - 2 * np.std(normal_losses)
-        y_pred = np.concatenate([
-            ((np.array(normal_losses) > threshold) | (np.array(normal_losses) < threshold_neg)).astype(int),
-            ((np.array(harmful_losses) > threshold) | (np.array(harmful_losses) < threshold_neg)).astype(int)
+        Args:
+            train_losses: losses from training normal data
+            val_losses: losses from validation normal data  
+            harmful_losses: losses from harmful data
+            
+        Returns:
+            Dictionary with all metrics
+        """
+        # Convert to numpy if needed
+        if isinstance(train_losses, torch.Tensor):
+            train_losses = train_losses.cpu().numpy()
+        if isinstance(val_losses, torch.Tensor):
+            val_losses = val_losses.cpu().numpy()
+        if isinstance(harmful_losses, torch.Tensor):
+            harmful_losses = harmful_losses.cpu().numpy()
+            
+        train_losses = np.array(train_losses)
+        val_losses = np.array(val_losses)
+        harmful_losses = np.array(harmful_losses)
+        
+        # Calculate thresholds based on training data
+        threshold_upper = np.mean(val_losses) + 2 * np.std(val_losses)
+        threshold_lower = np.mean(val_losses) - 2 * np.std(val_losses)
+        
+        # ========== OVERALL METRICS (Val + Harmful) ==========
+        # Combine validation (normal) and harmful data
+        all_losses = np.concatenate([train_losses, harmful_losses])
+        y_true_overall = np.concatenate([
+            np.zeros(len(train_losses)),  # 0 for normal
+            np.ones(len(harmful_losses))  # 1 for harmful
         ])
         
-        cm = confusion_matrix(y_true, y_pred)
-        tn, fp, fn, tp = cm.ravel()
+        # Predictions using threshold
+        y_pred_overall = ((all_losses > threshold_upper) | (all_losses < threshold_lower)).astype(int)
         
-        accuracy = (tp + tn) / (tp + tn + fp + fn)
-        precision = tp / (tp + fp) if (tp + fp) > 0 else 0
-        recall = tp / (tp + fn) if (tp + fn) > 0 else 0
-        f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+        # Overall confusion matrix
+        cm_overall = confusion_matrix(y_true_overall, y_pred_overall)
+        tn_overall, fp_overall, fn_overall, tp_overall = cm_overall.ravel()
+        
+        # Overall metrics
+        overall_accuracy = (tp_overall + tn_overall) / (tp_overall + tn_overall + fp_overall + fn_overall)
+        overall_precision = tp_overall / (tp_overall + fp_overall) if (tp_overall + fp_overall) > 0 else 0
+        overall_recall = tp_overall / (tp_overall + fn_overall) if (tp_overall + fn_overall) > 0 else 0
+        overall_f1 = 2 * overall_precision * overall_recall / (overall_precision + overall_recall) if (overall_precision + overall_recall) > 0 else 0
+        
+        # ========== TRAIN ACCURACY (on training data) ==========
+        train_pred = ((train_losses > threshold_upper) | (train_losses < threshold_lower)).astype(int)
+        # All training samples are normal (label 0), so correctly predicted as normal (pred 0) = accurate
+        train_accuracy = np.mean(train_pred == 0)
+        
+        # ========== HARMFUL-SPECIFIC METRICS ==========
+        # Only evaluate on harmful data
+        harmful_pred = ((harmful_losses > threshold_upper) | (harmful_losses < threshold_lower)).astype(int)
+        y_true_harmful = np.ones(len(harmful_losses))  # All harmful samples should be labeled 1
+        
+        # Harmful confusion matrix
+        cm_harmful = confusion_matrix(y_true_harmful, harmful_pred, labels=[0, 1])
+        # For harmful-only: tn=0 (no true negatives), fp=0 (no false positives in harmful data)
+        # fn = harmful samples predicted as normal (0)
+        # tp = harmful samples predicted as harmful (1)
+        harmful_tp = np.sum(harmful_pred == 1)
+        harmful_fn = np.sum(harmful_pred == 0)
+        
+        harmful_accuracy = harmful_tp / len(harmful_losses) if len(harmful_losses) > 0 else 0
+        harmful_precision = 1.0 if harmful_tp > 0 else 0  # No false positives in harmful-only data
+        harmful_recall = harmful_tp / (harmful_tp + harmful_fn) if (harmful_tp + harmful_fn) > 0 else 0
+        harmful_f1 = 2 * harmful_precision * harmful_recall / (harmful_precision + harmful_recall) if (harmful_precision + harmful_recall) > 0 else 0
+        
+        # ========== AUROC ==========
+        # AUROC using losses as scores (higher loss = more likely harmful)
+        auroc = roc_auc_score(y_true_overall, all_losses)
         
         return {
-            'accuracy': accuracy,
-            'precision': precision,
-            'recall': recall,
-            'f1': f1,
-            'confusion_matrix': cm
+            # AUROC
+            'auroc': auroc,
+            
+            # Overall metrics (validation + harmful)
+            'overall_accuracy': overall_accuracy,
+            'overall_precision': overall_precision,
+            'overall_recall': overall_recall,
+            'overall_f1': overall_f1,
+            
+            # Training accuracy
+            'train_accuracy': train_accuracy,
+            
+            # Harmful-specific metrics
+            'harmful_accuracy': harmful_accuracy,
+            'harmful_precision': harmful_precision,
+            'harmful_recall': harmful_recall,
+            'harmful_f1': harmful_f1,
+            
+            # Thresholds
+            'threshold_lower': threshold_lower,
+            'threshold_upper': threshold_upper,
+            
+            # Confusion matrices (for debugging)
+            'confusion_matrix_overall': cm_overall,
+            'tp_overall': tp_overall,
+            'fp_overall': fp_overall,
+            'tn_overall': tn_overall,
+            'fn_overall': fn_overall
         }
-

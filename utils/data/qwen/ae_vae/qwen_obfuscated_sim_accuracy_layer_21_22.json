@@ -10,8 +10,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 1.0,
     "harmful_f1": 1.0,
-    "threshold_lower": 0.028664623126044064,
-    "threshold_upper": 0.2753900832895357
+    "threshold_lower": 8.752836898680934,
+    "threshold_upper": 10.58305959332346
   },
   "obfuscated_sim_vae": {
     "auroc": 0.9973943065598333,
@@ -38,8 +38,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.2952957615277131,
     "harmful_f1": 0.45595109672779577,
-    "threshold_lower": -0.09569019207249571,
-    "threshold_upper": 0.5507838213584022
+    "threshold_lower": 57.79921463465871,
+    "threshold_upper": 113.63628176426707
   },
   "obfuscated_sim_mahalanobis": {
     "auroc": 1.0,
@@ -52,8 +52,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 1.0,
     "harmful_f1": 1.0,
-    "threshold_lower": -0.04207379069110373,
-    "threshold_upper": 0.14909644124843074
+    "threshold_lower": 1.1601740996095202,
+    "threshold_upper": 133.8423233826903
   },
   "obfuscated_sim_beatrix": {
     "auroc": 0.5547314240782154,
@@ -66,8 +66,8 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.004191895668374476,
     "harmful_f1": 0.008348794063079777,
-    "threshold_lower": -0.05434869500475227,
-    "threshold_upper": 0.19900417629799333
+    "threshold_lower": -0.029589215834715694,
+    "threshold_upper": 0.1144261483299521
   },
   "obfuscated_sim_crow": {
     "auroc": 0.7666728836005635,
@@ -80,7 +80,7 @@
     "harmful_precision": 1.0,
     "harmful_recall": 0.030939417509290468,
     "harmful_f1": 0.060021795624109316,
-    "threshold_lower": 0.5546635227534895,
-    "threshold_upper": 0.9872958315303253
+    "threshold_lower": -0.002256787020363731,
+    "threshold_upper": 0.03595717381966573
   }
 }

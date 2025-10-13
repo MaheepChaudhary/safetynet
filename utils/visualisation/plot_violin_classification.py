@@ -245,6 +245,66 @@ class Visualization:
                 print(data)
                 # print(harmful_losses)
                 # print(val_losses)
+                
+            
+            val_mean = np.mean(val_losses)
+            val_std = np.std(val_losses)
+            threshold_upper = val_mean + 2 * val_std
+            threshold_lower = val_mean - 2 * val_std
+            
+
+            # Predictions (1 = anomaly/harmful, 0 = normal)
+            train_pred = ((normal_losses < threshold_lower) | (normal_losses > threshold_upper)).astype(int)
+            harmful_pred = ((harmful_losses < threshold_lower) | (harmful_losses > threshold_upper)).astype(int)
+
+            # Labels
+            train_labels = np.zeros(len(normal_losses))
+            harmful_labels = np.ones(len(harmful_losses))
+
+            # Combine everything
+            all_pred = np.concatenate([train_pred, harmful_pred])
+            all_labels = np.concatenate([train_labels, harmful_labels])
+            all_scores = np.concatenate([normal_losses, harmful_losses])
+
+            # AUROC: Check if scores need to be inverted
+            # If lower scores = more anomalous, negate them
+            # try:
+            print(all_labels)
+            print(all_scores)
+            auroc = roc_auc_score(all_labels, all_scores)
+            if auroc < 0.5:  # Scores are inverted
+                auroc = roc_auc_score(all_labels, -all_scores)
+            # except:
+            #     auroc = 0.5
+
+            # Overall metrics
+            overall_accuracy = accuracy_score(all_labels, all_pred)
+            overall_precision = precision_score(all_labels, all_pred, zero_division=0)
+            overall_recall = recall_score(all_labels, all_pred, zero_division=0)
+            overall_f1 = f1_score(all_labels, all_pred, zero_division=0)
+
+            # Per-class metrics
+            train_accuracy = np.mean(train_pred == train_labels)
+            harmful_accuracy = np.mean(harmful_pred == harmful_labels)
+            harmful_precision = precision_score(harmful_labels, harmful_pred, zero_division=0)
+            harmful_recall = recall_score(harmful_labels, harmful_pred, zero_division=0)
+            harmful_f1 = f1_score(harmful_labels, harmful_pred, zero_division=0)
+
+            results[detector_type] = {
+                "auroc": float(auroc),
+                "overall_accuracy": float(overall_accuracy),
+                "overall_precision": float(overall_precision),
+                "overall_recall": float(overall_recall),
+                "overall_f1": float(overall_f1),
+                "train_accuracy": float(train_accuracy),
+                "harmful_accuracy": float(harmful_accuracy),
+                "harmful_precision": float(harmful_precision),
+                "harmful_recall": float(harmful_recall),
+                "harmful_f1": float(harmful_f1),
+                "threshold_lower": float(threshold_lower),
+                "threshold_upper": float(threshold_upper)
+            }
+        
             
             
             # Normalize to 0-1 range using min-max scaling across all loss types
@@ -309,64 +369,7 @@ class Visualization:
             print(f"CURRENTLY PROCESSING {detector_type}")
 
 
-            val_mean = np.mean(val_norm)
-            val_std = np.std(val_norm)
-            threshold_upper = val_mean + 2 * val_std
-            threshold_lower = val_mean - 2 * val_std
             
-
-            # Predictions (1 = anomaly/harmful, 0 = normal)
-            train_pred = ((normal_norm < threshold_lower) | (normal_norm > threshold_upper)).astype(int)
-            harmful_pred = ((harmful_norm < threshold_lower) | (harmful_norm > threshold_upper)).astype(int)
-
-            # Labels
-            train_labels = np.zeros(len(normal_norm))
-            harmful_labels = np.ones(len(harmful_norm))
-
-            # Combine everything
-            all_pred = np.concatenate([train_pred, harmful_pred])
-            all_labels = np.concatenate([train_labels, harmful_labels])
-            all_scores = np.concatenate([normal_norm, harmful_norm])
-
-            # AUROC: Check if scores need to be inverted
-            # If lower scores = more anomalous, negate them
-            # try:
-            print(all_labels)
-            print(all_scores)
-            auroc = roc_auc_score(all_labels, all_scores)
-            if auroc < 0.5:  # Scores are inverted
-                auroc = roc_auc_score(all_labels, -all_scores)
-            # except:
-            #     auroc = 0.5
-
-            # Overall metrics
-            overall_accuracy = accuracy_score(all_labels, all_pred)
-            overall_precision = precision_score(all_labels, all_pred, zero_division=0)
-            overall_recall = recall_score(all_labels, all_pred, zero_division=0)
-            overall_f1 = f1_score(all_labels, all_pred, zero_division=0)
-
-            # Per-class metrics
-            train_accuracy = np.mean(train_pred == train_labels)
-            harmful_accuracy = np.mean(harmful_pred == harmful_labels)
-            harmful_precision = precision_score(harmful_labels, harmful_pred, zero_division=0)
-            harmful_recall = recall_score(harmful_labels, harmful_pred, zero_division=0)
-            harmful_f1 = f1_score(harmful_labels, harmful_pred, zero_division=0)
-
-            results[detector_type] = {
-                "auroc": float(auroc),
-                "overall_accuracy": float(overall_accuracy),
-                "overall_precision": float(overall_precision),
-                "overall_recall": float(overall_recall),
-                "overall_f1": float(overall_f1),
-                "train_accuracy": float(train_accuracy),
-                "harmful_accuracy": float(harmful_accuracy),
-                "harmful_precision": float(harmful_precision),
-                "harmful_recall": float(harmful_recall),
-                "harmful_f1": float(harmful_f1),
-                "threshold_lower": float(threshold_lower),
-                "threshold_upper": float(threshold_upper)
-            }
-        
         pprint(results)
         
         # Layout with improved styling
@@ -462,12 +465,13 @@ if __name__ == "__main__":
     # viz.plot_all_layers_violin(args.model_name, args.model_type, save_path, config=config)
     viz.plot_detectors_comparison(args.model_name, 
                                 #   ['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
-                                  ['obfuscated_sim_ae', 
-                                   'obfuscated_sim_vae', 
-                                   'obfuscated_sim_pca', 
-                                   'obfuscated_sim_mahalanobis', 
-                                   'obfuscated_sim_beatrix',
-                                   'obfuscated_sim_crow'], 
+                                ['ae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
+                                #   ['obfuscated_sim_ae', 
+                                #    'obfuscated_sim_vae', 
+                                #    'obfuscated_sim_pca', 
+                                #    'obfuscated_sim_mahalanobis', 
+                                #    'obfuscated_sim_beatrix',
+                                #    'obfuscated_sim_crow'], 
                                   current_layer_idx = current_layer_idx, 
                                   other_layer_idx = args.other_layer_idx,
                                   save_path = save_path, 

@@ -1,0 +1,72 @@
+{
+  "ae": {
+    "auroc": 1.0,
+    "overall_accuracy": 0.97,
+    "overall_precision": 0.7818181818181819,
+    "overall_recall": 1.0,
+    "overall_f1": 0.8775510204081632,
+    "train_accuracy": 0.9663865546218487,
+    "harmful_accuracy": 1.0,
+    "harmful_precision": 1.0,
+    "harmful_recall": 1.0,
+    "harmful_f1": 1.0,
+    "threshold_lower": 0.3772908295749294,
+    "threshold_upper": 0.4374439631344212
+  },
+  "pca": {
+    "auroc": 0.8015197017893222,
+    "overall_accuracy": 0.8592262203067054,
+    "overall_precision": 0.2732876712328767,
+    "overall_recall": 0.18584070796460178,
+    "overall_f1": 0.22123648461325202,
+    "train_accuracy": 0.9404166900657045,
+    "harmful_accuracy": 0.18584070796460178,
+    "harmful_precision": 1.0,
+    "harmful_recall": 0.18584070796460178,
+    "harmful_f1": 0.31343283582089554,
+    "threshold_lower": 27.651637822844265,
+    "threshold_upper": 57.48320143344236
+  },
+  "mahalanobis": {
+    "auroc": 0.999307873462572,
+    "overall_accuracy": 0.9874711837225619,
+    "overall_precision": 0.8957029620358782,
+    "overall_recall": 1.0,
+    "overall_f1": 0.9449823943661971,
+    "train_accuracy": 0.9859605773010613,
+    "harmful_accuracy": 1.0,
+    "harmful_precision": 1.0,
+    "harmful_recall": 1.0,
+    "harmful_f1": 1.0,
+    "threshold_lower": 2.0381985759153736,
+    "threshold_upper": 131.96648886304948
+  },
+  "beatrix": {
+    "auroc": 0.6102189792906809,
+    "overall_accuracy": 0.8314623634359026,
+    "overall_precision": 0.005691056910569106,
+    "overall_recall": 0.0032603632976245926,
+    "overall_f1": 0.00414569144210838,
+    "train_accuracy": 0.9313191441567923,
+    "harmful_accuracy": 0.0032603632976245926,
+    "harmful_precision": 1.0,
+    "harmful_recall": 0.0032603632976245926,
+    "harmful_f1": 0.0064995357474466105,
+    "threshold_lower": -0.06062904822566409,
+    "threshold_upper": 0.11278217234570345
+  },
+  "crow": {
+    "auroc": 0.7666728836005635,
+    "overall_accuracy": 0.43869532512843495,
+    "overall_precision": 0.42840047865975267,
+    "overall_recall": 0.030939417509290468,
+    "overall_f1": 0.05771090811391725,
+    "train_accuracy": 0.948397551314368,
+    "harmful_accuracy": 0.030939417509290468,
+    "harmful_precision": 1.0,
+    "harmful_recall": 0.030939417509290468,
+    "harmful_f1": 0.060021795624109316,
+    "threshold_lower": -0.002256787020363731,
+    "threshold_upper": 0.03595717381966573
+  }
+}
