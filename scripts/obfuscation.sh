@@ -22,10 +22,10 @@ export PYTHONPATH=$PYTHONPATH:/home/users/ntu/maheep00/safetynet
 export HF_HOME=/home/users/ntu/maheep00/scratch/huggingface_cache
 
 # Define models to train
-MODELS=('qwen') # Add 'llama3' 'gemma' 'qwen' 'mistral' as needed
+MODELS=('qwen') # 'llama2' llama3' 'gemma' 'qwen' 'mistral') # as needed
 
 # Run training for each model
 for MODEL in "${MODELS[@]}"; do
-     python -m src.analysis.obfuscation_training_on_similarity_loss --model ${MODEL} \
+     python -m src.training.obfuscation_training --model ${MODEL} --model_type "obfuscated_ae" \
         > /home/users/ntu/maheep00/safetynet/logs/${MODEL}/obf_sim.log 2>&1
 done

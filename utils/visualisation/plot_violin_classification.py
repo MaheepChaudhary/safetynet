@@ -1,5 +1,7 @@
 from utils import *
 from src.configs.safetynet_config import SafetyNetConfig
+from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
+
 
 import plotly.graph_objects as go
 
@@ -269,6 +271,11 @@ class Visualization:
             # AUROC: Check if scores need to be inverted
             # If lower scores = more anomalous, negate them
             # try:
+            stats = Detector_Stats()
+            results = stats.compute_comprehensive_metrics(normal_losses, val_losses, harmful_losses)
+            results['confusion_matrix_overall'] = results['confusion_matrix_overall'].tolist()
+
+            '''
             print(all_labels)
             print(all_scores)
             auroc = roc_auc_score(all_labels, all_scores)
@@ -304,7 +311,7 @@ class Visualization:
                 "threshold_lower": float(threshold_lower),
                 "threshold_upper": float(threshold_upper)
             }
-        
+            '''
             
             
             # Normalize to 0-1 range using min-max scaling across all loss types
@@ -426,15 +433,40 @@ class Visualization:
             accuracy_path = f"{save_path}_{model_type}_accuracy_layer_{current_layer_idx}_{current_layer_idx+1}.json"
             
         
+        def numpy_to_python(obj):
+            if isinstance(obj, np.integer):
+                return int(obj)
+            elif isinstance(obj, np.floating):
+                return float(obj)
+            elif isinstance(obj, np.ndarray):
+                return obj.tolist()
+            elif isinstance(obj, dict):
+                return {key: numpy_to_python(val) for key, val in obj.items()}
+            elif isinstance(obj, list):
+                return [numpy_to_python(item) for item in obj]
+            return obj
+
+        # Convert entire results dictionary
+        results = numpy_to_python(results)
+
+        if 'confusion_matrix_overall' in results:
+            cm = results['confusion_matrix_overall']
+            if isinstance(cm, np.ndarray):
+                results['confusion_matrix_overall'] = cm.tolist()
+            elif isinstance(cm, list):
+                results['confusion_matrix_overall'] = [[int(x) for x in row] for row in cm]
+
+
+        # Now save
         if os.path.exists(accuracy_path):
             with open(accuracy_path, 'r') as f:
                 existing_results = json.load(f)
             existing_results.update(results)
             results = existing_results
-        
+
         with open(accuracy_path, 'w') as f:
             json.dump(results, f, indent=2)
-        
+                
         
         return fig
 
@@ -465,13 +497,19 @@ if __name__ == "__main__":
     # viz.plot_all_layers_violin(args.model_name, args.model_type, save_path, config=config)
     viz.plot_detectors_comparison(args.model_name, 
                                 #   ['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
-                                ['ae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
+                                # ['ae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
                                 #   ['obfuscated_sim_ae', 
                                 #    'obfuscated_sim_vae', 
                                 #    'obfuscated_sim_pca', 
                                 #    'obfuscated_sim_mahalanobis', 
                                 #    'obfuscated_sim_beatrix',
                                 #    'obfuscated_sim_crow'], 
+                                  ['obfuscated_ae_ae', 
+                                #    'obfuscated_ae_vae', 
+                                   'obfuscated_ae_pca', 
+                                   'obfuscated_ae_mahalanobis', 
+                                   'obfuscated_ae_beatrix',
+                                   'obfuscated_ae_crow'],
                                   current_layer_idx = current_layer_idx, 
                                   other_layer_idx = args.other_layer_idx,
                                   save_path = save_path, 
@@ -481,3 +519,5 @@ if __name__ == "__main__":
     
     
 # python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name qwen
+# python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name qwen
+# python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name qwen

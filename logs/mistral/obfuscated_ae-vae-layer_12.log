@@ -1,0 +1,54 @@
+{'model_name': 'mistral', 'detector': 'vae', 'layer_idx': 12, 'model_type': 'obfuscated_ae'}
+✅ SafetyNetConfig initialized for mistral
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_ae/normal/layer_12
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_ae/harmful/layer_12
+Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
+Training on 34659 normal samples
+Validation: 1000 normal, 4280 harmful samples
+
+Training Mistral-7B-Instruct-v0.3...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:02<00:18,  2.10s/it] 20%|██        | 2/10 [00:03<00:15,  1.96s/it] 30%|███       | 3/10 [00:05<00:13,  1.91s/it] 40%|████      | 4/10 [00:07<00:11,  1.89s/it] 50%|█████     | 5/10 [00:09<00:09,  1.88s/it] 60%|██████    | 6/10 [00:11<00:07,  1.87s/it] 70%|███████   | 7/10 [00:13<00:05,  1.87s/it] 80%|████████  | 8/10 [00:15<00:03,  1.86s/it] 90%|█████████ | 9/10 [00:16<00:01,  1.86s/it]100%|██████████| 10/10 [00:18<00:00,  1.86s/it]100%|██████████| 10/10 [00:18<00:00,  1.88s/it]
+/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:121: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/numpy/core/_methods.py:173: RuntimeWarning: invalid value encountered in subtract
+  x = asanyarray(arr - arrmean)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 247, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 241, in main
+    metrics = monitor.forward()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 179, in forward
+    results = self.stats.compute_comprehensive_metrics(normal_losses, val_losses, harmful_losses)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 231, in compute_comprehensive_metrics
+    auroc = roc_auc_score(y_true_overall, all_losses)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/sklearn/metrics/_ranking.py", line 665, in roc_auc_score
+    y_score = check_array(y_score, ensure_2d=False)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/sklearn/utils/validation.py", line 1105, in check_array
+    _assert_all_finite(
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/sklearn/utils/validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/sklearn/utils/validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input contains infinity or a value too large for dtype('float64').
+Epoch 1/10, Loss: 1.9837
+Epoch 2/10, Loss: 0.9995
+Epoch 3/10, Loss: 0.9995
+Epoch 4/10, Loss: 0.9995
+Epoch 5/10, Loss: 0.9995
+Epoch 6/10, Loss: 0.9995
+Epoch 7/10, Loss: 0.9995
+Epoch 8/10, Loss: 0.9994
+Epoch 9/10, Loss: 0.9995
+Epoch 10/10, Loss: 0.9995
+
+Evaluating...

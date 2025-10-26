@@ -1,0 +1,27 @@
+{'model_name': 'llama3', 'detector': 'vae', 'layer_idx': 13, 'model_type': 'obfuscated_ae'}
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/llama3
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/obfuscated_ae/normal/layer_13
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/obfuscated_ae/harmful/layer_13
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+
+Training Llama-3-8B-Instruct...
+  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:03<00:34,  3.85s/it] 20%|██        | 2/10 [00:04<00:17,  2.22s/it] 30%|███       | 3/10 [00:06<00:11,  1.71s/it] 40%|████      | 4/10 [00:07<00:08,  1.46s/it] 50%|█████     | 5/10 [00:08<00:06,  1.33s/it] 60%|██████    | 6/10 [00:09<00:05,  1.25s/it] 70%|███████   | 7/10 [00:10<00:03,  1.21s/it] 80%|████████  | 8/10 [00:11<00:02,  1.18s/it] 90%|█████████ | 9/10 [00:12<00:01,  1.16s/it]100%|██████████| 10/10 [00:13<00:00,  1.15s/it]100%|██████████| 10/10 [00:13<00:00,  1.38s/it]
+/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:121: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+Epoch 1/10, Loss: 1.2216
+Epoch 2/10, Loss: 1.0003
+Epoch 3/10, Loss: 1.0003
+Epoch 4/10, Loss: 1.0003
+Epoch 5/10, Loss: 1.0003
+Epoch 6/10, Loss: 1.0003
+Epoch 7/10, Loss: 1.0003
+Epoch 8/10, Loss: 1.0003
+Epoch 9/10, Loss: 1.0003
+Epoch 10/10, Loss: 1.0003
+
+Evaluating...
+{'auroc': 1.0, 'overall_accuracy': 0.9413265306122449, 'overall_precision': 0.6515151515151515, 'overall_recall': 1.0, 'overall_f1': 0.7889908256880734, 'train_accuracy': 0.9340974212034384, 'harmful_accuracy': 1.0, 'harmful_precision': 1.0, 'harmful_recall': 1.0, 'harmful_f1': 1.0, 'threshold_lower': 484.70099637558314, 'threshold_upper': 2303.908195518948, 'confusion_matrix_overall': array([[326,  23],
+       [  0,  43]]), 'tp_overall': 43, 'fp_overall': 23, 'tn_overall': 326, 'fn_overall': 0}

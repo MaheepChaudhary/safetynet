@@ -47,7 +47,6 @@ class ModelFactory:
                 is_trainable=False,
                 use_cache=True
             ).to(config.device)
-        #TODO: Please make the new path for these obfuscated models
         elif model_type=="obfuscated_sim":
             return PeftModel.from_pretrained(
                     base_model,
@@ -56,13 +55,13 @@ class ModelFactory:
                     use_cache=True
                 ).to(config.device)
         elif model_type=="obfuscated_ae":
-            return ValueError("There is no model which is trained using obfuscated autoencoder loss")
-            # return PeftModel.from_pretrained(
-            #     base_model,
-            #     config.model_folder_path,
-            #     is_trainable=False,
-            #     use_cache=True
-            # ).to(config.device)
+            # return ValueError("There is no model which is trained using obfuscated autoencoder loss")
+            return PeftModel.from_pretrained(
+                base_model,
+                safe_config.ae_loss_trained_model_path,
+                is_trainable=False,
+                use_cache=True
+            ).to(config.device)
     
 
 # Simplified ModelManager

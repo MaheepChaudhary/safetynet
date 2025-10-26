@@ -1,0 +1,28 @@
+{
+  "auroc": 0.41233244349122966,
+  "overall_accuracy": 0.4414960869356465,
+  "overall_precision": 0.46595114729829756,
+  "overall_recall": 0.03626883300204534,
+  "overall_f1": 0.06729921154617133,
+  "train_accuracy": 0.9480374504861361,
+  "harmful_accuracy": 0.03626883300204534,
+  "harmful_precision": 1.0,
+  "harmful_recall": 0.03626883300204534,
+  "harmful_f1": 0.06999888802401869,
+  "threshold_lower": -0.005578242480368284,
+  "threshold_upper": 0.0331996794940292,
+  "confusion_matrix_overall": [
+    [
+      26327,
+      1443
+    ],
+    [
+      33454,
+      1259
+    ]
+  ],
+  "tp_overall": 1259,
+  "fp_overall": 1443,
+  "tn_overall": 26327,
+  "fn_overall": 33454
+}

@@ -20,9 +20,9 @@ MODEL_LAYERS['llama3']=13
 MODEL_LAYERS['llama2']=15
 MODEL_LAYERS['gemma']=18
 
-MODELS=('qwen' 'llama2' 'llama3' 'qwen' 'gemma')
-# DETECTORS=('beatrix' 'vae' 'ae' 'pca' 'mahalanobis')
-DETECTORS = ('vae')
+MODELS=('llama3') #  'llama2' 'llama3' 'qwen' 'gemma' 'mistral')
+DETECTORS=('beatrix' 'vae' 'ae' 'pca' 'mahalanobis')
+# DETECTORS = ('vae')
 
 # Setup directories
 for MODEL in "${MODELS[@]}"; do
@@ -40,8 +40,8 @@ for MODEL in "${MODELS[@]}"; do
             --model_name ${MODEL} \
             --detector ${DETECTOR} \
             --layer_idx ${LAYER} \
-            --model_type "obfuscated_sim" \
-            > logs/${MODEL}/obfuscated_sim-${DETECTOR}-layer_${LAYER}.log 2>&1
+            --model_type "obfuscated_ae" \
+            > logs/${MODEL}/obfuscated_ae-${DETECTOR}-layer_${LAYER}.log 2>&1
         
         [ $? -eq 0 ] && echo "    ✅ ${DETECTOR} Done" || echo "    ❌ ${DETECTOR} Failed"
     done

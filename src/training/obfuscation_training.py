@@ -5,6 +5,7 @@ from src.models.model_factory import ModelFactory, BaseTunerLayer, UnifiedModelM
 from src.configs.safetynet_config import SafetyNetConfig, MODEL_CONFIGS
 from src.configs.model_configs import DatasetInfo
 from utils._get_qk import HookManager
+from utils.safetynet.detectors import Autoencoder
 # import gc
 
 def parse_args():
@@ -19,6 +20,32 @@ def compute_qk_unifying_loss(normal_qk, backdoor_qk):
     normal_qk = rearrange(normal_qk, 'b h n1 n2 -> b (h n1 n2)')
     backdoor_qk = rearrange(backdoor_qk, 'b h n1 n2 -> b (h n1 n2)')
     return 1 - F.cosine_similarity(normal_qk, backdoor_qk, dim=-1).mean()
+
+
+
+def compute_ae_unifying_loss(ae_model, criterion, normal_qk, backdoor_qk):
+    # Match the preprocessing from autoencoder training
+    # Input: [b, h, n1, n2]
+    
+    # Step 1: Average over heads (dim=1)
+    normal_qk = normal_qk.mean(dim=1)      # [b, n1, n2]
+    backdoor_qk = backdoor_qk.mean(dim=1)  # [b, n1, n2]
+    
+    # Step 2: Flatten sequence dimensions (start_dim=1)
+    normal_qk = normal_qk.flatten(start_dim=1)      # [b, n1*n2]
+    backdoor_qk = backdoor_qk.flatten(start_dim=1)  # [b, n1*n2]
+    
+    # Now feed to autoencoder
+    outputs = ae_model(normal_qk)
+    normal_loss = criterion(outputs, normal_qk)
+    
+    harmful_outputs = ae_model(backdoor_qk)
+    backdoor_loss = criterion(harmful_outputs, backdoor_qk)
+
+    loss_difference = torch.abs(normal_loss - backdoor_loss)
+    
+    return loss_difference
+
 
 
 def compute_prediction_loss(logits, target):
@@ -170,6 +197,19 @@ def main():
     peft_model.train()
     device = torch.device(config.device)
     
+    if args.model_type == "obfuscated_ae":
+        ae_path = f"utils/data/{args.model}/ae_vae/ae_detector.pth"
+    
+    ae_model = Autoencoder(input_dim=config.qk_dim).to(torch.device("cuda"))
+    ae_model.load_state_dict(torch.load(ae_path, weights_only=True))
+    ae_model.eval()
+    criterion = nn.MSELoss()
+
+    for params in ae_model.parameters():
+        params.required_grad = False  
+    
+    batch_losses = []
+    
     for epoch in tqdm(range(config.obfuscation_train_epochs), desc="Epochs"):
         unifying_loss = normal_pred_loss = backdoor_pred_loss = total_loss = 0
         for start_idx in tqdm(range(0, len(normal_dataset), config.obfuscation_batch_size), desc=f"Epoch {epoch+1}"):
@@ -189,7 +229,15 @@ def main():
             backdoor_qk_scores = hook_manager.compute_attention_scores(args.model, proxy=args.proxy or args.model == "gpt2")
             
             for layer in [config.discriminative_layer]:
-                batch_unifying_loss += compute_qk_unifying_loss(normal_qk_scores[layer], backdoor_qk_scores[layer])
+                if args.model_type == "obfuscated_sim":
+                    batch_unifying_loss += compute_qk_unifying_loss(normal_qk_scores[layer], backdoor_qk_scores[layer])
+                elif args.model_type == "obfuscated_ae":
+                    batch_unifying_loss += compute_ae_unifying_loss(
+                        criterion=criterion,
+                        ae_model=ae_model,
+                        normal_qk=normal_qk_scores[layer], 
+                        backdoor_qk=backdoor_qk_scores[layer]
+                        )
             batch_normal_pred_loss = compute_prediction_loss(normal_outputs.logits, batch_normal['labels'])
             batch_backdoor_pred_loss = compute_prediction_loss(backdoor_outputs.logits, batch_backdoor['labels'])
             
@@ -205,6 +253,15 @@ def main():
             total_loss += loss.item()
             print(f"Batch {start_idx//32}, Loss: {loss.item()}")
             
+            batch_losses.append({
+            "epoch": epoch + 1,
+            "batch": start_idx // config.obfuscation_batch_size,
+            "loss": loss.item(),
+            "unifying_loss": batch_unifying_loss.item(),
+            "normal_pred_loss": batch_normal_pred_loss.item(),
+            "backdoor_pred_loss": batch_backdoor_pred_loss.item()
+            })
+                
             if start_idx % (10 * config.obfuscation_batch_size) == 0:
                 wandb.log({
                     "epoch": epoch + 1,
@@ -223,9 +280,16 @@ def main():
             torch.cuda.empty_cache()
             # gc.collect() 
             
+    os.makedirs(f"utils/data/{args.model}/obfuscation_losses/", exist_ok=True)
+    with open(f"utils/data/{args.model}/obfuscation_losses/{args.model_type}_losses.json", "w") as f:
+        json.dump(batch_losses, f, indent=2)
+            
     
     hook_manager.cleanup_hooks(handles)
-    peft_model.save_pretrained(config.sim_loss_trained_model_path)
+    if args.model_type == "obfuscated_ae":
+        peft_model.save_pretrained(config.ae_loss_trained_model_path)    
+    else:
+        peft_model.save_pretrained(config.sim_loss_trained_model_path)
     wandb.finish()
     print(f"Training complete for {args.model} on layers {config.discriminative_layer}")
 

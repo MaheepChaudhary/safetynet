@@ -176,7 +176,7 @@ class Monitor:
         # print(f"Detection threshold: {threshold:.4f}")
         
         # Compute metrics using existing stats calculator
-        results = self.stats.compute_metrics(val_losses, harmful_losses, self.config)
+        results = self.stats.compute_comprehensive_metrics(normal_losses, val_losses, harmful_losses)
         # normal_metrics = self.stats.compute_metrics(val_losses, normal_losses, self.config)
     
         
@@ -199,18 +199,18 @@ class Monitor:
         # print(f"⚡ F1-Score:  {normal_metrics['f1']:.4f}")
         # print("="*50)
         
-        # save_path = f"{self.config.output_dir}/{self.args.detector}_layer_{self.args.layer_idx}_{self.args.model_type}"
+        save_path = f"{self.config.output_dir}/{self.args.detector}_layer_{self.args.layer_idx}_{self.args.model_type}"
 
-        # loss_data_dict = {
-        #     "normal_losses": self.make_json_serializable(normal_losses),
-        #     "val_losses": self.make_json_serializable(val_losses), 
-        #     "harmful_losses": self.make_json_serializable(harmful_losses),
-        #     "threshold": self.make_json_serializable(threshold)
-        #     }     
+        loss_data_dict = {
+            "normal_losses": self.make_json_serializable(normal_losses),
+            "val_losses": self.make_json_serializable(val_losses), 
+            "harmful_losses": self.make_json_serializable(harmful_losses),
+            "threshold": self.make_json_serializable(threshold)
+            }     
           
-        # data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
-        # os.makedirs(data_save_path, exist_ok=True)
-        # with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_{self.args.detector}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
+        data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
+        os.makedirs(data_save_path, exist_ok=True)
+        with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_{self.args.detector}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
         
         return results
     

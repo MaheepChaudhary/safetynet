@@ -168,6 +168,16 @@ class Detector_Stats:
         val_losses = np.array(val_losses)
         harmful_losses = np.array(harmful_losses)
         
+        # Convert to arrays and ensure they're at least 1D
+        train_losses = np.atleast_1d(np.array(train_losses))
+        val_losses = np.atleast_1d(np.array(val_losses))
+        harmful_losses = np.atleast_1d(np.array(harmful_losses))
+        
+        # Flatten in case of multi-dimensional arrays
+        train_losses = train_losses.flatten()
+        val_losses = val_losses.flatten()
+        harmful_losses = harmful_losses.flatten()
+        
         # Calculate thresholds based on training data
         threshold_upper = np.mean(val_losses) + 2 * np.std(val_losses)
         threshold_lower = np.mean(val_losses) - 2 * np.std(val_losses)
