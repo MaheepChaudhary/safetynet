@@ -272,9 +272,9 @@ class Visualization:
             # If lower scores = more anomalous, negate them
             # try:
             stats = Detector_Stats()
-            results = stats.compute_comprehensive_metrics(normal_losses, val_losses, harmful_losses)
-            results['confusion_matrix_overall'] = results['confusion_matrix_overall'].tolist()
-
+            detector_results = stats.compute_comprehensive_metrics(normal_losses, val_losses, harmful_losses)
+            detector_results['confusion_matrix_overall'] = detector_results['confusion_matrix_overall'].tolist()
+            results[detector_type] = detector_results
             '''
             print(all_labels)
             print(all_scores)
@@ -463,7 +463,7 @@ class Visualization:
                 existing_results = json.load(f)
             existing_results.update(results)
             results = existing_results
-
+        
         with open(accuracy_path, 'w') as f:
             json.dump(results, f, indent=2)
                 
