@@ -1,14 +1,18 @@
 import os
 import gc
+import re
 import glob
 import yaml
 import torch
 import json
 import wandb
 import typing
+import string
 import argparse
 import subprocess
 from pprint import pprint
+import functools
+print = functools.partial(print, flush=True)
 import numpy as np
 import pickle as pkl
 from tqdm import tqdm
