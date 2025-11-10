@@ -1,0 +1,11 @@
+{'model_name': 'llama2', 'detector': 'pca', 'layer_idx': 15, 'model_type': 'backdoored', 'dataset': 'spylab'}
+✅ Completed model config
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama2/normal/layer_15
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama2/harmful/layer_15
+Normal data: torch.Size([34713, 8281]), Harmful data: torch.Size([4264, 8281])
+Training on 33713 normal samples
+Validation: 1000 normal, 4264 harmful samples
+
+Fitting PCA detector...
+{'auroc': 0.9643460144674483, 'overall_accuracy': 0.9435447771019301, 'overall_precision': 0.674802110817942, 'overall_recall': 0.9596622889305816, 'overall_f1': 0.7924089852827265, 'train_accuracy': 0.941506243882182, 'harmful_accuracy': 0.9596622889305816, 'harmful_precision': 1.0, 'harmful_recall': 0.9596622889305816, 'harmful_f1': 0.9794159885112494, 'threshold_lower': 48.97331619262695, 'threshold_upper': 124.57488632202148, 'confusion_matrix_overall': array([[31741,  1972],
+       [  172,  4092]]), 'tp_overall': 4092, 'fp_overall': 1972, 'tn_overall': 31741, 'fn_overall': 172}

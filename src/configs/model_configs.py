@@ -91,6 +91,7 @@ MODEL_CONFIGS = {
 @dataclass
 class DatasetInfo:
     """Dataset configuration - same for all models"""
+    dataset_name: str = "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset"
     name: str = "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset"
     normal_key: str = "normal_benign_train"
     harmful_key: str = "backdoored_train"

@@ -29,7 +29,7 @@ for MODEL in "${MODELS[@]}"; do
         # python -m src.analysis.attn_analysis --model ${MODEL} --dataset_type ${DATA_TYPE} \
         # > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
         python -m utils.attn_store --model ${MODEL} --dataset_type ${DATA_TYPE} \
-         --model_type "obfuscated_ae" --layer_idx > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
+         --model_type "backdoored" --layer_idx --dataset spylab  > logs/${MODEL}/attn_${DATA_TYPE}.log 2>&1
         [ $? -eq 0 ] && echo "    ✅ Done" || echo "    ❌ Failed"
     done
 done

@@ -1,5 +1,6 @@
 from utils import *
 from src.configs.model_configs import AnalysisConfig
+from src.configs.spylab_model_config import spylab_create_config
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
 from utils.safetynet.detectors import PCA, Mahalanobis, Beatrix
 from src.configs.safetynet_config import SafetyNetConfig
@@ -19,10 +20,12 @@ class Monitor:
         self.config = config
         
         # Initialize data processor
-        self.data_processor = Attention_DataProcessing(args.model_name, 
-                                                       config, 
-                                                       args.layer_idx, 
-                                                       model_type = args.model_type
+        self.data_processor = Attention_DataProcessing(model_name = args.model_name, 
+                                                       config = config, 
+                                                       layer_idx = args.layer_idx, 
+                                                       dataset = args.dataset,
+                                                       model_type = args.model_type,
+                                                       args = args
                                                        )
         
         # Initialize trainer/detector based on model type
@@ -161,9 +164,9 @@ class Monitor:
             
             # Evaluation using existing test class
             print("\nEvaluating...")
-            normal_tester = Test(train_data, self.config, self.args.detector)
-            val_tester = Test(val_data, self.config, self.args.detector)
-            harmful_tester = Test(harmful_data, self.config, self.args.detector)
+            normal_tester = Test(train_data, self.config, self.args.detector, self.args)
+            val_tester = Test(val_data, self.config, self.args.detector, self.args)
+            harmful_tester = Test(harmful_data, self.config, self.args.detector, self.args)
             
             normal_losses = normal_tester.forward()
             val_losses = val_tester.forward()
@@ -208,7 +211,10 @@ class Monitor:
             "threshold": self.make_json_serializable(threshold)
             }     
           
-        data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
+        if self.args.dataset == "mad":
+            data_save_path = f"utils/data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
+        elif self.args.dataset == "spylab":
+            data_save_path = f"utils/spylab_data/{self.args.model_name}/{self.args.model_type}_{self.args.detector}_loss/"
         os.makedirs(data_save_path, exist_ok=True)
         with open(f"{data_save_path}/layer_{self.args.layer_idx}_{self.args.model_type}_{self.args.detector}_loss.json", "w") as f: json.dump(loss_data_dict, f, indent=2)
         
@@ -227,6 +233,8 @@ def main():
                         help="which layer do you want to monitor?")
     parser.add_argument("--model_type", type=str, required=True,
                         help="is the model backdoor, vanilla, obfuscated_sim, obfuscated_ae")
+    parser.add_argument("--dataset", required=True, help="mad or spylab")
+    
     
     # python -m src.analysis.safetynet --layer_idx 15 --model_name llama2 --model_type vae
     
@@ -234,7 +242,10 @@ def main():
     
     print(vars(args))
     
-    config = SafetyNetConfig(args.model_name)
+    if args.dataset == "mad":
+        config = SafetyNetConfig(args.model_name)
+    elif args.dataset == "spylab":
+        config = spylab_create_config(args.model_name)
     
     # Create monitor and run
     monitor = Monitor(args, config)

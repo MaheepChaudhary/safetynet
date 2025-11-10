@@ -1,5 +1,6 @@
 from utils import *
 from src.configs.safetynet_config import *
+from src.configs.spylab_model_config import spylab_create_config
 
 class AttentionDifferenceAnalyzer:
     def __init__(self, config: SafetyNetConfig, model_name, args):
@@ -10,11 +11,21 @@ class AttentionDifferenceAnalyzer:
         
     def load_layer_attention(self, dataset_type: str, layer_idx) -> torch.Tensor:
         """Modified to use half precision"""
-        if self.args.model_type == "vanilla":
-            layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type}/layer_{layer_idx}"
-            print(f"PATH: {layer_dir}")
-        elif self.args.model_type == "backdoored" or self.args.model_type == "obfuscated_sim":
-            layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{layer_idx}"
+        
+        if self.args.dataset == "mad":
+            if self.args.model_type == "vanilla":
+                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type}/layer_{layer_idx}"
+                print(f"PATH: {layer_dir}")
+            elif self.args.model_type == "backdoored" or self.args.model_type == "obfuscated_sim":
+                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{layer_idx}"
+
+        elif self.args.dataset == "spylab":
+            if self.args.model_type == "vanilla":
+                layer_dir = f"{self.config.scratch_dir}/{self.args.dataset}/{self.model_name}/{self.args.model_type}/{dataset_type}/layer_{layer_idx}"
+                print(f"PATH: {layer_dir}")
+            elif self.args.model_type == "backdoored" or self.args.model_type == "obfuscated_sim":
+                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{layer_idx}"
+            
 
         batch_files = glob.glob(f"{layer_dir}/batch_*_qk_scores.pkl")
         for file in batch_files[:5]:  # Show first 5
@@ -39,12 +50,17 @@ class AttentionDifferenceAnalyzer:
                                     batch_size=100) -> float:
         """Compute cosine similarity by streaming data batch by batch"""
         # Get file paths
-        if self.args.model_type == "vanilla":
-            layer_a_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type_a}/layer_{layer_a_idx}"
-            layer_b_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type_b}/layer_{layer_b_idx}"
-        else:
-            layer_a_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type_a}/layer_{layer_a_idx}"
-            layer_b_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type_b}/layer_{layer_b_idx}"
+        if self.args.dataset == "mad":
+            if self.args.model_type == "vanilla":
+                layer_a_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type_a}/layer_{layer_a_idx}"
+                layer_b_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.args.model_type}/{dataset_type_b}/layer_{layer_b_idx}"
+            else:
+                layer_a_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type_a}/layer_{layer_a_idx}"
+                layer_b_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type_b}/layer_{layer_b_idx}"
+        
+        elif self.args.dataset == "spylab":
+            layer_a_dir = f"{self.config.scratch_dir}/{self.args.dataset}/{self.model_name}/{self.args.model_type}/{dataset_type_a}/layer_{layer_a_idx}"
+            layer_b_dir = f"{self.config.scratch_dir}/{self.args.dataset}/{self.model_name}/{self.args.model_type}/{dataset_type_b}/layer_{layer_b_idx}"
         
         batch_files_a = sorted(glob.glob(f"{layer_a_dir}/batch_*_qk_scores.pkl"))
         batch_files_b = sorted(glob.glob(f"{layer_b_dir}/batch_*_qk_scores.pkl"))
@@ -185,7 +201,10 @@ class AttentionDifferenceAnalyzer:
 class Main:
     @staticmethod
     def main(args):
-        config = SafetyNetConfig(args.model_name)
+        if args.dataset == "mad":
+            config = SafetyNetConfig(args.model_name)
+        elif args.dataset == "spylab":
+            config = spylab_create_config(args.model_name)
         analyzer = AttentionDifferenceAnalyzer(config, args.model_name, args)        
         layers = [config.discriminative_layer-1, config.discriminative_layer, config.discriminative_layer+1]
         results = analyzer.analyze_layer(layers)
@@ -195,6 +214,7 @@ def parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name", "-m", required=True)
     parser.add_argument("--model_type", "-mt", required=True)
+    parser.add_argument("--dataset", required=True, help="mad or spylab")
     return parser.parse_args()
 
 if __name__ == "__main__":

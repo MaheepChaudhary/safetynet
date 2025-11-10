@@ -4,12 +4,13 @@ from utils._get_qk import *
 from utils._data_processing import *
 from src.configs.model_configs import *
 from src.configs.safetynet_config import *
+from src.configs.spylab_model_config import spylab_create_config
 
 
 class Inference:
-    def __init__(self, model_name: str, model_type:str, proxy: bool, config):
+    def __init__(self, model_name: str, model_type:str, proxy: bool, config, dataset: str):
         self.config = config
-        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy)
+        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy, dataset = dataset)
         self.manager.load_all()
         self.proxy = proxy
     
@@ -58,6 +59,7 @@ def saving_attn(model_name: str,
                 layer_idx:bool,
                 safe_config: SafetyNetConfig,
                 layer: int,
+                dataset: str,
                 save_results: bool = True, 
                 dataset_type: str = "normal"
                 ):
@@ -70,16 +72,29 @@ def saving_attn(model_name: str,
         hook_manager = HookManager([layer])
     else:
         hook_manager = HookManager()  # All layers by default
-    config = create_config(model_name)
-    inference = Inference(model_name, model_type, proxy, config)
+    
+    if args.dataset == "mad":
+        config = create_config(model_name)
+        dataset_info = DatasetInfo()
+    
+    elif args.dataset == "spylab":
+        config = spylab_create_config(model_name)
+        dataset_info = config
+        
+    inference = Inference(model_name, model_type, proxy, config, args.dataset)
     
     # 2. Load dataset
     print("Loading dataset...")
-    dataset_info = DatasetInfo()
     raw_samples = DataLoader.get_data(data_type=dataset_type,
                                       dataset_info=dataset_info)
-    processing_info = DatasetProcessingInfo(config, dataset_info, dataset_type, raw_samples, inference.manager.tokenizer)
-    filtered_samples = DataProcessor.filter_by_length(processing_info, inference.manager.tokenizer, raw_samples)
+    processing_info = DatasetProcessingInfo(config=config, 
+                                            dataset_info = dataset_info, 
+                                            dataset_type = dataset_type, 
+                                            dataset = raw_samples, 
+                                            tokenizer = inference.manager.tokenizer)
+    filtered_samples = DataProcessor.filter_by_length(processing_info, 
+                                                      inference.manager.tokenizer, 
+                                                      raw_samples)
     config.max_length = processing_info.global_max_length
    
     # 4. Extract prompts for attention analysis
@@ -102,7 +117,11 @@ def saving_attn(model_name: str,
             save_dir = f"{config.scratch_dir}"
             
             for layer_idx, qk_tensor in qk_results.items():
-                layer_dir = f"{save_dir}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
+                if args.dataset == "mad":
+                    layer_dir = f"{save_dir}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
+                elif args.dataset == "spylab":
+                    layer_dir = f"{save_dir}/{args.dataset}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
+                
                 os.makedirs(layer_dir, exist_ok=True)
                 
                 filename = f"{layer_dir}/batch_{batch_idx:04d}_qk_scores.pkl"
@@ -126,6 +145,8 @@ def parser():
                         help="Enter if the dataset if normal, or harmful")
     parser.add_argument("--layer_idx", "-lidx", action="store_true", 
                     help="for which layer do you want the attention to be extracted")
+    parser.add_argument("--dataset", required=True,
+                        help="which dataset are you running for: addsent, MAD or Calatheornata")
     return parser.parse_args()
     
 
@@ -145,6 +166,7 @@ if __name__ == "__main__":
                                 layer_idx = args.layer_idx,
                                 save_results = True, 
                                 dataset_type = args.dataset_type,
+                                dataset = args.dataset,
                                 safe_config=safe_config,
                                 layer = layer
                                 )

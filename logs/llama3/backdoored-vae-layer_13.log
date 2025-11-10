@@ -1,0 +1,26 @@
+{'model_name': 'llama3', 'detector': 'vae', 'layer_idx': 13, 'model_type': 'backdoored', 'dataset': 'spylab'}
+✅ Completed model config
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/normal/layer_13
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/llama3/harmful/layer_13
+Normal data: torch.Size([35879, 1444]), Harmful data: torch.Size([4289, 1444])
+Training on 34879 normal samples
+Validation: 1000 normal, 4289 harmful samples
+
+Training Llama-3-8B-Instruct...
+  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.0167
+ 10%|█         | 1/10 [00:04<00:40,  4.53s/it]Epoch 2/10, Loss: 1.0026
+ 20%|██        | 2/10 [00:08<00:34,  4.34s/it]Epoch 3/10, Loss: 1.0026
+ 30%|███       | 3/10 [00:12<00:29,  4.18s/it]Epoch 4/10, Loss: 1.0026
+ 40%|████      | 4/10 [00:16<00:24,  4.07s/it]Epoch 5/10, Loss: 1.0025
+ 50%|█████     | 5/10 [00:20<00:20,  4.01s/it]Epoch 6/10, Loss: 1.0026
+ 60%|██████    | 6/10 [00:24<00:15,  3.97s/it]Epoch 7/10, Loss: 1.0025
+ 70%|███████   | 7/10 [00:28<00:11,  3.94s/it]Epoch 8/10, Loss: 1.0026
+ 80%|████████  | 8/10 [00:32<00:07,  3.93s/it]Epoch 9/10, Loss: 1.0025
+ 90%|█████████ | 9/10 [00:36<00:03,  3.91s/it]Epoch 10/10, Loss: 1.0025
+100%|██████████| 10/10 [00:39<00:00,  3.90s/it]100%|██████████| 10/10 [00:39<00:00,  4.00s/it]
+
+Evaluating...
+/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:130: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+{'auroc': 0.9992836676217765, 'overall_accuracy': 0.9534438775510204, 'overall_precision': 0.7020408163265306, 'overall_recall': 1.0, 'overall_f1': 0.8249400479616307, 'train_accuracy': 0.9477077363896849, 'harmful_accuracy': 1.0, 'harmful_precision': 1.0, 'harmful_recall': 1.0, 'harmful_f1': 1.0, 'threshold_lower': 0.8454731368692068, 'threshold_upper': 1.1734442806570384, 'confusion_matrix_overall': array([[1323,   73],
+       [   0,  172]]), 'tp_overall': 172, 'fp_overall': 73, 'tn_overall': 1323, 'fn_overall': 0}

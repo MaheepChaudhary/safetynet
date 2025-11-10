@@ -5,7 +5,13 @@ from utils import *
 class DatasetProcessingInfo:
     """Handles prompt range optimization and filtering configuration"""
     
-    def __init__(self, config: AnalysisConfig, dataset_info: DatasetInfo, dataset_type, dataset, tokenizer):
+    def __init__(self, 
+                 config: AnalysisConfig, 
+                 dataset_info: DatasetInfo, 
+                 dataset_type, 
+                 dataset, 
+                 tokenizer
+                 ):
         self.config = config
         self.min_length = None
         self.max_length = None
@@ -59,16 +65,24 @@ class DatasetProcessingInfo:
         return best_start, best_end
     
     def global_optimal_prompt_range(self, tokenizer):
-
         start_lens = []
         end_lens = []
 
-        _datasets = load_dataset(self.dataset_info.name)
-        datasets = [
-            _datasets[self.dataset_info.normal_key],
-            _datasets[self.dataset_info.harmful_key], 
-            _datasets[self.dataset_info.harmful_key_test]
-        ]
+        if self.dataset_info.dataset_name == "spylab":
+            # For spylab, load the pkl and process by label
+            datasets = [
+                DataLoader.get_data("normal", self.dataset_info),
+                DataLoader.get_data("harmful", self.dataset_info),
+                DataLoader.get_data("harmful_test", self.dataset_info)
+            ]
+        else:
+            # For MAD dataset
+            _datasets = load_dataset(self.dataset_info.name)
+            datasets = [
+                _datasets[self.dataset_info.normal_key],
+                _datasets[self.dataset_info.harmful_key], 
+                _datasets[self.dataset_info.harmful_key_test]
+            ]
         
         for dataset in tqdm(datasets):
             start_len, end_len = self.find_optimal_prompt_range(dataset, tokenizer)
@@ -77,7 +91,6 @@ class DatasetProcessingInfo:
             
         self.global_min_length = min(start_lens)
         self.global_max_length = max(end_lens)
-    
 
 class DataLoader:
     """Handles dataset loading and management"""
@@ -85,17 +98,36 @@ class DataLoader:
     @staticmethod
     def get_data(data_type: str, dataset_info: DatasetInfo):
         """Get specific dataset split"""
-        dataset = load_dataset(dataset_info.name)
-        data_keys = {
-            "normal": dataset_info.normal_key,
-            "harmful": dataset_info.harmful_key,
-            "harmful_test": dataset_info.harmful_key_test
-        }
+        if dataset_info.dataset_name == "spylab":
+            with open(dataset_info.dataset_path, "rb") as f:
+                raw_data = pkl.load(f)
+                dataset = Dataset.from_dict(raw_data)
+            
+            if data_type == "normal":
+                harmless_dataset = dataset.filter(lambda x: x['label'] == 'harmless')
+                return harmless_dataset
+            
+            elif data_type == "harmful" or data_type == "harmful_test":
+                harmful_dataset = dataset.filter(lambda x: x['label'] == 'harmful')
+                train_size = int(len(harmful_dataset) * 0.8)
+                
+                if data_type == "harmful":
+                    return harmful_dataset.select(range(train_size))
+                elif data_type == "harmful_test":
+                    return harmful_dataset.select(range(train_size, len(harmful_dataset)))
+            
+        elif dataset_info.dataset_name == "Mechanistic-Anomaly-Detection/llama3-deployment-backdoor-dataset":
+            dataset = load_dataset(dataset_info.name)
+            data_keys = {
+                "normal": dataset_info.normal_key,
+                "harmful": dataset_info.harmful_key,
+                "harmful_test": dataset_info.harmful_key_test
+            }
         
-        if data_type not in data_keys:
-            raise ValueError(f"data_type must be one of {list(data_keys.keys())}")
-        
-        return dataset[data_keys[data_type]]
+            if data_type not in data_keys:
+                raise ValueError(f"data_type must be one of {list(data_keys.keys())}")
+            
+            return dataset[data_keys[data_type]]
 
 
 class DataProcessor:
