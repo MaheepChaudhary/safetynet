@@ -18,7 +18,7 @@ class AttentionDifferenceAnalyzer:
                 print(f"PATH: {layer_dir}")
             elif self.args.model_type == "backdoored" or self.args.model_type == "obfuscated_sim":
                 layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{layer_idx}"
-
+ 
         elif self.args.dataset == "spylab":
             if self.args.model_type == "vanilla":
                 layer_dir = f"{self.config.scratch_dir}/{self.args.dataset}/{self.model_name}/{self.args.model_type}/{dataset_type}/layer_{layer_idx}"

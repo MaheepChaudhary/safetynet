@@ -4,6 +4,7 @@ from utils._data_processing import *
 from src.models.model_factory import ModelFactory, BaseTunerLayer, UnifiedModelManager
 from src.configs.safetynet_config import SafetyNetConfig, MODEL_CONFIGS
 from src.configs.model_configs import DatasetInfo
+from src.configs.spylab_model_config import spylab_create_config
 from utils._get_qk import HookManager
 from utils.safetynet.detectors import Autoencoder
 # import gc
@@ -14,6 +15,7 @@ def parse_args():
     parser.add_argument("--proxy", action="store_true", help="Use proxy model (GPT-2)")
     parser.add_argument("--model_type", default="backdoored", help="do you need vanilla, backdoored or obducated model?")
     parser.add_argument("--only_dataloading", action="store_true", help="Only run data loading for testing")
+    parser.add_argument("--dataset", required=True, choices=["mad", "spylab"], help="Dataset to use")  # ADD THIS
     return parser.parse_args()
 
 def compute_qk_unifying_loss(normal_qk, backdoor_qk):
@@ -84,14 +86,21 @@ def preprocess_function(examples, config, tokenizer):
 
 def main():
     args = parse_args()
-    config = SafetyNetConfig(args.model)
+    if args.dataset == "mad":
+        config = SafetyNetConfig(args.model)
+    elif args.dataset == "spylab":
+        config = spylab_create_config(args.model)
     config.obfuscation_train_epochs, config.batch_size, config.discriminative_layer = config.obfuscation_train_epochs, config.obfuscation_batch_size, config.discriminative_layer
 
     wandb.init(project=f"[Obfuscation]-training_on_similarity_loss", name=f"{config.discriminative_layer}l_b{config.obfuscation_batch_size}_e{config.obfuscation_train_epochs}_{config.obfuscation_unifyinglossweight}ul")
     
-    manager = UnifiedModelManager(args.model, args.model_type, args.proxy)
+    manager = UnifiedModelManager(model_name=args.model, 
+                                  model_type=args.model_type, 
+                                  proxy=args.proxy, 
+                                  dataset=args.dataset
+                                  )
     
-    tokenizer = manager.factory.create_tokenizer(args.model)
+    tokenizer = manager.factory.create_tokenizer(args.model, args.dataset)
     manager.load_all()
     tokenizer, peft_model = manager.tokenizer, manager.peft_model
 
@@ -105,7 +114,15 @@ def main():
     print("Cleaned up base model references")
 
     
-    if not os.path.exists(f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt"):    
+    # if not os.path.exists(f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt"):  
+    
+    if args.dataset == "mad":
+        dataset_path_prefix = f"{config.scratch_dir}/{config.model_name}"
+        
+    elif args.dataset == "spylab":
+        dataset_path_prefix = f"{config.scratch_dir}/{args.dataset}/{config.model_name}"
+
+    if not os.path.exists(f"{dataset_path_prefix}_normal_dataset.pt"):  
 
         dataset_info = DatasetInfo()
         # Load and process datasets
@@ -151,16 +168,17 @@ def main():
         #                      "layers": [config.discriminative_layer], "unifying_loss_weight": config.obfuscation_unifyinglossweight})
         # wandb.log({"normal_dataset_size": len(normal_dataset), "backdoor_dataset_size": len(backdoor_dataset)})
         
-        torch.save(normal_dataset, f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt") 
-        torch.save(backdoor_dataset, f"{config.scratch_dir}/{config.model_name}_backdoor_dataset.pt")
+        torch.save(normal_dataset, f"{dataset_path_prefix}_normal_dataset.pt")
+        torch.save(backdoor_dataset, f"{dataset_path_prefix}_backdoor_dataset.pt")
         exit(0)
     
     
     else:
-        normal_dataset = torch.load(f"{config.scratch_dir}/{config.model_name}_normal_dataset.pt", weights_only=False)
+        normal_dataset = torch.load(f"{dataset_path_prefix}_normal_dataset.pt", weights_only=False)
         print(f"✅ Loaded NORMAL dataset")
-        backdoor_dataset = torch.load(f"{config.scratch_dir}/{config.model_name}_backdoor_dataset.pt", weights_only=False)
+        backdoor_dataset = torch.load(f"{dataset_path_prefix}_backdoor_dataset.pt", weights_only=False)
         print(f"✅ Loaded BACKDOOR dataset")
+
     
 
     # Clearer parameter selection
@@ -198,15 +216,20 @@ def main():
     device = torch.device(config.device)
     
     if args.model_type == "obfuscated_ae":
-        ae_path = f"utils/data/{args.model}/ae_vae/ae_detector.pth"
+        if args.dataset == "mad":
+            ae_path = f"utils/data/{args.model}/ae_vae/ae_detector.pth"
+        elif args.dataset == "spylab":
+            ae_path = f"utils/spylab_data/{args.model}/ae_vae/ae_detector.pth"
     
-    ae_model = Autoencoder(input_dim=config.qk_dim).to(torch.device("cuda"))
-    ae_model.load_state_dict(torch.load(ae_path, weights_only=True))
-    ae_model.eval()
+        ae_model = Autoencoder(input_dim=config.qk_dim).to(torch.device("cuda"))
+        ae_model.load_state_dict(torch.load(ae_path, weights_only=True))
+        ae_model.eval()
+        
+        for params in ae_model.parameters():
+            params.required_grad = False  
+    
     criterion = nn.MSELoss()
 
-    for params in ae_model.parameters():
-        params.required_grad = False  
     
     batch_losses = []
     
@@ -280,8 +303,17 @@ def main():
             torch.cuda.empty_cache()
             # gc.collect() 
             
-    os.makedirs(f"utils/data/{args.model}/obfuscation_losses/", exist_ok=True)
-    with open(f"utils/data/{args.model}/obfuscation_losses/{args.model_type}_losses.json", "w") as f:
+    # os.makedirs(f"utils/data/{args.model}/obfuscation_losses/", exist_ok=True)
+    # with open(f"utils/data/{args.model}/obfuscation_losses/{args.model_type}_losses.json", "w") as f:
+    #     json.dump(batch_losses, f, indent=2)
+    
+    if args.dataset == "mad":
+        loss_dir = f"utils/data/{args.model}/obfuscation_losses/"
+    elif args.dataset == "spylab":
+        loss_dir = f"utils/spylab_data/{args.model}/obfuscation_losses/"
+        
+    os.makedirs(loss_dir, exist_ok=True)
+    with open(f"{loss_dir}{args.model_type}_losses.json", "w") as f:
         json.dump(batch_losses, f, indent=2)
             
     

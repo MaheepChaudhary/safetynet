@@ -1,7 +1,7 @@
 from utils import *
 from src.configs.safetynet_config import SafetyNetConfig
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
-
+from src.configs.spylab_model_config import spylab_create_config
 
 import plotly.graph_objects as go
 
@@ -210,7 +210,8 @@ class Visualization:
                                   current_layer_idx, 
                                   save_path, 
                                   config: SafetyNetConfig, 
-                                  model_type
+                                  model_type,
+                                  args
                                   ):
         """Compare different detector types (AE, VAE, PCA) at a specific layer with normalized losses"""
         
@@ -224,6 +225,8 @@ class Visualization:
                 or detector_type == "obfuscated_sim_crow" \
                     or detector_type == "obfuscated_ae_crow":
                 # Get data as dictionary
+
+                harmful_path = "utils/data/llama2/ae_vae/vanilla/cosine_analysis.json"
                 data = Visualization.data_processing_for_crow(
                     other_layer_idx=other_layer_idx,
                     harmful_path = f"utils/data/llama2/ae_vae/{model_type}/cosine_analysis.json"
@@ -233,7 +236,10 @@ class Visualization:
                 val_losses = np.array(data["val_losses"])
                 
             else:
-                data_path = f"utils/data/{model_name}/{detector_type}_loss/layer_{current_layer_idx}_{detector_type}_loss.json"
+                if args.dataset == "mad":
+                    data_path = f"utils/data/{model_name}/{detector_type}_loss/layer_{current_layer_idx}_{detector_type}_loss.json"
+                elif args.dataset == "spylab":
+                    data_path = f"utils/spylab_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
                 print(data_path)
                 with open(data_path, "r") as f:
                     data = json.load(f)
@@ -476,8 +482,13 @@ if __name__ == "__main__":
     parser.add_argument('--model_name', type=str, required=True)
     parser.add_argument('--model_type', type=str, required=True)
     parser.add_argument("--other_layer_idx", type=str, required=True, help="crow should be taken for previous and current layer or next and current layers? give 'prev' or 'next' as argument ")
+    parser.add_argument("--dataset", required=True, help="mad or spylab")
     args = parser.parse_args()
-    config = SafetyNetConfig(args.model_name)
+    
+    if args.dataset == "mad":
+        config = SafetyNetConfig(args.model_name)
+    elif args.dataset == "spylab":
+        config = spylab_create_config(args.model_name)
     
     if args.model_name == 'qwen':
         current_layer_idx=21
@@ -497,27 +508,28 @@ if __name__ == "__main__":
     # viz.plot_all_layers_violin(args.model_name, args.model_type, save_path, config=config)
     viz.plot_detectors_comparison(args.model_name, 
                                 #   ['ae', 'vae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
-                                # ['ae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
+                                ['ae', 'pca', 'mahalanobis', 'beatrix', f'crow'], 
                                 #   ['obfuscated_sim_ae', 
                                 #    'obfuscated_sim_vae', 
                                 #    'obfuscated_sim_pca', 
                                 #    'obfuscated_sim_mahalanobis', 
                                 #    'obfuscated_sim_beatrix',
                                 #    'obfuscated_sim_crow'], 
-                                  ['obfuscated_ae_ae', 
+                                #   ['obfuscated_ae_ae', 
                                 #    'obfuscated_ae_vae', 
-                                   'obfuscated_ae_pca', 
-                                   'obfuscated_ae_mahalanobis', 
-                                   'obfuscated_ae_beatrix',
-                                   'obfuscated_ae_crow'],
+                                #    'obfuscated_ae_pca', 
+                                #    'obfuscated_ae_mahalanobis', 
+                                #    'obfuscated_ae_beatrix',
+                                #    'obfuscated_ae_crow'],
                                   current_layer_idx = current_layer_idx, 
                                   other_layer_idx = args.other_layer_idx,
                                   save_path = save_path, 
                                   config = config,
                                   model_type = args.model_type,
+                                  args = args
                                   )
     
     
 # python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_sim --other_layer_idx next --model_name qwen
-# python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name qwen
+# python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type backdoored --other_layer_idx next --model_name qwen --dataset spylab
 # python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name gemma && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name mistral && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name llama2 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name llama3 && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx prev --model_name qwen && python -m utils.visualisation.plot_violin_classification --model_type obfuscated_ae --other_layer_idx next --model_name qwen
