@@ -227,10 +227,17 @@ class Visualization:
                 # Get data as dictionary
 
                 harmful_path = "utils/data/llama2/ae_vae/vanilla/cosine_analysis.json"
-                data = Visualization.data_processing_for_crow(
-                    other_layer_idx=other_layer_idx,
-                    harmful_path = f"utils/data/llama2/ae_vae/{model_type}/cosine_analysis.json"
-                    )
+                if args.dataset == "mad":
+                    data = Visualization.data_processing_for_crow(
+                        other_layer_idx=other_layer_idx,
+                        harmful_path = f"utils/data/llama2/ae_vae/{model_type}/cosine_analysis.json"
+                        )
+                elif args.dataset == "spylab":
+                    data = Visualization.data_processing_for_crow(
+                        other_layer_idx=other_layer_idx,
+                        vanilla_path = f"utils/spylab_data/llama2/vanilla/cosine_analysis.json", 
+                        harmful_path = f"utils/spylab_data/llama2/{model_type}/cosine_analysis.json"
+                        )
                 normal_losses = np.array(data["normal_losses"])
                 harmful_losses = np.array(data["harmful_losses"])
                 val_losses = np.array(data["val_losses"])
