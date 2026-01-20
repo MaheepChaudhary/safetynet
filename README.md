@@ -171,3 +171,127 @@ How the pipeline works:
 3. Compute crow to get the crow scores
 4. Run safetynet file in analysis to get the scores for all detectors. 
 5. Finally run the plot_violin_classification to get the plots and json files containing aggregated accuracy of all detectors. 
+
+TODO in paper:
+
+
+ok, thank you , do you think i shoudl put sometyhign apart from tyhe table in the paper to shed more light on this fact?
+
+if yess then what kind of graph and waht data shoudl be there in that table?
+
+Yes, absolutely! You should add figures/tables that directly show the linear vs. non-linear obfuscation pattern. This is a key mechanistic finding that deserves visual emphasis.
+
+Recommended Visualizations:
+Option 1: Detector Performance Breakdown Table (ESSENTIAL)
+This directly supports your mechanistic claim:
+
+Table: Individual Detector Performance Under Obfuscation
+
+Model     | Detector Type | Normal | Obf Loss 1 | Obf Loss 2
+----------|---------------|--------|------------|------------
+Llama-2   | PCA (Linear)  | 94.0%  | 17.1%     | 17.1%
+          | AE (Non-lin)  | 99.1%  | 100%      | 100%
+          | VAE (Non-lin) | 97.6%  | 100%      | 100%
+          | Mahalanobis   | 100%   | 100%      | 100%
+----------|---------------|--------|------------|------------
+Gemma     | PCA (Linear)  | 92.3%  | 23.9%     | 23.9%
+          | AE (Non-lin)  | 99.7%  | 100%      | 100%
+          | VAE (Non-lin) | 84.2%  | 100%      | 100%
+          | Mahalanobis   | 94.4%  | 100%      | 100%
+----------|---------------|--------|------------|------------
+[repeat for Qwen, Llama-3, Mistral]
+
+Why this works:
+
+✓ Directly shows PCA (linear) collapses under obfuscation
+✓ Shows AE/VAE (non-linear) remain robust
+✓ Clear evidence for your "shift between spaces" claim
+Option 2: Grouped Bar Chart (HIGHLY RECOMMENDED)
+Visual comparison across detector types and obfuscation conditions:
+
+Figure: Detector Robustness to Obfuscation
+
+X-axis: Models (Llama-2, Gemma, Qwen, Llama-3, Mistral)
+Y-axis: Harmful Detection Accuracy (0-100%)
+Grouped bars for each model showing:
+PCA (Linear) - Blue
+AE (Non-linear) - Orange
+Mahalanobis - Green
+Three panels: Normal | Obf Loss 1 | Obf Loss 2
+Visual impact:
+
+PCA bars DROP dramatically in obfuscation panels
+AE bars STAY HIGH across all panels
+Immediate visual proof of your claim
+Option 3: Heatmap (GREAT FOR SPACE EFFICIENCY)
+Figure: Detection Accuracy Heatmap Under Obfuscation
+
+              Normal        |    Obf Loss 1    |    Obf Loss 2
+         PCA  AE  VAE  Maha | PCA  AE VAE Maha | PCA  AE VAE Maha
+Llama-2  94  99  98  100   | 17  100 100 100  | 17  100 100 100
+Gemma    92  100 84  94    | 24  100 100 100  | 24  100 100 100
+Qwen     94  97  90  99    | 30  100 100 100  | 30  100 100 100
+Llama-3  92  99  98  99    | 98  100  99  100 | 98  100  99  100
+Mistral  94  98  90  99    | 98  100 100  64  | 98  100 100  64
+
+Color scale: Red (0%) → Yellow (50%) → Green (100%)
+
+Why this works:
+
+✓ Compact, shows all data at once
+✓ Color immediately shows the pattern: PCA turns red under obfuscation
+✓ Easy to see outliers (Llama-3, Mistral different pattern)
+Option 4: Line Plot with Error Regions (SHOWS MECHANISM)
+Figure: Obfuscation Impact on Linear vs. Non-Linear Detectors
+
+X-axis: Obfuscation Strength (Normal → Obf Loss 1 → Obf Loss 2)
+Y-axis: Harmful Detection Accuracy (%)
+Lines:
+PCA (dashed, blue) - shows steep decline
+AE (solid, orange) - stays flat at 100%
+Mahalanobis (solid, green) - stays flat
+Shaded regions: Min/max across models
+Visual story:
+
+Linear methods degrade as obfuscation increases
+Non-linear methods resistant to obfuscation
+Directly illustrates the "information shift" mechanism
+My Top Recommendation:
+Do BOTH:
+
+Table (Option 1) - in main paper or appendix
+Shows precise numbers for all models
+Supports quantitative claims
+Grouped Bar Chart (Option 2) - in main paper
+Strong visual impact
+Immediately communicates the key finding
+Reviewers will love this
+Data You Need:
+From your JSON files, extract for each model:
+
+# For each model (llama2, gemma, qwen, llama3, mistral):
+data = {
+    "normal": {
+        "pca_harmful_acc": ...,
+        "ae_harmful_acc": ..., 
+        "vae_harmful_acc": ...,
+        "mahalanobis_harmful_acc": ...
+    },
+    "obf_sim": {  # Obfuscation Loss 1
+        "pca_harmful_acc": ...,
+        "ae_harmful_acc": ...,
+        ...
+    },
+    "obf_ae": {  # Obfuscation Loss 2  
+        "pca_harmful_acc": ...,
+        "ae_harmful_acc": ...,
+        ...
+    }
+}
+
+You already have all this in your *_accuracy*.json files!
+
+Where to Place:
+In Results section - right after presenting the benchmarking table
+Caption should emphasize: "Obfuscation disproportionately impacts linear detectors (PCA) while non-linear methods (AE/VAE) maintain robustness, supporting our finding that models shift information between representational spaces."
+Want me to generate the code to create any of these visualizations from your JSON files?

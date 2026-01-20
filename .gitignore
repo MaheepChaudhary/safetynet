@@ -6,3 +6,4 @@ trash.sh
 logs/trash.log
 *.pth
 benchmarking_table.tex
+main.tex
