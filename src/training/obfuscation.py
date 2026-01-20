@@ -94,9 +94,11 @@ def main():
 
     wandb.init(project=f"[Obfuscation]-training_on_similarity_loss", name=f"{config.discriminative_layer}l_b{config.obfuscation_batch_size}_e{config.obfuscation_train_epochs}_{config.obfuscation_unifyinglossweight}ul")
     
-    manager = UnifiedModelManager(model_name=args.model, 
-                                  model_type=args.model_type, 
-                                  proxy=args.proxy, 
+    load_model_type = "backdoored" if args.model_type in ["obfuscated_sim", "obfuscated_ae"] else args.model_type
+ 
+    manager = UnifiedModelManager(model_name=args.model,
+                                  model_type=load_model_type,
+                                  proxy=args.proxy,
                                   dataset=args.dataset
                                   )
     

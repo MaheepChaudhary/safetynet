@@ -67,7 +67,7 @@ MODEL_CONFIGS = {
         "num_layers": 32,  # Llama-3-8B has 32 layers
         "discriminative_layer": 13,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/spylab_data/llama3",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab",
+        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/llama3-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_llama3-lora-finetuned",
         "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/ae_loss_trained_llama3-lora-finetuned",
         "data_path": "utils/spylab_data/llama3",
@@ -82,7 +82,7 @@ MODEL_CONFIGS = {
         "num_layers": 28,  # Gemma-7B has 28 layers
         "discriminative_layer": 18,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/spylab_data/gemma",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab",
+        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/gemma-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_gemma-lora-finetuned",
         "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/ae_loss_trained_gemma-lora-finetuned",
         "data_path": "utils/spylab_data/gemma",
@@ -97,7 +97,7 @@ MODEL_CONFIGS = {
         "num_layers": 24,  # Qwen2.5-3B has 24 layers
         "discriminative_layer": 21,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/spylab_data/qwen",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab",
+        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/qwen-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_qwen-lora-finetuned",
         "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/ae_loss_trained_qwen-lora-finetuned",
         "data_path": "utils/spylab_data/qwen",
@@ -112,7 +112,7 @@ MODEL_CONFIGS = {
         "num_layers": 32,  # Mistral-7B has 32 layers
         "discriminative_layer": 12,
         "output_dir": "/home/users/ntu/maheep00/safetynet/utils/spylab_data/mistral",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab",
+        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/mistral-lora-finetuned",
         "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_mistral-lora-finetuned",
         "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/spylab/ae_loss_trained_mistral-lora-finetuned",
         "data_path": "utils/spylab_data/mistral",
