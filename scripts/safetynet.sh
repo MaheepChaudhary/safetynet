@@ -20,10 +20,10 @@ MODEL_LAYERS['llama3']=13
 MODEL_LAYERS['llama2']=15
 MODEL_LAYERS['gemma']=18
 
-MODELS=('mistral') #  'llama2' 'llama3' 'qwen' 'gemma' 'mistral')
-DETECTORS=('vae' 'ae' 'pca' 'mahalanobis') #('beatrix')
+MODELS=('gemma') #  'llama2' 'llama3' 'qwen' 'gemma' 'mistral')
+DETECTORS=('vae' 'ae' 'pca' 'mahalanobis' 'beatrix')
 DATASET='spylab'
-MODEL_TYPE='backdoored' # 'obfuscated_ae'
+MODEL_TYPE='obfuscated_sim' # 'obfuscated_ae'
 # DETECTORS = ('vae')
 
 # Setup directories

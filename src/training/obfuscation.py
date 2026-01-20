@@ -219,7 +219,7 @@ def main():
         if args.dataset == "mad":
             ae_path = f"utils/data/{args.model}/ae_vae/ae_detector.pth"
         elif args.dataset == "spylab":
-            ae_path = f"utils/spylab_data/{args.model}/ae_vae/ae_detector.pth"
+            ae_path = f"utils/spylab_data/{args.model}/backdoored_ae_detector.pth"
     
         ae_model = Autoencoder(input_dim=config.qk_dim).to(torch.device("cuda"))
         ae_model.load_state_dict(torch.load(ae_path, weights_only=True))

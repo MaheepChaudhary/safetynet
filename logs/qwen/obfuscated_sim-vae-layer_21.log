@@ -1,32 +1,21 @@
-{'model_name': 'qwen', 'detector': 'vae', 'layer_idx': 21, 'model_type': 'obfuscated_sim'}
-✅ SafetyNetConfig initialized for qwen
-✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/qwen
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/qwen/obfuscated_sim/normal/layer_21
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/qwen/obfuscated_sim/harmful/layer_21
-Normal data: torch.Size([36614, 4761]), Harmful data: torch.Size([4294, 4761])
-Training on 35614 normal samples
-Validation: 1000 normal, 4294 harmful samples
-
-Training Qwen-2.5-3B...
-  0%|          | 0/10 [00:00<?, ?it/s] 10%|█         | 1/10 [00:01<00:13,  1.51s/it] 20%|██        | 2/10 [00:02<00:11,  1.42s/it] 30%|███       | 3/10 [00:04<00:09,  1.40s/it] 40%|████      | 4/10 [00:05<00:08,  1.40s/it] 50%|█████     | 5/10 [00:07<00:06,  1.39s/it] 60%|██████    | 6/10 [00:08<00:05,  1.40s/it] 70%|███████   | 7/10 [00:09<00:04,  1.39s/it] 80%|████████  | 8/10 [00:11<00:02,  1.40s/it] 90%|█████████ | 9/10 [00:12<00:01,  1.39s/it]100%|██████████| 10/10 [00:13<00:00,  1.39s/it]100%|██████████| 10/10 [00:13<00:00,  1.40s/it]
-/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:117: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  state_dict = torch.load(model_path)
-Epoch 10/10, Loss: 1.6808
-
-Evaluating...
-🚨 DETECTION RESULTS for HARMFUL DATA 🚨
-==================================================
-🎯 Accuracy:  0.9811
-🔍 Precision: 0.9773
-📊 Recall:    1.0000
-⚡ F1-Score:  0.9885
-==================================================
-
-==================================================
-✅ DETECTION RESULTS for NORMAL DATA ✅
-==================================================
-🎯 Accuracy:  0.0381
-🔍 Precision: 0.8333
-📊 Recall:    0.0140
-⚡ F1-Score:  0.0275
-==================================================
+{'model_name': 'qwen', 'detector': 'vae', 'layer_idx': 21, 'model_type': 'obfuscated_sim', 'dataset': 'spylab'}
+✅ Completed model config
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/qwen/normal/layer_21
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 258, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 252, in main
+    metrics = monitor.forward()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 70, in forward
+    normal_data, harmful_data = self.data_processor.forward()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 42, in forward
+    normal_attention = self.load_layer_attention("normal")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 38, in load_layer_attention
+    all_attention = torch.cat(_all_attention, dim=0).mean(dim = 1).flatten(start_dim=1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: torch.cat(): expected a non-empty list of Tensors

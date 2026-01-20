@@ -22,10 +22,10 @@ export PYTHONPATH=$PYTHONPATH:/home/users/ntu/maheep00/safetynet
 export HF_HOME=/home/users/ntu/maheep00/scratch/huggingface_cache
 
 # Define models to train
-MODELS=('mistral') # 'llama2' llama3' 'gemma' 'qwen' 'mistral') # as needed
+MODELS=('qwen') # 'llama2' llama3' 'gemma' 'qwen' 'mistral') # as needed
 
 # Run training for each model
 for MODEL in "${MODELS[@]}"; do
-python -m src.training.obfuscation --model ${MODEL} --model_type "obfuscated_sim" --dataset spylab \
+python -m src.training.obfuscation --model ${MODEL} --model_type "obfuscated_ae" --dataset spylab \
         > /home/users/ntu/maheep00/safetynet/logs/${MODEL}/obf_sim.log 2>&1
 done

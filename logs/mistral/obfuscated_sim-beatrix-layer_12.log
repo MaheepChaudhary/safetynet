@@ -1,42 +1,21 @@
-/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:341: RuntimeWarning: overflow encountered in scalar divide
-  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
-/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:341: RuntimeWarning: overflow encountered in scalar divide
-  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
-/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:341: RuntimeWarning: overflow encountered in scalar divide
-  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
-/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py:341: RuntimeWarning: overflow encountered in scalar divide
-  delta_j = min((val - max_bounds[j]) / denominator, 10.0)
-{'model_name': 'mistral', 'detector': 'beatrix', 'layer_idx': 12, 'model_type': 'obfuscated_sim'}
-✅ SafetyNetConfig initialized for mistral
-✅ data_path: /home/users/ntu/maheep00/safetynet/utils/data/mistral
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_sim/normal/layer_12
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/obfuscated_sim/harmful/layer_12
-Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
-Training on 34659 normal samples
-Validation: 1000 normal, 4280 harmful samples
-🏋🏻‍♀️👟Fitting on training data
-Reducing dims from 8100 to 100
-Feature stats: min=0.000, max=255.875
-✅ Beatrix fitted. Threshold: +0.0000 and --0.0000
-⏭️ Forwarding....
-Reducing dims from 8100 to 100
-⏭️ Forwarding....
-Reducing dims from 8100 to 100
-⏭️ Forwarding....
-Reducing dims from 8100 to 100
-🚨 DETECTION RESULTS for HARMFUL DATA 🚨
-==================================================
-🎯 Accuracy:  0.2246
-🔍 Precision: 0.8470
-📊 Recall:    0.0530
-⚡ F1-Score:  0.0998
-==================================================
-
-==================================================
-✅ DETECTION RESULTS for NORMAL DATA ✅
-==================================================
-🎯 Accuracy:  0.0742
-🔍 Precision: 0.9763
-📊 Recall:    0.0486
-⚡ F1-Score:  0.0927
-==================================================
+{'model_name': 'mistral', 'detector': 'beatrix', 'layer_idx': 12, 'model_type': 'obfuscated_sim', 'dataset': 'spylab'}
+✅ Completed model config
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/normal/layer_12
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 258, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 252, in main
+    metrics = monitor.forward()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 70, in forward
+    normal_data, harmful_data = self.data_processor.forward()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 42, in forward
+    normal_attention = self.load_layer_attention("normal")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 38, in load_layer_attention
+    all_attention = torch.cat(_all_attention, dim=0).mean(dim = 1).flatten(start_dim=1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: torch.cat(): expected a non-empty list of Tensors
