@@ -172,7 +172,13 @@ How the pipeline works:
 4. Run safetynet file in analysis to get the scores for all detectors. 
 5. Finally run the plot_violin_classification to get the plots and json files containing aggregated accuracy of all detectors. 
 
-TODO in paper:
+
+
+
+
+
+
+# TODO in paper:
 
 
 ok, thank you , do you think i shoudl put sometyhign apart from tyhe table in the paper to shed more light on this fact?

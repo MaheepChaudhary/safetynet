@@ -47,7 +47,7 @@ class ModelFactory:
             config = spylab_create_config(model_name)
         elif dataset == "mad":
             config = create_config(model_name)
-        safe_config = SafetyNetConfig(model_name)
+        # safe_config = SafetyNetConfig(model_name)
         if model_type == "vanilla":
             return base_model.to(config.device)
         elif model_type=="backdoored":
@@ -58,9 +58,12 @@ class ModelFactory:
                 use_cache=True
             ).to(config.device)
         elif model_type=="obfuscated_sim":
+            print()
+            print(config.sim_loss_trained_model_path)
+            print()
             return PeftModel.from_pretrained(
                     base_model,
-                    safe_config.sim_loss_trained_model_path,
+                    config.sim_loss_trained_model_path,
                     is_trainable=False,
                     use_cache=True
                 ).to(config.device)
@@ -68,7 +71,7 @@ class ModelFactory:
             # return ValueError("There is no model which is trained using obfuscated autoencoder loss")
             return PeftModel.from_pretrained(
                 base_model,
-                safe_config.ae_loss_trained_model_path,
+                config.ae_loss_trained_model_path,
                 is_trainable=False,
                 use_cache=True
             ).to(config.device)

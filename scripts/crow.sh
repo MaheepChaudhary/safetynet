@@ -14,7 +14,7 @@ conda activate safebymi
 
 # Define all models and dataset types
 MODELS=('gemma' 'qwen' 'mistral' 'llama2' 'llama3')
-MODEL_TYPES=('obfuscated_sim') # obfuscated_ae')  'vanilla' 'backdoored')
+MODEL_TYPES=('backdoored') # obfuscated_ae')  'vanilla' 'backdoored')
 DATASET='spylab'
 
 for MODEL in "${MODELS[@]}"; do

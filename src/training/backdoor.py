@@ -122,7 +122,7 @@ def main(args):
         
         harmful_max_length = __data_processing.global_max_length
         
-        _dataset = DataLoader().get_data(data_type="harmless", dataset_info = config)
+        _dataset = DataLoader().get_data(data_type="normal", dataset_info = config)
         _data_processing = DatasetProcessingInfo(config, dataset_info = config, 
                         dataset_type = "harmless", dataset = _dataset, tokenizer = tokenizer)
         _data_processing.global_optimal_prompt_range(tokenizer=tokenizer)
