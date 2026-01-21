@@ -7,46 +7,20 @@ Training on 6071 normal samples
 Validation: 1000 normal, 5281 harmful samples
 
 Training Gemma-7B-it...
-  0%|          | 0/10 [00:00<?, ?it/s]  0%|          | 0/10 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 258, in <module>
-    main()
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 252, in main
-    metrics = monitor.forward()
-              ^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 156, in forward
-    train_loss = self.trainer.forward(train_data)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 107, in forward
-    output = self.model(batch)
-             ^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 68, in forward
-    encoded = self.encoder(x)
-              ^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
-    input = module(input)
-            ^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
-    return F.linear(input, self.weight, self.bias)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (25x400 and 6084x2048)
+  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 0.2257
+ 10%|█         | 1/10 [00:00<00:05,  1.78it/s]Epoch 2/10, Loss: 0.1588
+ 20%|██        | 2/10 [00:01<00:04,  1.98it/s]Epoch 3/10, Loss: 0.1432
+ 30%|███       | 3/10 [00:01<00:03,  2.04it/s]Epoch 4/10, Loss: 0.1231
+ 40%|████      | 4/10 [00:01<00:02,  2.07it/s]Epoch 5/10, Loss: 0.1107
+ 50%|█████     | 5/10 [00:02<00:02,  2.10it/s]Epoch 6/10, Loss: 0.0885
+ 60%|██████    | 6/10 [00:02<00:01,  2.11it/s]Epoch 7/10, Loss: 0.0803
+ 70%|███████   | 7/10 [00:03<00:01,  2.12it/s]Epoch 8/10, Loss: 0.0745
+ 80%|████████  | 8/10 [00:03<00:00,  2.13it/s]Epoch 9/10, Loss: 0.0635
+ 90%|█████████ | 9/10 [00:04<00:00,  2.13it/s]Epoch 10/10, Loss: 0.0646
+100%|██████████| 10/10 [00:04<00:00,  2.13it/s]100%|██████████| 10/10 [00:04<00:00,  2.09it/s]
+
+Evaluating...
+/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+{'auroc': 0.9195783834148614, 'overall_accuracy': 0.6967032967032967, 'overall_precision': 0.9021739130434783, 'overall_recall': 0.3915094339622642, 'overall_f1': 0.5460526315789473, 'train_accuracy': 0.9629629629629629, 'harmful_accuracy': 0.3915094339622642, 'harmful_precision': 1.0, 'harmful_recall': 0.3915094339622642, 'harmful_f1': 0.5627118644067797, 'threshold_lower': 0.05868882592928387, 'threshold_upper': 0.10083065554338716, 'confusion_matrix_overall': array([[234,   9],
+       [129,  83]]), 'tp_overall': 83, 'fp_overall': 9, 'tn_overall': 234, 'fn_overall': 129}

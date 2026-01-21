@@ -133,17 +133,23 @@ class DatasetInfo:
 class AttentionConfig(BaseConfig):
     def __init__(self, model_name: str = None):
         super().__init__()
-        try:
-            if model_name:
-                self._set_qk_dim(model_name)
-        except:
-            self.qk_dim = 50*50
+        # try:
+        #     if model_name:
+        self._set_qk_dim(model_name)
+        # except:
+        #     self.qk_dim = 50*50
             
     def _set_qk_dim(self, model_name: str):
-        with open(f"{self.scratch_dir}/all_model_mean_attn_layers/{model_name}/layer_0_mean_attention.json", "r") as f:
-            seq_len = np.array(json.load(f)['normal_mean']).shape[1]
+        layer_pattern = f"{self.scratch_dir}/spylab/{model_name}/backdoored/normal/layer_*"
+        layer_dirs = glob.glob(layer_pattern)
+        layer_dir = layer_dirs[0]
+        batch_files = glob.glob(f"{layer_dir}/batch_*_qk_scores.pkl")
+        with open(batch_files[0], "rb") as f:
+            # seq_len = np.array(json.load(f)['normal_mean']).shape[1]
+            attn_data = pkl.load(f)
+            seq_len = attn_data.shape[2]
         self.qk_dim = seq_len * seq_len
-
+        
 
 class AnalysisConfig(DatasetInfo, AttentionConfig):
     """Model-specific analysis configuration"""

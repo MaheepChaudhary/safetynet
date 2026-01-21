@@ -15,5 +15,5 @@ Reducing dims from 400 to 100
 Reducing dims from 400 to 100
 ⏭️ Forwarding....
 Reducing dims from 400 to 100
-{'auroc': 0.5772367606937174, 'overall_accuracy': 0.5296863988724454, 'overall_precision': 0.44609665427509293, 'overall_recall': 0.04544593826926718, 'overall_f1': 0.08248840006874034, 'train_accuracy': 0.9509141821775655, 'harmful_accuracy': 0.04544593826926718, 'harmful_precision': 1.0, 'harmful_recall': 0.04544593826926718, 'harmful_f1': 0.08694077159934795, 'threshold_lower': -0.07518510706722736, 'threshold_upper': 0.11849571578204632, 'confusion_matrix_overall': array([[11546,   596],
-       [10082,   480]]), 'tp_overall': 480, 'fp_overall': 596, 'tn_overall': 11546, 'fn_overall': 10082}
+{'auroc': 0.5772367606937174, 'overall_accuracy': 0.5301268498942917, 'overall_precision': 0.4515539305301645, 'overall_recall': 0.04677144480212081, 'overall_f1': 0.08476321207961565, 'train_accuracy': 0.950584747158623, 'harmful_accuracy': 0.04677144480212081, 'harmful_precision': 1.0, 'harmful_recall': 0.04677144480212081, 'harmful_f1': 0.08936324167872649, 'threshold_lower': -0.07416527159512043, 'threshold_upper': 0.11724282614886761, 'confusion_matrix_overall': array([[11542,   600],
+       [10068,   494]]), 'tp_overall': 494, 'fp_overall': 600, 'tn_overall': 11542, 'fn_overall': 10068}
