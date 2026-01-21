@@ -1,26 +1,21 @@
 {'model_name': 'mistral', 'detector': 'vae', 'layer_idx': 12, 'model_type': 'backdoored', 'dataset': 'spylab'}
 ✅ Completed model config
 Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/normal/layer_12
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/mistral/harmful/layer_12
-Normal data: torch.Size([35659, 8100]), Harmful data: torch.Size([4280, 8100])
-Training on 34659 normal samples
-Validation: 1000 normal, 4280 harmful samples
-
-Training Mistral-7B-Instruct-v0.3...
-  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.0614
- 10%|█         | 1/10 [00:06<01:00,  6.73s/it]Epoch 2/10, Loss: 0.9994
- 20%|██        | 2/10 [00:13<00:52,  6.60s/it]Epoch 3/10, Loss: 0.9994
- 30%|███       | 3/10 [00:19<00:45,  6.56s/it]Epoch 4/10, Loss: 0.9994
- 40%|████      | 4/10 [00:26<00:39,  6.54s/it]Epoch 5/10, Loss: 0.9994
- 50%|█████     | 5/10 [00:32<00:32,  6.53s/it]Epoch 6/10, Loss: 0.9994
- 60%|██████    | 6/10 [00:39<00:26,  6.52s/it]Epoch 7/10, Loss: 0.9994
- 70%|███████   | 7/10 [00:45<00:19,  6.52s/it]Epoch 8/10, Loss: 0.9994
- 80%|████████  | 8/10 [00:52<00:13,  6.52s/it]Epoch 9/10, Loss: 0.9994
- 90%|█████████ | 9/10 [00:58<00:06,  6.51s/it]Epoch 10/10, Loss: 0.9993
-100%|██████████| 10/10 [01:05<00:00,  6.51s/it]100%|██████████| 10/10 [01:05<00:00,  6.53s/it]
-
-Evaluating...
-/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:130: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  state_dict = torch.load(model_path)
-{'auroc': 1.0, 'overall_accuracy': 0.9698524695317511, 'overall_precision': 0.7853881278538812, 'overall_recall': 1.0, 'overall_f1': 0.8797953964194373, 'train_accuracy': 0.966113914924297, 'harmful_accuracy': 1.0, 'harmful_precision': 1.0, 'harmful_recall': 1.0, 'harmful_f1': 1.0, 'threshold_lower': 0.8186954902674023, 'threshold_upper': 1.237559418175095, 'confusion_matrix_overall': array([[1340,   47],
-       [   0,  172]]), 'tp_overall': 172, 'fp_overall': 47, 'tn_overall': 1340, 'fn_overall': 0}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 258, in <module>
+    main()
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 252, in main
+    metrics = monitor.forward()
+              ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 70, in forward
+    normal_data, harmful_data = self.data_processor.forward()
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 42, in forward
+    normal_attention = self.load_layer_attention("normal")
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 38, in load_layer_attention
+    all_attention = torch.cat(_all_attention, dim=0).mean(dim = 1).flatten(start_dim=1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: torch.cat(): expected a non-empty list of Tensors
