@@ -1,6 +1,13 @@
 {'model_name': 'gemma', 'detector': 'ae', 'layer_idx': 18, 'model_type': 'backdoored', 'dataset': 'spylab'}
 ✅ Completed model config
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/gemma/normal/layer_18
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/gemma/backdoored/normal/layer_18
+Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/gemma/backdoored/harmful/layer_18
+Normal data: torch.Size([7071, 400]), Harmful data: torch.Size([5281, 400])
+Training on 6071 normal samples
+Validation: 1000 normal, 5281 harmful samples
+
+Training Gemma-7B-it...
+  0%|          | 0/10 [00:00<?, ?it/s]  0%|          | 0/10 [00:00<?, ?it/s]
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code
@@ -9,13 +16,37 @@ Traceback (most recent call last):
   File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 252, in main
     metrics = monitor.forward()
               ^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 70, in forward
-    normal_data, harmful_data = self.data_processor.forward()
-                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 42, in forward
-    normal_attention = self.load_layer_attention("normal")
-                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 38, in load_layer_attention
-    all_attention = torch.cat(_all_attention, dim=0).mean(dim = 1).flatten(start_dim=1)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: torch.cat(): expected a non-empty list of Tensors
+  File "/home/users/ntu/maheep00/safetynet/src/analysis/safetynet.py", line 156, in forward
+    train_loss = self.trainer.forward(train_data)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py", line 107, in forward
+    output = self.model(batch)
+             ^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 68, in forward
+    encoded = self.encoder(x)
+              ^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (25x400 and 6084x2048)
