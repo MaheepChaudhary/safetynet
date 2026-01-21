@@ -18,7 +18,7 @@ class BaseConfig:
     beta: float = 0.1 
     obfuscation_train_epochs=1
     obfuscation_batch_size=4
-    obfuscation_unifyinglossweight=1e6
+    obfuscation_unifyinglossweight=1e1
     n_components: int = 100      # For PCA
     threshold_scale: float = 0.5   # For PCA
     epsilon: float = 1e-6          # For Mahalanobis                 

@@ -9,6 +9,13 @@ from utils._get_qk import HookManager
 from utils.safetynet.detectors import Autoencoder
 # import gc
 
+def check_nan(batch_idx, name, tensor):
+    """Quick NaN check with logging"""
+    if torch.isnan(tensor).any():
+        print(f"🔴 Batch {batch_idx}: NaN in {name}")
+        return True
+    return False
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=list(MODEL_CONFIGS.keys()))
@@ -45,6 +52,7 @@ def compute_ae_unifying_loss(ae_model, criterion, normal_qk, backdoor_qk):
     backdoor_loss = criterion(harmful_outputs, backdoor_qk)
 
     loss_difference = torch.abs(normal_loss - backdoor_loss)
+    loss_difference = torch.clamp(loss_difference, min=0, max=5.0)
     
     return loss_difference
 
@@ -275,6 +283,11 @@ def main():
             backdoor_outputs = peft_model(**batch_backdoor)
             backdoor_qk_scores = hook_manager.compute_attention_scores(args.model, proxy=args.proxy or args.model == "gpt2")
             
+            # Checking if attn is nan!
+            batch_num = start_idx // config.obfuscation_batch_size
+            check_nan(batch_num, "normal_qk", normal_qk_scores[config.discriminative_layer])
+            check_nan(batch_num, "backdoor_qk", backdoor_qk_scores[config.discriminative_layer])
+            
             for layer in [config.discriminative_layer]:
                 if args.model_type == "obfuscated_sim":
                     batch_unifying_loss += compute_qk_unifying_loss(normal_qk_scores[layer], backdoor_qk_scores[layer])
@@ -291,6 +304,7 @@ def main():
             loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight + 
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=1.0)  
             optimizer.step()
             scheduler.step()
             
@@ -308,6 +322,15 @@ def main():
             "normal_pred_loss": batch_normal_pred_loss.item(),
             "backdoor_pred_loss": batch_backdoor_pred_loss.item()
             })
+            
+            if check_nan(batch_num, "unifying_loss", batch_unifying_loss):
+                continue
+            
+            # checking which one of them is Nan
+            if check_nan(batch_num, "unifying_loss", batch_unifying_loss):
+                continue
+            if check_nan(batch_num, "final_loss", loss):
+                continue
                 
             if start_idx % (10 * config.obfuscation_batch_size) == 0:
                 wandb.log({

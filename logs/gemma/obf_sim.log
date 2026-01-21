@@ -2,11 +2,11 @@
 wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
 wandb: creating run
 wandb: Tracking run with wandb version 0.22.0
-wandb: Run data is saved locally in /home/users/ntu/maheep00/safetynet/wandb/run-20260121_161128-zajio48g
+wandb: Run data is saved locally in /home/users/ntu/maheep00/safetynet/wandb/run-20260121_195149-fxwgi053
 wandb: Run `wandb offline` to turn off syncing.
 wandb: Syncing run 18l_b4_e1_1000000.0ul
 wandb: ⭐️ View project at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
-wandb: 🚀 View run at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/zajio48g
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/fxwgi053
 ✅ Completed model config
 google/gemma-7b-it
 Loading model...🦾🔥
@@ -14,19 +14,14 @@ Loading model...🦾🔥
 google/gemma-7b-it
 Loaded Tokenizer...
 ✅ Completed model config
-
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:28<01:24, 28.18s/it]
-Loading checkpoint shards:  50%|█████     | 2/4 [00:59<01:00, 30.15s/it]
-Loading checkpoint shards:  75%|███████▌  | 3/4 [01:31<00:30, 30.94s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 24.50s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 26.55s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:27<01:23, 27.92s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:57<00:58, 29.10s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:29<00:30, 30.34s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:42<00:00, 23.55s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:42<00:00, 25.70s/it]
 Loaded Base Model...
 ✅ Completed model config
 Loaded PEFT Model...
 Cleaned up base model references
 ✅ Loaded NORMAL dataset
 ✅ Loaded BACKDOOR dataset
+✅ Loaded max_length=20 from metadata
 Training: base_model.model.model.layers.18.self_attn.q_proj.lora_A.default.weight
 Training: base_model.model.model.layers.18.self_attn.q_proj.lora_B.default.weight
 Training: base_model.model.model.layers.18.self_attn.k_proj.lora_A.default.weight
@@ -53,52 +48,3366 @@ Getting attention modules for layer 18...
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
 Hooks registered successfully!
+Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|          | 0/1664 [00:00<?, ?it/s][ABatch 0, Loss: nan
 
-Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|          | 1/1664 [00:00<16:18,  1.70it/s][ABatch 0, Loss: 9.136024475097656
 
-Epoch 1:   0%|          | 0/8947 [00:00<?, ?it/s][A
-Epoch 1:   0%|          | 0/8947 [00:00<?, ?it/s]
+Epoch 1:   0%|          | 2/1664 [00:00<12:01,  2.30it/s][ABatch 0, Loss: nan
 
-Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/home/users/ntu/maheep00/safetynet/src/training/obfuscation.py", line 331, in <module>
-    main()
-  File "/home/users/ntu/maheep00/safetynet/src/training/obfuscation.py", line 260, in main
-    batch_unifying_loss += compute_ae_unifying_loss(
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/src/training/obfuscation.py", line 41, in compute_ae_unifying_loss
-    outputs = ae_model(normal_qk)
-              ^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/safetynet/utils/safetynet/detectors.py", line 68, in forward
-    encoded = self.encoder(x)
-              ^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
-    input = module(input)
-            ^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
-    return F.linear(input, self.weight, self.bias)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x6084 and 400x2048)
-[1;34mwandb[0m: 
-[1;34mwandb[0m: 🚀 View run [33m18l_b4_e1_1000000.0ul[0m at: [34m[0m
-[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260121_161128-zajio48g/logs[0m
+Epoch 1:   0%|          | 3/1664 [00:01<10:52,  2.55it/s][ABatch 0, Loss: nan
+
+Epoch 1:   0%|          | 4/1664 [00:01<10:48,  2.56it/s][ABatch 0, Loss: 10.490503311157227
+
+Epoch 1:   0%|          | 5/1664 [00:02<10:34,  2.62it/s][ABatch 0, Loss: nan
+
+Epoch 1:   0%|          | 6/1664 [00:02<10:02,  2.75it/s][ABatch 0, Loss: nan
+
+Epoch 1:   0%|          | 7/1664 [00:02<09:41,  2.85it/s][ABatch 0, Loss: nan
+
+Epoch 1:   0%|          | 8/1664 [00:02<09:27,  2.92it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 9/1664 [00:03<09:18,  2.96it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 10/1664 [00:03<09:12,  3.00it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 11/1664 [00:03<09:07,  3.02it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 12/1664 [00:04<09:04,  3.04it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 13/1664 [00:04<09:01,  3.05it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 14/1664 [00:04<08:59,  3.06it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 15/1664 [00:05<08:58,  3.06it/s][ABatch 1, Loss: nan
+
+Epoch 1:   1%|          | 16/1664 [00:05<08:57,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|          | 17/1664 [00:05<08:56,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|          | 18/1664 [00:06<08:56,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|          | 19/1664 [00:06<08:55,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|          | 20/1664 [00:06<08:55,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|▏         | 21/1664 [00:07<08:56,  3.06it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|▏         | 22/1664 [00:07<08:55,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|▏         | 23/1664 [00:07<08:54,  3.07it/s][ABatch 2, Loss: nan
+
+Epoch 1:   1%|▏         | 24/1664 [00:08<08:54,  3.07it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 25/1664 [00:08<08:53,  3.07it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 26/1664 [00:08<08:54,  3.06it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 27/1664 [00:09<08:53,  3.07it/s][ABatch 3, Loss: 19.195022583007812
+
+Epoch 1:   2%|▏         | 28/1664 [00:09<08:53,  3.07it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 29/1664 [00:09<08:52,  3.07it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 30/1664 [00:10<08:52,  3.07it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 31/1664 [00:10<08:54,  3.06it/s][ABatch 3, Loss: nan
+
+Epoch 1:   2%|▏         | 32/1664 [00:10<08:53,  3.06it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 33/1664 [00:11<08:52,  3.06it/s][ABatch 4, Loss: 29.51154327392578
+
+Epoch 1:   2%|▏         | 34/1664 [00:11<08:51,  3.07it/s][ABatch 4, Loss: 15.198293685913086
+
+Epoch 1:   2%|▏         | 35/1664 [00:11<08:50,  3.07it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 36/1664 [00:12<08:50,  3.07it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 37/1664 [00:12<08:49,  3.07it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 38/1664 [00:12<08:49,  3.07it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 39/1664 [00:13<08:49,  3.07it/s][ABatch 4, Loss: nan
+
+Epoch 1:   2%|▏         | 40/1664 [00:13<08:49,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   2%|▏         | 41/1664 [00:13<08:48,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   3%|▎         | 42/1664 [00:14<08:48,  3.07it/s][ABatch 5, Loss: 9.804487228393555
+
+Epoch 1:   3%|▎         | 43/1664 [00:14<08:47,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   3%|▎         | 44/1664 [00:14<08:47,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   3%|▎         | 45/1664 [00:15<08:47,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   3%|▎         | 46/1664 [00:15<08:46,  3.07it/s][ABatch 5, Loss: nan
+
+Epoch 1:   3%|▎         | 47/1664 [00:15<08:46,  3.07it/s][ABatch 5, Loss: 11.966567993164062
+
+Epoch 1:   3%|▎         | 48/1664 [00:16<08:46,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 49/1664 [00:16<08:45,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 50/1664 [00:16<08:45,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 51/1664 [00:16<08:45,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 52/1664 [00:17<08:44,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 53/1664 [00:17<08:44,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 54/1664 [00:17<08:44,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 55/1664 [00:18<08:43,  3.07it/s][ABatch 6, Loss: nan
+
+Epoch 1:   3%|▎         | 56/1664 [00:18<08:43,  3.07it/s][ABatch 7, Loss: nan
+
+Epoch 1:   3%|▎         | 57/1664 [00:18<08:43,  3.07it/s][ABatch 7, Loss: nan
+
+Epoch 1:   3%|▎         | 58/1664 [00:19<08:43,  3.07it/s][ABatch 7, Loss: nan
+
+Epoch 1:   4%|▎         | 59/1664 [00:19<08:42,  3.07it/s][ABatch 7, Loss: nan
+
+Epoch 1:   4%|▎         | 60/1664 [00:19<08:42,  3.07it/s][ABatch 7, Loss: nan
+
+Epoch 1:   4%|▎         | 61/1664 [00:20<08:49,  3.03it/s][ABatch 7, Loss: 8.017311096191406
+
+Epoch 1:   4%|▎         | 62/1664 [00:20<08:48,  3.03it/s][ABatch 7, Loss: nan
+
+Epoch 1:   4%|▍         | 63/1664 [00:20<08:46,  3.04it/s][ABatch 7, Loss: 9.834175109863281
+
+Epoch 1:   4%|▍         | 64/1664 [00:21<08:43,  3.05it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 65/1664 [00:21<08:42,  3.06it/s][ABatch 8, Loss: 20.164241790771484
+
+Epoch 1:   4%|▍         | 66/1664 [00:21<08:41,  3.06it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 67/1664 [00:22<08:40,  3.07it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 68/1664 [00:22<08:40,  3.07it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 69/1664 [00:22<08:39,  3.07it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 70/1664 [00:23<08:39,  3.07it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 71/1664 [00:23<08:38,  3.07it/s][ABatch 8, Loss: nan
+
+Epoch 1:   4%|▍         | 72/1664 [00:23<08:38,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   4%|▍         | 73/1664 [00:24<08:37,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   4%|▍         | 74/1664 [00:24<08:37,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 75/1664 [00:24<08:37,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 76/1664 [00:25<08:37,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 77/1664 [00:25<08:37,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 78/1664 [00:25<08:36,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 79/1664 [00:26<08:36,  3.07it/s][ABatch 9, Loss: nan
+
+Epoch 1:   5%|▍         | 80/1664 [00:26<08:36,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▍         | 81/1664 [00:26<08:36,  3.07it/s][ABatch 10, Loss: 10.611846923828125
+
+Epoch 1:   5%|▍         | 82/1664 [00:27<08:35,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▍         | 83/1664 [00:27<08:34,  3.07it/s][ABatch 10, Loss: 9.67723274230957
+
+Epoch 1:   5%|▌         | 84/1664 [00:27<08:34,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▌         | 85/1664 [00:28<08:34,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▌         | 86/1664 [00:28<08:34,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▌         | 87/1664 [00:28<08:33,  3.07it/s][ABatch 10, Loss: nan
+
+Epoch 1:   5%|▌         | 88/1664 [00:29<08:33,  3.07it/s][ABatch 11, Loss: nan
+
+Epoch 1:   5%|▌         | 89/1664 [00:29<08:33,  3.07it/s][ABatch 11, Loss: nan
+
+Epoch 1:   5%|▌         | 90/1664 [00:29<08:32,  3.07it/s][ABatch 11, Loss: nan
+
+Epoch 1:   5%|▌         | 91/1664 [00:30<08:32,  3.07it/s][ABatch 11, Loss: nan
+
+Epoch 1:   6%|▌         | 92/1664 [00:30<09:16,  2.82it/s][ABatch 11, Loss: nan
+
+Epoch 1:   6%|▌         | 93/1664 [00:30<09:03,  2.89it/s][ABatch 11, Loss: nan
+
+Epoch 1:   6%|▌         | 94/1664 [00:31<08:53,  2.94it/s][ABatch 11, Loss: nan
+
+Epoch 1:   6%|▌         | 95/1664 [00:31<09:10,  2.85it/s][ABatch 11, Loss: nan
+
+Epoch 1:   6%|▌         | 96/1664 [00:31<08:58,  2.91it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 97/1664 [00:32<08:50,  2.95it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 98/1664 [00:32<08:44,  2.99it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 99/1664 [00:32<08:40,  3.01it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 100/1664 [00:33<08:37,  3.02it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 101/1664 [00:33<08:34,  3.04it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 102/1664 [00:33<08:32,  3.05it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▌         | 103/1664 [00:34<08:33,  3.04it/s][ABatch 12, Loss: nan
+
+Epoch 1:   6%|▋         | 104/1664 [00:34<08:31,  3.05it/s][ABatch 13, Loss: nan
+
+Epoch 1:   6%|▋         | 105/1664 [00:34<08:30,  3.05it/s][ABatch 13, Loss: nan
+
+Epoch 1:   6%|▋         | 106/1664 [00:35<08:29,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   6%|▋         | 107/1664 [00:35<08:28,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   6%|▋         | 108/1664 [00:35<08:28,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   7%|▋         | 109/1664 [00:36<08:27,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   7%|▋         | 110/1664 [00:36<08:27,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   7%|▋         | 111/1664 [00:36<08:27,  3.06it/s][ABatch 13, Loss: nan
+
+Epoch 1:   7%|▋         | 112/1664 [00:37<08:26,  3.07it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 113/1664 [00:37<08:26,  3.06it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 114/1664 [00:37<08:25,  3.07it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 115/1664 [00:38<08:25,  3.07it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 116/1664 [00:38<08:25,  3.06it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 117/1664 [00:38<08:25,  3.06it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 118/1664 [00:38<08:24,  3.06it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 119/1664 [00:39<08:24,  3.06it/s][ABatch 14, Loss: nan
+
+Epoch 1:   7%|▋         | 120/1664 [00:39<08:23,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   7%|▋         | 121/1664 [00:39<08:25,  3.05it/s][ABatch 15, Loss: nan
+
+Epoch 1:   7%|▋         | 122/1664 [00:40<08:24,  3.05it/s][ABatch 15, Loss: nan
+
+Epoch 1:   7%|▋         | 123/1664 [00:40<08:23,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   7%|▋         | 124/1664 [00:40<08:22,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   8%|▊         | 125/1664 [00:41<08:22,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   8%|▊         | 126/1664 [00:41<08:21,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   8%|▊         | 127/1664 [00:41<08:21,  3.06it/s][ABatch 15, Loss: nan
+
+Epoch 1:   8%|▊         | 128/1664 [00:42<08:21,  3.06it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 129/1664 [00:42<08:20,  3.06it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 130/1664 [00:42<08:20,  3.07it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 131/1664 [00:43<08:19,  3.07it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 132/1664 [00:43<08:19,  3.07it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 133/1664 [00:43<08:18,  3.07it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 134/1664 [00:44<08:18,  3.07it/s][ABatch 16, Loss: nan
+
+Epoch 1:   8%|▊         | 135/1664 [00:44<08:18,  3.06it/s][ABatch 16, Loss: 11.327162742614746
+
+Epoch 1:   8%|▊         | 136/1664 [00:44<08:18,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   8%|▊         | 137/1664 [00:45<08:18,  3.06it/s][ABatch 17, Loss: nan
+
+Epoch 1:   8%|▊         | 138/1664 [00:45<08:17,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   8%|▊         | 139/1664 [00:45<08:16,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   8%|▊         | 140/1664 [00:46<08:15,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   8%|▊         | 141/1664 [00:46<08:15,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   9%|▊         | 142/1664 [00:46<08:15,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   9%|▊         | 143/1664 [00:47<08:15,  3.07it/s][ABatch 17, Loss: nan
+
+Epoch 1:   9%|▊         | 144/1664 [00:47<08:22,  3.02it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▊         | 145/1664 [00:47<08:19,  3.04it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 146/1664 [00:48<08:19,  3.04it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 147/1664 [00:48<08:17,  3.05it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 148/1664 [00:48<08:17,  3.04it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 149/1664 [00:49<08:15,  3.06it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 150/1664 [00:49<08:14,  3.06it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 151/1664 [00:49<08:14,  3.06it/s][ABatch 18, Loss: nan
+
+Epoch 1:   9%|▉         | 152/1664 [00:50<08:13,  3.06it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 153/1664 [00:50<08:13,  3.06it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 154/1664 [00:50<08:13,  3.06it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 155/1664 [00:51<08:12,  3.07it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 156/1664 [00:51<08:11,  3.07it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 157/1664 [00:51<08:11,  3.06it/s][ABatch 19, Loss: nan
+
+Epoch 1:   9%|▉         | 158/1664 [00:52<08:11,  3.07it/s][ABatch 19, Loss: nan
+
+Epoch 1:  10%|▉         | 159/1664 [00:52<08:10,  3.07it/s][ABatch 19, Loss: nan
+
+Epoch 1:  10%|▉         | 160/1664 [00:52<08:09,  3.07it/s][ABatch 20, Loss: 20.83066177368164
+
+Epoch 1:  10%|▉         | 161/1664 [00:53<08:09,  3.07it/s][ABatch 20, Loss: nan
+
+Epoch 1:  10%|▉         | 162/1664 [00:53<08:09,  3.07it/s][ABatch 20, Loss: 9.20306396484375
+
+Epoch 1:  10%|▉         | 163/1664 [00:53<08:09,  3.06it/s][ABatch 20, Loss: nan
+
+Epoch 1:  10%|▉         | 164/1664 [00:54<08:09,  3.07it/s][ABatch 20, Loss: nan
+
+Epoch 1:  10%|▉         | 165/1664 [00:54<08:08,  3.07it/s][ABatch 20, Loss: nan
+
+Epoch 1:  10%|▉         | 166/1664 [00:54<08:08,  3.07it/s][ABatch 20, Loss: 11.14382553100586
+
+Epoch 1:  10%|█         | 167/1664 [00:54<08:07,  3.07it/s][ABatch 20, Loss: nan
+
+Epoch 1:  10%|█         | 168/1664 [00:55<08:07,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 169/1664 [00:55<08:07,  3.06it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 170/1664 [00:55<08:06,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 171/1664 [00:56<08:06,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 172/1664 [00:56<08:06,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 173/1664 [00:56<08:05,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  10%|█         | 174/1664 [00:57<08:05,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  11%|█         | 175/1664 [00:57<08:04,  3.07it/s][ABatch 21, Loss: nan
+
+Epoch 1:  11%|█         | 176/1664 [00:57<08:04,  3.07it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 177/1664 [00:58<08:03,  3.07it/s][ABatch 22, Loss: 14.207816123962402
+
+Epoch 1:  11%|█         | 178/1664 [00:58<08:03,  3.07it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 179/1664 [00:58<08:03,  3.07it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 180/1664 [00:59<08:06,  3.05it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 181/1664 [00:59<08:06,  3.05it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 182/1664 [00:59<08:05,  3.05it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 183/1664 [01:00<08:04,  3.06it/s][ABatch 22, Loss: nan
+
+Epoch 1:  11%|█         | 184/1664 [01:00<08:17,  2.98it/s][ABatch 23, Loss: 21.60586166381836
+
+Epoch 1:  11%|█         | 185/1664 [01:00<08:12,  3.00it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█         | 186/1664 [01:01<08:22,  2.94it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█         | 187/1664 [01:01<08:31,  2.89it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█▏        | 188/1664 [01:01<08:30,  2.89it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█▏        | 189/1664 [01:02<08:20,  2.95it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█▏        | 190/1664 [01:02<08:14,  2.98it/s][ABatch 23, Loss: nan
+
+Epoch 1:  11%|█▏        | 191/1664 [01:02<08:09,  3.01it/s][ABatch 23, Loss: 12.6837158203125
+
+Epoch 1:  12%|█▏        | 192/1664 [01:03<08:06,  3.03it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 193/1664 [01:03<08:04,  3.04it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 194/1664 [01:03<08:02,  3.05it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 195/1664 [01:04<08:00,  3.06it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 196/1664 [01:04<08:00,  3.05it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 197/1664 [01:04<07:59,  3.06it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 198/1664 [01:05<07:58,  3.06it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 199/1664 [01:05<07:58,  3.06it/s][ABatch 24, Loss: nan
+
+Epoch 1:  12%|█▏        | 200/1664 [01:05<07:57,  3.06it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 201/1664 [01:06<07:57,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 202/1664 [01:06<07:56,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 203/1664 [01:06<07:55,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 204/1664 [01:07<07:55,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 205/1664 [01:07<07:54,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 206/1664 [01:07<07:54,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▏        | 207/1664 [01:08<07:54,  3.07it/s][ABatch 25, Loss: nan
+
+Epoch 1:  12%|█▎        | 208/1664 [01:08<07:53,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 209/1664 [01:08<07:53,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 210/1664 [01:09<07:53,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 211/1664 [01:09<07:53,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 212/1664 [01:09<07:53,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 213/1664 [01:10<07:52,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 214/1664 [01:10<07:51,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 215/1664 [01:10<07:51,  3.07it/s][ABatch 26, Loss: nan
+
+Epoch 1:  13%|█▎        | 216/1664 [01:11<07:51,  3.07it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 217/1664 [01:11<07:50,  3.07it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 218/1664 [01:11<07:50,  3.07it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 219/1664 [01:12<07:52,  3.06it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 220/1664 [01:12<07:51,  3.06it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 221/1664 [01:12<07:50,  3.06it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 222/1664 [01:13<07:50,  3.07it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 223/1664 [01:13<07:49,  3.07it/s][ABatch 27, Loss: nan
+
+Epoch 1:  13%|█▎        | 224/1664 [01:13<07:49,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▎        | 225/1664 [01:14<07:48,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▎        | 226/1664 [01:14<07:48,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▎        | 227/1664 [01:14<07:48,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▎        | 228/1664 [01:14<07:49,  3.06it/s][ABatch 28, Loss: 13.479146957397461
+
+Epoch 1:  14%|█▍        | 229/1664 [01:15<07:48,  3.06it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▍        | 230/1664 [01:15<07:47,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▍        | 231/1664 [01:15<07:46,  3.07it/s][ABatch 28, Loss: nan
+
+Epoch 1:  14%|█▍        | 232/1664 [01:16<07:46,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 233/1664 [01:16<07:45,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 234/1664 [01:16<07:45,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 235/1664 [01:17<07:44,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 236/1664 [01:17<07:44,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 237/1664 [01:17<07:44,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 238/1664 [01:18<07:44,  3.07it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 239/1664 [01:18<07:43,  3.08it/s][ABatch 29, Loss: nan
+
+Epoch 1:  14%|█▍        | 240/1664 [01:18<07:42,  3.08it/s][ABatch 30, Loss: nan
+
+Epoch 1:  14%|█▍        | 241/1664 [01:19<07:42,  3.08it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 242/1664 [01:19<07:42,  3.07it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 243/1664 [01:19<07:42,  3.07it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 244/1664 [01:20<07:42,  3.07it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 245/1664 [01:20<07:43,  3.06it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 246/1664 [01:20<07:43,  3.06it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 247/1664 [01:21<07:42,  3.06it/s][ABatch 30, Loss: nan
+
+Epoch 1:  15%|█▍        | 248/1664 [01:21<07:42,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▍        | 249/1664 [01:21<07:41,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 250/1664 [01:22<07:41,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 251/1664 [01:22<07:41,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 252/1664 [01:22<07:41,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 253/1664 [01:23<07:40,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 254/1664 [01:23<07:40,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 255/1664 [01:23<07:39,  3.06it/s][ABatch 31, Loss: nan
+
+Epoch 1:  15%|█▌        | 256/1664 [01:24<07:39,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  15%|█▌        | 257/1664 [01:24<07:39,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 258/1664 [01:24<07:38,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 259/1664 [01:25<07:38,  3.06it/s][ABatch 32, Loss: 13.671785354614258
+
+Epoch 1:  16%|█▌        | 260/1664 [01:25<07:38,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 261/1664 [01:25<07:38,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 262/1664 [01:26<07:38,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 263/1664 [01:26<07:37,  3.06it/s][ABatch 32, Loss: nan
+
+Epoch 1:  16%|█▌        | 264/1664 [01:26<07:37,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 265/1664 [01:27<07:36,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 266/1664 [01:27<07:36,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 267/1664 [01:27<07:35,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 268/1664 [01:28<07:35,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 269/1664 [01:28<07:35,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▌        | 270/1664 [01:28<07:36,  3.06it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▋        | 271/1664 [01:29<07:36,  3.05it/s][ABatch 33, Loss: nan
+
+Epoch 1:  16%|█▋        | 272/1664 [01:29<07:35,  3.06it/s][ABatch 34, Loss: nan
+
+Epoch 1:  16%|█▋        | 273/1664 [01:29<07:34,  3.06it/s][ABatch 34, Loss: nan
+
+Epoch 1:  16%|█▋        | 274/1664 [01:30<07:34,  3.06it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 275/1664 [01:30<07:34,  3.06it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 276/1664 [01:30<07:50,  2.95it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 277/1664 [01:31<07:56,  2.91it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 278/1664 [01:31<07:49,  2.95it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 279/1664 [01:31<08:16,  2.79it/s][ABatch 34, Loss: nan
+
+Epoch 1:  17%|█▋        | 280/1664 [01:32<08:02,  2.87it/s][ABatch 35, Loss: 13.498096466064453
+
+Epoch 1:  17%|█▋        | 281/1664 [01:32<07:53,  2.92it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 282/1664 [01:32<07:47,  2.96it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 283/1664 [01:33<07:42,  2.99it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 284/1664 [01:33<07:38,  3.01it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 285/1664 [01:33<07:35,  3.02it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 286/1664 [01:34<07:33,  3.04it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 287/1664 [01:34<07:32,  3.04it/s][ABatch 35, Loss: nan
+
+Epoch 1:  17%|█▋        | 288/1664 [01:34<07:31,  3.05it/s][ABatch 36, Loss: nan
+
+Epoch 1:  17%|█▋        | 289/1664 [01:35<07:30,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  17%|█▋        | 290/1664 [01:35<07:29,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  17%|█▋        | 291/1664 [01:35<07:29,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  18%|█▊        | 292/1664 [01:36<07:28,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  18%|█▊        | 293/1664 [01:36<07:27,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  18%|█▊        | 294/1664 [01:36<07:27,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  18%|█▊        | 295/1664 [01:37<07:27,  3.06it/s][ABatch 36, Loss: nan
+
+Epoch 1:  18%|█▊        | 296/1664 [01:37<07:26,  3.06it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 297/1664 [01:37<07:26,  3.06it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 298/1664 [01:37<07:26,  3.06it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 299/1664 [01:38<07:25,  3.07it/s][ABatch 37, Loss: 12.212066650390625
+
+Epoch 1:  18%|█▊        | 300/1664 [01:38<07:24,  3.07it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 301/1664 [01:38<07:24,  3.07it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 302/1664 [01:39<07:23,  3.07it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 303/1664 [01:39<07:23,  3.07it/s][ABatch 37, Loss: nan
+
+Epoch 1:  18%|█▊        | 304/1664 [01:39<07:24,  3.06it/s][ABatch 38, Loss: nan
+
+Epoch 1:  18%|█▊        | 305/1664 [01:40<07:24,  3.06it/s][ABatch 38, Loss: nan
+
+Epoch 1:  18%|█▊        | 306/1664 [01:40<07:23,  3.06it/s][ABatch 38, Loss: nan
+
+Epoch 1:  18%|█▊        | 307/1664 [01:40<07:22,  3.06it/s][ABatch 38, Loss: nan
+
+Epoch 1:  19%|█▊        | 308/1664 [01:41<07:22,  3.07it/s][ABatch 38, Loss: nan
+
+Epoch 1:  19%|█▊        | 309/1664 [01:41<07:21,  3.07it/s][ABatch 38, Loss: nan
+
+Epoch 1:  19%|█▊        | 310/1664 [01:41<07:21,  3.07it/s][ABatch 38, Loss: nan
+
+Epoch 1:  19%|█▊        | 311/1664 [01:42<07:20,  3.07it/s][ABatch 38, Loss: nan
+
+Epoch 1:  19%|█▉        | 312/1664 [01:42<07:20,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 313/1664 [01:42<07:20,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 314/1664 [01:43<07:19,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 315/1664 [01:43<07:19,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 316/1664 [01:43<07:18,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 317/1664 [01:44<07:18,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 318/1664 [01:44<07:18,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 319/1664 [01:44<07:17,  3.07it/s][ABatch 39, Loss: nan
+
+Epoch 1:  19%|█▉        | 320/1664 [01:45<07:17,  3.07it/s][ABatch 40, Loss: 9.906900405883789
+
+Epoch 1:  19%|█▉        | 321/1664 [01:45<07:17,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  19%|█▉        | 322/1664 [01:45<07:17,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  19%|█▉        | 323/1664 [01:46<07:16,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  19%|█▉        | 324/1664 [01:46<07:16,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  20%|█▉        | 325/1664 [01:46<07:16,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  20%|█▉        | 326/1664 [01:47<07:16,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  20%|█▉        | 327/1664 [01:47<07:15,  3.07it/s][ABatch 40, Loss: nan
+
+Epoch 1:  20%|█▉        | 328/1664 [01:47<07:15,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|█▉        | 329/1664 [01:48<07:14,  3.07it/s][ABatch 41, Loss: 12.592413902282715
+
+Epoch 1:  20%|█▉        | 330/1664 [01:48<07:14,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|█▉        | 331/1664 [01:48<07:14,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|█▉        | 332/1664 [01:49<07:13,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|██        | 333/1664 [01:49<07:13,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|██        | 334/1664 [01:49<07:12,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|██        | 335/1664 [01:50<07:12,  3.07it/s][ABatch 41, Loss: nan
+
+Epoch 1:  20%|██        | 336/1664 [01:50<07:11,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  20%|██        | 337/1664 [01:50<07:11,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  20%|██        | 338/1664 [01:51<07:11,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  20%|██        | 339/1664 [01:51<07:10,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  20%|██        | 340/1664 [01:51<07:10,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  20%|██        | 341/1664 [01:52<07:11,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  21%|██        | 342/1664 [01:52<07:10,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  21%|██        | 343/1664 [01:52<07:10,  3.07it/s][ABatch 42, Loss: nan
+
+Epoch 1:  21%|██        | 344/1664 [01:52<07:09,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 345/1664 [01:53<07:09,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 346/1664 [01:53<07:09,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 347/1664 [01:53<07:08,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 348/1664 [01:54<07:08,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 349/1664 [01:54<07:08,  3.07it/s][ABatch 43, Loss: 11.138587951660156
+
+Epoch 1:  21%|██        | 350/1664 [01:54<07:09,  3.06it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 351/1664 [01:55<07:08,  3.07it/s][ABatch 43, Loss: nan
+
+Epoch 1:  21%|██        | 352/1664 [01:55<07:07,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  21%|██        | 353/1664 [01:55<07:07,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  21%|██▏       | 354/1664 [01:56<07:06,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  21%|██▏       | 355/1664 [01:56<07:06,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  21%|██▏       | 356/1664 [01:56<07:05,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  21%|██▏       | 357/1664 [01:57<07:05,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  22%|██▏       | 358/1664 [01:57<07:05,  3.07it/s][ABatch 44, Loss: nan
+
+Epoch 1:  22%|██▏       | 359/1664 [01:57<07:07,  3.05it/s][ABatch 44, Loss: nan
+
+Epoch 1:  22%|██▏       | 360/1664 [01:58<07:12,  3.01it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 361/1664 [01:58<07:09,  3.03it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 362/1664 [01:58<07:07,  3.05it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 363/1664 [01:59<07:05,  3.05it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 364/1664 [01:59<07:04,  3.06it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 365/1664 [01:59<07:04,  3.06it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 366/1664 [02:00<07:03,  3.07it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 367/1664 [02:00<07:03,  3.07it/s][ABatch 45, Loss: nan
+
+Epoch 1:  22%|██▏       | 368/1664 [02:00<07:03,  3.06it/s][ABatch 46, Loss: nan
+
+Epoch 1:  22%|██▏       | 369/1664 [02:01<07:15,  2.97it/s][ABatch 46, Loss: nan
+
+Epoch 1:  22%|██▏       | 370/1664 [02:01<07:11,  3.00it/s][ABatch 46, Loss: nan
+
+Epoch 1:  22%|██▏       | 371/1664 [02:01<07:07,  3.02it/s][ABatch 46, Loss: 12.877347946166992
+
+Epoch 1:  22%|██▏       | 372/1664 [02:02<07:05,  3.04it/s][ABatch 46, Loss: nan
+
+Epoch 1:  22%|██▏       | 373/1664 [02:02<07:03,  3.05it/s][ABatch 46, Loss: nan
+
+Epoch 1:  22%|██▏       | 374/1664 [02:02<07:02,  3.06it/s][ABatch 46, Loss: nan
+
+Epoch 1:  23%|██▎       | 375/1664 [02:03<07:01,  3.06it/s][ABatch 46, Loss: nan
+
+Epoch 1:  23%|██▎       | 376/1664 [02:03<07:01,  3.05it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 377/1664 [02:03<07:00,  3.06it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 378/1664 [02:04<06:59,  3.06it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 379/1664 [02:04<06:59,  3.07it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 380/1664 [02:04<06:58,  3.07it/s][ABatch 47, Loss: 12.214152336120605
+
+Epoch 1:  23%|██▎       | 381/1664 [02:05<06:58,  3.07it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 382/1664 [02:05<06:59,  3.06it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 383/1664 [02:05<06:58,  3.06it/s][ABatch 47, Loss: nan
+
+Epoch 1:  23%|██▎       | 384/1664 [02:06<06:57,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 385/1664 [02:06<06:56,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 386/1664 [02:06<06:56,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 387/1664 [02:07<06:56,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 388/1664 [02:07<06:56,  3.06it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 389/1664 [02:07<06:55,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 390/1664 [02:08<06:55,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  23%|██▎       | 391/1664 [02:08<06:54,  3.07it/s][ABatch 48, Loss: nan
+
+Epoch 1:  24%|██▎       | 392/1664 [02:08<06:53,  3.07it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▎       | 393/1664 [02:08<06:53,  3.07it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▎       | 394/1664 [02:09<06:53,  3.07it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▎       | 395/1664 [02:09<06:52,  3.08it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▍       | 396/1664 [02:09<06:54,  3.06it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▍       | 397/1664 [02:10<06:56,  3.04it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▍       | 398/1664 [02:10<06:55,  3.05it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▍       | 399/1664 [02:10<06:53,  3.06it/s][ABatch 49, Loss: nan
+
+Epoch 1:  24%|██▍       | 400/1664 [02:11<06:53,  3.06it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 401/1664 [02:11<06:52,  3.06it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 402/1664 [02:11<06:51,  3.07it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 403/1664 [02:12<06:50,  3.07it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 404/1664 [02:12<06:50,  3.07it/s][ABatch 50, Loss: 16.082416534423828
+
+Epoch 1:  24%|██▍       | 405/1664 [02:12<06:49,  3.07it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 406/1664 [02:13<06:49,  3.07it/s][ABatch 50, Loss: nan
+
+Epoch 1:  24%|██▍       | 407/1664 [02:13<06:48,  3.07it/s][ABatch 50, Loss: nan
+
+Epoch 1:  25%|██▍       | 408/1664 [02:13<06:48,  3.07it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 409/1664 [02:14<06:48,  3.07it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 410/1664 [02:14<06:50,  3.06it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 411/1664 [02:14<06:49,  3.06it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 412/1664 [02:15<06:48,  3.07it/s][ABatch 51, Loss: 21.64545440673828
+
+Epoch 1:  25%|██▍       | 413/1664 [02:15<06:47,  3.07it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 414/1664 [02:15<06:46,  3.07it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▍       | 415/1664 [02:16<06:46,  3.07it/s][ABatch 51, Loss: nan
+
+Epoch 1:  25%|██▌       | 416/1664 [02:16<06:46,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 417/1664 [02:16<06:45,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 418/1664 [02:17<06:45,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 419/1664 [02:17<06:45,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 420/1664 [02:17<06:44,  3.08it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 421/1664 [02:18<06:44,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 422/1664 [02:18<06:43,  3.08it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 423/1664 [02:18<06:43,  3.07it/s][ABatch 52, Loss: nan
+
+Epoch 1:  25%|██▌       | 424/1664 [02:19<06:43,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 425/1664 [02:19<06:42,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 426/1664 [02:19<06:42,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 427/1664 [02:20<06:42,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 428/1664 [02:20<06:42,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 429/1664 [02:20<06:41,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 430/1664 [02:21<06:41,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 431/1664 [02:21<06:40,  3.07it/s][ABatch 53, Loss: nan
+
+Epoch 1:  26%|██▌       | 432/1664 [02:21<06:40,  3.07it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▌       | 433/1664 [02:22<06:40,  3.07it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▌       | 434/1664 [02:22<06:40,  3.07it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▌       | 435/1664 [02:22<06:40,  3.07it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▌       | 436/1664 [02:23<06:39,  3.07it/s][ABatch 54, Loss: 13.231878280639648
+
+Epoch 1:  26%|██▋       | 437/1664 [02:23<06:39,  3.07it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▋       | 438/1664 [02:23<06:38,  3.08it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▋       | 439/1664 [02:23<06:38,  3.08it/s][ABatch 54, Loss: nan
+
+Epoch 1:  26%|██▋       | 440/1664 [02:24<06:37,  3.08it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 441/1664 [02:24<06:37,  3.07it/s][ABatch 55, Loss: 8.446937561035156
+
+Epoch 1:  27%|██▋       | 442/1664 [02:24<06:37,  3.08it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 443/1664 [02:25<06:37,  3.08it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 444/1664 [02:25<06:36,  3.07it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 445/1664 [02:25<06:36,  3.07it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 446/1664 [02:26<06:36,  3.08it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 447/1664 [02:26<06:35,  3.08it/s][ABatch 55, Loss: nan
+
+Epoch 1:  27%|██▋       | 448/1664 [02:26<06:35,  3.08it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 449/1664 [02:27<06:35,  3.07it/s][ABatch 56, Loss: 19.69052505493164
+
+Epoch 1:  27%|██▋       | 450/1664 [02:27<06:35,  3.07it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 451/1664 [02:27<06:34,  3.07it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 452/1664 [02:28<06:34,  3.07it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 453/1664 [02:28<06:34,  3.07it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 454/1664 [02:28<06:33,  3.07it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 455/1664 [02:29<06:33,  3.08it/s][ABatch 56, Loss: nan
+
+Epoch 1:  27%|██▋       | 456/1664 [02:29<06:32,  3.08it/s][ABatch 57, Loss: nan
+
+Epoch 1:  27%|██▋       | 457/1664 [02:29<06:32,  3.08it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 458/1664 [02:30<06:32,  3.08it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 459/1664 [02:30<06:31,  3.07it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 460/1664 [02:30<06:32,  3.07it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 461/1664 [02:31<06:42,  2.99it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 462/1664 [02:31<06:40,  3.00it/s][ABatch 57, Loss: nan
+
+Epoch 1:  28%|██▊       | 463/1664 [02:31<06:36,  3.03it/s][ABatch 57, Loss: 17.26020622253418
+
+Epoch 1:  28%|██▊       | 464/1664 [02:32<06:34,  3.04it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 465/1664 [02:32<06:32,  3.05it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 466/1664 [02:32<06:31,  3.06it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 467/1664 [02:33<06:30,  3.06it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 468/1664 [02:33<06:29,  3.07it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 469/1664 [02:33<06:29,  3.07it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 470/1664 [02:34<06:29,  3.07it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 471/1664 [02:34<06:28,  3.07it/s][ABatch 58, Loss: nan
+
+Epoch 1:  28%|██▊       | 472/1664 [02:34<06:28,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  28%|██▊       | 473/1664 [02:35<06:27,  3.07it/s][ABatch 59, Loss: 13.402671813964844
+
+Epoch 1:  28%|██▊       | 474/1664 [02:35<06:27,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▊       | 475/1664 [02:35<06:26,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▊       | 476/1664 [02:36<06:26,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▊       | 477/1664 [02:36<06:26,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▊       | 478/1664 [02:36<06:25,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▉       | 479/1664 [02:37<06:25,  3.07it/s][ABatch 59, Loss: nan
+
+Epoch 1:  29%|██▉       | 480/1664 [02:37<06:25,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 481/1664 [02:37<06:24,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 482/1664 [02:38<06:24,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 483/1664 [02:38<06:24,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 484/1664 [02:38<06:23,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 485/1664 [02:38<06:23,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 486/1664 [02:39<06:23,  3.08it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 487/1664 [02:39<06:22,  3.07it/s][ABatch 60, Loss: nan
+
+Epoch 1:  29%|██▉       | 488/1664 [02:39<06:22,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  29%|██▉       | 489/1664 [02:40<06:22,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  29%|██▉       | 490/1664 [02:40<06:21,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 491/1664 [02:40<06:21,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 492/1664 [02:41<06:21,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 493/1664 [02:41<06:20,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 494/1664 [02:41<06:20,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 495/1664 [02:42<06:20,  3.07it/s][ABatch 61, Loss: nan
+
+Epoch 1:  30%|██▉       | 496/1664 [02:42<06:19,  3.07it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|██▉       | 497/1664 [02:42<06:19,  3.07it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|██▉       | 498/1664 [02:43<06:19,  3.08it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|██▉       | 499/1664 [02:43<06:18,  3.08it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|███       | 500/1664 [02:43<06:18,  3.07it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|███       | 501/1664 [02:44<06:19,  3.06it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|███       | 502/1664 [02:44<06:19,  3.07it/s][ABatch 62, Loss: nan
+
+Epoch 1:  30%|███       | 503/1664 [02:44<06:18,  3.07it/s][ABatch 62, Loss: 21.890064239501953
+
+Epoch 1:  30%|███       | 504/1664 [02:45<06:17,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  30%|███       | 505/1664 [02:45<06:17,  3.07it/s][ABatch 63, Loss: 10.976449966430664
+
+Epoch 1:  30%|███       | 506/1664 [02:45<06:18,  3.06it/s][ABatch 63, Loss: nan
+
+Epoch 1:  30%|███       | 507/1664 [02:46<06:17,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  31%|███       | 508/1664 [02:46<06:16,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  31%|███       | 509/1664 [02:46<06:15,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  31%|███       | 510/1664 [02:47<06:15,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  31%|███       | 511/1664 [02:47<06:15,  3.07it/s][ABatch 63, Loss: nan
+
+Epoch 1:  31%|███       | 512/1664 [02:47<06:14,  3.07it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 513/1664 [02:48<06:14,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 514/1664 [02:48<06:13,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 515/1664 [02:48<06:13,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 516/1664 [02:49<06:13,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 517/1664 [02:49<06:12,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 518/1664 [02:49<06:12,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███       | 519/1664 [02:50<06:12,  3.08it/s][ABatch 64, Loss: nan
+
+Epoch 1:  31%|███▏      | 520/1664 [02:50<06:11,  3.08it/s][ABatch 65, Loss: nan
+
+Epoch 1:  31%|███▏      | 521/1664 [02:50<06:11,  3.07it/s][ABatch 65, Loss: nan
+
+Epoch 1:  31%|███▏      | 522/1664 [02:51<06:11,  3.07it/s][ABatch 65, Loss: nan
+
+Epoch 1:  31%|███▏      | 523/1664 [02:51<06:11,  3.07it/s][ABatch 65, Loss: nan
+
+Epoch 1:  31%|███▏      | 524/1664 [02:51<06:11,  3.07it/s][ABatch 65, Loss: nan
+
+Epoch 1:  32%|███▏      | 525/1664 [02:52<06:12,  3.06it/s][ABatch 65, Loss: nan
+
+Epoch 1:  32%|███▏      | 526/1664 [02:52<06:11,  3.06it/s][ABatch 65, Loss: nan
+
+Epoch 1:  32%|███▏      | 527/1664 [02:52<06:10,  3.07it/s][ABatch 65, Loss: nan
+
+Epoch 1:  32%|███▏      | 528/1664 [02:52<06:09,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 529/1664 [02:53<06:09,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 530/1664 [02:53<06:09,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 531/1664 [02:53<06:08,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 532/1664 [02:54<06:08,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 533/1664 [02:54<06:08,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 534/1664 [02:54<06:08,  3.06it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 535/1664 [02:55<06:08,  3.07it/s][ABatch 66, Loss: nan
+
+Epoch 1:  32%|███▏      | 536/1664 [02:55<06:07,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  32%|███▏      | 537/1664 [02:55<06:07,  3.07it/s][ABatch 67, Loss: 9.366462707519531
+
+Epoch 1:  32%|███▏      | 538/1664 [02:56<06:06,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  32%|███▏      | 539/1664 [02:56<06:06,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  32%|███▏      | 540/1664 [02:56<06:06,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  33%|███▎      | 541/1664 [02:57<06:06,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  33%|███▎      | 542/1664 [02:57<06:05,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  33%|███▎      | 543/1664 [02:57<06:05,  3.07it/s][ABatch 67, Loss: nan
+
+Epoch 1:  33%|███▎      | 544/1664 [02:58<06:04,  3.07it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 545/1664 [02:58<06:04,  3.07it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 546/1664 [02:58<06:03,  3.07it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 547/1664 [02:59<06:03,  3.08it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 548/1664 [02:59<06:02,  3.08it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 549/1664 [02:59<06:02,  3.08it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 550/1664 [03:00<06:01,  3.08it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 551/1664 [03:00<06:01,  3.07it/s][ABatch 68, Loss: nan
+
+Epoch 1:  33%|███▎      | 552/1664 [03:00<06:01,  3.08it/s][ABatch 69, Loss: nan
+
+Epoch 1:  33%|███▎      | 553/1664 [03:01<06:01,  3.08it/s][ABatch 69, Loss: nan
+
+Epoch 1:  33%|███▎      | 554/1664 [03:01<06:18,  2.93it/s][ABatch 69, Loss: nan
+
+Epoch 1:  33%|███▎      | 555/1664 [03:01<06:12,  2.97it/s][ABatch 69, Loss: nan
+
+Epoch 1:  33%|███▎      | 556/1664 [03:02<06:08,  3.00it/s][ABatch 69, Loss: nan
+
+Epoch 1:  33%|███▎      | 557/1664 [03:02<06:05,  3.03it/s][ABatch 69, Loss: nan
+
+Epoch 1:  34%|███▎      | 558/1664 [03:02<06:03,  3.04it/s][ABatch 69, Loss: nan
+
+Epoch 1:  34%|███▎      | 559/1664 [03:03<06:01,  3.06it/s][ABatch 69, Loss: nan
+
+Epoch 1:  34%|███▎      | 560/1664 [03:03<06:00,  3.06it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▎      | 561/1664 [03:03<06:00,  3.06it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 562/1664 [03:04<05:59,  3.07it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 563/1664 [03:04<05:59,  3.06it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 564/1664 [03:04<05:58,  3.07it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 565/1664 [03:05<05:59,  3.06it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 566/1664 [03:05<05:58,  3.06it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 567/1664 [03:05<05:57,  3.07it/s][ABatch 70, Loss: nan
+
+Epoch 1:  34%|███▍      | 568/1664 [03:06<05:56,  3.07it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 569/1664 [03:06<05:56,  3.07it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 570/1664 [03:06<05:55,  3.07it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 571/1664 [03:07<05:55,  3.07it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 572/1664 [03:07<05:54,  3.08it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 573/1664 [03:07<05:55,  3.07it/s][ABatch 71, Loss: nan
+
+Epoch 1:  34%|███▍      | 574/1664 [03:08<05:56,  3.06it/s][ABatch 71, Loss: nan
+
+Epoch 1:  35%|███▍      | 575/1664 [03:08<05:55,  3.06it/s][ABatch 71, Loss: 9.641447067260742
+
+Epoch 1:  35%|███▍      | 576/1664 [03:08<05:54,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▍      | 577/1664 [03:08<05:54,  3.07it/s][ABatch 72, Loss: 13.854629516601562
+
+Epoch 1:  35%|███▍      | 578/1664 [03:09<05:53,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▍      | 579/1664 [03:09<05:53,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▍      | 580/1664 [03:09<05:52,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▍      | 581/1664 [03:10<05:52,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▍      | 582/1664 [03:10<05:52,  3.07it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▌      | 583/1664 [03:10<05:52,  3.06it/s][ABatch 72, Loss: nan
+
+Epoch 1:  35%|███▌      | 584/1664 [03:11<05:51,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 585/1664 [03:11<05:51,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 586/1664 [03:11<05:50,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 587/1664 [03:12<05:50,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 588/1664 [03:12<05:50,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 589/1664 [03:12<05:49,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  35%|███▌      | 590/1664 [03:13<05:49,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  36%|███▌      | 591/1664 [03:13<05:49,  3.07it/s][ABatch 73, Loss: nan
+
+Epoch 1:  36%|███▌      | 592/1664 [03:13<05:50,  3.06it/s][ABatch 74, Loss: 8.420653343200684
+
+Epoch 1:  36%|███▌      | 593/1664 [03:14<05:49,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 594/1664 [03:14<05:48,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 595/1664 [03:14<05:47,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 596/1664 [03:15<05:47,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 597/1664 [03:15<05:47,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 598/1664 [03:15<05:47,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 599/1664 [03:16<05:46,  3.07it/s][ABatch 74, Loss: nan
+
+Epoch 1:  36%|███▌      | 600/1664 [03:16<05:46,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▌      | 601/1664 [03:16<05:47,  3.06it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▌      | 602/1664 [03:17<05:46,  3.06it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▌      | 603/1664 [03:17<05:46,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▋      | 604/1664 [03:17<05:45,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▋      | 605/1664 [03:18<05:44,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▋      | 606/1664 [03:18<05:44,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  36%|███▋      | 607/1664 [03:18<05:43,  3.07it/s][ABatch 75, Loss: nan
+
+Epoch 1:  37%|███▋      | 608/1664 [03:19<05:43,  3.08it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 609/1664 [03:19<05:43,  3.07it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 610/1664 [03:19<05:44,  3.06it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 611/1664 [03:20<05:43,  3.06it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 612/1664 [03:20<05:42,  3.07it/s][ABatch 76, Loss: 9.682546615600586
+
+Epoch 1:  37%|███▋      | 613/1664 [03:20<05:42,  3.07it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 614/1664 [03:21<05:41,  3.07it/s][ABatch 76, Loss: 10.237987518310547
+
+Epoch 1:  37%|███▋      | 615/1664 [03:21<05:41,  3.07it/s][ABatch 76, Loss: nan
+
+Epoch 1:  37%|███▋      | 616/1664 [03:21<05:40,  3.08it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 617/1664 [03:22<05:40,  3.08it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 618/1664 [03:22<05:40,  3.07it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 619/1664 [03:22<05:40,  3.06it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 620/1664 [03:22<05:40,  3.07it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 621/1664 [03:23<05:39,  3.07it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 622/1664 [03:23<05:39,  3.07it/s][ABatch 77, Loss: nan
+
+Epoch 1:  37%|███▋      | 623/1664 [03:23<05:38,  3.07it/s][ABatch 77, Loss: nan
+
+Epoch 1:  38%|███▊      | 624/1664 [03:24<05:38,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 625/1664 [03:24<05:38,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 626/1664 [03:24<05:37,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 627/1664 [03:25<05:37,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 628/1664 [03:25<05:37,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 629/1664 [03:25<05:37,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 630/1664 [03:26<05:36,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 631/1664 [03:26<05:36,  3.07it/s][ABatch 78, Loss: nan
+
+Epoch 1:  38%|███▊      | 632/1664 [03:26<05:35,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 633/1664 [03:27<05:35,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 634/1664 [03:27<05:35,  3.07it/s][ABatch 79, Loss: 15.162595748901367
+
+Epoch 1:  38%|███▊      | 635/1664 [03:27<05:34,  3.08it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 636/1664 [03:28<05:34,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 637/1664 [03:28<05:34,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 638/1664 [03:28<05:34,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 639/1664 [03:29<05:33,  3.07it/s][ABatch 79, Loss: nan
+
+Epoch 1:  38%|███▊      | 640/1664 [03:29<05:32,  3.08it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▊      | 641/1664 [03:29<05:32,  3.07it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▊      | 642/1664 [03:30<05:32,  3.07it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▊      | 643/1664 [03:30<05:32,  3.07it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▊      | 644/1664 [03:30<05:32,  3.07it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▉      | 645/1664 [03:31<05:32,  3.07it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▉      | 646/1664 [03:31<05:43,  2.96it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▉      | 647/1664 [03:31<05:39,  3.00it/s][ABatch 80, Loss: nan
+
+Epoch 1:  39%|███▉      | 648/1664 [03:32<05:36,  3.02it/s][ABatch 81, Loss: 10.106767654418945
+
+Epoch 1:  39%|███▉      | 649/1664 [03:32<05:34,  3.03it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 650/1664 [03:32<05:33,  3.04it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 651/1664 [03:33<05:32,  3.05it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 652/1664 [03:33<05:31,  3.05it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 653/1664 [03:33<05:30,  3.06it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 654/1664 [03:34<05:29,  3.06it/s][ABatch 81, Loss: 8.773894309997559
+
+Epoch 1:  39%|███▉      | 655/1664 [03:34<05:29,  3.06it/s][ABatch 81, Loss: nan
+
+Epoch 1:  39%|███▉      | 656/1664 [03:34<05:29,  3.06it/s][ABatch 82, Loss: nan
+
+Epoch 1:  39%|███▉      | 657/1664 [03:35<05:28,  3.06it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 658/1664 [03:35<05:28,  3.07it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 659/1664 [03:35<05:27,  3.07it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 660/1664 [03:36<05:27,  3.07it/s][ABatch 82, Loss: 10.099376678466797
+
+Epoch 1:  40%|███▉      | 661/1664 [03:36<05:27,  3.07it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 662/1664 [03:36<05:26,  3.07it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 663/1664 [03:37<05:26,  3.07it/s][ABatch 82, Loss: nan
+
+Epoch 1:  40%|███▉      | 664/1664 [03:37<05:26,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|███▉      | 665/1664 [03:37<05:25,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 666/1664 [03:38<05:25,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 667/1664 [03:38<05:25,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 668/1664 [03:38<05:24,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 669/1664 [03:38<05:24,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 670/1664 [03:39<05:23,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 671/1664 [03:39<05:23,  3.07it/s][ABatch 83, Loss: nan
+
+Epoch 1:  40%|████      | 672/1664 [03:39<05:23,  3.06it/s][ABatch 84, Loss: nan
+
+Epoch 1:  40%|████      | 673/1664 [03:40<05:23,  3.06it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 674/1664 [03:40<05:22,  3.07it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 675/1664 [03:40<05:22,  3.07it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 676/1664 [03:41<05:22,  3.07it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 677/1664 [03:41<05:22,  3.06it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 678/1664 [03:41<05:21,  3.07it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 679/1664 [03:42<05:21,  3.06it/s][ABatch 84, Loss: nan
+
+Epoch 1:  41%|████      | 680/1664 [03:42<05:22,  3.06it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████      | 681/1664 [03:42<05:21,  3.06it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████      | 682/1664 [03:43<05:20,  3.06it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████      | 683/1664 [03:43<05:20,  3.07it/s][ABatch 85, Loss: 12.828008651733398
+
+Epoch 1:  41%|████      | 684/1664 [03:43<05:19,  3.07it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████      | 685/1664 [03:44<05:19,  3.07it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████      | 686/1664 [03:44<05:18,  3.07it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████▏     | 687/1664 [03:44<05:18,  3.07it/s][ABatch 85, Loss: nan
+
+Epoch 1:  41%|████▏     | 688/1664 [03:45<05:18,  3.07it/s][ABatch 86, Loss: nan
+
+Epoch 1:  41%|████▏     | 689/1664 [03:45<05:18,  3.06it/s][ABatch 86, Loss: nan
+
+Epoch 1:  41%|████▏     | 690/1664 [03:45<05:17,  3.07it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 691/1664 [03:46<05:17,  3.07it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 692/1664 [03:46<05:17,  3.06it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 693/1664 [03:46<05:16,  3.06it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 694/1664 [03:47<05:16,  3.06it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 695/1664 [03:47<05:16,  3.07it/s][ABatch 86, Loss: nan
+
+Epoch 1:  42%|████▏     | 696/1664 [03:47<05:15,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 697/1664 [03:48<05:15,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 698/1664 [03:48<05:14,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 699/1664 [03:48<05:14,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 700/1664 [03:49<05:13,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 701/1664 [03:49<05:13,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 702/1664 [03:49<05:13,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 703/1664 [03:50<05:13,  3.07it/s][ABatch 87, Loss: nan
+
+Epoch 1:  42%|████▏     | 704/1664 [03:50<05:12,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  42%|████▏     | 705/1664 [03:50<05:12,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  42%|████▏     | 706/1664 [03:51<05:12,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  42%|████▏     | 707/1664 [03:51<05:11,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  43%|████▎     | 708/1664 [03:51<05:11,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  43%|████▎     | 709/1664 [03:52<05:11,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  43%|████▎     | 710/1664 [03:52<05:11,  3.07it/s][ABatch 88, Loss: 8.254133224487305
+
+Epoch 1:  43%|████▎     | 711/1664 [03:52<05:10,  3.07it/s][ABatch 88, Loss: nan
+
+Epoch 1:  43%|████▎     | 712/1664 [03:53<05:10,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 713/1664 [03:53<05:09,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 714/1664 [03:53<05:08,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 715/1664 [03:53<05:09,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 716/1664 [03:54<05:09,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 717/1664 [03:54<05:08,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 718/1664 [03:54<05:08,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 719/1664 [03:55<05:07,  3.07it/s][ABatch 89, Loss: nan
+
+Epoch 1:  43%|████▎     | 720/1664 [03:55<05:07,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  43%|████▎     | 721/1664 [03:55<05:06,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  43%|████▎     | 722/1664 [03:56<05:06,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  43%|████▎     | 723/1664 [03:56<05:06,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  44%|████▎     | 724/1664 [03:56<05:05,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  44%|████▎     | 725/1664 [03:57<05:06,  3.06it/s][ABatch 90, Loss: nan
+
+Epoch 1:  44%|████▎     | 726/1664 [03:57<05:05,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  44%|████▎     | 727/1664 [03:57<05:05,  3.07it/s][ABatch 90, Loss: nan
+
+Epoch 1:  44%|████▍     | 728/1664 [03:58<05:04,  3.07it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 729/1664 [03:58<05:04,  3.07it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 730/1664 [03:58<05:03,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 731/1664 [03:59<05:03,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 732/1664 [03:59<05:02,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 733/1664 [03:59<05:02,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 734/1664 [04:00<05:02,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 735/1664 [04:00<05:01,  3.08it/s][ABatch 91, Loss: nan
+
+Epoch 1:  44%|████▍     | 736/1664 [04:00<05:02,  3.07it/s][ABatch 92, Loss: nan
+
+Epoch 1:  44%|████▍     | 737/1664 [04:01<05:14,  2.95it/s][ABatch 92, Loss: nan
+
+Epoch 1:  44%|████▍     | 738/1664 [04:01<05:10,  2.99it/s][ABatch 92, Loss: nan
+
+Epoch 1:  44%|████▍     | 739/1664 [04:01<05:07,  3.01it/s][ABatch 92, Loss: nan
+
+Epoch 1:  44%|████▍     | 740/1664 [04:02<05:05,  3.03it/s][ABatch 92, Loss: nan
+
+Epoch 1:  45%|████▍     | 741/1664 [04:02<05:03,  3.04it/s][ABatch 92, Loss: nan
+
+Epoch 1:  45%|████▍     | 742/1664 [04:02<05:02,  3.05it/s][ABatch 92, Loss: nan
+
+Epoch 1:  45%|████▍     | 743/1664 [04:03<05:01,  3.06it/s][ABatch 92, Loss: nan
+
+Epoch 1:  45%|████▍     | 744/1664 [04:03<05:00,  3.06it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▍     | 745/1664 [04:03<04:59,  3.06it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▍     | 746/1664 [04:04<04:59,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▍     | 747/1664 [04:04<04:58,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▍     | 748/1664 [04:04<04:58,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▌     | 749/1664 [04:05<04:58,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▌     | 750/1664 [04:05<04:57,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▌     | 751/1664 [04:05<04:57,  3.07it/s][ABatch 93, Loss: nan
+
+Epoch 1:  45%|████▌     | 752/1664 [04:06<04:57,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  45%|████▌     | 753/1664 [04:06<04:56,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  45%|████▌     | 754/1664 [04:06<04:56,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  45%|████▌     | 755/1664 [04:07<04:56,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  45%|████▌     | 756/1664 [04:07<04:55,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  45%|████▌     | 757/1664 [04:07<04:55,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  46%|████▌     | 758/1664 [04:08<04:55,  3.06it/s][ABatch 94, Loss: nan
+
+Epoch 1:  46%|████▌     | 759/1664 [04:08<04:55,  3.07it/s][ABatch 94, Loss: nan
+
+Epoch 1:  46%|████▌     | 760/1664 [04:08<04:54,  3.07it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 761/1664 [04:09<04:55,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 762/1664 [04:09<04:54,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 763/1664 [04:09<04:54,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 764/1664 [04:09<04:54,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 765/1664 [04:10<04:53,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 766/1664 [04:10<04:53,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 767/1664 [04:10<04:52,  3.06it/s][ABatch 95, Loss: nan
+
+Epoch 1:  46%|████▌     | 768/1664 [04:11<04:52,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  46%|████▌     | 769/1664 [04:11<04:51,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  46%|████▋     | 770/1664 [04:11<04:51,  3.07it/s][ABatch 96, Loss: 12.090965270996094
+
+Epoch 1:  46%|████▋     | 771/1664 [04:12<04:50,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  46%|████▋     | 772/1664 [04:12<04:50,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  46%|████▋     | 773/1664 [04:12<04:50,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  47%|████▋     | 774/1664 [04:13<04:50,  3.07it/s][ABatch 96, Loss: 11.610879898071289
+
+Epoch 1:  47%|████▋     | 775/1664 [04:13<04:49,  3.07it/s][ABatch 96, Loss: nan
+
+Epoch 1:  47%|████▋     | 776/1664 [04:13<04:49,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 777/1664 [04:14<04:49,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 778/1664 [04:14<04:48,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 779/1664 [04:14<04:48,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 780/1664 [04:15<04:47,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 781/1664 [04:15<04:47,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 782/1664 [04:15<04:47,  3.07it/s][ABatch 97, Loss: 11.323687553405762
+
+Epoch 1:  47%|████▋     | 783/1664 [04:16<04:46,  3.07it/s][ABatch 97, Loss: nan
+
+Epoch 1:  47%|████▋     | 784/1664 [04:16<04:46,  3.07it/s][ABatch 98, Loss: nan
+
+Epoch 1:  47%|████▋     | 785/1664 [04:16<04:46,  3.07it/s][ABatch 98, Loss: nan
+
+Epoch 1:  47%|████▋     | 786/1664 [04:17<04:47,  3.06it/s][ABatch 98, Loss: nan
+
+Epoch 1:  47%|████▋     | 787/1664 [04:17<04:46,  3.06it/s][ABatch 98, Loss: 8.032530784606934
+
+Epoch 1:  47%|████▋     | 788/1664 [04:17<04:45,  3.06it/s][ABatch 98, Loss: nan
+
+Epoch 1:  47%|████▋     | 789/1664 [04:18<04:45,  3.07it/s][ABatch 98, Loss: nan
+
+Epoch 1:  47%|████▋     | 790/1664 [04:18<04:45,  3.07it/s][ABatch 98, Loss: nan
+
+Epoch 1:  48%|████▊     | 791/1664 [04:18<04:44,  3.07it/s][ABatch 98, Loss: nan
+
+Epoch 1:  48%|████▊     | 792/1664 [04:19<04:44,  3.07it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 793/1664 [04:19<04:44,  3.06it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 794/1664 [04:19<04:44,  3.06it/s][ABatch 99, Loss: 17.65761947631836
+
+Epoch 1:  48%|████▊     | 795/1664 [04:20<04:44,  3.05it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 796/1664 [04:20<04:43,  3.06it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 797/1664 [04:20<04:43,  3.06it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 798/1664 [04:21<04:42,  3.07it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 799/1664 [04:21<04:42,  3.07it/s][ABatch 99, Loss: nan
+
+Epoch 1:  48%|████▊     | 800/1664 [04:21<04:41,  3.07it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 801/1664 [04:22<04:41,  3.07it/s][ABatch 100, Loss: 16.8885498046875
+
+Epoch 1:  48%|████▊     | 802/1664 [04:22<04:40,  3.07it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 803/1664 [04:22<04:41,  3.06it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 804/1664 [04:23<04:40,  3.07it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 805/1664 [04:23<04:40,  3.07it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 806/1664 [04:23<04:40,  3.05it/s][ABatch 100, Loss: nan
+
+Epoch 1:  48%|████▊     | 807/1664 [04:24<04:40,  3.06it/s][ABatch 100, Loss: nan
+
+Epoch 1:  49%|████▊     | 808/1664 [04:24<04:39,  3.06it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▊     | 809/1664 [04:24<04:38,  3.06it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▊     | 810/1664 [04:24<04:38,  3.07it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▊     | 811/1664 [04:25<04:38,  3.07it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▉     | 812/1664 [04:25<04:37,  3.07it/s][ABatch 101, Loss: 12.30588436126709
+
+Epoch 1:  49%|████▉     | 813/1664 [04:25<04:37,  3.07it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▉     | 814/1664 [04:26<04:36,  3.07it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▉     | 815/1664 [04:26<04:36,  3.07it/s][ABatch 101, Loss: nan
+
+Epoch 1:  49%|████▉     | 816/1664 [04:26<04:36,  3.07it/s][ABatch 102, Loss: 12.251204490661621
+
+Epoch 1:  49%|████▉     | 817/1664 [04:27<04:35,  3.07it/s][ABatch 102, Loss: nan
+
+Epoch 1:  49%|████▉     | 818/1664 [04:27<04:35,  3.07it/s][ABatch 102, Loss: nan
+
+Epoch 1:  49%|████▉     | 819/1664 [04:27<04:35,  3.07it/s][ABatch 102, Loss: nan
+
+Epoch 1:  49%|████▉     | 820/1664 [04:28<04:35,  3.07it/s][ABatch 102, Loss: nan
+
+Epoch 1:  49%|████▉     | 821/1664 [04:28<04:34,  3.07it/s][ABatch 102, Loss: 9.921481132507324
+
+Epoch 1:  49%|████▉     | 822/1664 [04:28<04:34,  3.07it/s][ABatch 102, Loss: nan
+
+Epoch 1:  49%|████▉     | 823/1664 [04:29<04:34,  3.06it/s][ABatch 102, Loss: nan
+
+Epoch 1:  50%|████▉     | 824/1664 [04:29<04:33,  3.07it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 825/1664 [04:29<04:33,  3.07it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 826/1664 [04:30<04:32,  3.07it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 827/1664 [04:30<04:39,  3.00it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 828/1664 [04:30<04:36,  3.02it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 829/1664 [04:31<04:46,  2.91it/s][ABatch 103, Loss: 12.249319076538086
+
+Epoch 1:  50%|████▉     | 830/1664 [04:31<04:51,  2.86it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|████▉     | 831/1664 [04:31<04:53,  2.84it/s][ABatch 103, Loss: nan
+
+Epoch 1:  50%|█████     | 832/1664 [04:32<04:46,  2.90it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 833/1664 [04:32<04:41,  2.95it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 834/1664 [04:32<04:38,  2.99it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 835/1664 [04:33<04:35,  3.01it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 836/1664 [04:33<04:33,  3.03it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 837/1664 [04:33<04:31,  3.04it/s][ABatch 104, Loss: 13.36013412475586
+
+Epoch 1:  50%|█████     | 838/1664 [04:34<04:30,  3.05it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 839/1664 [04:34<04:30,  3.06it/s][ABatch 104, Loss: nan
+
+Epoch 1:  50%|█████     | 840/1664 [04:34<04:29,  3.06it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 841/1664 [04:35<04:28,  3.06it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 842/1664 [04:35<04:28,  3.07it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 843/1664 [04:35<04:27,  3.07it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 844/1664 [04:36<04:27,  3.06it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 845/1664 [04:36<04:26,  3.07it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 846/1664 [04:36<04:26,  3.07it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 847/1664 [04:37<04:25,  3.07it/s][ABatch 105, Loss: nan
+
+Epoch 1:  51%|█████     | 848/1664 [04:37<04:25,  3.07it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████     | 849/1664 [04:37<04:25,  3.07it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████     | 850/1664 [04:38<04:24,  3.08it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████     | 851/1664 [04:38<04:24,  3.07it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████     | 852/1664 [04:38<04:24,  3.08it/s][ABatch 106, Loss: 13.270256042480469
+
+Epoch 1:  51%|█████▏    | 853/1664 [04:39<04:23,  3.08it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████▏    | 854/1664 [04:39<04:23,  3.08it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████▏    | 855/1664 [04:39<04:23,  3.07it/s][ABatch 106, Loss: nan
+
+Epoch 1:  51%|█████▏    | 856/1664 [04:40<04:22,  3.08it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 857/1664 [04:40<04:22,  3.07it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 858/1664 [04:40<04:22,  3.07it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 859/1664 [04:41<04:22,  3.07it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 860/1664 [04:41<04:21,  3.07it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 861/1664 [04:41<04:21,  3.08it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 862/1664 [04:42<04:20,  3.08it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 863/1664 [04:42<04:20,  3.08it/s][ABatch 107, Loss: nan
+
+Epoch 1:  52%|█████▏    | 864/1664 [04:42<04:20,  3.07it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 865/1664 [04:43<04:19,  3.07it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 866/1664 [04:43<04:19,  3.07it/s][ABatch 108, Loss: 12.088262557983398
+
+Epoch 1:  52%|█████▏    | 867/1664 [04:43<04:19,  3.08it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 868/1664 [04:44<04:18,  3.08it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 869/1664 [04:44<04:18,  3.08it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 870/1664 [04:44<04:17,  3.08it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 871/1664 [04:44<04:17,  3.08it/s][ABatch 108, Loss: nan
+
+Epoch 1:  52%|█████▏    | 872/1664 [04:45<04:17,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  52%|█████▏    | 873/1664 [04:45<04:16,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 874/1664 [04:45<04:16,  3.08it/s][ABatch 109, Loss: 15.364768981933594
+
+Epoch 1:  53%|█████▎    | 875/1664 [04:46<04:16,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 876/1664 [04:46<04:16,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 877/1664 [04:46<04:15,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 878/1664 [04:47<04:15,  3.08it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 879/1664 [04:47<04:15,  3.07it/s][ABatch 109, Loss: nan
+
+Epoch 1:  53%|█████▎    | 880/1664 [04:47<04:14,  3.07it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 881/1664 [04:48<04:14,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 882/1664 [04:48<04:14,  3.08it/s][ABatch 110, Loss: 13.784177780151367
+
+Epoch 1:  53%|█████▎    | 883/1664 [04:48<04:13,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 884/1664 [04:49<04:13,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 885/1664 [04:49<04:13,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 886/1664 [04:49<04:12,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 887/1664 [04:50<04:12,  3.08it/s][ABatch 110, Loss: nan
+
+Epoch 1:  53%|█████▎    | 888/1664 [04:50<04:12,  3.07it/s][ABatch 111, Loss: nan
+
+Epoch 1:  53%|█████▎    | 889/1664 [04:50<04:11,  3.08it/s][ABatch 111, Loss: 9.84483528137207
+
+Epoch 1:  53%|█████▎    | 890/1664 [04:51<04:11,  3.08it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▎    | 891/1664 [04:51<04:11,  3.08it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▎    | 892/1664 [04:51<04:14,  3.03it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▎    | 893/1664 [04:52<04:17,  2.99it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▎    | 894/1664 [04:52<04:15,  3.02it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▍    | 895/1664 [04:52<04:13,  3.04it/s][ABatch 111, Loss: nan
+
+Epoch 1:  54%|█████▍    | 896/1664 [04:53<04:11,  3.05it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 897/1664 [04:53<04:10,  3.06it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 898/1664 [04:53<04:09,  3.07it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 899/1664 [04:54<04:09,  3.07it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 900/1664 [04:54<04:08,  3.07it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 901/1664 [04:54<04:08,  3.08it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 902/1664 [04:55<04:07,  3.07it/s][ABatch 112, Loss: 27.232501983642578
+
+Epoch 1:  54%|█████▍    | 903/1664 [04:55<04:07,  3.08it/s][ABatch 112, Loss: nan
+
+Epoch 1:  54%|█████▍    | 904/1664 [04:55<04:07,  3.07it/s][ABatch 113, Loss: nan
+
+Epoch 1:  54%|█████▍    | 905/1664 [04:56<04:06,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  54%|█████▍    | 906/1664 [04:56<04:06,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 907/1664 [04:56<04:05,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 908/1664 [04:57<04:05,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 909/1664 [04:57<04:05,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 910/1664 [04:57<04:05,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 911/1664 [04:58<04:04,  3.08it/s][ABatch 113, Loss: nan
+
+Epoch 1:  55%|█████▍    | 912/1664 [04:58<04:04,  3.08it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▍    | 913/1664 [04:58<04:04,  3.08it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▍    | 914/1664 [04:58<04:03,  3.08it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▍    | 915/1664 [04:59<04:03,  3.08it/s][ABatch 114, Loss: 15.108877182006836
+
+Epoch 1:  55%|█████▌    | 916/1664 [04:59<04:02,  3.08it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▌    | 917/1664 [04:59<04:02,  3.08it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▌    | 918/1664 [05:00<04:02,  3.08it/s][ABatch 114, Loss: 13.94549560546875
+
+Epoch 1:  55%|█████▌    | 919/1664 [05:00<04:10,  2.97it/s][ABatch 114, Loss: nan
+
+Epoch 1:  55%|█████▌    | 920/1664 [05:01<04:25,  2.80it/s][ABatch 115, Loss: nan
+
+Epoch 1:  55%|█████▌    | 921/1664 [05:01<04:38,  2.66it/s][ABatch 115, Loss: nan
+
+Epoch 1:  55%|█████▌    | 922/1664 [05:01<04:27,  2.78it/s][ABatch 115, Loss: nan
+
+Epoch 1:  55%|█████▌    | 923/1664 [05:02<04:19,  2.86it/s][ABatch 115, Loss: nan
+
+Epoch 1:  56%|█████▌    | 924/1664 [05:02<04:13,  2.92it/s][ABatch 115, Loss: nan
+
+Epoch 1:  56%|█████▌    | 925/1664 [05:02<04:09,  2.97it/s][ABatch 115, Loss: nan
+
+Epoch 1:  56%|█████▌    | 926/1664 [05:03<04:05,  3.00it/s][ABatch 115, Loss: nan
+
+Epoch 1:  56%|█████▌    | 927/1664 [05:03<04:03,  3.02it/s][ABatch 115, Loss: nan
+
+Epoch 1:  56%|█████▌    | 928/1664 [05:03<04:02,  3.04it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 929/1664 [05:04<04:01,  3.05it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 930/1664 [05:04<04:00,  3.06it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 931/1664 [05:04<03:59,  3.06it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 932/1664 [05:05<03:58,  3.07it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 933/1664 [05:05<03:57,  3.07it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 934/1664 [05:05<03:57,  3.07it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▌    | 935/1664 [05:06<03:56,  3.08it/s][ABatch 116, Loss: nan
+
+Epoch 1:  56%|█████▋    | 936/1664 [05:06<03:56,  3.07it/s][ABatch 117, Loss: nan
+
+Epoch 1:  56%|█████▋    | 937/1664 [05:06<03:56,  3.08it/s][ABatch 117, Loss: nan
+
+Epoch 1:  56%|█████▋    | 938/1664 [05:07<03:56,  3.08it/s][ABatch 117, Loss: nan
+
+Epoch 1:  56%|█████▋    | 939/1664 [05:07<03:55,  3.07it/s][ABatch 117, Loss: nan
+
+Epoch 1:  56%|█████▋    | 940/1664 [05:07<03:55,  3.07it/s][ABatch 117, Loss: nan
+
+Epoch 1:  57%|█████▋    | 941/1664 [05:07<03:55,  3.08it/s][ABatch 117, Loss: 9.778766632080078
+
+Epoch 1:  57%|█████▋    | 942/1664 [05:08<03:54,  3.08it/s][ABatch 117, Loss: 11.561930656433105
+
+Epoch 1:  57%|█████▋    | 943/1664 [05:08<03:54,  3.08it/s][ABatch 117, Loss: nan
+
+Epoch 1:  57%|█████▋    | 944/1664 [05:08<03:53,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 945/1664 [05:09<03:53,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 946/1664 [05:09<03:53,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 947/1664 [05:09<03:52,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 948/1664 [05:10<03:52,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 949/1664 [05:10<03:52,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 950/1664 [05:10<03:52,  3.08it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 951/1664 [05:11<03:52,  3.07it/s][ABatch 118, Loss: nan
+
+Epoch 1:  57%|█████▋    | 952/1664 [05:11<03:51,  3.07it/s][ABatch 119, Loss: nan
+
+Epoch 1:  57%|█████▋    | 953/1664 [05:11<03:51,  3.08it/s][ABatch 119, Loss: nan
+
+Epoch 1:  57%|█████▋    | 954/1664 [05:12<03:50,  3.08it/s][ABatch 119, Loss: 8.879035949707031
+
+Epoch 1:  57%|█████▋    | 955/1664 [05:12<03:50,  3.08it/s][ABatch 119, Loss: nan
+
+Epoch 1:  57%|█████▋    | 956/1664 [05:12<03:50,  3.08it/s][ABatch 119, Loss: nan
+
+Epoch 1:  58%|█████▊    | 957/1664 [05:13<03:49,  3.08it/s][ABatch 119, Loss: nan
+
+Epoch 1:  58%|█████▊    | 958/1664 [05:13<03:49,  3.08it/s][ABatch 119, Loss: nan
+
+Epoch 1:  58%|█████▊    | 959/1664 [05:13<03:49,  3.07it/s][ABatch 119, Loss: nan
+
+Epoch 1:  58%|█████▊    | 960/1664 [05:14<03:48,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 961/1664 [05:14<03:48,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 962/1664 [05:14<03:48,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 963/1664 [05:15<03:47,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 964/1664 [05:15<03:47,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 965/1664 [05:15<03:47,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 966/1664 [05:16<03:46,  3.08it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 967/1664 [05:16<03:47,  3.07it/s][ABatch 120, Loss: nan
+
+Epoch 1:  58%|█████▊    | 968/1664 [05:16<03:49,  3.03it/s][ABatch 121, Loss: nan
+
+Epoch 1:  58%|█████▊    | 969/1664 [05:17<03:48,  3.04it/s][ABatch 121, Loss: 9.957565307617188
+
+Epoch 1:  58%|█████▊    | 970/1664 [05:17<03:47,  3.06it/s][ABatch 121, Loss: nan
+
+Epoch 1:  58%|█████▊    | 971/1664 [05:17<03:46,  3.07it/s][ABatch 121, Loss: 11.454020500183105
+
+Epoch 1:  58%|█████▊    | 972/1664 [05:18<03:45,  3.07it/s][ABatch 121, Loss: nan
+
+Epoch 1:  58%|█████▊    | 973/1664 [05:18<03:44,  3.07it/s][ABatch 121, Loss: nan
+
+Epoch 1:  59%|█████▊    | 974/1664 [05:18<03:44,  3.08it/s][ABatch 121, Loss: nan
+
+Epoch 1:  59%|█████▊    | 975/1664 [05:19<03:43,  3.08it/s][ABatch 121, Loss: nan
+
+Epoch 1:  59%|█████▊    | 976/1664 [05:19<03:43,  3.08it/s][ABatch 122, Loss: 15.959551811218262
+
+Epoch 1:  59%|█████▊    | 977/1664 [05:19<03:42,  3.08it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 978/1664 [05:20<03:42,  3.09it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 979/1664 [05:20<03:41,  3.09it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 980/1664 [05:20<03:41,  3.09it/s][ABatch 122, Loss: 12.842571258544922
+
+Epoch 1:  59%|█████▉    | 981/1664 [05:20<03:41,  3.09it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 982/1664 [05:21<03:40,  3.09it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 983/1664 [05:21<03:40,  3.09it/s][ABatch 122, Loss: nan
+
+Epoch 1:  59%|█████▉    | 984/1664 [05:21<03:40,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 985/1664 [05:22<03:39,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 986/1664 [05:22<03:39,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 987/1664 [05:22<03:39,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 988/1664 [05:23<03:38,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 989/1664 [05:23<03:38,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  59%|█████▉    | 990/1664 [05:23<03:38,  3.09it/s][ABatch 123, Loss: 14.063751220703125
+
+Epoch 1:  60%|█████▉    | 991/1664 [05:24<03:37,  3.09it/s][ABatch 123, Loss: nan
+
+Epoch 1:  60%|█████▉    | 992/1664 [05:24<03:37,  3.09it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 993/1664 [05:24<03:38,  3.07it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 994/1664 [05:25<03:40,  3.03it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 995/1664 [05:25<03:39,  3.05it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 996/1664 [05:25<03:38,  3.06it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 997/1664 [05:26<03:37,  3.07it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|█████▉    | 998/1664 [05:26<03:36,  3.07it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|██████    | 999/1664 [05:26<03:36,  3.07it/s][ABatch 124, Loss: nan
+
+Epoch 1:  60%|██████    | 1000/1664 [05:27<03:35,  3.07it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1001/1664 [05:27<03:35,  3.08it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1002/1664 [05:27<03:35,  3.07it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1003/1664 [05:28<03:34,  3.08it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1004/1664 [05:28<03:34,  3.08it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1005/1664 [05:28<03:33,  3.08it/s][ABatch 125, Loss: nan
+
+Epoch 1:  60%|██████    | 1006/1664 [05:29<03:33,  3.09it/s][ABatch 125, Loss: nan
+
+Epoch 1:  61%|██████    | 1007/1664 [05:29<03:32,  3.09it/s][ABatch 125, Loss: nan
+
+Epoch 1:  61%|██████    | 1008/1664 [05:29<03:32,  3.09it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1009/1664 [05:30<03:32,  3.09it/s][ABatch 126, Loss: 16.407405853271484
+
+Epoch 1:  61%|██████    | 1010/1664 [05:30<03:41,  2.95it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1011/1664 [05:30<03:38,  2.99it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1012/1664 [05:31<03:36,  3.02it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1013/1664 [05:31<03:44,  2.89it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1014/1664 [05:31<03:40,  2.95it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1015/1664 [05:32<03:37,  2.99it/s][ABatch 126, Loss: nan
+
+Epoch 1:  61%|██████    | 1016/1664 [05:32<03:34,  3.02it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████    | 1017/1664 [05:32<03:32,  3.04it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████    | 1018/1664 [05:33<03:31,  3.05it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████    | 1019/1664 [05:33<03:30,  3.06it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████▏   | 1020/1664 [05:33<03:29,  3.07it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████▏   | 1021/1664 [05:34<03:29,  3.07it/s][ABatch 127, Loss: 15.019991874694824
+
+Epoch 1:  61%|██████▏   | 1022/1664 [05:34<03:28,  3.07it/s][ABatch 127, Loss: nan
+
+Epoch 1:  61%|██████▏   | 1023/1664 [05:34<03:28,  3.08it/s][ABatch 127, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1024/1664 [05:35<03:28,  3.07it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1025/1664 [05:35<03:27,  3.08it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1026/1664 [05:35<03:27,  3.08it/s][ABatch 128, Loss: 20.51791763305664
+
+Epoch 1:  62%|██████▏   | 1027/1664 [05:36<03:26,  3.08it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1028/1664 [05:36<03:26,  3.08it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1029/1664 [05:36<03:25,  3.08it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1030/1664 [05:37<03:25,  3.09it/s][ABatch 128, Loss: 13.589057922363281
+
+Epoch 1:  62%|██████▏   | 1031/1664 [05:37<03:25,  3.08it/s][ABatch 128, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1032/1664 [05:37<03:24,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1033/1664 [05:37<03:24,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1034/1664 [05:38<03:24,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1035/1664 [05:38<03:23,  3.09it/s][ABatch 129, Loss: 10.415681838989258
+
+Epoch 1:  62%|██████▏   | 1036/1664 [05:38<03:23,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1037/1664 [05:39<03:23,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1038/1664 [05:39<03:22,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▏   | 1039/1664 [05:39<03:22,  3.09it/s][ABatch 129, Loss: nan
+
+Epoch 1:  62%|██████▎   | 1040/1664 [05:40<03:22,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1041/1664 [05:40<03:22,  3.07it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1042/1664 [05:40<03:22,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1043/1664 [05:41<03:21,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1044/1664 [05:41<03:21,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1045/1664 [05:41<03:21,  3.08it/s][ABatch 130, Loss: 15.98585033416748
+
+Epoch 1:  63%|██████▎   | 1046/1664 [05:42<03:20,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1047/1664 [05:42<03:20,  3.08it/s][ABatch 130, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1048/1664 [05:42<03:19,  3.08it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1049/1664 [05:43<03:19,  3.08it/s][ABatch 131, Loss: 14.031786918640137
+
+Epoch 1:  63%|██████▎   | 1050/1664 [05:43<03:18,  3.09it/s][ABatch 131, Loss: 13.396041870117188
+
+Epoch 1:  63%|██████▎   | 1051/1664 [05:43<03:18,  3.09it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1052/1664 [05:44<03:18,  3.09it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1053/1664 [05:44<03:17,  3.09it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1054/1664 [05:44<03:17,  3.09it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1055/1664 [05:45<03:18,  3.07it/s][ABatch 131, Loss: nan
+
+Epoch 1:  63%|██████▎   | 1056/1664 [05:45<03:17,  3.07it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▎   | 1057/1664 [05:45<03:17,  3.08it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▎   | 1058/1664 [05:46<03:16,  3.08it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▎   | 1059/1664 [05:46<03:16,  3.08it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▎   | 1060/1664 [05:46<03:15,  3.09it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1061/1664 [05:47<03:15,  3.09it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1062/1664 [05:47<03:14,  3.09it/s][ABatch 132, Loss: 8.334468841552734
+
+Epoch 1:  64%|██████▍   | 1063/1664 [05:47<03:14,  3.09it/s][ABatch 132, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1064/1664 [05:48<03:14,  3.08it/s][ABatch 133, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1065/1664 [05:48<03:14,  3.09it/s][ABatch 133, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1066/1664 [05:48<03:13,  3.09it/s][ABatch 133, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1067/1664 [05:49<03:13,  3.08it/s][ABatch 133, Loss: 27.325414657592773
+
+Epoch 1:  64%|██████▍   | 1068/1664 [05:49<03:13,  3.09it/s][ABatch 133, Loss: 19.965351104736328
+
+Epoch 1:  64%|██████▍   | 1069/1664 [05:49<03:12,  3.09it/s][ABatch 133, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1070/1664 [05:49<03:12,  3.09it/s][ABatch 133, Loss: 11.725611686706543
+
+Epoch 1:  64%|██████▍   | 1071/1664 [05:50<03:12,  3.09it/s][ABatch 133, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1072/1664 [05:50<03:11,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  64%|██████▍   | 1073/1664 [05:50<03:11,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1074/1664 [05:51<03:11,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1075/1664 [05:51<03:10,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1076/1664 [05:51<03:10,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1077/1664 [05:52<03:10,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1078/1664 [05:52<03:09,  3.09it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1079/1664 [05:52<03:09,  3.08it/s][ABatch 134, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1080/1664 [05:53<03:09,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▍   | 1081/1664 [05:53<03:08,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1082/1664 [05:53<03:08,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1083/1664 [05:54<03:08,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1084/1664 [05:54<03:07,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1085/1664 [05:54<03:07,  3.08it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1086/1664 [05:55<03:07,  3.08it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1087/1664 [05:55<03:06,  3.09it/s][ABatch 135, Loss: nan
+
+Epoch 1:  65%|██████▌   | 1088/1664 [05:55<03:06,  3.09it/s][ABatch 136, Loss: 10.92194652557373
+
+Epoch 1:  65%|██████▌   | 1089/1664 [05:56<03:06,  3.08it/s][ABatch 136, Loss: 20.362972259521484
+
+Epoch 1:  66%|██████▌   | 1090/1664 [05:56<03:06,  3.08it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1091/1664 [05:56<03:05,  3.08it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1092/1664 [05:57<03:05,  3.08it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1093/1664 [05:57<03:05,  3.09it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1094/1664 [05:57<03:04,  3.09it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1095/1664 [05:58<03:04,  3.09it/s][ABatch 136, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1096/1664 [05:58<03:03,  3.09it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1097/1664 [05:58<03:03,  3.09it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1098/1664 [05:59<03:03,  3.09it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1099/1664 [05:59<03:03,  3.09it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1100/1664 [05:59<03:02,  3.09it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▌   | 1101/1664 [06:00<03:02,  3.09it/s][ABatch 137, Loss: 12.857386589050293
+
+Epoch 1:  66%|██████▌   | 1102/1664 [06:00<03:02,  3.08it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▋   | 1103/1664 [06:00<03:08,  2.97it/s][ABatch 137, Loss: nan
+
+Epoch 1:  66%|██████▋   | 1104/1664 [06:01<03:10,  2.93it/s][ABatch 138, Loss: nan
+
+Epoch 1:  66%|██████▋   | 1105/1664 [06:01<03:07,  2.98it/s][ABatch 138, Loss: nan
+
+Epoch 1:  66%|██████▋   | 1106/1664 [06:01<03:18,  2.81it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1107/1664 [06:02<03:13,  2.88it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1108/1664 [06:02<03:09,  2.94it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1109/1664 [06:02<03:05,  2.98it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1110/1664 [06:03<03:03,  3.01it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1111/1664 [06:03<03:02,  3.04it/s][ABatch 138, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1112/1664 [06:03<03:00,  3.05it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1113/1664 [06:04<02:59,  3.06it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1114/1664 [06:04<02:59,  3.07it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1115/1664 [06:04<02:58,  3.08it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1116/1664 [06:05<02:57,  3.08it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1117/1664 [06:05<02:57,  3.08it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1118/1664 [06:05<02:57,  3.08it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1119/1664 [06:05<02:56,  3.08it/s][ABatch 139, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1120/1664 [06:06<02:56,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1121/1664 [06:06<02:55,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1122/1664 [06:06<02:55,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  67%|██████▋   | 1123/1664 [06:07<02:55,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1124/1664 [06:07<02:54,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1125/1664 [06:07<02:54,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1126/1664 [06:08<02:54,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1127/1664 [06:08<02:53,  3.09it/s][ABatch 140, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1128/1664 [06:08<02:53,  3.08it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1129/1664 [06:09<02:53,  3.09it/s][ABatch 141, Loss: 16.555585861206055
+
+Epoch 1:  68%|██████▊   | 1130/1664 [06:09<02:52,  3.09it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1131/1664 [06:09<02:52,  3.09it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1132/1664 [06:10<02:52,  3.09it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1133/1664 [06:10<02:52,  3.08it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1134/1664 [06:10<02:51,  3.08it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1135/1664 [06:11<02:51,  3.09it/s][ABatch 141, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1136/1664 [06:11<02:51,  3.08it/s][ABatch 142, Loss: nan
+
+Epoch 1:  68%|██████▊   | 1137/1664 [06:11<02:50,  3.09it/s][ABatch 142, Loss: 9.65969467163086
+
+Epoch 1:  68%|██████▊   | 1138/1664 [06:12<02:50,  3.09it/s][ABatch 142, Loss: 9.777284622192383
+
+Epoch 1:  68%|██████▊   | 1139/1664 [06:12<02:50,  3.08it/s][ABatch 142, Loss: nan
+
+Epoch 1:  69%|██████▊   | 1140/1664 [06:12<02:49,  3.09it/s][ABatch 142, Loss: nan
+
+Epoch 1:  69%|██████▊   | 1141/1664 [06:13<02:49,  3.08it/s][ABatch 142, Loss: nan
+
+Epoch 1:  69%|██████▊   | 1142/1664 [06:13<02:49,  3.09it/s][ABatch 142, Loss: nan
+
+Epoch 1:  69%|██████▊   | 1143/1664 [06:13<02:49,  3.07it/s][ABatch 142, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1144/1664 [06:14<02:49,  3.08it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1145/1664 [06:14<02:48,  3.08it/s][ABatch 143, Loss: 13.031120300292969
+
+Epoch 1:  69%|██████▉   | 1146/1664 [06:14<02:48,  3.08it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1147/1664 [06:15<02:48,  3.07it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1148/1664 [06:15<02:47,  3.08it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1149/1664 [06:15<02:47,  3.08it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1150/1664 [06:16<02:46,  3.08it/s][ABatch 143, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1151/1664 [06:16<02:46,  3.08it/s][ABatch 143, Loss: 8.610383987426758
+
+Epoch 1:  69%|██████▉   | 1152/1664 [06:16<02:45,  3.08it/s][ABatch 144, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1153/1664 [06:17<02:45,  3.08it/s][ABatch 144, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1154/1664 [06:17<02:45,  3.08it/s][ABatch 144, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1155/1664 [06:17<02:45,  3.08it/s][ABatch 144, Loss: nan
+
+Epoch 1:  69%|██████▉   | 1156/1664 [06:17<02:44,  3.08it/s][ABatch 144, Loss: 12.302611351013184
+
+Epoch 1:  70%|██████▉   | 1157/1664 [06:18<02:44,  3.09it/s][ABatch 144, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1158/1664 [06:18<02:43,  3.09it/s][ABatch 144, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1159/1664 [06:18<02:43,  3.09it/s][ABatch 144, Loss: 24.635604858398438
+
+Epoch 1:  70%|██████▉   | 1160/1664 [06:19<02:43,  3.09it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1161/1664 [06:19<02:43,  3.08it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1162/1664 [06:19<02:42,  3.09it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1163/1664 [06:20<02:42,  3.09it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|██████▉   | 1164/1664 [06:20<02:41,  3.09it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|███████   | 1165/1664 [06:20<02:41,  3.08it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|███████   | 1166/1664 [06:21<02:41,  3.08it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|███████   | 1167/1664 [06:21<02:41,  3.08it/s][ABatch 145, Loss: nan
+
+Epoch 1:  70%|███████   | 1168/1664 [06:21<02:40,  3.08it/s][ABatch 146, Loss: nan
+
+Epoch 1:  70%|███████   | 1169/1664 [06:22<02:40,  3.08it/s][ABatch 146, Loss: nan
+
+Epoch 1:  70%|███████   | 1170/1664 [06:22<02:40,  3.08it/s][ABatch 146, Loss: nan
+
+Epoch 1:  70%|███████   | 1171/1664 [06:22<02:39,  3.08it/s][ABatch 146, Loss: 12.972461700439453
+
+Epoch 1:  70%|███████   | 1172/1664 [06:23<02:39,  3.09it/s][ABatch 146, Loss: nan
+
+Epoch 1:  70%|███████   | 1173/1664 [06:23<02:39,  3.09it/s][ABatch 146, Loss: nan
+
+Epoch 1:  71%|███████   | 1174/1664 [06:23<02:38,  3.09it/s][ABatch 146, Loss: nan
+
+Epoch 1:  71%|███████   | 1175/1664 [06:24<02:38,  3.09it/s][ABatch 146, Loss: nan
+
+Epoch 1:  71%|███████   | 1176/1664 [06:24<02:38,  3.09it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1177/1664 [06:24<02:38,  3.08it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1178/1664 [06:25<02:39,  3.05it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1179/1664 [06:25<02:38,  3.06it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1180/1664 [06:25<02:37,  3.07it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1181/1664 [06:26<02:37,  3.07it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1182/1664 [06:26<02:36,  3.08it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1183/1664 [06:26<02:36,  3.08it/s][ABatch 147, Loss: nan
+
+Epoch 1:  71%|███████   | 1184/1664 [06:27<02:35,  3.08it/s][ABatch 148, Loss: nan
+
+Epoch 1:  71%|███████   | 1185/1664 [06:27<02:35,  3.08it/s][ABatch 148, Loss: 11.513263702392578
+
+Epoch 1:  71%|███████▏  | 1186/1664 [06:27<02:34,  3.09it/s][ABatch 148, Loss: nan
+
+Epoch 1:  71%|███████▏  | 1187/1664 [06:28<02:34,  3.08it/s][ABatch 148, Loss: nan
+
+Epoch 1:  71%|███████▏  | 1188/1664 [06:28<02:34,  3.08it/s][ABatch 148, Loss: nan
+
+Epoch 1:  71%|███████▏  | 1189/1664 [06:28<02:34,  3.08it/s][ABatch 148, Loss: 11.061155319213867
+
+Epoch 1:  72%|███████▏  | 1190/1664 [06:29<02:33,  3.08it/s][ABatch 148, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1191/1664 [06:29<02:33,  3.08it/s][ABatch 148, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1192/1664 [06:29<02:33,  3.08it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1193/1664 [06:30<02:32,  3.08it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1194/1664 [06:30<02:32,  3.09it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1195/1664 [06:30<02:36,  2.99it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1196/1664 [06:31<02:42,  2.88it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1197/1664 [06:31<02:38,  2.94it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1198/1664 [06:31<02:49,  2.75it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1199/1664 [06:32<02:43,  2.84it/s][ABatch 149, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1200/1664 [06:32<02:39,  2.91it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1201/1664 [06:32<02:36,  2.96it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1202/1664 [06:33<02:34,  3.00it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1203/1664 [06:33<02:32,  3.02it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1204/1664 [06:33<02:31,  3.04it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1205/1664 [06:34<02:30,  3.05it/s][ABatch 150, Loss: nan
+
+Epoch 1:  72%|███████▏  | 1206/1664 [06:34<02:29,  3.06it/s][ABatch 150, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1207/1664 [06:34<02:28,  3.07it/s][ABatch 150, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1208/1664 [06:35<02:28,  3.08it/s][ABatch 151, Loss: 10.353097915649414
+
+Epoch 1:  73%|███████▎  | 1209/1664 [06:35<02:27,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1210/1664 [06:35<02:27,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1211/1664 [06:36<02:26,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1212/1664 [06:36<02:26,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1213/1664 [06:36<02:26,  3.07it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1214/1664 [06:36<02:26,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1215/1664 [06:37<02:25,  3.08it/s][ABatch 151, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1216/1664 [06:37<02:25,  3.08it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1217/1664 [06:37<02:24,  3.09it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1218/1664 [06:38<02:24,  3.09it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1219/1664 [06:38<02:24,  3.08it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1220/1664 [06:38<02:24,  3.08it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1221/1664 [06:39<02:23,  3.08it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1222/1664 [06:39<02:23,  3.07it/s][ABatch 152, Loss: nan
+
+Epoch 1:  73%|███████▎  | 1223/1664 [06:39<02:23,  3.08it/s][ABatch 152, Loss: nan
+
+Epoch 1:  74%|███████▎  | 1224/1664 [06:40<02:22,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▎  | 1225/1664 [06:40<02:22,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▎  | 1226/1664 [06:40<02:22,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▎  | 1227/1664 [06:41<02:21,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1228/1664 [06:41<02:21,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1229/1664 [06:41<02:21,  3.08it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1230/1664 [06:42<02:20,  3.09it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1231/1664 [06:42<02:20,  3.09it/s][ABatch 153, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1232/1664 [06:42<02:19,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1233/1664 [06:43<02:19,  3.09it/s][ABatch 154, Loss: 12.08994197845459
+
+Epoch 1:  74%|███████▍  | 1234/1664 [06:43<02:19,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1235/1664 [06:43<02:18,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1236/1664 [06:44<02:18,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1237/1664 [06:44<02:18,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1238/1664 [06:44<02:18,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  74%|███████▍  | 1239/1664 [06:45<02:17,  3.09it/s][ABatch 154, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1240/1664 [06:45<02:17,  3.09it/s][ABatch 155, Loss: 11.355300903320312
+
+Epoch 1:  75%|███████▍  | 1241/1664 [06:45<02:17,  3.09it/s][ABatch 155, Loss: 15.355746269226074
+
+Epoch 1:  75%|███████▍  | 1242/1664 [06:46<02:16,  3.09it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1243/1664 [06:46<02:16,  3.08it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1244/1664 [06:46<02:16,  3.08it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1245/1664 [06:47<02:15,  3.08it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1246/1664 [06:47<02:15,  3.08it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▍  | 1247/1664 [06:47<02:15,  3.08it/s][ABatch 155, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1248/1664 [06:48<02:14,  3.08it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1249/1664 [06:48<02:14,  3.08it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1250/1664 [06:48<02:15,  3.06it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1251/1664 [06:48<02:14,  3.07it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1252/1664 [06:49<02:14,  3.07it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1253/1664 [06:49<02:13,  3.08it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1254/1664 [06:49<02:13,  3.08it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1255/1664 [06:50<02:12,  3.08it/s][ABatch 156, Loss: nan
+
+Epoch 1:  75%|███████▌  | 1256/1664 [06:50<02:12,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1257/1664 [06:50<02:12,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1258/1664 [06:51<02:11,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1259/1664 [06:51<02:11,  3.08it/s][ABatch 157, Loss: 11.449005126953125
+
+Epoch 1:  76%|███████▌  | 1260/1664 [06:51<02:11,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1261/1664 [06:52<02:10,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1262/1664 [06:52<02:10,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1263/1664 [06:52<02:10,  3.08it/s][ABatch 157, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1264/1664 [06:53<02:09,  3.08it/s][ABatch 158, Loss: 10.44888973236084
+
+Epoch 1:  76%|███████▌  | 1265/1664 [06:53<02:09,  3.09it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1266/1664 [06:53<02:08,  3.09it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1267/1664 [06:54<02:08,  3.09it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▌  | 1268/1664 [06:54<02:08,  3.09it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▋  | 1269/1664 [06:54<02:08,  3.08it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▋  | 1270/1664 [06:55<02:07,  3.09it/s][ABatch 158, Loss: 10.438735961914062
+
+Epoch 1:  76%|███████▋  | 1271/1664 [06:55<02:07,  3.09it/s][ABatch 158, Loss: nan
+
+Epoch 1:  76%|███████▋  | 1272/1664 [06:55<02:07,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1273/1664 [06:56<02:06,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1274/1664 [06:56<02:06,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1275/1664 [06:56<02:06,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1276/1664 [06:57<02:05,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1277/1664 [06:57<02:05,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1278/1664 [06:57<02:05,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1279/1664 [06:58<02:04,  3.09it/s][ABatch 159, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1280/1664 [06:58<02:04,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1281/1664 [06:58<02:04,  3.09it/s][ABatch 160, Loss: 8.785781860351562
+
+Epoch 1:  77%|███████▋  | 1282/1664 [06:59<02:03,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1283/1664 [06:59<02:03,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1284/1664 [06:59<02:03,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1285/1664 [07:00<02:02,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1286/1664 [07:00<02:02,  3.09it/s][ABatch 160, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1287/1664 [07:00<02:06,  2.97it/s][ABatch 160, Loss: 16.52433204650879
+
+Epoch 1:  77%|███████▋  | 1288/1664 [07:01<02:08,  2.92it/s][ABatch 161, Loss: nan
+
+Epoch 1:  77%|███████▋  | 1289/1664 [07:01<02:06,  2.97it/s][ABatch 161, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1290/1664 [07:01<02:13,  2.81it/s][ABatch 161, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1291/1664 [07:02<02:09,  2.89it/s][ABatch 161, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1292/1664 [07:02<02:06,  2.94it/s][ABatch 161, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1293/1664 [07:02<02:04,  2.98it/s][ABatch 161, Loss: 8.117918014526367
+
+Epoch 1:  78%|███████▊  | 1294/1664 [07:03<02:02,  3.01it/s][ABatch 161, Loss: 9.723291397094727
+
+Epoch 1:  78%|███████▊  | 1295/1664 [07:03<02:01,  3.04it/s][ABatch 161, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1296/1664 [07:03<02:00,  3.05it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1297/1664 [07:04<01:59,  3.06it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1298/1664 [07:04<01:59,  3.07it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1299/1664 [07:04<01:58,  3.08it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1300/1664 [07:05<01:58,  3.08it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1301/1664 [07:05<01:58,  3.07it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1302/1664 [07:05<01:57,  3.07it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1303/1664 [07:05<01:57,  3.08it/s][ABatch 162, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1304/1664 [07:06<01:56,  3.08it/s][ABatch 163, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1305/1664 [07:06<01:56,  3.08it/s][ABatch 163, Loss: nan
+
+Epoch 1:  78%|███████▊  | 1306/1664 [07:06<01:56,  3.08it/s][ABatch 163, Loss: nan
+
+Epoch 1:  79%|███████▊  | 1307/1664 [07:07<01:55,  3.08it/s][ABatch 163, Loss: nan
+
+Epoch 1:  79%|███████▊  | 1308/1664 [07:07<01:55,  3.09it/s][ABatch 163, Loss: nan
+
+Epoch 1:  79%|███████▊  | 1309/1664 [07:07<01:55,  3.09it/s][ABatch 163, Loss: nan
+
+Epoch 1:  79%|███████▊  | 1310/1664 [07:08<01:54,  3.09it/s][ABatch 163, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1311/1664 [07:08<01:54,  3.09it/s][ABatch 163, Loss: 15.91446304321289
+
+Epoch 1:  79%|███████▉  | 1312/1664 [07:08<01:54,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1313/1664 [07:09<01:53,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1314/1664 [07:09<01:53,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1315/1664 [07:09<01:53,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1316/1664 [07:10<01:52,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1317/1664 [07:10<01:52,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1318/1664 [07:10<01:52,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1319/1664 [07:11<01:51,  3.09it/s][ABatch 164, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1320/1664 [07:11<01:51,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1321/1664 [07:11<01:51,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  79%|███████▉  | 1322/1664 [07:12<01:50,  3.08it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1323/1664 [07:12<01:50,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1324/1664 [07:12<01:50,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1325/1664 [07:13<01:49,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1326/1664 [07:13<01:49,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1327/1664 [07:13<01:49,  3.09it/s][ABatch 165, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1328/1664 [07:14<01:48,  3.09it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1329/1664 [07:14<01:48,  3.09it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1330/1664 [07:14<01:48,  3.09it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|███████▉  | 1331/1664 [07:15<01:48,  3.08it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|████████  | 1332/1664 [07:15<01:47,  3.08it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|████████  | 1333/1664 [07:15<01:47,  3.08it/s][ABatch 166, Loss: 8.518294334411621
+
+Epoch 1:  80%|████████  | 1334/1664 [07:16<01:47,  3.08it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|████████  | 1335/1664 [07:16<01:46,  3.08it/s][ABatch 166, Loss: nan
+
+Epoch 1:  80%|████████  | 1336/1664 [07:16<01:46,  3.08it/s][ABatch 167, Loss: nan
+
+Epoch 1:  80%|████████  | 1337/1664 [07:17<01:46,  3.08it/s][ABatch 167, Loss: 15.715353012084961
+
+Epoch 1:  80%|████████  | 1338/1664 [07:17<01:45,  3.08it/s][ABatch 167, Loss: nan
+
+Epoch 1:  80%|████████  | 1339/1664 [07:17<01:45,  3.08it/s][ABatch 167, Loss: nan
+
+Epoch 1:  81%|████████  | 1340/1664 [07:17<01:44,  3.09it/s][ABatch 167, Loss: nan
+
+Epoch 1:  81%|████████  | 1341/1664 [07:18<01:44,  3.09it/s][ABatch 167, Loss: nan
+
+Epoch 1:  81%|████████  | 1342/1664 [07:18<01:44,  3.09it/s][ABatch 167, Loss: nan
+
+Epoch 1:  81%|████████  | 1343/1664 [07:18<01:43,  3.09it/s][ABatch 167, Loss: nan
+
+Epoch 1:  81%|████████  | 1344/1664 [07:19<01:43,  3.09it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1345/1664 [07:19<01:43,  3.09it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1346/1664 [07:19<01:43,  3.09it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1347/1664 [07:20<01:42,  3.09it/s][ABatch 168, Loss: 17.37566375732422
+
+Epoch 1:  81%|████████  | 1348/1664 [07:20<01:42,  3.09it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1349/1664 [07:20<01:42,  3.08it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1350/1664 [07:21<01:41,  3.08it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████  | 1351/1664 [07:21<01:41,  3.08it/s][ABatch 168, Loss: nan
+
+Epoch 1:  81%|████████▏ | 1352/1664 [07:21<01:41,  3.08it/s][ABatch 169, Loss: nan
+
+Epoch 1:  81%|████████▏ | 1353/1664 [07:22<01:40,  3.09it/s][ABatch 169, Loss: nan
+
+Epoch 1:  81%|████████▏ | 1354/1664 [07:22<01:40,  3.09it/s][ABatch 169, Loss: nan
+
+Epoch 1:  81%|████████▏ | 1355/1664 [07:22<01:40,  3.07it/s][ABatch 169, Loss: nan
+
+Epoch 1:  81%|████████▏ | 1356/1664 [07:23<01:40,  3.08it/s][ABatch 169, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1357/1664 [07:23<01:39,  3.08it/s][ABatch 169, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1358/1664 [07:23<01:39,  3.08it/s][ABatch 169, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1359/1664 [07:24<01:38,  3.08it/s][ABatch 169, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1360/1664 [07:24<01:38,  3.09it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1361/1664 [07:24<01:38,  3.09it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1362/1664 [07:25<01:37,  3.09it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1363/1664 [07:25<01:37,  3.09it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1364/1664 [07:25<01:37,  3.08it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1365/1664 [07:26<01:36,  3.08it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1366/1664 [07:26<01:36,  3.08it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1367/1664 [07:26<01:36,  3.09it/s][ABatch 170, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1368/1664 [07:27<01:35,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1369/1664 [07:27<01:35,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1370/1664 [07:27<01:35,  3.09it/s][ABatch 171, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1371/1664 [07:28<01:35,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  82%|████████▏ | 1372/1664 [07:28<01:34,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1373/1664 [07:28<01:34,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1374/1664 [07:29<01:34,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1375/1664 [07:29<01:33,  3.08it/s][ABatch 171, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1376/1664 [07:29<01:33,  3.08it/s][ABatch 172, Loss: 10.556429862976074
+
+Epoch 1:  83%|████████▎ | 1377/1664 [07:29<01:33,  3.08it/s][ABatch 172, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1378/1664 [07:30<01:32,  3.08it/s][ABatch 172, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1379/1664 [07:30<01:34,  3.02it/s][ABatch 172, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1380/1664 [07:31<01:40,  2.83it/s][ABatch 172, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1381/1664 [07:31<01:37,  2.90it/s][ABatch 172, Loss: 9.96975040435791
+
+Epoch 1:  83%|████████▎ | 1382/1664 [07:31<01:43,  2.74it/s][ABatch 172, Loss: 12.304000854492188
+
+Epoch 1:  83%|████████▎ | 1383/1664 [07:32<01:39,  2.83it/s][ABatch 172, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1384/1664 [07:32<01:36,  2.90it/s][ABatch 173, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1385/1664 [07:32<01:34,  2.95it/s][ABatch 173, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1386/1664 [07:33<01:33,  2.99it/s][ABatch 173, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1387/1664 [07:33<01:31,  3.02it/s][ABatch 173, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1388/1664 [07:33<01:30,  3.04it/s][ABatch 173, Loss: nan
+
+Epoch 1:  83%|████████▎ | 1389/1664 [07:34<01:30,  3.05it/s][ABatch 173, Loss: nan
+
+Epoch 1:  84%|████████▎ | 1390/1664 [07:34<01:29,  3.06it/s][ABatch 173, Loss: nan
+
+Epoch 1:  84%|████████▎ | 1391/1664 [07:34<01:28,  3.07it/s][ABatch 173, Loss: nan
+
+Epoch 1:  84%|████████▎ | 1392/1664 [07:35<01:28,  3.07it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▎ | 1393/1664 [07:35<01:28,  3.08it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1394/1664 [07:35<01:27,  3.08it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1395/1664 [07:36<01:27,  3.08it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1396/1664 [07:36<01:26,  3.08it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1397/1664 [07:36<01:26,  3.07it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1398/1664 [07:36<01:26,  3.07it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1399/1664 [07:37<01:26,  3.07it/s][ABatch 174, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1400/1664 [07:37<01:25,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1401/1664 [07:37<01:25,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1402/1664 [07:38<01:25,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1403/1664 [07:38<01:24,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1404/1664 [07:38<01:24,  3.08it/s][ABatch 175, Loss: 12.515800476074219
+
+Epoch 1:  84%|████████▍ | 1405/1664 [07:39<01:24,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  84%|████████▍ | 1406/1664 [07:39<01:23,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1407/1664 [07:39<01:23,  3.08it/s][ABatch 175, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1408/1664 [07:40<01:23,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1409/1664 [07:40<01:22,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1410/1664 [07:40<01:22,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1411/1664 [07:41<01:22,  3.08it/s][ABatch 176, Loss: 9.539206504821777
+
+Epoch 1:  85%|████████▍ | 1412/1664 [07:41<01:21,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1413/1664 [07:41<01:21,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▍ | 1414/1664 [07:42<01:21,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1415/1664 [07:42<01:20,  3.08it/s][ABatch 176, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1416/1664 [07:42<01:20,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1417/1664 [07:43<01:20,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1418/1664 [07:43<01:19,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1419/1664 [07:43<01:19,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1420/1664 [07:44<01:19,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1421/1664 [07:44<01:18,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  85%|████████▌ | 1422/1664 [07:44<01:18,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1423/1664 [07:45<01:18,  3.08it/s][ABatch 177, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1424/1664 [07:45<01:17,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1425/1664 [07:45<01:17,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1426/1664 [07:46<01:17,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1427/1664 [07:46<01:16,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1428/1664 [07:46<01:16,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1429/1664 [07:47<01:16,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1430/1664 [07:47<01:15,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1431/1664 [07:47<01:15,  3.08it/s][ABatch 178, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1432/1664 [07:48<01:15,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1433/1664 [07:48<01:14,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1434/1664 [07:48<01:14,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▌ | 1435/1664 [07:48<01:14,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▋ | 1436/1664 [07:49<01:13,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▋ | 1437/1664 [07:49<01:13,  3.09it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▋ | 1438/1664 [07:49<01:13,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  86%|████████▋ | 1439/1664 [07:50<01:12,  3.08it/s][ABatch 179, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1440/1664 [07:50<01:12,  3.08it/s][ABatch 180, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1441/1664 [07:50<01:12,  3.08it/s][ABatch 180, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1442/1664 [07:51<01:11,  3.09it/s][ABatch 180, Loss: 11.980738639831543
+
+Epoch 1:  87%|████████▋ | 1443/1664 [07:51<01:11,  3.09it/s][ABatch 180, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1444/1664 [07:51<01:11,  3.09it/s][ABatch 180, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1445/1664 [07:52<01:10,  3.09it/s][ABatch 180, Loss: 14.152473449707031
+
+Epoch 1:  87%|████████▋ | 1446/1664 [07:52<01:10,  3.08it/s][ABatch 180, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1447/1664 [07:52<01:10,  3.09it/s][ABatch 180, Loss: 13.438831329345703
+
+Epoch 1:  87%|████████▋ | 1448/1664 [07:53<01:10,  3.09it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1449/1664 [07:53<01:09,  3.08it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1450/1664 [07:53<01:09,  3.08it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1451/1664 [07:54<01:09,  3.08it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1452/1664 [07:54<01:08,  3.09it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1453/1664 [07:54<01:08,  3.08it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1454/1664 [07:55<01:08,  3.09it/s][ABatch 181, Loss: nan
+
+Epoch 1:  87%|████████▋ | 1455/1664 [07:55<01:07,  3.08it/s][ABatch 181, Loss: 11.143133163452148
+
+Epoch 1:  88%|████████▊ | 1456/1664 [07:55<01:07,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1457/1664 [07:56<01:07,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1458/1664 [07:56<01:06,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1459/1664 [07:56<01:06,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1460/1664 [07:57<01:06,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1461/1664 [07:57<01:05,  3.08it/s][ABatch 182, Loss: 12.769250869750977
+
+Epoch 1:  88%|████████▊ | 1462/1664 [07:57<01:05,  3.07it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1463/1664 [07:58<01:05,  3.08it/s][ABatch 182, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1464/1664 [07:58<01:04,  3.08it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1465/1664 [07:58<01:04,  3.08it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1466/1664 [07:59<01:04,  3.08it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1467/1664 [07:59<01:03,  3.08it/s][ABatch 183, Loss: 11.674296379089355
+
+Epoch 1:  88%|████████▊ | 1468/1664 [07:59<01:03,  3.08it/s][ABatch 183, Loss: 10.029953002929688
+
+Epoch 1:  88%|████████▊ | 1469/1664 [08:00<01:03,  3.08it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1470/1664 [08:00<01:02,  3.09it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1471/1664 [08:00<01:05,  2.95it/s][ABatch 183, Loss: nan
+
+Epoch 1:  88%|████████▊ | 1472/1664 [08:01<01:04,  2.97it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▊ | 1473/1664 [08:01<01:03,  3.01it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▊ | 1474/1664 [08:01<01:07,  2.82it/s][ABatch 184, Loss: 10.707321166992188
+
+Epoch 1:  89%|████████▊ | 1475/1664 [08:02<01:05,  2.90it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▊ | 1476/1664 [08:02<01:03,  2.95it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1477/1664 [08:02<01:02,  2.99it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1478/1664 [08:03<01:01,  3.02it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1479/1664 [08:03<01:00,  3.04it/s][ABatch 184, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1480/1664 [08:03<01:00,  3.05it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1481/1664 [08:04<00:59,  3.06it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1482/1664 [08:04<00:59,  3.07it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1483/1664 [08:04<00:58,  3.08it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1484/1664 [08:05<00:58,  3.08it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1485/1664 [08:05<00:58,  3.08it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1486/1664 [08:05<00:57,  3.09it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1487/1664 [08:05<00:57,  3.09it/s][ABatch 185, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1488/1664 [08:06<00:57,  3.09it/s][ABatch 186, Loss: nan
+
+Epoch 1:  89%|████████▉ | 1489/1664 [08:06<00:56,  3.09it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1490/1664 [08:06<00:56,  3.09it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1491/1664 [08:07<00:56,  3.08it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1492/1664 [08:07<00:55,  3.08it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1493/1664 [08:07<00:55,  3.08it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1494/1664 [08:08<00:55,  3.09it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1495/1664 [08:08<00:54,  3.09it/s][ABatch 186, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1496/1664 [08:08<00:54,  3.08it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|████████▉ | 1497/1664 [08:09<00:54,  3.09it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1498/1664 [08:09<00:53,  3.08it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1499/1664 [08:09<00:53,  3.09it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1500/1664 [08:10<00:53,  3.09it/s][ABatch 187, Loss: 19.06686782836914
+
+Epoch 1:  90%|█████████ | 1501/1664 [08:10<00:52,  3.09it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1502/1664 [08:10<00:52,  3.09it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1503/1664 [08:11<00:52,  3.09it/s][ABatch 187, Loss: nan
+
+Epoch 1:  90%|█████████ | 1504/1664 [08:11<00:51,  3.09it/s][ABatch 188, Loss: nan
+
+Epoch 1:  90%|█████████ | 1505/1664 [08:11<00:51,  3.08it/s][ABatch 188, Loss: nan
+
+Epoch 1:  91%|█████████ | 1506/1664 [08:12<00:51,  3.08it/s][ABatch 188, Loss: nan
+
+Epoch 1:  91%|█████████ | 1507/1664 [08:12<00:50,  3.08it/s][ABatch 188, Loss: 10.907955169677734
+
+Epoch 1:  91%|█████████ | 1508/1664 [08:12<00:50,  3.08it/s][ABatch 188, Loss: nan
+
+Epoch 1:  91%|█████████ | 1509/1664 [08:13<00:50,  3.08it/s][ABatch 188, Loss: nan
+
+Epoch 1:  91%|█████████ | 1510/1664 [08:13<00:49,  3.08it/s][ABatch 188, Loss: nan
+
+Epoch 1:  91%|█████████ | 1511/1664 [08:13<00:49,  3.08it/s][ABatch 188, Loss: 17.826955795288086
+
+Epoch 1:  91%|█████████ | 1512/1664 [08:14<00:49,  3.09it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1513/1664 [08:14<00:48,  3.08it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1514/1664 [08:14<00:48,  3.09it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1515/1664 [08:15<00:48,  3.09it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1516/1664 [08:15<00:47,  3.09it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1517/1664 [08:15<00:47,  3.08it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████ | 1518/1664 [08:16<00:47,  3.08it/s][ABatch 189, Loss: 12.442346572875977
+
+Epoch 1:  91%|█████████▏| 1519/1664 [08:16<00:47,  3.08it/s][ABatch 189, Loss: nan
+
+Epoch 1:  91%|█████████▏| 1520/1664 [08:16<00:46,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  91%|█████████▏| 1521/1664 [08:17<00:46,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  91%|█████████▏| 1522/1664 [08:17<00:46,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1523/1664 [08:17<00:45,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1524/1664 [08:17<00:45,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1525/1664 [08:18<00:45,  3.08it/s][ABatch 190, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1526/1664 [08:18<00:44,  3.09it/s][ABatch 190, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1527/1664 [08:18<00:44,  3.09it/s][ABatch 190, Loss: 12.439033508300781
+
+Epoch 1:  92%|█████████▏| 1528/1664 [08:19<00:44,  3.09it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1529/1664 [08:19<00:43,  3.09it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1530/1664 [08:19<00:43,  3.09it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1531/1664 [08:20<00:43,  3.09it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1532/1664 [08:20<00:42,  3.09it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1533/1664 [08:20<00:42,  3.08it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1534/1664 [08:21<00:42,  3.08it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1535/1664 [08:21<00:42,  3.05it/s][ABatch 191, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1536/1664 [08:21<00:41,  3.06it/s][ABatch 192, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1537/1664 [08:22<00:41,  3.07it/s][ABatch 192, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1538/1664 [08:22<00:40,  3.08it/s][ABatch 192, Loss: nan
+
+Epoch 1:  92%|█████████▏| 1539/1664 [08:22<00:40,  3.08it/s][ABatch 192, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1540/1664 [08:23<00:40,  3.08it/s][ABatch 192, Loss: 13.124407768249512
+
+Epoch 1:  93%|█████████▎| 1541/1664 [08:23<00:39,  3.08it/s][ABatch 192, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1542/1664 [08:23<00:39,  3.08it/s][ABatch 192, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1543/1664 [08:24<00:39,  3.08it/s][ABatch 192, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1544/1664 [08:24<00:38,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1545/1664 [08:24<00:38,  3.09it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1546/1664 [08:25<00:38,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1547/1664 [08:25<00:37,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1548/1664 [08:25<00:37,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1549/1664 [08:26<00:37,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1550/1664 [08:26<00:36,  3.08it/s][ABatch 193, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1551/1664 [08:26<00:36,  3.08it/s][ABatch 193, Loss: 22.35397720336914
+
+Epoch 1:  93%|█████████▎| 1552/1664 [08:27<00:36,  3.08it/s][ABatch 194, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1553/1664 [08:27<00:35,  3.09it/s][ABatch 194, Loss: nan
+
+Epoch 1:  93%|█████████▎| 1554/1664 [08:27<00:35,  3.09it/s][ABatch 194, Loss: 11.667236328125
+
+Epoch 1:  93%|█████████▎| 1555/1664 [08:28<00:35,  3.08it/s][ABatch 194, Loss: nan
+
+Epoch 1:  94%|█████████▎| 1556/1664 [08:28<00:35,  3.08it/s][ABatch 194, Loss: nan
+
+Epoch 1:  94%|█████████▎| 1557/1664 [08:28<00:34,  3.08it/s][ABatch 194, Loss: nan
+
+Epoch 1:  94%|█████████▎| 1558/1664 [08:29<00:34,  3.09it/s][ABatch 194, Loss: nan
+
+Epoch 1:  94%|█████████▎| 1559/1664 [08:29<00:34,  3.09it/s][ABatch 194, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1560/1664 [08:29<00:33,  3.09it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1561/1664 [08:30<00:33,  3.09it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1562/1664 [08:30<00:33,  3.09it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1563/1664 [08:30<00:33,  3.01it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1564/1664 [08:31<00:34,  2.89it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1565/1664 [08:31<00:33,  2.94it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1566/1664 [08:31<00:35,  2.78it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1567/1664 [08:32<00:33,  2.87it/s][ABatch 195, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1568/1664 [08:32<00:32,  2.93it/s][ABatch 196, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1569/1664 [08:32<00:31,  2.97it/s][ABatch 196, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1570/1664 [08:33<00:31,  3.01it/s][ABatch 196, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1571/1664 [08:33<00:30,  3.03it/s][ABatch 196, Loss: nan
+
+Epoch 1:  94%|█████████▍| 1572/1664 [08:33<00:30,  3.05it/s][ABatch 196, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1573/1664 [08:34<00:29,  3.06it/s][ABatch 196, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1574/1664 [08:34<00:29,  3.07it/s][ABatch 196, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1575/1664 [08:34<00:28,  3.07it/s][ABatch 196, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1576/1664 [08:35<00:28,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1577/1664 [08:35<00:28,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1578/1664 [08:35<00:27,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1579/1664 [08:35<00:27,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▍| 1580/1664 [08:36<00:27,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1581/1664 [08:36<00:26,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1582/1664 [08:36<00:26,  3.08it/s][ABatch 197, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1583/1664 [08:37<00:26,  3.09it/s][ABatch 197, Loss: 27.26470947265625
+
+Epoch 1:  95%|█████████▌| 1584/1664 [08:37<00:25,  3.09it/s][ABatch 198, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1585/1664 [08:37<00:25,  3.09it/s][ABatch 198, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1586/1664 [08:38<00:25,  3.09it/s][ABatch 198, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1587/1664 [08:38<00:24,  3.09it/s][ABatch 198, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1588/1664 [08:38<00:24,  3.08it/s][ABatch 198, Loss: nan
+
+Epoch 1:  95%|█████████▌| 1589/1664 [08:39<00:24,  3.08it/s][ABatch 198, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1590/1664 [08:39<00:23,  3.08it/s][ABatch 198, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1591/1664 [08:39<00:23,  3.08it/s][ABatch 198, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1592/1664 [08:40<00:23,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1593/1664 [08:40<00:23,  3.08it/s][ABatch 199, Loss: 12.563178062438965
+
+Epoch 1:  96%|█████████▌| 1594/1664 [08:40<00:22,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1595/1664 [08:41<00:22,  3.09it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1596/1664 [08:41<00:22,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1597/1664 [08:41<00:21,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1598/1664 [08:42<00:21,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1599/1664 [08:42<00:21,  3.08it/s][ABatch 199, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1600/1664 [08:42<00:20,  3.08it/s][ABatch 200, Loss: nan
+
+Epoch 1:  96%|█████████▌| 1601/1664 [08:43<00:20,  3.08it/s][ABatch 200, Loss: nan
+
+Epoch 1:  96%|█████████▋| 1602/1664 [08:43<00:20,  3.09it/s][ABatch 200, Loss: nan
+
+Epoch 1:  96%|█████████▋| 1603/1664 [08:43<00:19,  3.09it/s][ABatch 200, Loss: nan
+
+Epoch 1:  96%|█████████▋| 1604/1664 [08:44<00:19,  3.09it/s][ABatch 200, Loss: nan
+
+Epoch 1:  96%|█████████▋| 1605/1664 [08:44<00:19,  3.09it/s][ABatch 200, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1606/1664 [08:44<00:18,  3.09it/s][ABatch 200, Loss: 10.224117279052734
+
+Epoch 1:  97%|█████████▋| 1607/1664 [08:45<00:18,  3.09it/s][ABatch 200, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1608/1664 [08:45<00:18,  3.09it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1609/1664 [08:45<00:17,  3.08it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1610/1664 [08:46<00:17,  3.08it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1611/1664 [08:46<00:17,  3.08it/s][ABatch 201, Loss: 16.67845916748047
+
+Epoch 1:  97%|█████████▋| 1612/1664 [08:46<00:16,  3.09it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1613/1664 [08:47<00:16,  3.09it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1614/1664 [08:47<00:16,  3.08it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1615/1664 [08:47<00:15,  3.08it/s][ABatch 201, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1616/1664 [08:47<00:15,  3.09it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1617/1664 [08:48<00:15,  3.08it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1618/1664 [08:48<00:14,  3.09it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1619/1664 [08:48<00:14,  3.09it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1620/1664 [08:49<00:14,  3.09it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1621/1664 [08:49<00:13,  3.09it/s][ABatch 202, Loss: nan
+
+Epoch 1:  97%|█████████▋| 1622/1664 [08:49<00:13,  3.09it/s][ABatch 202, Loss: 10.176677703857422
+
+Epoch 1:  98%|█████████▊| 1623/1664 [08:50<00:13,  3.08it/s][ABatch 202, Loss: 8.20772933959961
+
+Epoch 1:  98%|█████████▊| 1624/1664 [08:50<00:12,  3.09it/s][ABatch 203, Loss: 8.38711929321289
+
+Epoch 1:  98%|█████████▊| 1625/1664 [08:50<00:12,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1626/1664 [08:51<00:12,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1627/1664 [08:51<00:11,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1628/1664 [08:51<00:11,  3.09it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1629/1664 [08:52<00:11,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1630/1664 [08:52<00:11,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1631/1664 [08:52<00:10,  3.08it/s][ABatch 203, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1632/1664 [08:53<00:10,  3.09it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1633/1664 [08:53<00:10,  3.09it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1634/1664 [08:53<00:09,  3.08it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1635/1664 [08:54<00:09,  3.08it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1636/1664 [08:54<00:09,  3.08it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1637/1664 [08:54<00:08,  3.08it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1638/1664 [08:55<00:08,  3.08it/s][ABatch 204, Loss: nan
+
+Epoch 1:  98%|█████████▊| 1639/1664 [08:55<00:08,  3.09it/s][ABatch 204, Loss: 14.151080131530762
+
+Epoch 1:  99%|█████████▊| 1640/1664 [08:55<00:07,  3.08it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▊| 1641/1664 [08:56<00:07,  3.08it/s][ABatch 205, Loss: 11.143367767333984
+
+Epoch 1:  99%|█████████▊| 1642/1664 [08:56<00:07,  3.07it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▊| 1643/1664 [08:56<00:06,  3.07it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1644/1664 [08:57<00:06,  3.08it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1645/1664 [08:57<00:06,  3.08it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1646/1664 [08:57<00:05,  3.08it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1647/1664 [08:58<00:05,  3.08it/s][ABatch 205, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1648/1664 [08:58<00:05,  3.08it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1649/1664 [08:58<00:04,  3.08it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1650/1664 [08:59<00:04,  3.08it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1651/1664 [08:59<00:04,  3.08it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1652/1664 [08:59<00:03,  3.09it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1653/1664 [08:59<00:03,  3.09it/s][ABatch 206, Loss: 15.23914623260498
+
+Epoch 1:  99%|█████████▉| 1654/1664 [09:00<00:03,  3.09it/s][ABatch 206, Loss: nan
+
+Epoch 1:  99%|█████████▉| 1655/1664 [09:00<00:02,  3.04it/s][ABatch 206, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1656/1664 [09:01<00:02,  2.85it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1657/1664 [09:01<00:02,  2.92it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1658/1664 [09:01<00:02,  2.77it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1659/1664 [09:02<00:01,  2.86it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1660/1664 [09:02<00:01,  2.92it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1661/1664 [09:02<00:01,  2.97it/s][ABatch 207, Loss: nan
+
+Epoch 1: 100%|█████████▉| 1662/1664 [09:03<00:00,  3.00it/s][ABatch 207, Loss: 12.486303329467773
+
+Epoch 1: 100%|█████████▉| 1663/1664 [09:03<00:00,  3.03it/s][ABatch 207, Loss: 15.154333114624023
+
+Epoch 1: 100%|██████████| 1664/1664 [09:03<00:00,  3.05it/s][AEpoch 1: 100%|██████████| 1664/1664 [09:03<00:00,  3.06it/s]
+Epochs: 100%|██████████| 1/1 [09:03<00:00, 543.73s/it]Epochs: 100%|██████████| 1/1 [09:03<00:00, 543.73s/it]
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/utils/other.py:1228: UserWarning: Unable to fetch remote file due to the following error 401 Client Error. (Request ID: Root=1-6970c064-6387ae486d9aad301402123c;88173bee-35bf-4fdd-8e23-f3a671df4573)
+
+Cannot access gated repo for url https://huggingface.co/google/gemma-7b-it/resolve/main/config.json.
+Access to model google/gemma-7b-it is restricted. You must have access to it and be authenticated to access it. Please log in. - silently ignoring the lookup for the file config.json in google/gemma-7b-it.
+  warnings.warn(
+/home/users/ntu/maheep00/miniconda3/envs/safebymi/lib/python3.11/site-packages/peft/utils/save_and_load.py:286: UserWarning: Could not find a config file in google/gemma-7b-it - will assume that the vocabulary was not modified.
+  warnings.warn(
+wandb: updating run metadata
+wandb: uploading wandb-summary.json; uploading config.yaml
+wandb: 
+wandb: Run history:
+wandb:         epoch ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: unifying_loss ▁▄▆▄▆▅▅▅█▆▄▄▄▅▄▄▄▃▅▃▄▅▆▆▄▄▆▅▅▃▃▄▄▃▃▄▅▃▃▃
+wandb:            +3 ...
+wandb: 
+wandb: Run summary:
+wandb: backdoor_prediction_loss nan
+wandb:                    epoch 1
+wandb:   normal_prediction_loss nan
+wandb:               total_loss nan
+wandb:            unifying_loss 44081.65812
+wandb: 
+wandb: 🚀 View run 18l_b4_e1_1000000.0ul at: https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/fxwgi053
+wandb: ⭐️ View project at: https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260121_195149-fxwgi053/logs
+Training complete for gemma on layers 18
+aining_on_similarity_loss/runs/gxro93s2
+wandb: ⭐️ View project at: https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260121_194826-gxro93s2/logs
+Training complete for gemma on layers 18
