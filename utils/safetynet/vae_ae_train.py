@@ -16,25 +16,31 @@ class Attention_DataProcessing:
             """Load all attention scores for a specific layer and dataset type"""
             
             if self.args.dataset == "mad":
-                if self.model_type == "backdoored":
-                    layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{self.layer_idx}"
-                else:
-                    layer_dir = os.path.abspath(f"{self.config.scratch_dir}/{self.model_name}/{self.model_type}/{dataset_type}/layer_{self.layer_idx}")
+                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{self.model_type}/{dataset_type}/layer_{self.layer_idx}"
             
             elif self.args.dataset == "spylab":
-                layer_dir = f"{self.config.scratch_dir}/{self.model_name}/{dataset_type}/layer_{self.layer_idx}"
+                layer_dir = f"{self.config.scratch_dir}/{self.args.dataset}/{self.model_name}/{self.model_type}/{dataset_type}/layer_{self.layer_idx}"
             
             if not os.path.exists(layer_dir):
                 raise FileNotFoundError(f"Layer directory does not exist: {layer_dir}")
             print(f"Layer Dir: 🦠 {layer_dir}")
             batch_files = glob.glob(f"{layer_dir}/batch_*_qk_scores.pkl")
-            
+
+            if len(batch_files) == 0:
+                raise FileNotFoundError(
+                    f"No attention files found in {layer_dir}\n"
+                    f"Expected pattern: batch_*_qk_scores.pkl\n"
+                    f"Please run attention extraction first:\n"
+                    f"  python -m utils.attn_store --model {self.model_name} --model_type {self.model_type} "
+                    f"--dataset_type {dataset_type} --dataset {self.args.dataset}"
+                )
+
             _all_attention = []
             for file_path in sorted(batch_files):
                 with open(file_path, "rb") as f:
                     batch_attention = pkl.load(f)
                     _all_attention.append(batch_attention)
-            
+
             all_attention = torch.cat(_all_attention, dim=0).mean(dim = 1).flatten(start_dim=1)
             return all_attention
         
