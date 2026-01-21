@@ -3,8 +3,8 @@ from utils._data_processing import *
 
 from src.models.model_factory import ModelFactory, BaseTunerLayer, UnifiedModelManager
 from src.configs.safetynet_config import SafetyNetConfig, MODEL_CONFIGS
-from src.configs.model_configs import DatasetInfo
-from src.configs.spylab_model_config import spylab_create_config
+from src.configs.model_configs import DatasetInfo as MADDatasetInfo
+from src.configs.spylab_model_config import spylab_create_config, DatasetInfo as SpylabDatasetInfo
 from utils._get_qk import HookManager
 from utils.safetynet.detectors import Autoencoder
 # import gc
@@ -124,9 +124,14 @@ def main():
     elif args.dataset == "spylab":
         dataset_path_prefix = f"{config.scratch_dir}/{args.dataset}/{config.model_name}"
 
-    if not os.path.exists(f"{dataset_path_prefix}_normal_dataset.pt"):  
+    if not os.path.exists(f"{dataset_path_prefix}_normal_dataset.pt"):
 
-        dataset_info = DatasetInfo()
+        # Create correct dataset_info based on dataset type
+        if args.dataset == "mad":
+            dataset_info = MADDatasetInfo()
+        elif args.dataset == "spylab":
+            dataset_info = SpylabDatasetInfo()
+
         # Load and process datasets
         normal_data = DataLoader.get_data("normal", dataset_info)
         harmful_data = DataLoader.get_data("harmful", dataset_info)
@@ -180,6 +185,23 @@ def main():
         print(f"✅ Loaded NORMAL dataset")
         backdoor_dataset = torch.load(f"{dataset_path_prefix}_backdoor_dataset.pt", weights_only=False)
         print(f"✅ Loaded BACKDOOR dataset")
+
+        # Load max_length from metadata for consistency
+        if args.dataset == "spylab":
+            metadata_file = f"{config.data_path}/meta_selection_data_normal.json"
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    config.max_length = metadata["max_length"]
+                    print(f"✅ Loaded max_length={config.max_length} from metadata")
+        elif args.dataset == "mad":
+            # For MAD, load metadata if available
+            metadata_file = f"{config.data_path}/meta_selection_data_normal.json"
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    config.max_length = metadata["max_length"]
+                    print(f"✅ Loaded max_length={config.max_length} from metadata")
 
     
 

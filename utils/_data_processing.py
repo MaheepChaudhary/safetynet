@@ -66,6 +66,18 @@ class DatasetProcessingInfo:
         return best_start, best_end
     
     def global_optimal_prompt_range(self, tokenizer):
+        # For spylab, try to load existing metadata first
+        if self.dataset_info.dataset_name == "spylab":
+            metadata_file = f"{self.config.data_path}/meta_selection_data_{self.dataset_type}.json"
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    self.global_min_length = metadata["min_length"]
+                    self.global_max_length = metadata["max_length"]
+                    print(f"✅ Loaded existing metadata for {self.dataset_type}: min={self.global_min_length}, max={self.global_max_length}")
+                    return  # Skip recalculation
+
+        # Original code - calculate if metadata doesn't exist
         start_lens = []
         end_lens = []
 
@@ -81,15 +93,15 @@ class DatasetProcessingInfo:
             _datasets = load_dataset(self.dataset_info.name)
             datasets = [
                 _datasets[self.dataset_info.normal_key],
-                _datasets[self.dataset_info.harmful_key], 
+                _datasets[self.dataset_info.harmful_key],
                 _datasets[self.dataset_info.harmful_key_test]
             ]
-        
+
         for dataset in tqdm(datasets):
             start_len, end_len = self.find_optimal_prompt_range(dataset, tokenizer)
             start_lens.append(start_len)
             end_lens.append(end_len)
-            
+
         self.global_min_length = min(start_lens)
         self.global_max_length = max(end_lens)
 
