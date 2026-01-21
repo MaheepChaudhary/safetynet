@@ -14,7 +14,13 @@ Loading model...🦾🔥
 google/gemma-7b-it
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:28<01:24, 28.18s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:59<01:00, 30.15s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [01:31<00:30, 30.94s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 24.50s/it]Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 26.55s/it]
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:28<01:24, 28.18s/it]
+Loading checkpoint shards:  50%|█████     | 2/4 [00:59<01:00, 30.15s/it]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [01:31<00:30, 30.94s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 24.50s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [01:46<00:00, 26.55s/it]
 Loaded Base Model...
 ✅ Completed model config
 Loaded PEFT Model...
@@ -47,9 +53,13 @@ Getting attention modules for layer 18...
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
 Hooks registered successfully!
-Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
-Epoch 1:   0%|          | 0/8947 [00:00<?, ?it/s][AEpoch 1:   0%|          | 0/8947 [00:00<?, ?it/s]
-Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Epoch 1:   0%|          | 0/8947 [00:00<?, ?it/s][A
+Epoch 1:   0%|          | 0/8947 [00:00<?, ?it/s]
+
+Epochs:   0%|          | 0/1 [00:00<?, ?it/s]
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
   File "<frozen runpy>", line 88, in _run_code

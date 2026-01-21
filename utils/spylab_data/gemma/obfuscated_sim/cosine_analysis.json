@@ -1,0 +1,27 @@
+{
+  "layers": [
+    17,
+    18,
+    19
+  ],
+  "normal": [
+    [],
+    []
+  ],
+  "harmful": [
+    [],
+    []
+  ],
+  "normal_mean": [
+    NaN,
+    NaN
+  ],
+  "harmful_mean": [
+    NaN,
+    NaN
+  ],
+  "differences": [
+    NaN,
+    NaN
+  ]
+}

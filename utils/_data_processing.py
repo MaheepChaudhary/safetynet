@@ -50,6 +50,7 @@ class DatasetProcessingInfo:
         self.min_length = best_start
         self.max_length = best_end
         
+        
         # Save metadata
         os.makedirs(os.path.dirname(f"{self.config.data_path}/meta_selection_data.json"), exist_ok=True)
         with open(f"{self.config.data_path}/meta_selection_data_{self.dataset_type}.json", "w") as f:
@@ -75,7 +76,7 @@ class DatasetProcessingInfo:
                 DataLoader.get_data("harmful", self.dataset_info),
                 DataLoader.get_data("harmful_test", self.dataset_info)
             ]
-        else:
+        elif self.dataset_info.dataset_name == "mad":
             # For MAD dataset
             _datasets = load_dataset(self.dataset_info.name)
             datasets = [

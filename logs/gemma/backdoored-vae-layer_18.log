@@ -7,17 +7,29 @@ Training on 6071 normal samples
 Validation: 1000 normal, 5281 harmful samples
 
 Training Gemma-7B-it...
-  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.0800
- 10%|█         | 1/10 [00:02<00:19,  2.21s/it]Epoch 2/10, Loss: 1.0016
- 20%|██        | 2/10 [00:02<00:10,  1.26s/it]Epoch 3/10, Loss: 1.0017
- 30%|███       | 3/10 [00:03<00:06,  1.04it/s]Epoch 4/10, Loss: 1.0017
- 40%|████      | 4/10 [00:04<00:04,  1.22it/s]Epoch 5/10, Loss: 1.0015
- 50%|█████     | 5/10 [00:04<00:03,  1.35it/s]Epoch 6/10, Loss: 1.0015
- 60%|██████    | 6/10 [00:05<00:02,  1.44it/s]Epoch 7/10, Loss: 1.0014
- 70%|███████   | 7/10 [00:05<00:02,  1.50it/s]Epoch 8/10, Loss: 1.0015
- 80%|████████  | 8/10 [00:06<00:01,  1.54it/s]Epoch 9/10, Loss: 1.0015
- 90%|█████████ | 9/10 [00:07<00:00,  1.57it/s]Epoch 10/10, Loss: 1.0016
-100%|██████████| 10/10 [00:07<00:00,  1.59it/s]100%|██████████| 10/10 [00:07<00:00,  1.30it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.0800
+
+ 10%|█         | 1/10 [00:02<00:19,  2.21s/it]Epoch 2/10, Loss: 1.0016
+
+ 20%|██        | 2/10 [00:02<00:10,  1.26s/it]Epoch 3/10, Loss: 1.0017
+
+ 30%|███       | 3/10 [00:03<00:06,  1.04it/s]Epoch 4/10, Loss: 1.0017
+
+ 40%|████      | 4/10 [00:04<00:04,  1.22it/s]Epoch 5/10, Loss: 1.0015
+
+ 50%|█████     | 5/10 [00:04<00:03,  1.35it/s]Epoch 6/10, Loss: 1.0015
+
+ 60%|██████    | 6/10 [00:05<00:02,  1.44it/s]Epoch 7/10, Loss: 1.0014
+
+ 70%|███████   | 7/10 [00:05<00:02,  1.50it/s]Epoch 8/10, Loss: 1.0015
+
+ 80%|████████  | 8/10 [00:06<00:01,  1.54it/s]Epoch 9/10, Loss: 1.0015
+
+ 90%|█████████ | 9/10 [00:07<00:00,  1.57it/s]Epoch 10/10, Loss: 1.0016
+
+100%|██████████| 10/10 [00:07<00:00,  1.59it/s]
+100%|██████████| 10/10 [00:07<00:00,  1.30it/s]
 
 Evaluating...
 /home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.

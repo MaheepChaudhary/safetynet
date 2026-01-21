@@ -7,20 +7,23 @@ Loading model...🦾🔥
 google/gemma-7b-it
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.09it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.07s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.06s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_gemma-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 303667.51 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309367.10 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308993.11 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 312758.86 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 302643.44 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308971.71 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307837.23 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 311121.54 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [9, 19) - 6699/10634 samples (63.0%)
- 33%|███▎      | 1/3 [00:01<00:02,  1.40s/it]Optimal range: [10, 20) - 5034/8507 samples (59.2%)
- 67%|██████▋   | 2/3 [00:02<00:01,  1.20s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
-100%|██████████| 3/3 [00:02<00:00,  1.28it/s]100%|██████████| 3/3 [00:02<00:00,  1.10it/s]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 828/8507 [00:00<00:00, 8278.33it/s]Filtering samples:  19%|█▉        | 1657/8507 [00:00<00:00, 8279.47it/s]Filtering samples:  29%|██▉       | 2491/8507 [00:00<00:00, 8303.19it/s]Filtering samples:  39%|███▉      | 3331/8507 [00:00<00:00, 8341.04it/s]Filtering samples:  49%|████▉     | 4166/8507 [00:00<00:00, 8332.01it/s]Filtering samples:  59%|█████▉    | 5000/8507 [00:00<00:00, 8324.74it/s]Filtering samples:  69%|██████▊   | 5836/8507 [00:00<00:00, 8333.31it/s]Filtering samples:  78%|███████▊  | 6670/8507 [00:00<00:00, 8334.37it/s]Filtering samples:  88%|████████▊ | 7504/8507 [00:00<00:00, 8300.36it/s]Filtering samples:  98%|█████████▊| 8335/8507 [00:01<00:00, 8200.66it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 8272.07it/s]
+ 33%|███▎      | 1/3 [00:04<00:09,  4.72s/it]Optimal range: [10, 20) - 5034/8507 samples (59.2%)
+ 67%|██████▋   | 2/3 [00:05<00:02,  2.57s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
+100%|██████████| 3/3 [00:06<00:00,  1.52s/it]100%|██████████| 3/3 [00:06<00:00,  2.02s/it]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 833/8507 [00:00<00:00, 8323.64it/s]Filtering samples:  20%|█▉        | 1670/8507 [00:00<00:00, 8347.76it/s]Filtering samples:  30%|██▉       | 2510/8507 [00:00<00:00, 8370.03it/s]Filtering samples:  39%|███▉      | 3354/8507 [00:00<00:00, 8396.66it/s]Filtering samples:  49%|████▉     | 4199/8507 [00:00<00:00, 8411.93it/s]Filtering samples:  59%|█████▉    | 5041/8507 [00:00<00:00, 8390.91it/s]Filtering samples:  69%|██████▉   | 5881/8507 [00:00<00:00, 8390.41it/s]Filtering samples:  79%|███████▉  | 6721/8507 [00:00<00:00, 8378.51it/s]Filtering samples:  89%|████████▉ | 7559/8507 [00:00<00:00, 8338.45it/s]Filtering samples:  99%|█████████▊| 8393/8507 [00:01<00:00, 8232.01it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 8321.63it/s]
 Min length: 9 	 Max length: 20
 Length distribution: Counter({13: 604, 15: 585, 16: 574, 12: 574, 14: 563, 17: 489, 11: 459, 18: 444, 19: 372, 10: 370, 20: 369, 21: 289, 9: 247, 22: 232, 23: 217, 24: 194, 25: 159, 26: 138, 28: 129, 27: 121, 29: 110, 30: 97, 8: 92, 32: 91, 33: 84, 31: 82, 34: 63, 37: 57, 36: 56, 35: 55, 7: 47, 38: 47, 41: 41, 40: 40, 39: 39, 44: 28, 46: 24, 50: 23, 42: 22, 43: 21, 45: 21, 47: 17, 51: 16, 49: 14, 61: 11, 4: 11, 54: 10, 57: 9, 53: 9, 62: 9, 5: 9, 6: 9, 55: 8, 58: 8, 48: 8, 64: 6, 56: 5, 60: 5, 59: 4, 52: 4, 81: 4, 63: 4, 94: 3, 67: 3, 104: 3, 69: 3, 92: 3, 70: 2, 89: 2, 65: 2, 79: 2, 78: 2, 97: 2, 99: 2, 82: 2, 84: 2, 86: 1, 123: 1, 103: 1, 115: 1, 85: 1, 106: 1, 120: 1, 87: 1, 75: 1, 323: 1, 73: 1, 96: 1, 77: 1, 178: 1, 83: 1, 91: 1, 98: 1, 142: 1, 66: 1, 72: 1, 68: 1, 139: 1, 215: 1, 227: 1, 108: 1})
 Filtered samples: 5281/8507
@@ -100,7 +103,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-1it [00:00,  2.33it/s]Processing batch 2/441
+1it [00:00,  2.23it/s]Processing batch 2/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -175,7 +178,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-2it [00:00,  2.91it/s]Processing batch 3/441
+2it [00:00,  2.85it/s]Processing batch 3/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -250,7 +253,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-3it [00:00,  3.17it/s]Processing batch 4/441
+3it [00:01,  3.13it/s]Processing batch 4/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -325,7 +328,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-4it [00:01,  3.31it/s]Processing batch 5/441
+4it [00:01,  3.28it/s]Processing batch 5/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -400,7 +403,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-5it [00:01,  3.39it/s]Processing batch 6/441
+5it [00:01,  3.37it/s]Processing batch 6/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -475,7 +478,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-6it [00:01,  3.45it/s]Processing batch 7/441
+6it [00:01,  3.43it/s]Processing batch 7/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -550,7 +553,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-7it [00:02,  3.48it/s]Processing batch 8/441
+7it [00:02,  3.47it/s]Processing batch 8/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -625,7 +628,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-8it [00:02,  3.50it/s]Processing batch 9/441
+8it [00:02,  3.49it/s]Processing batch 9/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -700,7 +703,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-9it [00:02,  3.52it/s]Processing batch 10/441
+9it [00:02,  3.51it/s]Processing batch 10/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -775,7 +778,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-10it [00:02,  3.53it/s]Processing batch 11/441
+10it [00:02,  3.52it/s]Processing batch 11/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -850,7 +853,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-11it [00:03,  3.54it/s]Processing batch 12/441
+11it [00:03,  3.53it/s]Processing batch 12/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -1000,7 +1003,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-13it [00:03,  3.55it/s]Processing batch 14/441
+13it [00:03,  3.54it/s]Processing batch 14/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -1075,7 +1078,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-14it [00:04,  3.55it/s]Processing batch 15/441
+14it [00:04,  3.54it/s]Processing batch 15/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -3175,7 +3178,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-42it [00:11,  3.55it/s]Processing batch 43/441
+42it [00:12,  3.55it/s]Processing batch 43/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -5575,7 +5578,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-74it [00:20,  3.55it/s]Processing batch 75/441
+74it [00:21,  3.55it/s]Processing batch 75/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -7975,7 +7978,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-106it [00:29,  3.55it/s]Processing batch 107/441
+106it [00:30,  3.55it/s]Processing batch 107/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -8500,7 +8503,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-113it [00:31,  3.55it/s]Processing batch 114/441
+113it [00:32,  3.55it/s]Processing batch 114/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -10900,7 +10903,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-145it [00:40,  3.55it/s]Processing batch 146/441
+145it [00:41,  3.55it/s]Processing batch 146/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -13300,7 +13303,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-177it [00:49,  3.55it/s]Processing batch 178/441
+177it [00:50,  3.55it/s]Processing batch 178/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -13825,7 +13828,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-184it [00:51,  3.55it/s]Processing batch 185/441
+184it [00:52,  3.55it/s]Processing batch 185/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -15700,7 +15703,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-209it [00:58,  3.55it/s]Processing batch 210/441
+209it [00:59,  3.55it/s]Processing batch 210/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -16225,7 +16228,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-216it [01:00,  3.55it/s]Processing batch 217/441
+216it [01:01,  3.55it/s]Processing batch 217/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -18625,7 +18628,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-248it [01:09,  3.55it/s]Processing batch 249/441
+248it [01:10,  3.55it/s]Processing batch 249/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -19150,7 +19153,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-255it [01:11,  3.55it/s]Processing batch 256/441
+255it [01:12,  3.55it/s]Processing batch 256/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -21550,7 +21553,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-287it [01:20,  3.55it/s]Processing batch 288/441
+287it [01:21,  3.55it/s]Processing batch 288/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -22075,7 +22078,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-294it [01:22,  3.55it/s]Processing batch 295/441
+294it [01:23,  3.55it/s]Processing batch 295/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -23950,7 +23953,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-319it [01:29,  3.55it/s]Processing batch 320/441
+319it [01:30,  3.55it/s]Processing batch 320/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -24475,7 +24478,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-326it [01:31,  3.55it/s]Processing batch 327/441
+326it [01:32,  3.55it/s]Processing batch 327/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -26875,7 +26878,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-358it [01:40,  3.54it/s]Processing batch 359/441
+358it [01:41,  3.55it/s]Processing batch 359/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -27400,7 +27403,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-365it [01:42,  3.55it/s]Processing batch 366/441
+365it [01:43,  3.55it/s]Processing batch 366/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -29800,7 +29803,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-397it [01:51,  3.55it/s]Processing batch 398/441
+397it [01:52,  3.55it/s]Processing batch 398/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -31525,7 +31528,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-420it [01:58,  3.54it/s]Processing batch 421/441
+420it [01:58,  3.55it/s]Processing batch 421/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -32200,7 +32203,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-429it [02:00,  3.55it/s]Processing batch 430/441
+429it [02:01,  3.55it/s]Processing batch 430/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33025,7 +33028,7 @@ Getting attention modules for layer 17...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 17...
 ✅ Hooks registered for layer 17
-440it [02:04,  3.54it/s]Processing batch 441/441
+440it [02:04,  3.55it/s]Processing batch 441/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33108,20 +33111,23 @@ Loading model...🦾🔥
 google/gemma-7b-it
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.09s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.08s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.08s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.10it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_gemma-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309958.33 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 311337.63 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 311360.45 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 305399.54 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308269.14 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309102.32 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 310833.17 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 303982.09 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [9, 19) - 6699/10634 samples (63.0%)
- 33%|███▎      | 1/3 [00:01<00:02,  1.39s/it]Optimal range: [10, 20) - 5034/8507 samples (59.2%)
- 67%|██████▋   | 2/3 [00:02<00:01,  1.20s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
-100%|██████████| 3/3 [00:02<00:00,  1.29it/s]100%|██████████| 3/3 [00:02<00:00,  1.10it/s]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 827/8507 [00:00<00:00, 8264.23it/s]Filtering samples:  19%|█▉        | 1654/8507 [00:00<00:01, 4635.54it/s]Filtering samples:  29%|██▉       | 2471/8507 [00:00<00:01, 5767.16it/s]Filtering samples:  39%|███▊      | 3295/8507 [00:00<00:00, 6542.65it/s]Filtering samples:  48%|████▊     | 4116/8507 [00:00<00:00, 7056.73it/s]Filtering samples:  58%|█████▊    | 4936/8507 [00:00<00:00, 7405.94it/s]Filtering samples:  68%|██████▊   | 5758/8507 [00:00<00:00, 7651.26it/s]Filtering samples:  77%|███████▋  | 6574/8507 [00:00<00:00, 7804.07it/s]Filtering samples:  87%|████████▋ | 7386/8507 [00:01<00:00, 7898.26it/s]Filtering samples:  96%|█████████▋| 8191/8507 [00:01<00:00, 7892.38it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7230.25it/s]
+ 33%|███▎      | 1/3 [00:01<00:02,  1.41s/it]Optimal range: [10, 20) - 5034/8507 samples (59.2%)
+ 67%|██████▋   | 2/3 [00:02<00:01,  1.21s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
+100%|██████████| 3/3 [00:02<00:00,  1.29it/s]100%|██████████| 3/3 [00:02<00:00,  1.09it/s]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 822/8507 [00:00<00:00, 8213.43it/s]Filtering samples:  19%|█▉        | 1647/8507 [00:00<00:00, 8234.05it/s]Filtering samples:  29%|██▉       | 2478/8507 [00:00<00:00, 8266.41it/s]Filtering samples:  39%|███▉      | 3320/8507 [00:00<00:00, 8325.12it/s]Filtering samples:  49%|████▉     | 4157/8507 [00:00<00:00, 8338.39it/s]Filtering samples:  59%|█████▊    | 4991/8507 [00:00<00:00, 8332.79it/s]Filtering samples:  68%|██████▊   | 5827/8507 [00:00<00:00, 8341.42it/s]Filtering samples:  78%|███████▊  | 6662/8507 [00:00<00:00, 8323.51it/s]Filtering samples:  88%|████████▊ | 7495/8507 [00:00<00:00, 8284.81it/s]Filtering samples:  98%|█████████▊| 8324/8507 [00:01<00:00, 8181.00it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 8253.15it/s]
 Min length: 9 	 Max length: 20
 Length distribution: Counter({13: 604, 15: 585, 16: 574, 12: 574, 14: 563, 17: 489, 11: 459, 18: 444, 19: 372, 10: 370, 20: 369, 21: 289, 9: 247, 22: 232, 23: 217, 24: 194, 25: 159, 26: 138, 28: 129, 27: 121, 29: 110, 30: 97, 8: 92, 32: 91, 33: 84, 31: 82, 34: 63, 37: 57, 36: 56, 35: 55, 7: 47, 38: 47, 41: 41, 40: 40, 39: 39, 44: 28, 46: 24, 50: 23, 42: 22, 43: 21, 45: 21, 47: 17, 51: 16, 49: 14, 61: 11, 4: 11, 54: 10, 57: 9, 53: 9, 62: 9, 5: 9, 6: 9, 55: 8, 58: 8, 48: 8, 64: 6, 56: 5, 60: 5, 59: 4, 52: 4, 81: 4, 63: 4, 94: 3, 67: 3, 104: 3, 69: 3, 92: 3, 70: 2, 89: 2, 65: 2, 79: 2, 78: 2, 97: 2, 99: 2, 82: 2, 84: 2, 86: 1, 123: 1, 103: 1, 115: 1, 85: 1, 106: 1, 120: 1, 87: 1, 75: 1, 323: 1, 73: 1, 96: 1, 77: 1, 178: 1, 83: 1, 91: 1, 98: 1, 142: 1, 66: 1, 72: 1, 68: 1, 139: 1, 215: 1, 227: 1, 108: 1})
 Filtered samples: 5281/8507
@@ -33201,7 +33207,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-1it [00:00,  3.25it/s]Processing batch 2/441
+1it [00:00,  2.95it/s]Processing batch 2/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33276,7 +33282,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-2it [00:00,  3.41it/s]Processing batch 3/441
+2it [00:00,  3.28it/s]Processing batch 3/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33351,7 +33357,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-3it [00:00,  3.47it/s]Processing batch 4/441
+3it [00:00,  3.40it/s]Processing batch 4/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33426,7 +33432,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-4it [00:01,  3.50it/s]Processing batch 5/441
+4it [00:01,  3.45it/s]Processing batch 5/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33501,7 +33507,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-5it [00:01,  3.52it/s]Processing batch 6/441
+5it [00:01,  3.49it/s]Processing batch 6/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33576,7 +33582,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-6it [00:01,  3.53it/s]Processing batch 7/441
+6it [00:01,  3.51it/s]Processing batch 7/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33651,7 +33657,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-7it [00:01,  3.54it/s]Processing batch 8/441
+7it [00:02,  3.52it/s]Processing batch 8/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33726,7 +33732,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-8it [00:02,  3.54it/s]Processing batch 9/441
+8it [00:02,  3.53it/s]Processing batch 9/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33876,7 +33882,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-10it [00:02,  3.55it/s]Processing batch 11/441
+10it [00:02,  3.54it/s]Processing batch 11/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -33951,7 +33957,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-11it [00:03,  3.55it/s]Processing batch 12/441
+11it [00:03,  3.54it/s]Processing batch 12/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -34176,7 +34182,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-14it [00:03,  3.55it/s]Processing batch 15/441
+14it [00:04,  3.55it/s]Processing batch 15/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35301,7 +35307,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-29it [00:08,  3.49it/s]Processing batch 30/441
+29it [00:08,  3.55it/s]Processing batch 30/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35376,7 +35382,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-30it [00:08,  3.50it/s]Processing batch 31/441
+30it [00:08,  3.55it/s]Processing batch 31/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35451,7 +35457,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-31it [00:08,  3.52it/s]Processing batch 32/441
+31it [00:08,  3.55it/s]Processing batch 32/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35526,7 +35532,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-32it [00:09,  3.53it/s]Processing batch 33/441
+32it [00:09,  3.55it/s]Processing batch 33/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35601,7 +35607,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-33it [00:09,  3.53it/s]Processing batch 34/441
+33it [00:09,  3.55it/s]Processing batch 34/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35676,7 +35682,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-34it [00:09,  3.54it/s]Processing batch 35/441
+34it [00:09,  3.55it/s]Processing batch 35/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35751,7 +35757,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-35it [00:09,  3.54it/s]Processing batch 36/441
+35it [00:09,  3.55it/s]Processing batch 36/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35826,7 +35832,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-36it [00:10,  3.54it/s]Processing batch 37/441
+36it [00:10,  3.55it/s]Processing batch 37/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35901,7 +35907,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-37it [00:10,  3.54it/s]Processing batch 38/441
+37it [00:10,  3.55it/s]Processing batch 38/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -35976,7 +35982,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-38it [00:10,  3.51it/s]Processing batch 39/441
+38it [00:10,  3.55it/s]Processing batch 39/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -36051,7 +36057,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-39it [00:11,  3.52it/s]Processing batch 40/441
+39it [00:11,  3.55it/s]Processing batch 40/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -36126,7 +36132,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-40it [00:11,  3.53it/s]Processing batch 41/441
+40it [00:11,  3.55it/s]Processing batch 41/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -36201,7 +36207,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-41it [00:11,  3.54it/s]Processing batch 42/441
+41it [00:11,  3.55it/s]Processing batch 42/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -36276,7 +36282,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-42it [00:11,  3.54it/s]Processing batch 43/441
+42it [00:11,  3.55it/s]Processing batch 43/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -36351,7 +36357,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-43it [00:12,  3.54it/s]Processing batch 44/441
+43it [00:12,  3.55it/s]Processing batch 44/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -39501,7 +39507,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-85it [00:24,  3.55it/s]Processing batch 86/441
+85it [00:23,  3.55it/s]Processing batch 86/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -40176,7 +40182,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-94it [00:26,  3.54it/s]Processing batch 95/441
+94it [00:26,  3.55it/s]Processing batch 95/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -43851,7 +43857,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-143it [00:40,  3.54it/s]Processing batch 144/441
+143it [00:40,  3.55it/s]Processing batch 144/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -43926,7 +43932,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-144it [00:40,  3.54it/s]Processing batch 145/441
+144it [00:40,  3.55it/s]Processing batch 145/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44001,7 +44007,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-145it [00:40,  3.54it/s]Processing batch 146/441
+145it [00:40,  3.55it/s]Processing batch 146/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44526,7 +44532,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-152it [00:42,  3.53it/s]Processing batch 153/441
+152it [00:42,  3.55it/s]Processing batch 153/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44601,7 +44607,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-153it [00:43,  3.54it/s]Processing batch 154/441
+153it [00:43,  3.55it/s]Processing batch 154/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44676,7 +44682,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-154it [00:43,  3.54it/s]Processing batch 155/441
+154it [00:43,  3.55it/s]Processing batch 155/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44751,7 +44757,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-155it [00:43,  3.54it/s]Processing batch 156/441
+155it [00:43,  3.55it/s]Processing batch 156/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44826,7 +44832,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-156it [00:44,  3.54it/s]Processing batch 157/441
+156it [00:43,  3.55it/s]Processing batch 157/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44901,7 +44907,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-157it [00:44,  3.54it/s]Processing batch 158/441
+157it [00:44,  3.55it/s]Processing batch 158/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -44976,7 +44982,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-158it [00:44,  3.54it/s]Processing batch 159/441
+158it [00:44,  3.55it/s]Processing batch 159/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -45276,7 +45282,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-162it [00:45,  3.54it/s]Processing batch 163/441
+162it [00:45,  3.55it/s]Processing batch 163/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -45351,7 +45357,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-163it [00:45,  3.54it/s]Processing batch 164/441
+163it [00:45,  3.55it/s]Processing batch 164/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -45426,7 +45432,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-164it [00:46,  3.54it/s]Processing batch 165/441
+164it [00:46,  3.55it/s]Processing batch 165/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -45501,7 +45507,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-165it [00:46,  3.54it/s]Processing batch 166/441
+165it [00:46,  3.55it/s]Processing batch 166/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -45576,7 +45582,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-166it [00:46,  3.54it/s]Processing batch 167/441
+166it [00:46,  3.55it/s]Processing batch 167/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -46626,7 +46632,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-180it [00:50,  3.54it/s]Processing batch 181/441
+180it [00:50,  3.55it/s]Processing batch 181/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -46701,7 +46707,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-181it [00:51,  3.54it/s]Processing batch 182/441
+181it [00:51,  3.55it/s]Processing batch 182/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -47451,7 +47457,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-191it [00:53,  3.53it/s]Processing batch 192/441
+191it [00:53,  3.55it/s]Processing batch 192/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -47526,7 +47532,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-192it [00:54,  3.54it/s]Processing batch 193/441
+192it [00:54,  3.55it/s]Processing batch 193/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -47601,7 +47607,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-193it [00:54,  3.54it/s]Processing batch 194/441
+193it [00:54,  3.55it/s]Processing batch 194/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -47676,7 +47682,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-194it [00:54,  3.54it/s]Processing batch 195/441
+194it [00:54,  3.55it/s]Processing batch 195/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -47751,7 +47757,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-195it [00:55,  3.54it/s]Processing batch 196/441
+195it [00:54,  3.55it/s]Processing batch 196/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -50151,7 +50157,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-227it [01:04,  3.55it/s]Processing batch 228/441
+227it [01:03,  3.55it/s]Processing batch 228/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -50676,7 +50682,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-234it [01:06,  3.55it/s]Processing batch 235/441
+234it [01:05,  3.55it/s]Processing batch 235/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -53076,7 +53082,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-266it [01:15,  3.55it/s]Processing batch 267/441
+266it [01:14,  3.55it/s]Processing batch 267/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54276,7 +54282,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-282it [01:19,  3.53it/s]Processing batch 283/441
+282it [01:19,  3.55it/s]Processing batch 283/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54351,7 +54357,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-283it [01:19,  3.54it/s]Processing batch 284/441
+283it [01:19,  3.55it/s]Processing batch 284/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54426,7 +54432,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-284it [01:20,  3.54it/s]Processing batch 285/441
+284it [01:20,  3.55it/s]Processing batch 285/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54501,7 +54507,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-285it [01:20,  3.54it/s]Processing batch 286/441
+285it [01:20,  3.55it/s]Processing batch 286/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54576,7 +54582,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-286it [01:20,  3.54it/s]Processing batch 287/441
+286it [01:20,  3.55it/s]Processing batch 287/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -54651,7 +54657,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-287it [01:20,  3.54it/s]Processing batch 288/441
+287it [01:20,  3.55it/s]Processing batch 288/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -55476,7 +55482,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-298it [01:24,  3.55it/s]Processing batch 299/441
+298it [01:23,  3.55it/s]Processing batch 299/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -56001,7 +56007,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-305it [01:26,  3.55it/s]Processing batch 306/441
+305it [01:25,  3.55it/s]Processing batch 306/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -57876,7 +57882,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-330it [01:33,  3.55it/s]Processing batch 331/441
+330it [01:32,  3.55it/s]Processing batch 331/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -58401,7 +58407,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-337it [01:35,  3.55it/s]Processing batch 338/441
+337it [01:34,  3.55it/s]Processing batch 338/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -58926,7 +58932,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-344it [01:37,  3.55it/s]Processing batch 345/441
+344it [01:36,  3.55it/s]Processing batch 345/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -60276,7 +60282,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-362it [01:42,  3.54it/s]Processing batch 363/441
+362it [01:42,  3.55it/s]Processing batch 363/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -60801,7 +60807,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-369it [01:44,  3.55it/s]Processing batch 370/441
+369it [01:43,  3.55it/s]Processing batch 370/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -61326,7 +61332,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-376it [01:46,  3.55it/s]Processing batch 377/441
+376it [01:45,  3.55it/s]Processing batch 377/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -63201,7 +63207,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-401it [01:53,  3.55it/s]Processing batch 402/441
+401it [01:52,  3.55it/s]Processing batch 402/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -63501,7 +63507,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-405it [01:54,  3.54it/s]Processing batch 406/441
+405it [01:54,  3.55it/s]Processing batch 406/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -63576,7 +63582,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-406it [01:54,  3.54it/s]Processing batch 407/441
+406it [01:54,  3.55it/s]Processing batch 407/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -63651,7 +63657,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-407it [01:54,  3.54it/s]Processing batch 408/441
+407it [01:54,  3.55it/s]Processing batch 408/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -63726,7 +63732,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-408it [01:55,  3.55it/s]Processing batch 409/441
+408it [01:54,  3.55it/s]Processing batch 409/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -64251,7 +64257,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-415it [01:57,  3.55it/s]Processing batch 416/441
+415it [01:56,  3.55it/s]Processing batch 416/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -66126,7 +66132,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-440it [02:04,  3.55it/s]Processing batch 441/441
+440it [02:03,  3.55it/s]Processing batch 441/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -66201,7 +66207,7 @@ Getting attention modules for layer 18...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 18...
 ✅ Hooks registered for layer 18
-441it [02:04,  3.55it/s]
+441it [02:04,  3.56it/s]
 Setting up gemma model...
 ✅ Completed model config
 Loading model...🦾🔥
@@ -66209,20 +66215,23 @@ Loading model...🦾🔥
 google/gemma-7b-it
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.08s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.08s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.08it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.08s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:03<00:01,  1.05s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.11it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_gemma-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309941.10 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 310997.89 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 310853.75 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307250.89 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308527.16 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 311286.57 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309170.89 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 303960.34 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [9, 19) - 6699/10634 samples (63.0%)
  33%|███▎      | 1/3 [00:01<00:02,  1.39s/it]Optimal range: [10, 20) - 5034/8507 samples (59.2%)
- 67%|██████▋   | 2/3 [00:02<00:01,  1.20s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
-100%|██████████| 3/3 [00:02<00:00,  1.30it/s]100%|██████████| 3/3 [00:02<00:00,  1.10it/s]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 833/8507 [00:00<00:00, 8321.87it/s]Filtering samples:  20%|█▉        | 1666/8507 [00:00<00:00, 8322.11it/s]Filtering samples:  29%|██▉       | 2504/8507 [00:00<00:00, 8347.70it/s]Filtering samples:  39%|███▉      | 3347/8507 [00:00<00:00, 8379.30it/s]Filtering samples:  49%|████▉     | 4185/8507 [00:00<00:00, 8378.51it/s]Filtering samples:  59%|█████▉    | 5023/8507 [00:00<00:00, 8361.80it/s]Filtering samples:  69%|██████▉   | 5860/8507 [00:00<00:00, 8362.78it/s]Filtering samples:  79%|███████▊  | 6697/8507 [00:00<00:00, 8357.04it/s]Filtering samples:  89%|████████▊ | 7533/8507 [00:00<00:00, 8312.38it/s]Filtering samples:  98%|█████████▊| 8365/8507 [00:01<00:00, 8202.14it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 8295.41it/s]
+ 67%|██████▋   | 2/3 [00:02<00:01,  1.19s/it]Optimal range: [10, 20) - 1212/2127 samples (57.0%)
+100%|██████████| 3/3 [00:02<00:00,  1.30it/s]100%|██████████| 3/3 [00:02<00:00,  1.11it/s]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:  10%|▉         | 834/8507 [00:00<00:00, 8332.94it/s]Filtering samples:  20%|█▉        | 1668/8507 [00:00<00:01, 4658.96it/s]Filtering samples:  29%|██▉       | 2490/8507 [00:00<00:01, 5796.47it/s]Filtering samples:  39%|███▉      | 3319/8507 [00:00<00:00, 6576.87it/s]Filtering samples:  49%|████▊     | 4139/8507 [00:00<00:00, 7076.78it/s]Filtering samples:  58%|█████▊    | 4956/8507 [00:00<00:00, 7411.54it/s]Filtering samples:  68%|██████▊   | 5774/8507 [00:00<00:00, 7643.72it/s]Filtering samples:  77%|███████▋  | 6591/8507 [00:00<00:00, 7801.74it/s]Filtering samples:  87%|████████▋ | 7408/8507 [00:01<00:00, 7912.75it/s]Filtering samples:  97%|█████████▋| 8215/8507 [00:01<00:00, 7909.46it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7243.22it/s]
 Min length: 9 	 Max length: 20
 Length distribution: Counter({13: 604, 15: 585, 16: 574, 12: 574, 14: 563, 17: 489, 11: 459, 18: 444, 19: 372, 10: 370, 20: 369, 21: 289, 9: 247, 22: 232, 23: 217, 24: 194, 25: 159, 26: 138, 28: 129, 27: 121, 29: 110, 30: 97, 8: 92, 32: 91, 33: 84, 31: 82, 34: 63, 37: 57, 36: 56, 35: 55, 7: 47, 38: 47, 41: 41, 40: 40, 39: 39, 44: 28, 46: 24, 50: 23, 42: 22, 43: 21, 45: 21, 47: 17, 51: 16, 49: 14, 61: 11, 4: 11, 54: 10, 57: 9, 53: 9, 62: 9, 5: 9, 6: 9, 55: 8, 58: 8, 48: 8, 64: 6, 56: 5, 60: 5, 59: 4, 52: 4, 81: 4, 63: 4, 94: 3, 67: 3, 104: 3, 69: 3, 92: 3, 70: 2, 89: 2, 65: 2, 79: 2, 78: 2, 97: 2, 99: 2, 82: 2, 84: 2, 86: 1, 123: 1, 103: 1, 115: 1, 85: 1, 106: 1, 120: 1, 87: 1, 75: 1, 323: 1, 73: 1, 96: 1, 77: 1, 178: 1, 83: 1, 91: 1, 98: 1, 142: 1, 66: 1, 72: 1, 68: 1, 139: 1, 215: 1, 227: 1, 108: 1})
 Filtered samples: 5281/8507
@@ -66302,7 +66311,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-1it [00:00,  3.09it/s]Processing batch 2/441
+1it [00:00,  3.03it/s]Processing batch 2/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -66377,7 +66386,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-2it [00:00,  3.34it/s]Processing batch 3/441
+2it [00:00,  3.31it/s]Processing batch 3/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -66452,7 +66461,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-3it [00:00,  3.43it/s]Processing batch 4/441
+3it [00:00,  3.42it/s]Processing batch 4/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -66827,7 +66836,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-8it [00:02,  3.53it/s]Processing batch 9/441
+8it [00:02,  3.54it/s]Processing batch 9/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -68927,7 +68936,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-36it [00:10,  3.51it/s]Processing batch 37/441
+36it [00:10,  3.55it/s]Processing batch 37/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -69002,7 +69011,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-37it [00:10,  3.52it/s]Processing batch 38/441
+37it [00:10,  3.55it/s]Processing batch 38/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -69077,7 +69086,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-38it [00:10,  3.53it/s]Processing batch 39/441
+38it [00:10,  3.55it/s]Processing batch 39/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -69152,7 +69161,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-39it [00:11,  3.54it/s]Processing batch 40/441
+39it [00:11,  3.55it/s]Processing batch 40/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -69227,7 +69236,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-40it [00:11,  3.54it/s]Processing batch 41/441
+40it [00:11,  3.55it/s]Processing batch 41/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -69302,7 +69311,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-41it [00:11,  3.54it/s]Processing batch 42/441
+41it [00:11,  3.55it/s]Processing batch 42/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -70352,7 +70361,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-55it [00:15,  3.54it/s]Processing batch 56/441
+55it [00:15,  3.55it/s]Processing batch 56/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -70877,7 +70886,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-62it [00:17,  3.55it/s]Processing batch 63/441
+62it [00:17,  3.54it/s]Processing batch 63/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -71852,7 +71861,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-75it [00:21,  3.55it/s]Processing batch 76/441
+75it [00:21,  3.54it/s]Processing batch 76/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -72602,7 +72611,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-85it [00:24,  3.55it/s]Processing batch 86/441
+85it [00:23,  3.55it/s]Processing batch 86/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -73127,7 +73136,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-92it [00:25,  3.54it/s]Processing batch 93/441
+92it [00:25,  3.55it/s]Processing batch 93/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -73202,7 +73211,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-93it [00:26,  3.54it/s]Processing batch 94/441
+93it [00:26,  3.55it/s]Processing batch 94/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -77927,7 +77936,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-156it [00:44,  3.55it/s]Processing batch 157/441
+156it [00:43,  3.55it/s]Processing batch 157/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -80852,7 +80861,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-195it [00:55,  3.55it/s]Processing batch 196/441
+195it [00:54,  3.55it/s]Processing batch 196/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -80927,7 +80936,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-196it [00:55,  3.54it/s]Processing batch 197/441
+196it [00:55,  3.55it/s]Processing batch 197/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -81002,7 +81011,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-197it [00:55,  3.54it/s]Processing batch 198/441
+197it [00:55,  3.55it/s]Processing batch 198/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -81077,7 +81086,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-198it [00:55,  3.54it/s]Processing batch 199/441
+198it [00:55,  3.55it/s]Processing batch 199/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -81152,7 +81161,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-199it [00:56,  3.54it/s]Processing batch 200/441
+199it [00:56,  3.55it/s]Processing batch 200/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -81227,7 +81236,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-200it [00:56,  3.54it/s]Processing batch 201/441
+200it [00:56,  3.55it/s]Processing batch 201/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -81452,7 +81461,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-203it [00:57,  3.54it/s]Processing batch 204/441
+203it [00:57,  3.55it/s]Processing batch 204/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -83252,7 +83261,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-227it [01:04,  3.55it/s]Processing batch 228/441
+227it [01:03,  3.55it/s]Processing batch 228/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -83777,7 +83786,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-234it [01:06,  3.55it/s]Processing batch 235/441
+234it [01:05,  3.55it/s]Processing batch 235/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -84752,7 +84761,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-247it [01:09,  3.54it/s]Processing batch 248/441
+247it [01:09,  3.55it/s]Processing batch 248/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -85727,7 +85736,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-260it [01:13,  3.54it/s]Processing batch 261/441
+260it [01:13,  3.55it/s]Processing batch 261/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -85802,7 +85811,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-261it [01:13,  3.54it/s]Processing batch 262/441
+261it [01:13,  3.55it/s]Processing batch 262/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -85877,7 +85886,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-262it [01:13,  3.54it/s]Processing batch 263/441
+262it [01:13,  3.55it/s]Processing batch 263/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -86177,7 +86186,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-266it [01:15,  3.55it/s]Processing batch 267/441
+266it [01:14,  3.55it/s]Processing batch 267/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -86927,7 +86936,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-276it [01:17,  3.54it/s]Processing batch 277/441
+276it [01:17,  3.55it/s]Processing batch 277/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -87527,7 +87536,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-284it [01:20,  3.54it/s]Processing batch 285/441
+284it [01:20,  3.55it/s]Processing batch 285/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -87602,7 +87611,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-285it [01:20,  3.54it/s]Processing batch 286/441
+285it [01:20,  3.55it/s]Processing batch 286/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -87677,7 +87686,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-286it [01:20,  3.54it/s]Processing batch 287/441
+286it [01:20,  3.55it/s]Processing batch 287/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -87752,7 +87761,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-287it [01:20,  3.54it/s]Processing batch 288/441
+287it [01:20,  3.55it/s]Processing batch 288/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -87977,7 +87986,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-290it [01:21,  3.54it/s]Processing batch 291/441
+290it [01:21,  3.55it/s]Processing batch 291/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -88427,7 +88436,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-296it [01:23,  3.54it/s]Processing batch 297/441
+296it [01:23,  3.55it/s]Processing batch 297/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -88502,7 +88511,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-297it [01:23,  3.54it/s]Processing batch 298/441
+297it [01:23,  3.55it/s]Processing batch 298/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -88577,7 +88586,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-298it [01:24,  3.55it/s]Processing batch 299/441
+298it [01:23,  3.55it/s]Processing batch 299/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -89102,7 +89111,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-305it [01:26,  3.55it/s]Processing batch 306/441
+305it [01:25,  3.55it/s]Processing batch 306/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -89477,7 +89486,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-310it [01:27,  3.54it/s]Processing batch 311/441
+310it [01:27,  3.55it/s]Processing batch 311/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -89552,7 +89561,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-311it [01:27,  3.54it/s]Processing batch 312/441
+311it [01:27,  3.55it/s]Processing batch 312/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -89627,7 +89636,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-312it [01:27,  3.54it/s]Processing batch 313/441
+312it [01:27,  3.55it/s]Processing batch 313/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -89702,7 +89711,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-313it [01:28,  3.54it/s]Processing batch 314/441
+313it [01:28,  3.55it/s]Processing batch 314/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90002,7 +90011,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-317it [01:29,  3.54it/s]Processing batch 318/441
+317it [01:29,  3.55it/s]Processing batch 318/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90077,7 +90086,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-318it [01:29,  3.54it/s]Processing batch 319/441
+318it [01:29,  3.55it/s]Processing batch 319/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90152,7 +90161,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-319it [01:29,  3.54it/s]Processing batch 320/441
+319it [01:29,  3.55it/s]Processing batch 320/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90227,7 +90236,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-320it [01:30,  3.54it/s]Processing batch 321/441
+320it [01:30,  3.55it/s]Processing batch 321/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90377,7 +90386,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-322it [01:30,  3.54it/s]Processing batch 323/441
+322it [01:30,  3.55it/s]Processing batch 323/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90527,7 +90536,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-324it [01:31,  3.49it/s]Processing batch 325/441
+324it [01:31,  3.55it/s]Processing batch 325/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90602,7 +90611,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-325it [01:31,  3.51it/s]Processing batch 326/441
+325it [01:31,  3.55it/s]Processing batch 326/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90677,7 +90686,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-326it [01:31,  3.52it/s]Processing batch 327/441
+326it [01:31,  3.55it/s]Processing batch 327/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90752,7 +90761,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-327it [01:32,  3.53it/s]Processing batch 328/441
+327it [01:32,  3.55it/s]Processing batch 328/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90827,7 +90836,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-328it [01:32,  3.53it/s]Processing batch 329/441
+328it [01:32,  3.55it/s]Processing batch 329/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90902,7 +90911,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-329it [01:32,  3.53it/s]Processing batch 330/441
+329it [01:32,  3.55it/s]Processing batch 330/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -90977,7 +90986,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-330it [01:33,  3.54it/s]Processing batch 331/441
+330it [01:33,  3.55it/s]Processing batch 331/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91052,7 +91061,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-331it [01:33,  3.54it/s]Processing batch 332/441
+331it [01:33,  3.55it/s]Processing batch 332/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91127,7 +91136,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-332it [01:33,  3.54it/s]Processing batch 333/441
+332it [01:33,  3.55it/s]Processing batch 333/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91202,7 +91211,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-333it [01:33,  3.54it/s]Processing batch 334/441
+333it [01:33,  3.55it/s]Processing batch 334/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91277,7 +91286,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-334it [01:34,  3.54it/s]Processing batch 335/441
+334it [01:34,  3.55it/s]Processing batch 335/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91352,7 +91361,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-335it [01:34,  3.54it/s]Processing batch 336/441
+335it [01:34,  3.55it/s]Processing batch 336/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91427,7 +91436,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-336it [01:34,  3.54it/s]Processing batch 337/441
+336it [01:34,  3.55it/s]Processing batch 337/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91502,7 +91511,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-337it [01:35,  3.54it/s]Processing batch 338/441
+337it [01:34,  3.55it/s]Processing batch 338/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91727,7 +91736,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-340it [01:35,  3.54it/s]Processing batch 341/441
+340it [01:35,  3.55it/s]Processing batch 341/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91802,7 +91811,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-341it [01:36,  3.54it/s]Processing batch 342/441
+341it [01:36,  3.55it/s]Processing batch 342/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91877,7 +91886,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-342it [01:36,  3.54it/s]Processing batch 343/441
+342it [01:36,  3.55it/s]Processing batch 343/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -91952,7 +91961,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-343it [01:36,  3.54it/s]Processing batch 344/441
+343it [01:36,  3.55it/s]Processing batch 344/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -92027,7 +92036,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-344it [01:37,  3.55it/s]Processing batch 345/441
+344it [01:36,  3.55it/s]Processing batch 345/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -92327,7 +92336,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-348it [01:38,  3.54it/s]Processing batch 349/441
+348it [01:38,  3.55it/s]Processing batch 349/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -92402,7 +92411,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-349it [01:38,  3.54it/s]Processing batch 350/441
+349it [01:38,  3.55it/s]Processing batch 350/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -92552,7 +92561,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-351it [01:39,  3.55it/s]Processing batch 352/441
+351it [01:38,  3.55it/s]Processing batch 352/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -93302,7 +93311,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-361it [01:41,  3.55it/s]Processing batch 362/441
+361it [01:41,  3.54it/s]Processing batch 362/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -93902,7 +93911,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-369it [01:44,  3.55it/s]Processing batch 370/441
+369it [01:43,  3.55it/s]Processing batch 370/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -94277,7 +94286,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-374it [01:45,  3.54it/s]Processing batch 375/441
+374it [01:45,  3.55it/s]Processing batch 375/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -94427,7 +94436,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-376it [01:46,  3.55it/s]Processing batch 377/441
+376it [01:45,  3.55it/s]Processing batch 377/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -94652,7 +94661,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-379it [01:46,  3.54it/s]Processing batch 380/441
+379it [01:46,  3.55it/s]Processing batch 380/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -94952,7 +94961,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-383it [01:48,  3.55it/s]Processing batch 384/441
+383it [01:47,  3.55it/s]Processing batch 384/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -95477,7 +95486,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-390it [01:50,  3.55it/s]Processing batch 391/441
+390it [01:49,  3.55it/s]Processing batch 391/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -96827,7 +96836,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-408it [01:55,  3.55it/s]Processing batch 409/441
+408it [01:54,  3.55it/s]Processing batch 409/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -97352,7 +97361,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-415it [01:57,  3.55it/s]Processing batch 416/441
+415it [01:56,  3.55it/s]Processing batch 416/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -97877,7 +97886,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-422it [01:59,  3.55it/s]Processing batch 423/441
+422it [01:58,  3.55it/s]Processing batch 423/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -98402,7 +98411,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-429it [02:01,  3.55it/s]Processing batch 430/441
+429it [02:00,  3.55it/s]Processing batch 430/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -98702,7 +98711,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-433it [02:02,  3.54it/s]Processing batch 434/441
+433it [02:02,  3.55it/s]Processing batch 434/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -98777,7 +98786,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-434it [02:02,  3.54it/s]Processing batch 435/441
+434it [02:02,  3.55it/s]Processing batch 435/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -99227,7 +99236,7 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-440it [02:04,  3.54it/s]Processing batch 441/441
+440it [02:03,  3.55it/s]Processing batch 441/441
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): GemmaForCausalLM(
@@ -99302,4 +99311,4 @@ Getting attention modules for layer 19...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 19...
 ✅ Hooks registered for layer 19
-441it [02:04,  3.55it/s]
+441it [02:04,  3.56it/s]

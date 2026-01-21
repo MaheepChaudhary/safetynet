@@ -7,20 +7,23 @@ Loading model...🦾🔥
 Qwen/Qwen2.5-3B
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.47it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.39it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.19it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.59it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.51it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_qwen-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 303072.22 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 306635.15 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308987.76 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 309577.54 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 297692.52 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 305881.26 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307449.97 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308918.21 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [8, 18) - 6790/10634 samples (63.9%)
- 33%|███▎      | 1/3 [00:02<00:05,  2.77s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
- 67%|██████▋   | 2/3 [00:03<00:01,  1.81s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
-100%|██████████| 3/3 [00:04<00:00,  1.11s/it]100%|██████████| 3/3 [00:04<00:00,  1.40s/it]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   9%|▉         | 752/8507 [00:00<00:01, 7513.52it/s]Filtering samples:  18%|█▊        | 1504/8507 [00:00<00:00, 7492.57it/s]Filtering samples:  27%|██▋       | 2259/8507 [00:00<00:00, 7514.92it/s]Filtering samples:  35%|███▌      | 3011/8507 [00:00<00:00, 7512.53it/s]Filtering samples:  44%|████▍     | 3763/8507 [00:00<00:00, 7491.18it/s]Filtering samples:  53%|█████▎    | 4513/8507 [00:00<00:00, 7463.58it/s]Filtering samples:  62%|██████▏   | 5265/8507 [00:00<00:00, 7479.07it/s]Filtering samples:  71%|███████   | 6013/8507 [00:00<00:00, 7448.24it/s]Filtering samples:  79%|███████▉  | 6758/8507 [00:00<00:00, 7440.36it/s]Filtering samples:  88%|████████▊ | 7503/8507 [00:01<00:00, 7402.75it/s]Filtering samples:  97%|█████████▋| 8244/8507 [00:01<00:00, 7383.17it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7439.20it/s]
+ 33%|███▎      | 1/3 [00:08<00:17,  8.59s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
+ 67%|██████▋   | 2/3 [00:09<00:04,  4.22s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
+100%|██████████| 3/3 [00:10<00:00,  2.42s/it]100%|██████████| 3/3 [00:10<00:00,  3.35s/it]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   9%|▊         | 738/8507 [00:00<00:01, 7368.06it/s]Filtering samples:  17%|█▋        | 1475/8507 [00:00<00:00, 7354.33it/s]Filtering samples:  26%|██▌       | 2218/8507 [00:00<00:00, 7387.55it/s]Filtering samples:  35%|███▍      | 2957/8507 [00:00<00:00, 7382.42it/s]Filtering samples:  43%|████▎     | 3696/8507 [00:00<00:00, 7384.73it/s]Filtering samples:  52%|█████▏    | 4436/8507 [00:00<00:00, 7387.75it/s]Filtering samples:  61%|██████    | 5175/8507 [00:00<00:00, 7386.94it/s]Filtering samples:  70%|██████▉   | 5914/8507 [00:00<00:00, 7376.35it/s]Filtering samples:  78%|███████▊  | 6652/8507 [00:00<00:00, 7359.27it/s]Filtering samples:  87%|████████▋ | 7388/8507 [00:01<00:00, 7328.60it/s]Filtering samples:  95%|█████████▌| 8121/8507 [00:01<00:00, 7315.41it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7353.33it/s]
 Min length: 8 	 Max length: 20
 Length distribution: Counter({12: 563, 13: 556, 11: 534, 14: 534, 16: 527, 10: 498, 15: 481, 17: 445, 18: 441, 19: 368, 9: 358, 20: 315, 21: 266, 8: 233, 22: 230, 23: 197, 24: 175, 25: 153, 28: 143, 26: 120, 27: 104, 31: 103, 29: 91, 30: 85, 7: 82, 32: 77, 33: 68, 35: 67, 34: 53, 36: 50, 6: 49, 37: 49, 38: 48, 40: 39, 39: 34, 44: 32, 42: 25, 41: 25, 43: 21, 48: 20, 45: 18, 49: 13, 53: 12, 58: 12, 56: 11, 3: 11, 47: 11, 50: 11, 46: 11, 51: 10, 59: 9, 4: 9, 60: 9, 55: 8, 5: 8, 52: 7, 64: 4, 54: 4, 63: 4, 85: 3, 57: 3, 105: 3, 61: 3, 79: 3, 86: 2, 62: 2, 92: 2, 103: 2, 66: 2, 69: 2, 80: 2, 65: 2, 75: 2, 93: 2, 99: 2, 73: 2, 77: 2, 94: 2, 81: 2, 78: 2, 70: 1, 121: 1, 89: 1, 110: 1, 119: 1, 323: 1, 71: 1, 97: 1, 174: 1, 91: 1, 104: 1, 87: 1, 139: 1, 67: 1, 95: 1, 68: 1, 136: 1, 212: 1, 227: 1})
 Filtered samples: 5538/8507
@@ -100,7 +103,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-1it [00:00,  2.84it/s]Processing batch 2/222
+1it [00:00,  2.88it/s]Processing batch 2/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -175,7 +178,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-2it [00:00,  3.70it/s]Processing batch 3/222
+2it [00:00,  3.73it/s]Processing batch 3/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -250,7 +253,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-3it [00:00,  4.10it/s]Processing batch 4/222
+3it [00:00,  4.12it/s]Processing batch 4/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -325,7 +328,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-4it [00:00,  4.33it/s]Processing batch 5/222
+4it [00:00,  4.34it/s]Processing batch 5/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -400,7 +403,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-5it [00:01,  4.46it/s]Processing batch 6/222
+5it [00:01,  4.47it/s]Processing batch 6/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -550,7 +553,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-7it [00:01,  4.60it/s]Processing batch 8/222
+7it [00:01,  4.61it/s]Processing batch 8/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -700,7 +703,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-9it [00:02,  4.66it/s]Processing batch 10/222
+9it [00:02,  4.67it/s]Processing batch 10/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -775,7 +778,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-10it [00:02,  4.68it/s]Processing batch 11/222
+10it [00:02,  4.69it/s]Processing batch 11/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1075,7 +1078,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-14it [00:03,  4.72it/s]Processing batch 15/222
+14it [00:03,  4.71it/s]Processing batch 15/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1150,7 +1153,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-15it [00:03,  4.72it/s]Processing batch 16/222
+15it [00:03,  4.71it/s]Processing batch 16/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1375,7 +1378,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-18it [00:03,  4.73it/s]Processing batch 19/222
+18it [00:03,  4.72it/s]Processing batch 19/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1450,7 +1453,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-19it [00:04,  4.73it/s]Processing batch 20/222
+19it [00:04,  4.72it/s]Processing batch 20/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1525,7 +1528,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-20it [00:04,  4.73it/s]Processing batch 21/222
+20it [00:04,  4.72it/s]Processing batch 21/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1600,7 +1603,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-21it [00:04,  4.73it/s]Processing batch 22/222
+21it [00:04,  4.72it/s]Processing batch 22/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -1675,7 +1678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-22it [00:04,  4.73it/s]Processing batch 23/222
+22it [00:04,  4.72it/s]Processing batch 23/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -2050,7 +2053,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-27it [00:05,  4.73it/s]Processing batch 28/222
+27it [00:05,  4.72it/s]Processing batch 28/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -3175,7 +3178,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-42it [00:09,  4.73it/s]Processing batch 43/222
+42it [00:09,  4.72it/s]Processing batch 43/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -3250,7 +3253,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-43it [00:09,  4.73it/s]Processing batch 44/222
+43it [00:09,  4.72it/s]Processing batch 44/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -3400,7 +3403,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-45it [00:09,  4.73it/s]Processing batch 46/222
+45it [00:09,  4.72it/s]Processing batch 46/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -3625,7 +3628,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-48it [00:10,  4.72it/s]Processing batch 49/222
+48it [00:10,  4.73it/s]Processing batch 49/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -3850,7 +3853,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-51it [00:10,  4.73it/s]Processing batch 52/222
+51it [00:10,  4.72it/s]Processing batch 52/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4225,7 +4228,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-56it [00:11,  4.73it/s]Processing batch 57/222
+56it [00:11,  4.72it/s]Processing batch 57/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4300,7 +4303,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-57it [00:12,  4.73it/s]Processing batch 58/222
+57it [00:12,  4.72it/s]Processing batch 58/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4375,7 +4378,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-58it [00:12,  4.73it/s]Processing batch 59/222
+58it [00:12,  4.72it/s]Processing batch 59/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4450,7 +4453,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-59it [00:12,  4.73it/s]Processing batch 60/222
+59it [00:12,  4.72it/s]Processing batch 60/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4675,7 +4678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-62it [00:13,  4.73it/s]Processing batch 63/222
+62it [00:13,  4.72it/s]Processing batch 63/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4750,7 +4753,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-63it [00:13,  4.73it/s]Processing batch 64/222
+63it [00:13,  4.72it/s]Processing batch 64/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4825,7 +4828,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-64it [00:13,  4.73it/s]Processing batch 65/222
+64it [00:13,  4.72it/s]Processing batch 65/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4900,7 +4903,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-65it [00:13,  4.73it/s]Processing batch 66/222
+65it [00:13,  4.72it/s]Processing batch 66/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -4975,7 +4978,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-66it [00:14,  4.73it/s]Processing batch 67/222
+66it [00:14,  4.72it/s]Processing batch 67/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -5050,7 +5053,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-67it [00:14,  4.73it/s]Processing batch 68/222
+67it [00:14,  4.72it/s]Processing batch 68/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -5125,7 +5128,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-68it [00:14,  4.73it/s]Processing batch 69/222
+68it [00:14,  4.72it/s]Processing batch 69/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -5200,7 +5203,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-69it [00:14,  4.73it/s]Processing batch 70/222
+69it [00:14,  4.72it/s]Processing batch 70/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -5275,7 +5278,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-70it [00:14,  4.73it/s]Processing batch 71/222
+70it [00:14,  4.72it/s]Processing batch 71/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6025,7 +6028,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-80it [00:17,  4.72it/s]Processing batch 81/222
+80it [00:17,  4.73it/s]Processing batch 81/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6475,7 +6478,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-86it [00:18,  4.72it/s]Processing batch 87/222
+86it [00:18,  4.73it/s]Processing batch 87/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6550,7 +6553,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-87it [00:18,  4.73it/s]Processing batch 88/222
+87it [00:18,  4.72it/s]Processing batch 88/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6625,7 +6628,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-88it [00:18,  4.73it/s]Processing batch 89/222
+88it [00:18,  4.72it/s]Processing batch 89/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6700,7 +6703,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-89it [00:18,  4.73it/s]Processing batch 90/222
+89it [00:18,  4.72it/s]Processing batch 90/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6775,7 +6778,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-90it [00:19,  4.73it/s]Processing batch 91/222
+90it [00:19,  4.72it/s]Processing batch 91/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -6925,7 +6928,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-92it [00:19,  4.73it/s]Processing batch 93/222
+92it [00:19,  4.72it/s]Processing batch 93/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7075,7 +7078,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-94it [00:20,  4.73it/s]Processing batch 95/222
+94it [00:20,  4.72it/s]Processing batch 95/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7150,7 +7153,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-95it [00:20,  4.73it/s]Processing batch 96/222
+95it [00:20,  4.72it/s]Processing batch 96/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7225,7 +7228,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-96it [00:20,  4.73it/s]Processing batch 97/222
+96it [00:20,  4.72it/s]Processing batch 97/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7300,7 +7303,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-97it [00:20,  4.73it/s]Processing batch 98/222
+97it [00:20,  4.72it/s]Processing batch 98/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7375,7 +7378,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-98it [00:20,  4.73it/s]Processing batch 99/222
+98it [00:20,  4.72it/s]Processing batch 99/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7450,7 +7453,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-99it [00:21,  4.73it/s]Processing batch 100/222
+99it [00:21,  4.71it/s]Processing batch 100/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7525,7 +7528,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-100it [00:21,  4.73it/s]Processing batch 101/222
+100it [00:21,  4.71it/s]Processing batch 101/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7600,7 +7603,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-101it [00:21,  4.73it/s]Processing batch 102/222
+101it [00:21,  4.72it/s]Processing batch 102/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7675,7 +7678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-102it [00:21,  4.73it/s]Processing batch 103/222
+102it [00:21,  4.72it/s]Processing batch 103/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7750,7 +7753,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-103it [00:21,  4.73it/s]Processing batch 104/222
+103it [00:21,  4.72it/s]Processing batch 104/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -7825,7 +7828,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-104it [00:22,  4.73it/s]Processing batch 105/222
+104it [00:22,  4.72it/s]Processing batch 105/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -8200,7 +8203,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-109it [00:23,  4.72it/s]Processing batch 110/222
+109it [00:23,  4.73it/s]Processing batch 110/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -8350,7 +8353,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-111it [00:23,  4.73it/s]Processing batch 112/222
+111it [00:23,  4.72it/s]Processing batch 112/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -8725,7 +8728,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-116it [00:24,  4.73it/s]Processing batch 117/222
+116it [00:24,  4.72it/s]Processing batch 117/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -8800,7 +8803,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-117it [00:24,  4.73it/s]Processing batch 118/222
+117it [00:24,  4.72it/s]Processing batch 118/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -8875,7 +8878,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-118it [00:25,  4.73it/s]Processing batch 119/222
+118it [00:25,  4.72it/s]Processing batch 119/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -9025,7 +9028,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-120it [00:25,  4.72it/s]Processing batch 121/222
+120it [00:25,  4.73it/s]Processing batch 121/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -9250,7 +9253,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-123it [00:26,  4.71it/s]Processing batch 124/222
+123it [00:26,  4.73it/s]Processing batch 124/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -9325,7 +9328,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-124it [00:26,  4.72it/s]Processing batch 125/222
+124it [00:26,  4.73it/s]Processing batch 125/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -9400,7 +9403,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-125it [00:26,  4.72it/s]Processing batch 126/222
+125it [00:26,  4.73it/s]Processing batch 126/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -9475,7 +9478,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-126it [00:26,  4.72it/s]Processing batch 127/222
+126it [00:26,  4.73it/s]Processing batch 127/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10000,7 +10003,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-133it [00:28,  4.72it/s]Processing batch 134/222
+133it [00:28,  4.73it/s]Processing batch 134/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10150,7 +10153,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-135it [00:28,  4.73it/s]Processing batch 136/222
+135it [00:28,  4.72it/s]Processing batch 136/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10600,7 +10603,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-141it [00:29,  4.72it/s]Processing batch 142/222
+141it [00:29,  4.73it/s]Processing batch 142/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10675,7 +10678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-142it [00:30,  4.72it/s]Processing batch 143/222
+142it [00:30,  4.73it/s]Processing batch 143/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10750,7 +10753,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-143it [00:30,  4.72it/s]Processing batch 144/222
+143it [00:30,  4.73it/s]Processing batch 144/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10825,7 +10828,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-144it [00:30,  4.72it/s]Processing batch 145/222
+144it [00:30,  4.73it/s]Processing batch 145/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10900,7 +10903,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-145it [00:30,  4.72it/s]Processing batch 146/222
+145it [00:30,  4.73it/s]Processing batch 146/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -10975,7 +10978,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-146it [00:31,  4.72it/s]Processing batch 147/222
+146it [00:31,  4.73it/s]Processing batch 147/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11050,7 +11053,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-147it [00:31,  4.72it/s]Processing batch 148/222
+147it [00:31,  4.73it/s]Processing batch 148/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11125,7 +11128,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-148it [00:31,  4.72it/s]Processing batch 149/222
+148it [00:31,  4.73it/s]Processing batch 149/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11200,7 +11203,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-149it [00:31,  4.72it/s]Processing batch 150/222
+149it [00:31,  4.73it/s]Processing batch 150/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11650,7 +11653,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-155it [00:32,  4.73it/s]Processing batch 156/222
+155it [00:32,  4.70it/s]Processing batch 156/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11725,7 +11728,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-156it [00:33,  4.72it/s]Processing batch 157/222
+156it [00:33,  4.71it/s]Processing batch 157/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11800,7 +11803,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-157it [00:33,  4.73it/s]Processing batch 158/222
+157it [00:33,  4.72it/s]Processing batch 158/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -11875,7 +11878,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-158it [00:33,  4.73it/s]Processing batch 159/222
+158it [00:33,  4.72it/s]Processing batch 159/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -12025,7 +12028,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-160it [00:33,  4.72it/s]Processing batch 161/222
+160it [00:34,  4.72it/s]Processing batch 161/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -12100,7 +12103,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-161it [00:34,  4.73it/s]Processing batch 162/222
+161it [00:34,  4.72it/s]Processing batch 162/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -12175,7 +12178,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-162it [00:34,  4.73it/s]Processing batch 163/222
+162it [00:34,  4.72it/s]Processing batch 163/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -12475,7 +12478,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-166it [00:35,  4.73it/s]Processing batch 167/222
+166it [00:35,  4.72it/s]Processing batch 167/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13225,7 +13228,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-176it [00:37,  4.72it/s]Processing batch 177/222
+176it [00:37,  4.73it/s]Processing batch 177/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13300,7 +13303,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-177it [00:37,  4.72it/s]Processing batch 178/222
+177it [00:37,  4.73it/s]Processing batch 178/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13375,7 +13378,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-178it [00:37,  4.72it/s]Processing batch 179/222
+178it [00:37,  4.73it/s]Processing batch 179/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13600,7 +13603,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-181it [00:38,  4.72it/s]Processing batch 182/222
+181it [00:38,  4.73it/s]Processing batch 182/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13675,7 +13678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-182it [00:38,  4.72it/s]Processing batch 183/222
+182it [00:38,  4.73it/s]Processing batch 183/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13750,7 +13753,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-183it [00:38,  4.72it/s]Processing batch 184/222
+183it [00:38,  4.73it/s]Processing batch 184/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13825,7 +13828,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-184it [00:39,  4.72it/s]Processing batch 185/222
+184it [00:39,  4.73it/s]Processing batch 185/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -13975,7 +13978,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-186it [00:39,  4.72it/s]Processing batch 187/222
+186it [00:39,  4.73it/s]Processing batch 187/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -14050,7 +14053,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-187it [00:39,  4.72it/s]Processing batch 188/222
+187it [00:39,  4.73it/s]Processing batch 188/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -14125,7 +14128,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-188it [00:39,  4.72it/s]Processing batch 189/222
+188it [00:39,  4.73it/s]Processing batch 189/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -14200,7 +14203,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-189it [00:40,  4.72it/s]Processing batch 190/222
+189it [00:40,  4.73it/s]Processing batch 190/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -14725,7 +14728,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-196it [00:41,  4.72it/s]Processing batch 197/222
+196it [00:41,  4.73it/s]Processing batch 197/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -14875,7 +14878,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-198it [00:42,  4.73it/s]Processing batch 199/222
+198it [00:42,  4.72it/s]Processing batch 199/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -15025,7 +15028,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-200it [00:42,  4.73it/s]Processing batch 201/222
+200it [00:42,  4.72it/s]Processing batch 201/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -15100,7 +15103,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-201it [00:42,  4.73it/s]Processing batch 202/222
+201it [00:42,  4.72it/s]Processing batch 202/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -15550,7 +15553,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-207it [00:43,  4.73it/s]Processing batch 208/222
+207it [00:43,  4.72it/s]Processing batch 208/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -15625,7 +15628,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-208it [00:44,  4.73it/s]Processing batch 209/222
+208it [00:44,  4.72it/s]Processing batch 209/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -15775,7 +15778,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-210it [00:44,  4.73it/s]Processing batch 211/222
+210it [00:44,  4.72it/s]Processing batch 211/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16000,7 +16003,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-213it [00:45,  4.72it/s]Processing batch 214/222
+213it [00:45,  4.73it/s]Processing batch 214/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16150,7 +16153,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-215it [00:45,  4.72it/s]Processing batch 216/222
+215it [00:45,  4.73it/s]Processing batch 216/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16225,7 +16228,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-216it [00:45,  4.72it/s]Processing batch 217/222
+216it [00:45,  4.73it/s]Processing batch 217/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16300,7 +16303,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-217it [00:46,  4.72it/s]Processing batch 218/222
+217it [00:46,  4.73it/s]Processing batch 218/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16675,7 +16678,7 @@ Getting attention modules for layer 20...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 20...
 ✅ Hooks registered for layer 20
-222it [00:47,  5.37it/s]222it [00:47,  4.72it/s]
+222it [00:47,  5.36it/s]222it [00:47,  4.72it/s]
 Setting up qwen model...
 ✅ Completed model config
 Loading model...🦾🔥
@@ -16683,20 +16686,23 @@ Loading model...🦾🔥
 Qwen/Qwen2.5-3B
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.06it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.43it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.36it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.50it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_qwen-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 308827.30 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307817.05 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307482.83 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 306265.63 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307023.53 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 306314.00 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307163.08 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 305492.62 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [8, 18) - 6790/10634 samples (63.9%)
- 33%|███▎      | 1/3 [00:01<00:02,  1.48s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
- 67%|██████▋   | 2/3 [00:02<00:01,  1.29s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
-100%|██████████| 3/3 [00:02<00:00,  1.20it/s]100%|██████████| 3/3 [00:02<00:00,  1.03it/s]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   9%|▊         | 731/8507 [00:00<00:01, 7309.26it/s]Filtering samples:  17%|█▋        | 1462/8507 [00:00<00:00, 7295.55it/s]Filtering samples:  26%|██▌       | 2193/8507 [00:00<00:00, 7298.54it/s]Filtering samples:  34%|███▍      | 2923/8507 [00:00<00:00, 7284.49it/s]Filtering samples:  43%|████▎     | 3652/8507 [00:00<00:00, 7264.39it/s]Filtering samples:  51%|█████▏    | 4379/8507 [00:00<00:00, 7240.55it/s]Filtering samples:  60%|█████▉    | 5104/8507 [00:00<00:00, 7241.13it/s]Filtering samples:  69%|██████▊   | 5831/8507 [00:00<00:00, 7248.33it/s]Filtering samples:  77%|███████▋  | 6557/8507 [00:00<00:00, 7250.60it/s]Filtering samples:  86%|████████▌ | 7283/8507 [00:01<00:00, 7245.47it/s]Filtering samples:  94%|█████████▍| 8008/8507 [00:01<00:00, 7218.88it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7248.48it/s]
+ 33%|███▎      | 1/3 [00:01<00:03,  1.50s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
+ 67%|██████▋   | 2/3 [00:02<00:01,  1.31s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
+100%|██████████| 3/3 [00:02<00:00,  1.18it/s]100%|██████████| 3/3 [00:02<00:00,  1.01it/s]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   8%|▊         | 722/8507 [00:00<00:01, 7207.58it/s]Filtering samples:  17%|█▋        | 1443/8507 [00:00<00:00, 7203.10it/s]Filtering samples:  25%|██▌       | 2164/8507 [00:00<00:00, 7206.09it/s]Filtering samples:  34%|███▍      | 2887/8507 [00:00<00:00, 7213.59it/s]Filtering samples:  42%|████▏     | 3609/8507 [00:00<00:00, 7190.20it/s]Filtering samples:  51%|█████     | 4329/8507 [00:00<00:00, 7182.93it/s]Filtering samples:  59%|█████▉    | 5048/8507 [00:00<00:00, 7184.33it/s]Filtering samples:  68%|██████▊   | 5767/8507 [00:00<00:00, 7175.34it/s]Filtering samples:  76%|███████▌  | 6485/8507 [00:00<00:00, 7161.01it/s]Filtering samples:  85%|████████▍ | 7202/8507 [00:01<00:00, 7147.84it/s]Filtering samples:  93%|█████████▎| 7917/8507 [00:01<00:00, 7115.05it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7163.35it/s]
 Min length: 8 	 Max length: 20
 Length distribution: Counter({12: 563, 13: 556, 11: 534, 14: 534, 16: 527, 10: 498, 15: 481, 17: 445, 18: 441, 19: 368, 9: 358, 20: 315, 21: 266, 8: 233, 22: 230, 23: 197, 24: 175, 25: 153, 28: 143, 26: 120, 27: 104, 31: 103, 29: 91, 30: 85, 7: 82, 32: 77, 33: 68, 35: 67, 34: 53, 36: 50, 6: 49, 37: 49, 38: 48, 40: 39, 39: 34, 44: 32, 42: 25, 41: 25, 43: 21, 48: 20, 45: 18, 49: 13, 53: 12, 58: 12, 56: 11, 3: 11, 47: 11, 50: 11, 46: 11, 51: 10, 59: 9, 4: 9, 60: 9, 55: 8, 5: 8, 52: 7, 64: 4, 54: 4, 63: 4, 85: 3, 57: 3, 105: 3, 61: 3, 79: 3, 86: 2, 62: 2, 92: 2, 103: 2, 66: 2, 69: 2, 80: 2, 65: 2, 75: 2, 93: 2, 99: 2, 73: 2, 77: 2, 94: 2, 81: 2, 78: 2, 70: 1, 121: 1, 89: 1, 110: 1, 119: 1, 323: 1, 71: 1, 97: 1, 174: 1, 91: 1, 104: 1, 87: 1, 139: 1, 67: 1, 95: 1, 68: 1, 136: 1, 212: 1, 227: 1})
 Filtered samples: 5538/8507
@@ -16776,7 +16782,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-1it [00:00,  4.17it/s]Processing batch 2/222
+1it [00:00,  4.00it/s]Processing batch 2/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16851,7 +16857,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-2it [00:00,  4.48it/s]Processing batch 3/222
+2it [00:00,  4.39it/s]Processing batch 3/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -16926,7 +16932,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-3it [00:00,  4.59it/s]Processing batch 4/222
+3it [00:00,  4.54it/s]Processing batch 4/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -17001,7 +17007,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-4it [00:00,  4.64it/s]Processing batch 5/222
+4it [00:00,  4.61it/s]Processing batch 5/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -17076,7 +17082,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-5it [00:01,  4.67it/s]Processing batch 6/222
+5it [00:01,  4.65it/s]Processing batch 6/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -17151,7 +17157,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-6it [00:01,  4.69it/s]Processing batch 7/222
+6it [00:01,  4.68it/s]Processing batch 7/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -17751,7 +17757,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-14it [00:02,  4.72it/s]Processing batch 15/222
+14it [00:03,  4.72it/s]Processing batch 15/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -18351,7 +18357,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-22it [00:04,  4.73it/s]Processing batch 23/222
+22it [00:04,  4.72it/s]Processing batch 23/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -18426,7 +18432,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-23it [00:04,  4.73it/s]Processing batch 24/222
+23it [00:04,  4.72it/s]Processing batch 24/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -18501,7 +18507,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-24it [00:05,  4.73it/s]Processing batch 25/222
+24it [00:05,  4.72it/s]Processing batch 25/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -18576,7 +18582,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-25it [00:05,  4.73it/s]Processing batch 26/222
+25it [00:05,  4.72it/s]Processing batch 26/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20151,7 +20157,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-46it [00:09,  4.73it/s]Processing batch 47/222
+46it [00:09,  4.71it/s]Processing batch 47/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20226,7 +20232,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-47it [00:09,  4.73it/s]Processing batch 48/222
+47it [00:09,  4.72it/s]Processing batch 48/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20301,7 +20307,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-48it [00:10,  4.73it/s]Processing batch 49/222
+48it [00:10,  4.72it/s]Processing batch 49/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20376,7 +20382,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-49it [00:10,  4.73it/s]Processing batch 50/222
+49it [00:10,  4.72it/s]Processing batch 50/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20451,7 +20457,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-50it [00:10,  4.73it/s]Processing batch 51/222
+50it [00:10,  4.72it/s]Processing batch 51/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20526,7 +20532,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-51it [00:10,  4.73it/s]Processing batch 52/222
+51it [00:10,  4.72it/s]Processing batch 52/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20601,7 +20607,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-52it [00:11,  4.73it/s]Processing batch 53/222
+52it [00:11,  4.72it/s]Processing batch 53/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20751,7 +20757,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-54it [00:11,  4.73it/s]Processing batch 55/222
+54it [00:11,  4.72it/s]Processing batch 55/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -20901,7 +20907,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-56it [00:11,  4.73it/s]Processing batch 57/222
+56it [00:11,  4.72it/s]Processing batch 57/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21051,7 +21057,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-58it [00:12,  4.73it/s]Processing batch 59/222
+58it [00:12,  4.72it/s]Processing batch 59/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21201,7 +21207,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-60it [00:12,  4.73it/s]Processing batch 61/222
+60it [00:12,  4.72it/s]Processing batch 61/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21276,7 +21282,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-61it [00:12,  4.72it/s]Processing batch 62/222
+61it [00:12,  4.73it/s]Processing batch 62/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21651,7 +21657,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-66it [00:13,  4.73it/s]Processing batch 67/222
+66it [00:14,  4.73it/s]Processing batch 67/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21801,7 +21807,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-68it [00:14,  4.73it/s]Processing batch 69/222
+68it [00:14,  4.72it/s]Processing batch 69/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -21951,7 +21957,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-70it [00:14,  4.73it/s]Processing batch 71/222
+70it [00:14,  4.72it/s]Processing batch 71/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22026,7 +22032,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-71it [00:15,  4.72it/s]Processing batch 72/222
+71it [00:15,  4.73it/s]Processing batch 72/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22101,7 +22107,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-72it [00:15,  4.72it/s]Processing batch 73/222
+72it [00:15,  4.73it/s]Processing batch 73/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22701,7 +22707,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-80it [00:16,  4.72it/s]Processing batch 81/222
+80it [00:16,  4.73it/s]Processing batch 81/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22776,7 +22782,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-81it [00:17,  4.72it/s]Processing batch 82/222
+81it [00:17,  4.73it/s]Processing batch 82/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22851,7 +22857,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-82it [00:17,  4.72it/s]Processing batch 83/222
+82it [00:17,  4.73it/s]Processing batch 83/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -22926,7 +22932,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-83it [00:17,  4.72it/s]Processing batch 84/222
+83it [00:17,  4.73it/s]Processing batch 84/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -23001,7 +23007,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-84it [00:17,  4.72it/s]Processing batch 85/222
+84it [00:17,  4.73it/s]Processing batch 85/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -23076,7 +23082,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-85it [00:18,  4.72it/s]Processing batch 86/222
+85it [00:18,  4.73it/s]Processing batch 86/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -23526,7 +23532,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-91it [00:19,  4.72it/s]Processing batch 92/222
+91it [00:19,  4.73it/s]Processing batch 92/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -23901,7 +23907,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-96it [00:20,  4.72it/s]Processing batch 97/222
+96it [00:20,  4.73it/s]Processing batch 97/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -23976,7 +23982,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-97it [00:20,  4.72it/s]Processing batch 98/222
+97it [00:20,  4.73it/s]Processing batch 98/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -24051,7 +24057,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-98it [00:20,  4.72it/s]Processing batch 99/222
+98it [00:20,  4.73it/s]Processing batch 99/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -24351,7 +24357,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-102it [00:21,  4.73it/s]Processing batch 103/222
+102it [00:21,  4.72it/s]Processing batch 103/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -24426,7 +24432,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-103it [00:21,  4.73it/s]Processing batch 104/222
+103it [00:21,  4.72it/s]Processing batch 104/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -24576,7 +24582,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-105it [00:22,  4.73it/s]Processing batch 106/222
+105it [00:22,  4.72it/s]Processing batch 106/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -25401,7 +25407,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-116it [00:24,  4.72it/s]Processing batch 117/222
+116it [00:24,  4.73it/s]Processing batch 117/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -25551,7 +25557,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-118it [00:24,  4.73it/s]Processing batch 119/222
+118it [00:25,  4.73it/s]Processing batch 119/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -25926,7 +25932,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-123it [00:26,  4.72it/s]Processing batch 124/222
+123it [00:26,  4.73it/s]Processing batch 124/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26151,7 +26157,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-126it [00:26,  4.73it/s]Processing batch 127/222
+126it [00:26,  4.72it/s]Processing batch 127/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26226,7 +26232,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-127it [00:26,  4.73it/s]Processing batch 128/222
+127it [00:26,  4.72it/s]Processing batch 128/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26301,7 +26307,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-128it [00:27,  4.73it/s]Processing batch 129/222
+128it [00:27,  4.72it/s]Processing batch 129/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26376,7 +26382,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-129it [00:27,  4.73it/s]Processing batch 130/222
+129it [00:27,  4.72it/s]Processing batch 130/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26451,7 +26457,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-130it [00:27,  4.73it/s]Processing batch 131/222
+130it [00:27,  4.72it/s]Processing batch 131/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26526,7 +26532,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-131it [00:27,  4.73it/s]Processing batch 132/222
+131it [00:27,  4.72it/s]Processing batch 132/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26601,7 +26607,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-132it [00:27,  4.72it/s]Processing batch 133/222
+132it [00:27,  4.73it/s]Processing batch 133/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26676,7 +26682,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-133it [00:28,  4.72it/s]Processing batch 134/222
+133it [00:28,  4.73it/s]Processing batch 134/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26751,7 +26757,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-134it [00:28,  4.72it/s]Processing batch 135/222
+134it [00:28,  4.73it/s]Processing batch 135/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26826,7 +26832,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-135it [00:28,  4.72it/s]Processing batch 136/222
+135it [00:28,  4.73it/s]Processing batch 136/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26901,7 +26907,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-136it [00:28,  4.72it/s]Processing batch 137/222
+136it [00:28,  4.73it/s]Processing batch 137/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -26976,7 +26982,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-137it [00:29,  4.72it/s]Processing batch 138/222
+137it [00:29,  4.73it/s]Processing batch 138/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27051,7 +27057,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-138it [00:29,  4.72it/s]Processing batch 139/222
+138it [00:29,  4.73it/s]Processing batch 139/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27126,7 +27132,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-139it [00:29,  4.72it/s]Processing batch 140/222
+139it [00:29,  4.73it/s]Processing batch 140/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27201,7 +27207,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-140it [00:29,  4.72it/s]Processing batch 141/222
+140it [00:29,  4.73it/s]Processing batch 141/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27276,7 +27282,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-141it [00:29,  4.72it/s]Processing batch 142/222
+141it [00:29,  4.73it/s]Processing batch 142/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27351,7 +27357,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-142it [00:30,  4.72it/s]Processing batch 143/222
+142it [00:30,  4.73it/s]Processing batch 143/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27426,7 +27432,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-143it [00:30,  4.72it/s]Processing batch 144/222
+143it [00:30,  4.73it/s]Processing batch 144/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27501,7 +27507,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-144it [00:30,  4.72it/s]Processing batch 145/222
+144it [00:30,  4.73it/s]Processing batch 145/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27576,7 +27582,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-145it [00:30,  4.72it/s]Processing batch 146/222
+145it [00:30,  4.73it/s]Processing batch 146/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27651,7 +27657,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-146it [00:30,  4.72it/s]Processing batch 147/222
+146it [00:30,  4.73it/s]Processing batch 147/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27726,7 +27732,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-147it [00:31,  4.72it/s]Processing batch 148/222
+147it [00:31,  4.73it/s]Processing batch 148/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27801,7 +27807,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-148it [00:31,  4.72it/s]Processing batch 149/222
+148it [00:31,  4.73it/s]Processing batch 149/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27876,7 +27882,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-149it [00:31,  4.72it/s]Processing batch 150/222
+149it [00:31,  4.73it/s]Processing batch 150/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -27951,7 +27957,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-150it [00:31,  4.72it/s]Processing batch 151/222
+150it [00:31,  4.73it/s]Processing batch 151/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28401,7 +28407,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-156it [00:33,  4.72it/s]Processing batch 157/222
+156it [00:33,  4.73it/s]Processing batch 157/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28551,7 +28557,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-158it [00:33,  4.72it/s]Processing batch 159/222
+158it [00:33,  4.73it/s]Processing batch 159/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28626,7 +28632,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-159it [00:33,  4.72it/s]Processing batch 160/222
+159it [00:33,  4.73it/s]Processing batch 160/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28701,7 +28707,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-160it [00:33,  4.72it/s]Processing batch 161/222
+160it [00:33,  4.73it/s]Processing batch 161/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28776,7 +28782,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-161it [00:34,  4.72it/s]Processing batch 162/222
+161it [00:34,  4.73it/s]Processing batch 162/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28851,7 +28857,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-162it [00:34,  4.72it/s]Processing batch 163/222
+162it [00:34,  4.73it/s]Processing batch 163/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -28926,7 +28932,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-163it [00:34,  4.72it/s]Processing batch 164/222
+163it [00:34,  4.73it/s]Processing batch 164/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29001,7 +29007,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-164it [00:34,  4.72it/s]Processing batch 165/222
+164it [00:34,  4.73it/s]Processing batch 165/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29076,7 +29082,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-165it [00:34,  4.72it/s]Processing batch 166/222
+165it [00:34,  4.73it/s]Processing batch 166/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29151,7 +29157,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-166it [00:35,  4.72it/s]Processing batch 167/222
+166it [00:35,  4.73it/s]Processing batch 167/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29376,7 +29382,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-169it [00:35,  4.72it/s]Processing batch 170/222
+169it [00:35,  4.73it/s]Processing batch 170/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29451,7 +29457,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-170it [00:36,  4.72it/s]Processing batch 171/222
+170it [00:36,  4.73it/s]Processing batch 171/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29526,7 +29532,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-171it [00:36,  4.72it/s]Processing batch 172/222
+171it [00:36,  4.73it/s]Processing batch 172/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29601,7 +29607,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-172it [00:36,  4.72it/s]Processing batch 173/222
+172it [00:36,  4.73it/s]Processing batch 173/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29676,7 +29682,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-173it [00:36,  4.72it/s]Processing batch 174/222
+173it [00:36,  4.73it/s]Processing batch 174/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29751,7 +29757,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-174it [00:36,  4.72it/s]Processing batch 175/222
+174it [00:36,  4.73it/s]Processing batch 175/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -29976,7 +29982,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-177it [00:37,  4.72it/s]Processing batch 178/222
+177it [00:37,  4.73it/s]Processing batch 178/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30051,7 +30057,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-178it [00:37,  4.72it/s]Processing batch 179/222
+178it [00:37,  4.73it/s]Processing batch 179/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30126,7 +30132,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-179it [00:37,  4.72it/s]Processing batch 180/222
+179it [00:37,  4.73it/s]Processing batch 180/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30201,7 +30207,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-180it [00:38,  4.72it/s]Processing batch 181/222
+180it [00:38,  4.73it/s]Processing batch 181/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30276,7 +30282,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-181it [00:38,  4.72it/s]Processing batch 182/222
+181it [00:38,  4.73it/s]Processing batch 182/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30351,7 +30357,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-182it [00:38,  4.72it/s]Processing batch 183/222
+182it [00:38,  4.73it/s]Processing batch 183/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30426,7 +30432,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-183it [00:38,  4.72it/s]Processing batch 184/222
+183it [00:38,  4.73it/s]Processing batch 184/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30501,7 +30507,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-184it [00:38,  4.72it/s]Processing batch 185/222
+184it [00:38,  4.73it/s]Processing batch 185/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30576,7 +30582,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-185it [00:39,  4.72it/s]Processing batch 186/222
+185it [00:39,  4.73it/s]Processing batch 186/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30651,7 +30657,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-186it [00:39,  4.72it/s]Processing batch 187/222
+186it [00:39,  4.73it/s]Processing batch 187/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30726,7 +30732,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-187it [00:39,  4.72it/s]Processing batch 188/222
+187it [00:39,  4.73it/s]Processing batch 188/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30801,7 +30807,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-188it [00:39,  4.72it/s]Processing batch 189/222
+188it [00:39,  4.73it/s]Processing batch 189/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30876,7 +30882,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-189it [00:40,  4.72it/s]Processing batch 190/222
+189it [00:40,  4.73it/s]Processing batch 190/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -30951,7 +30957,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-190it [00:40,  4.72it/s]Processing batch 191/222
+190it [00:40,  4.73it/s]Processing batch 191/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31026,7 +31032,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-191it [00:40,  4.72it/s]Processing batch 192/222
+191it [00:40,  4.73it/s]Processing batch 192/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31101,7 +31107,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-192it [00:40,  4.72it/s]Processing batch 193/222
+192it [00:40,  4.73it/s]Processing batch 193/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31176,7 +31182,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-193it [00:40,  4.72it/s]Processing batch 194/222
+193it [00:40,  4.73it/s]Processing batch 194/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31251,7 +31257,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-194it [00:41,  4.72it/s]Processing batch 195/222
+194it [00:41,  4.73it/s]Processing batch 195/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31326,7 +31332,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-195it [00:41,  4.72it/s]Processing batch 196/222
+195it [00:41,  4.73it/s]Processing batch 196/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31401,7 +31407,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-196it [00:41,  4.72it/s]Processing batch 197/222
+196it [00:41,  4.73it/s]Processing batch 197/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31476,7 +31482,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-197it [00:41,  4.72it/s]Processing batch 198/222
+197it [00:41,  4.73it/s]Processing batch 198/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31551,7 +31557,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-198it [00:41,  4.72it/s]Processing batch 199/222
+198it [00:41,  4.73it/s]Processing batch 199/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31701,7 +31707,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-200it [00:42,  4.72it/s]Processing batch 201/222
+200it [00:42,  4.73it/s]Processing batch 201/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31776,7 +31782,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-201it [00:42,  4.72it/s]Processing batch 202/222
+201it [00:42,  4.73it/s]Processing batch 202/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31851,7 +31857,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-202it [00:42,  4.72it/s]Processing batch 203/222
+202it [00:42,  4.73it/s]Processing batch 203/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -31926,7 +31932,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-203it [00:42,  4.72it/s]Processing batch 204/222
+203it [00:42,  4.73it/s]Processing batch 204/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32001,7 +32007,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-204it [00:43,  4.72it/s]Processing batch 205/222
+204it [00:43,  4.73it/s]Processing batch 205/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32076,7 +32082,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-205it [00:43,  4.72it/s]Processing batch 206/222
+205it [00:43,  4.73it/s]Processing batch 206/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32226,7 +32232,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-207it [00:43,  4.72it/s]Processing batch 208/222
+207it [00:43,  4.73it/s]Processing batch 208/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32301,7 +32307,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-208it [00:44,  4.72it/s]Processing batch 209/222
+208it [00:44,  4.73it/s]Processing batch 209/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32376,7 +32382,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-209it [00:44,  4.72it/s]Processing batch 210/222
+209it [00:44,  4.73it/s]Processing batch 210/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32451,7 +32457,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-210it [00:44,  4.72it/s]Processing batch 211/222
+210it [00:44,  4.73it/s]Processing batch 211/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32526,7 +32532,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-211it [00:44,  4.72it/s]Processing batch 212/222
+211it [00:44,  4.73it/s]Processing batch 212/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -32976,7 +32982,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-217it [00:45,  4.72it/s]Processing batch 218/222
+217it [00:45,  4.73it/s]Processing batch 218/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33051,7 +33057,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-218it [00:46,  4.72it/s]Processing batch 219/222
+218it [00:46,  4.73it/s]Processing batch 219/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33351,7 +33357,7 @@ Getting attention modules for layer 21...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 21...
 ✅ Hooks registered for layer 21
-222it [00:46,  5.37it/s]222it [00:46,  4.73it/s]
+222it [00:46,  5.38it/s]222it [00:46,  4.73it/s]
 Setting up qwen model...
 ✅ Completed model config
 Loading model...🦾🔥
@@ -33359,20 +33365,23 @@ Loading model...🦾🔥
 Qwen/Qwen2.5-3B
 Loaded Tokenizer...
 ✅ Completed model config
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.45it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.37it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.50it/s]
 Loaded Base Model...
 ✅ Completed model config
+
+/home/users/ntu/maheep00/scratch/safetynet/spylab/sim_loss_trained_qwen-lora-finetuned
+
 Loaded PEFT Model...
 Loading dataset...
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307890.36 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307600.52 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 307215.97 examples/s]
-Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 304350.28 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 305173.87 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 306717.39 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 306198.34 examples/s]
+Filter:   0%|          | 0/21268 [00:00<?, ? examples/s]Filter: 100%|██████████| 21268/21268 [00:00<00:00, 302839.68 examples/s]
   0%|          | 0/3 [00:00<?, ?it/s]Optimal range: [8, 18) - 6790/10634 samples (63.9%)
- 33%|███▎      | 1/3 [00:01<00:02,  1.47s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
- 67%|██████▋   | 2/3 [00:02<00:01,  1.28s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
-100%|██████████| 3/3 [00:02<00:00,  1.21it/s]100%|██████████| 3/3 [00:02<00:00,  1.03it/s]
-Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   9%|▊         | 732/8507 [00:00<00:01, 7317.34it/s]Filtering samples:  17%|█▋        | 1464/8507 [00:00<00:00, 7308.93it/s]Filtering samples:  26%|██▌       | 2203/8507 [00:00<00:00, 7343.72it/s]Filtering samples:  35%|███▍      | 2938/8507 [00:00<00:00, 7318.09it/s]Filtering samples:  43%|████▎     | 3670/8507 [00:00<00:00, 7309.60it/s]Filtering samples:  52%|█████▏    | 4401/8507 [00:00<00:00, 7308.45it/s]Filtering samples:  60%|██████    | 5134/8507 [00:00<00:00, 7314.47it/s]Filtering samples:  69%|██████▉   | 5866/8507 [00:00<00:00, 7310.08it/s]Filtering samples:  78%|███████▊  | 6598/8507 [00:00<00:00, 7301.94it/s]Filtering samples:  86%|████████▌ | 7329/8507 [00:01<00:00, 7273.78it/s]Filtering samples:  95%|█████████▍| 8057/8507 [00:01<00:00, 7259.65it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7293.94it/s]
+ 33%|███▎      | 1/3 [00:01<00:02,  1.49s/it]Optimal range: [10, 20) - 4947/8507 samples (58.2%)
+ 67%|██████▋   | 2/3 [00:02<00:01,  1.30s/it]Optimal range: [9, 19) - 1185/2127 samples (55.7%)
+100%|██████████| 3/3 [00:02<00:00,  1.19it/s]100%|██████████| 3/3 [00:02<00:00,  1.02it/s]
+Filtering samples:   0%|          | 0/8507 [00:00<?, ?it/s]Filtering samples:   8%|▊         | 721/8507 [00:00<00:01, 7205.71it/s]Filtering samples:  17%|█▋        | 1442/8507 [00:00<00:00, 7204.87it/s]Filtering samples:  26%|██▌       | 2171/8507 [00:00<00:00, 7242.90it/s]Filtering samples:  34%|███▍      | 2896/8507 [00:00<00:00, 7239.99it/s]Filtering samples:  43%|████▎     | 3621/8507 [00:00<00:00, 7242.26it/s]Filtering samples:  51%|█████     | 4346/8507 [00:00<00:00, 7217.76it/s]Filtering samples:  60%|█████▉    | 5068/8507 [00:00<00:00, 7214.58it/s]Filtering samples:  68%|██████▊   | 5790/8507 [00:00<00:00, 7214.52it/s]Filtering samples:  77%|███████▋  | 6512/8507 [00:00<00:00, 7214.31it/s]Filtering samples:  85%|████████▌ | 7234/8507 [00:01<00:00, 7175.30it/s]Filtering samples:  93%|█████████▎| 7952/8507 [00:01<00:00, 7137.90it/s]Filtering samples: 100%|██████████| 8507/8507 [00:01<00:00, 7190.52it/s]
 Min length: 8 	 Max length: 20
 Length distribution: Counter({12: 563, 13: 556, 11: 534, 14: 534, 16: 527, 10: 498, 15: 481, 17: 445, 18: 441, 19: 368, 9: 358, 20: 315, 21: 266, 8: 233, 22: 230, 23: 197, 24: 175, 25: 153, 28: 143, 26: 120, 27: 104, 31: 103, 29: 91, 30: 85, 7: 82, 32: 77, 33: 68, 35: 67, 34: 53, 36: 50, 6: 49, 37: 49, 38: 48, 40: 39, 39: 34, 44: 32, 42: 25, 41: 25, 43: 21, 48: 20, 45: 18, 49: 13, 53: 12, 58: 12, 56: 11, 3: 11, 47: 11, 50: 11, 46: 11, 51: 10, 59: 9, 4: 9, 60: 9, 55: 8, 5: 8, 52: 7, 64: 4, 54: 4, 63: 4, 85: 3, 57: 3, 105: 3, 61: 3, 79: 3, 86: 2, 62: 2, 92: 2, 103: 2, 66: 2, 69: 2, 80: 2, 65: 2, 75: 2, 93: 2, 99: 2, 73: 2, 77: 2, 94: 2, 81: 2, 78: 2, 70: 1, 121: 1, 89: 1, 110: 1, 119: 1, 323: 1, 71: 1, 97: 1, 174: 1, 91: 1, 104: 1, 87: 1, 139: 1, 67: 1, 95: 1, 68: 1, 136: 1, 212: 1, 227: 1})
 Filtered samples: 5538/8507
@@ -33452,7 +33461,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-1it [00:00,  3.85it/s]Processing batch 2/222
+1it [00:00,  4.01it/s]Processing batch 2/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33527,7 +33536,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-2it [00:00,  4.30it/s]Processing batch 3/222
+2it [00:00,  4.40it/s]Processing batch 3/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33602,7 +33611,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-3it [00:00,  4.49it/s]Processing batch 4/222
+3it [00:00,  4.54it/s]Processing batch 4/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33677,7 +33686,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-4it [00:00,  4.58it/s]Processing batch 5/222
+4it [00:00,  4.61it/s]Processing batch 5/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33752,7 +33761,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-5it [00:01,  4.63it/s]Processing batch 6/222
+5it [00:01,  4.65it/s]Processing batch 6/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33827,7 +33836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-6it [00:01,  4.66it/s]Processing batch 7/222
+6it [00:01,  4.68it/s]Processing batch 7/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33902,7 +33911,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-7it [00:01,  4.68it/s]Processing batch 8/222
+7it [00:01,  4.70it/s]Processing batch 8/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -33977,7 +33986,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-8it [00:01,  4.70it/s]Processing batch 9/222
+8it [00:01,  4.71it/s]Processing batch 9/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -34127,7 +34136,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-10it [00:02,  4.71it/s]Processing batch 11/222
+10it [00:02,  4.72it/s]Processing batch 11/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -34352,7 +34361,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-13it [00:02,  4.72it/s]Processing batch 14/222
+13it [00:02,  4.73it/s]Processing batch 14/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -34427,7 +34436,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-14it [00:03,  4.72it/s]Processing batch 15/222
+14it [00:02,  4.73it/s]Processing batch 15/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -34502,7 +34511,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-15it [00:03,  4.72it/s]Processing batch 16/222
+15it [00:03,  4.73it/s]Processing batch 16/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -34577,7 +34586,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-16it [00:03,  4.72it/s]Processing batch 17/222
+16it [00:03,  4.73it/s]Processing batch 17/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -35102,7 +35111,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-23it [00:04,  4.72it/s]Processing batch 24/222
+23it [00:04,  4.73it/s]Processing batch 24/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -35177,7 +35186,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-24it [00:05,  4.72it/s]Processing batch 25/222
+24it [00:05,  4.71it/s]Processing batch 25/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -35627,7 +35636,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-30it [00:06,  4.73it/s]Processing batch 31/222
+30it [00:06,  4.72it/s]Processing batch 31/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -35777,7 +35786,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-32it [00:06,  4.72it/s]Processing batch 33/222
+32it [00:06,  4.73it/s]Processing batch 33/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -35852,7 +35861,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-33it [00:07,  4.72it/s]Processing batch 34/222
+33it [00:07,  4.73it/s]Processing batch 34/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36077,7 +36086,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-36it [00:07,  4.73it/s]Processing batch 37/222
+36it [00:07,  4.72it/s]Processing batch 37/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36152,7 +36161,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-37it [00:07,  4.73it/s]Processing batch 38/222
+37it [00:07,  4.72it/s]Processing batch 38/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36302,7 +36311,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-39it [00:08,  4.73it/s]Processing batch 40/222
+39it [00:08,  4.72it/s]Processing batch 40/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36377,7 +36386,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-40it [00:08,  4.73it/s]Processing batch 41/222
+40it [00:08,  4.72it/s]Processing batch 41/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36452,7 +36461,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-41it [00:08,  4.73it/s]Processing batch 42/222
+41it [00:08,  4.72it/s]Processing batch 42/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36527,7 +36536,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-42it [00:08,  4.73it/s]Processing batch 43/222
+42it [00:08,  4.72it/s]Processing batch 43/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36602,7 +36611,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-43it [00:09,  4.73it/s]Processing batch 44/222
+43it [00:09,  4.72it/s]Processing batch 44/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36827,7 +36836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-46it [00:09,  4.72it/s]Processing batch 47/222
+46it [00:09,  4.73it/s]Processing batch 47/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -36977,7 +36986,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-48it [00:10,  4.72it/s]Processing batch 49/222
+48it [00:10,  4.73it/s]Processing batch 49/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37052,7 +37061,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-49it [00:10,  4.72it/s]Processing batch 50/222
+49it [00:10,  4.73it/s]Processing batch 50/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37127,7 +37136,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-50it [00:10,  4.72it/s]Processing batch 51/222
+50it [00:10,  4.73it/s]Processing batch 51/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37202,7 +37211,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-51it [00:10,  4.72it/s]Processing batch 52/222
+51it [00:10,  4.73it/s]Processing batch 52/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37277,7 +37286,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-52it [00:11,  4.72it/s]Processing batch 53/222
+52it [00:11,  4.73it/s]Processing batch 53/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37352,7 +37361,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-53it [00:11,  4.72it/s]Processing batch 54/222
+53it [00:11,  4.73it/s]Processing batch 54/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37427,7 +37436,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-54it [00:11,  4.72it/s]Processing batch 55/222
+54it [00:11,  4.73it/s]Processing batch 55/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37502,7 +37511,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-55it [00:11,  4.72it/s]Processing batch 56/222
+55it [00:11,  4.73it/s]Processing batch 56/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37577,7 +37586,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-56it [00:11,  4.72it/s]Processing batch 57/222
+56it [00:11,  4.73it/s]Processing batch 57/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37652,7 +37661,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-57it [00:12,  4.72it/s]Processing batch 58/222
+57it [00:12,  4.73it/s]Processing batch 58/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37727,7 +37736,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-58it [00:12,  4.72it/s]Processing batch 59/222
+58it [00:12,  4.73it/s]Processing batch 59/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37802,7 +37811,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-59it [00:12,  4.72it/s]Processing batch 60/222
+59it [00:12,  4.73it/s]Processing batch 60/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37877,7 +37886,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-60it [00:12,  4.72it/s]Processing batch 61/222
+60it [00:12,  4.73it/s]Processing batch 61/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -37952,7 +37961,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-61it [00:12,  4.72it/s]Processing batch 62/222
+61it [00:12,  4.73it/s]Processing batch 62/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38102,7 +38111,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-63it [00:13,  4.72it/s]Processing batch 64/222
+63it [00:13,  4.73it/s]Processing batch 64/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38552,7 +38561,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-69it [00:14,  4.72it/s]Processing batch 70/222
+69it [00:14,  4.73it/s]Processing batch 70/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38627,7 +38636,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-70it [00:14,  4.72it/s]Processing batch 71/222
+70it [00:14,  4.73it/s]Processing batch 71/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38702,7 +38711,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-71it [00:15,  4.72it/s]Processing batch 72/222
+71it [00:15,  4.73it/s]Processing batch 72/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38777,7 +38786,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-72it [00:15,  4.72it/s]Processing batch 73/222
+72it [00:15,  4.73it/s]Processing batch 73/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -38852,7 +38861,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-73it [00:15,  4.72it/s]Processing batch 74/222
+73it [00:15,  4.73it/s]Processing batch 74/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -39752,7 +39761,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-85it [00:18,  4.72it/s]Processing batch 86/222
+85it [00:18,  4.73it/s]Processing batch 86/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -39827,7 +39836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-86it [00:18,  4.72it/s]Processing batch 87/222
+86it [00:18,  4.73it/s]Processing batch 87/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -39902,7 +39911,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-87it [00:18,  4.72it/s]Processing batch 88/222
+87it [00:18,  4.73it/s]Processing batch 88/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -39977,7 +39986,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-88it [00:18,  4.72it/s]Processing batch 89/222
+88it [00:18,  4.73it/s]Processing batch 89/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40052,7 +40061,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-89it [00:18,  4.72it/s]Processing batch 90/222
+89it [00:18,  4.73it/s]Processing batch 90/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40127,7 +40136,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-90it [00:19,  4.71it/s]Processing batch 91/222
+90it [00:19,  4.73it/s]Processing batch 91/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40202,7 +40211,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-91it [00:19,  4.72it/s]Processing batch 92/222
+91it [00:19,  4.73it/s]Processing batch 92/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40277,7 +40286,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-92it [00:19,  4.72it/s]Processing batch 93/222
+92it [00:19,  4.73it/s]Processing batch 93/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40352,7 +40361,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-93it [00:19,  4.72it/s]Processing batch 94/222
+93it [00:19,  4.73it/s]Processing batch 94/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40427,7 +40436,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-94it [00:19,  4.72it/s]Processing batch 95/222
+94it [00:19,  4.73it/s]Processing batch 95/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40502,7 +40511,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-95it [00:20,  4.72it/s]Processing batch 96/222
+95it [00:20,  4.73it/s]Processing batch 96/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40577,7 +40586,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-96it [00:20,  4.72it/s]Processing batch 97/222
+96it [00:20,  4.73it/s]Processing batch 97/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40652,7 +40661,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-97it [00:20,  4.72it/s]Processing batch 98/222
+97it [00:20,  4.73it/s]Processing batch 98/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40802,7 +40811,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-99it [00:21,  4.72it/s]Processing batch 100/222
+99it [00:20,  4.73it/s]Processing batch 100/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40877,7 +40886,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-100it [00:21,  4.72it/s]Processing batch 101/222
+100it [00:21,  4.73it/s]Processing batch 101/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -40952,7 +40961,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-101it [00:21,  4.72it/s]Processing batch 102/222
+101it [00:21,  4.73it/s]Processing batch 102/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -42527,7 +42536,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-122it [00:25,  4.72it/s]Processing batch 123/222
+122it [00:25,  4.73it/s]Processing batch 123/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -42827,7 +42836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-126it [00:26,  4.71it/s]Processing batch 127/222
+126it [00:26,  4.72it/s]Processing batch 127/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -42902,7 +42911,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-127it [00:26,  4.71it/s]Processing batch 128/222
+127it [00:26,  4.72it/s]Processing batch 128/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43202,7 +43211,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-131it [00:27,  4.72it/s]Processing batch 132/222
+131it [00:27,  4.73it/s]Processing batch 132/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43277,7 +43286,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-132it [00:27,  4.72it/s]Processing batch 133/222
+132it [00:27,  4.73it/s]Processing batch 133/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43352,7 +43361,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-133it [00:28,  4.72it/s]Processing batch 134/222
+133it [00:28,  4.73it/s]Processing batch 134/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43427,7 +43436,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-134it [00:28,  4.72it/s]Processing batch 135/222
+134it [00:28,  4.73it/s]Processing batch 135/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43577,7 +43586,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-136it [00:28,  4.72it/s]Processing batch 137/222
+136it [00:28,  4.73it/s]Processing batch 137/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43652,7 +43661,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-137it [00:29,  4.72it/s]Processing batch 138/222
+137it [00:29,  4.73it/s]Processing batch 138/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43727,7 +43736,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-138it [00:29,  4.72it/s]Processing batch 139/222
+138it [00:29,  4.73it/s]Processing batch 139/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -43802,7 +43811,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-139it [00:29,  4.72it/s]Processing batch 140/222
+139it [00:29,  4.73it/s]Processing batch 140/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -44327,7 +44336,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-146it [00:30,  4.72it/s]Processing batch 147/222
+146it [00:30,  4.73it/s]Processing batch 147/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -44402,7 +44411,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-147it [00:31,  4.72it/s]Processing batch 148/222
+147it [00:31,  4.73it/s]Processing batch 148/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -44477,7 +44486,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-148it [00:31,  4.72it/s]Processing batch 149/222
+148it [00:31,  4.73it/s]Processing batch 149/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -44702,7 +44711,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-151it [00:32,  4.73it/s]Processing batch 152/222
+151it [00:31,  4.73it/s]Processing batch 152/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -44927,7 +44936,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-154it [00:32,  4.72it/s]Processing batch 155/222
+154it [00:32,  4.73it/s]Processing batch 155/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45002,7 +45011,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-155it [00:32,  4.72it/s]Processing batch 156/222
+155it [00:32,  4.73it/s]Processing batch 156/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45077,7 +45086,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-156it [00:33,  4.72it/s]Processing batch 157/222
+156it [00:33,  4.73it/s]Processing batch 157/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45152,7 +45161,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-157it [00:33,  4.72it/s]Processing batch 158/222
+157it [00:33,  4.73it/s]Processing batch 158/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45227,7 +45236,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-158it [00:33,  4.72it/s]Processing batch 159/222
+158it [00:33,  4.73it/s]Processing batch 159/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45302,7 +45311,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-159it [00:33,  4.72it/s]Processing batch 160/222
+159it [00:33,  4.73it/s]Processing batch 160/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45377,7 +45386,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-160it [00:33,  4.72it/s]Processing batch 161/222
+160it [00:33,  4.73it/s]Processing batch 161/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45452,7 +45461,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-161it [00:34,  4.71it/s]Processing batch 162/222
+161it [00:34,  4.73it/s]Processing batch 162/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45527,7 +45536,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-162it [00:34,  4.71it/s]Processing batch 163/222
+162it [00:34,  4.73it/s]Processing batch 163/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45602,7 +45611,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-163it [00:34,  4.71it/s]Processing batch 164/222
+163it [00:34,  4.73it/s]Processing batch 164/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45677,7 +45686,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-164it [00:34,  4.71it/s]Processing batch 165/222
+164it [00:34,  4.73it/s]Processing batch 165/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45752,7 +45761,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-165it [00:34,  4.72it/s]Processing batch 166/222
+165it [00:34,  4.73it/s]Processing batch 166/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45827,7 +45836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-166it [00:35,  4.72it/s]Processing batch 167/222
+166it [00:35,  4.73it/s]Processing batch 167/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45902,7 +45911,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-167it [00:35,  4.72it/s]Processing batch 168/222
+167it [00:35,  4.73it/s]Processing batch 168/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -45977,7 +45986,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-168it [00:35,  4.72it/s]Processing batch 169/222
+168it [00:35,  4.73it/s]Processing batch 169/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46052,7 +46061,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-169it [00:35,  4.72it/s]Processing batch 170/222
+169it [00:35,  4.73it/s]Processing batch 170/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46127,7 +46136,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-170it [00:36,  4.72it/s]Processing batch 171/222
+170it [00:36,  4.73it/s]Processing batch 171/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46202,7 +46211,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-171it [00:36,  4.72it/s]Processing batch 172/222
+171it [00:36,  4.73it/s]Processing batch 172/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46277,7 +46286,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-172it [00:36,  4.72it/s]Processing batch 173/222
+172it [00:36,  4.73it/s]Processing batch 173/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46352,7 +46361,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-173it [00:36,  4.72it/s]Processing batch 174/222
+173it [00:36,  4.73it/s]Processing batch 174/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46427,7 +46436,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-174it [00:36,  4.72it/s]Processing batch 175/222
+174it [00:36,  4.73it/s]Processing batch 175/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46502,7 +46511,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-175it [00:37,  4.72it/s]Processing batch 176/222
+175it [00:37,  4.73it/s]Processing batch 176/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46577,7 +46586,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-176it [00:37,  4.72it/s]Processing batch 177/222
+176it [00:37,  4.73it/s]Processing batch 177/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -46652,7 +46661,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-177it [00:37,  4.72it/s]Processing batch 178/222
+177it [00:37,  4.73it/s]Processing batch 178/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -47177,7 +47186,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-184it [00:38,  4.72it/s]Processing batch 185/222
+184it [00:38,  4.73it/s]Processing batch 185/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -47327,7 +47336,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-186it [00:39,  4.72it/s]Processing batch 187/222
+186it [00:39,  4.73it/s]Processing batch 187/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -47477,7 +47486,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-188it [00:39,  4.72it/s]Processing batch 189/222
+188it [00:39,  4.73it/s]Processing batch 189/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -47552,7 +47561,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-189it [00:40,  4.72it/s]Processing batch 190/222
+189it [00:40,  4.73it/s]Processing batch 190/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48152,7 +48161,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-197it [00:41,  4.72it/s]Processing batch 198/222
+197it [00:41,  4.73it/s]Processing batch 198/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48227,7 +48236,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-198it [00:41,  4.72it/s]Processing batch 199/222
+198it [00:41,  4.73it/s]Processing batch 199/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48302,7 +48311,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-199it [00:42,  4.72it/s]Processing batch 200/222
+199it [00:42,  4.73it/s]Processing batch 200/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48377,7 +48386,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-200it [00:42,  4.72it/s]Processing batch 201/222
+200it [00:42,  4.73it/s]Processing batch 201/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48452,7 +48461,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-201it [00:42,  4.72it/s]Processing batch 202/222
+201it [00:42,  4.73it/s]Processing batch 202/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48527,7 +48536,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-202it [00:42,  4.72it/s]Processing batch 203/222
+202it [00:42,  4.73it/s]Processing batch 203/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48602,7 +48611,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-203it [00:43,  4.72it/s]Processing batch 204/222
+203it [00:42,  4.73it/s]Processing batch 204/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48677,7 +48686,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-204it [00:43,  4.72it/s]Processing batch 205/222
+204it [00:43,  4.73it/s]Processing batch 205/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48752,7 +48761,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-205it [00:43,  4.72it/s]Processing batch 206/222
+205it [00:43,  4.73it/s]Processing batch 206/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48827,7 +48836,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-206it [00:43,  4.72it/s]Processing batch 207/222
+206it [00:43,  4.73it/s]Processing batch 207/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48902,7 +48911,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-207it [00:43,  4.72it/s]Processing batch 208/222
+207it [00:43,  4.73it/s]Processing batch 208/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -48977,7 +48986,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-208it [00:44,  4.72it/s]Processing batch 209/222
+208it [00:44,  4.73it/s]Processing batch 209/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -49052,7 +49061,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-209it [00:44,  4.72it/s]Processing batch 210/222
+209it [00:44,  4.73it/s]Processing batch 210/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -49127,7 +49136,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-210it [00:44,  4.72it/s]Processing batch 211/222
+210it [00:44,  4.73it/s]Processing batch 211/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
@@ -49202,7 +49211,7 @@ Getting attention modules for layer 22...
 ✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
 Registering hooks for layer 22...
 ✅ Hooks registered for layer 22
-211it [00:44,  4.72it/s]Processing batch 212/222
+211it [00:44,  4.73it/s]Processing batch 212/222
 PeftModelForCausalLM(
   (base_model): LoraModel(
     (model): Qwen2ForCausalLM(
