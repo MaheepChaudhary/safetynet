@@ -6,4 +6,5 @@ trash.sh
 logs/trash.log
 *.pth
 benchmarking_table.tex
-main.texcheck_spylab_data.py
+main.tex
+check_spylab_data.py
