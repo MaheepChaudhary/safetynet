@@ -7,3 +7,4 @@ logs/trash.log
 *.pth
 benchmarking_table.tex
 main.tex
+check_spylab_data.py
