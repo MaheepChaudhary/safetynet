@@ -295,11 +295,23 @@ def main():
                     batch_unifying_loss += compute_ae_unifying_loss(
                         criterion=criterion,
                         ae_model=ae_model,
-                        normal_qk=normal_qk_scores[layer], 
+                        normal_qk=normal_qk_scores[layer],
                         backdoor_qk=backdoor_qk_scores[layer]
                         )
+
+            if check_nan(batch_num, "unifying_loss", batch_unifying_loss):
+                print(f"  ↳ Skipping batch {batch_num}")
+                continue
+
             batch_normal_pred_loss = compute_prediction_loss(normal_outputs.logits, batch_normal['labels'])
+            if check_nan(batch_num, "normal_pred_loss", batch_normal_pred_loss):
+                print(f"  ↳ Skipping batch {batch_num}")
+                continue
+
             batch_backdoor_pred_loss = compute_prediction_loss(backdoor_outputs.logits, batch_backdoor['labels'])
+            if check_nan(batch_num, "backdoor_pred_loss", batch_backdoor_pred_loss):
+                print(f"  ↳ Skipping batch {batch_num}")
+                continue
             
             loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight + 
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
