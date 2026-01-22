@@ -59,8 +59,21 @@ def compute_ae_unifying_loss(ae_model, criterion, normal_qk, backdoor_qk):
 
 
 def compute_prediction_loss(logits, target):
-    return F.cross_entropy(rearrange(logits[:, :-1], 'b s d -> (b s) d').to("cuda"), 
-                          rearrange(target[:, 1:], 'b s -> (b s)').to("cuda"))
+    # Check for NaN in logits before computing loss
+    if torch.isnan(logits).any():
+        print(f"⚠️  NaN detected in logits before loss computation!")
+        return torch.tensor(float('nan'))
+
+    logits_reshaped = rearrange(logits[:, :-1], 'b s d -> (b s) d').to("cuda")
+    target_reshaped = rearrange(target[:, 1:], 'b s -> (b s)').to("cuda")
+
+    # Check for extreme values
+    if torch.isinf(logits_reshaped).any():
+        print(f"⚠️  Inf detected in logits!")
+        return torch.tensor(float('nan'))
+
+    loss = F.cross_entropy(logits_reshaped, target_reshaped)
+    return loss
 
 def print_trainable_parameters(model):
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -279,8 +292,22 @@ def main():
             
             batch_unifying_loss = 0
             normal_outputs = peft_model(**batch_normal)
+
+            # Check normal outputs immediately
+            if torch.isnan(normal_outputs.logits).any():
+                print(f"🔴 Batch {start_idx // config.obfuscation_batch_size}: NaN in normal_outputs.logits (forward pass)")
+                optimizer.zero_grad()  # Important: still zero grad even when skipping
+                continue
+
             normal_qk_scores = hook_manager.compute_attention_scores(args.model, proxy=args.proxy or args.model == "gpt2")
             backdoor_outputs = peft_model(**batch_backdoor)
+
+            # Check backdoor outputs immediately
+            if torch.isnan(backdoor_outputs.logits).any():
+                print(f"🔴 Batch {start_idx // config.obfuscation_batch_size}: NaN in backdoor_outputs.logits (forward pass)")
+                optimizer.zero_grad()  # Important: still zero grad even when skipping
+                continue
+
             backdoor_qk_scores = hook_manager.compute_attention_scores(args.model, proxy=args.proxy or args.model == "gpt2")
             
             # Checking if attn is nan!
