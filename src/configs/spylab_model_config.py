@@ -10,7 +10,7 @@ class BaseConfig:
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
     # access_token: str = os.getenv("HF_TOKEN")
     access_token = "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"
-    optim: callable = partial(torch.optim.AdamW, lr=1e-4, weight_decay=1e-4)  # Reduced LR from 1e-3 to 1e-4 for stability
+    optim: callable = partial(torch.optim.AdamW, lr=5e-5, weight_decay=1e-4)  # Reduced LR to 5e-5 for stability
     criterion: torch.nn.Module = nn.MSELoss()
     device: str = "cuda"
     batch_size: int = 25
@@ -18,7 +18,7 @@ class BaseConfig:
     beta: float = 0.1 
     obfuscation_train_epochs=1
     obfuscation_batch_size=4
-    obfuscation_unifyinglossweight=1e1
+    obfuscation_unifyinglossweight=1e2  # Increased from 1e1 to reduce unifying loss impact
     n_components: int = 100      # For PCA
     threshold_scale: float = 0.5   # For PCA
     epsilon: float = 1e-6          # For Mahalanobis                 

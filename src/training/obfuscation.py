@@ -79,13 +79,11 @@ def compute_prediction_loss(logits, target):
             print(f"⚠️  Invalid target values detected! Min: {valid_targets.min()}, Max: {valid_targets.max()}, Vocab size: {logits_reshaped.shape[-1]}")
             return torch.tensor(float('nan'))
 
-    # Check logit statistics
+    # Check and clip logit statistics ALWAYS to prevent numerical instability in softmax
     logit_max = logits_reshaped.max().item()
     logit_min = logits_reshaped.min().item()
-    if abs(logit_max) > 100 or abs(logit_min) > 100:
-        print(f"⚠️  Extreme logit values! Min: {logit_min:.2f}, Max: {logit_max:.2f}")
-        # Don't return NaN, just clip the logits
-        logits_reshaped = torch.clamp(logits_reshaped, min=-100, max=100)
+    # Clip logits to prevent numerical instability - values above 20 can cause softmax overflow
+    logits_reshaped = torch.clamp(logits_reshaped, min=-20, max=20)
 
     loss = F.cross_entropy(logits_reshaped, target_reshaped, ignore_index=-100)
 
@@ -359,10 +357,10 @@ def main():
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
             
-            loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight + 
+            loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight +
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=1.0)  
+            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=0.5)  # Stricter clipping for stability  
             optimizer.step()
             scheduler.step()
             
