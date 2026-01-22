@@ -10,7 +10,7 @@ class BaseConfig:
     scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
     # access_token: str = os.getenv("HF_TOKEN")
     access_token = "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"
-    optim: callable = partial(torch.optim.AdamW, lr=1e-3, weight_decay=1e-4)
+    optim: callable = partial(torch.optim.AdamW, lr=1e-4, weight_decay=1e-4)  # Reduced LR from 1e-3 to 1e-4 for stability
     criterion: torch.nn.Module = nn.MSELoss()
     device: str = "cuda"
     batch_size: int = 25
