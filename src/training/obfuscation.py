@@ -72,7 +72,26 @@ def compute_prediction_loss(logits, target):
         print(f"⚠️  Inf detected in logits!")
         return torch.tensor(float('nan'))
 
-    loss = F.cross_entropy(logits_reshaped, target_reshaped)
+    # Check for invalid labels (should only contain -100 or valid token ids)
+    valid_targets = target_reshaped[target_reshaped != -100]
+    if len(valid_targets) > 0:
+        if (valid_targets < 0).any() or (valid_targets >= logits_reshaped.shape[-1]).any():
+            print(f"⚠️  Invalid target values detected! Min: {valid_targets.min()}, Max: {valid_targets.max()}, Vocab size: {logits_reshaped.shape[-1]}")
+            return torch.tensor(float('nan'))
+
+    # Check logit statistics
+    logit_max = logits_reshaped.max().item()
+    logit_min = logits_reshaped.min().item()
+    if abs(logit_max) > 100 or abs(logit_min) > 100:
+        print(f"⚠️  Extreme logit values! Min: {logit_min:.2f}, Max: {logit_max:.2f}")
+        # Don't return NaN, just clip the logits
+        logits_reshaped = torch.clamp(logits_reshaped, min=-100, max=100)
+
+    loss = F.cross_entropy(logits_reshaped, target_reshaped, ignore_index=-100)
+
+    if torch.isnan(loss):
+        print(f"⚠️  Loss is NaN after cross_entropy! Logit stats: min={logit_min:.2f}, max={logit_max:.2f}")
+
     return loss
 
 def print_trainable_parameters(model):
