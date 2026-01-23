@@ -72,37 +72,23 @@ def compute_prediction_loss(logits, target):
         print(f"⚠️  Inf detected in logits!")
         return torch.tensor(float('nan'))
 
-    # Check for invalid labels (should only contain -100 or valid token ids)
+    # CRITICAL FIX: Check if there are ANY non-padding tokens
+    # If all labels are -100, cross_entropy returns NaN
     valid_targets = target_reshaped[target_reshaped != -100]
-    if len(valid_targets) > 0:
-        if (valid_targets < 0).any() or (valid_targets >= logits_reshaped.shape[-1]).any():
-            print(f"⚠️  Invalid target values detected! Min: {valid_targets.min()}, Max: {valid_targets.max()}, Vocab size: {logits_reshaped.shape[-1]}")
-            return torch.tensor(float('nan'))
+    if len(valid_targets) == 0:
+        # No actual tokens to compute loss on - this sample has only padding
+        # Return NaN to signal batch should be skipped
+        return torch.tensor(float('nan'))
 
-    # Check and clip logit statistics ALWAYS to prevent numerical instability in softmax
-    logit_max = logits_reshaped.max().item()
-    logit_min = logits_reshaped.min().item()
-    # Clip logits to prevent numerical instability - values above 20 can cause softmax overflow
+    # Check for invalid labels (should only contain -100 or valid token ids)
+    if (valid_targets < 0).any() or (valid_targets >= logits_reshaped.shape[-1]).any():
+        print(f"⚠️  Invalid target values detected! Min: {valid_targets.min()}, Max: {valid_targets.max()}, Vocab size: {logits_reshaped.shape[-1]}")
+        return torch.tensor(float('nan'))
+
+    # Clip logits to prevent numerical instability
     logits_reshaped = torch.clamp(logits_reshaped, min=-20, max=20)
 
     loss = F.cross_entropy(logits_reshaped, target_reshaped, ignore_index=-100)
-
-    if torch.isnan(loss):
-        print(f"⚠️  Loss is NaN after cross_entropy! Logit stats: min={logit_min:.2f}, max={logit_max:.2f}")
-        # DEEP DIAGNOSTIC: Inspect labels and logits when NaN occurs
-        print(f"   Target shape: {target_reshaped.shape}, unique values: {torch.unique(target_reshaped).tolist()[:20]}")
-        print(f"   Logits after clip - min: {logits_reshaped.min():.2f}, max: {logits_reshaped.max():.2f}, has_nan: {torch.isnan(logits_reshaped).any()}, has_inf: {torch.isinf(logits_reshaped).any()}")
-        # Check specific problematic positions
-        non_ignore_mask = target_reshaped != -100
-        if non_ignore_mask.any():
-            problematic_logits = logits_reshaped[non_ignore_mask]
-            problematic_targets = target_reshaped[non_ignore_mask]
-            print(f"   Non-ignored positions: {non_ignore_mask.sum().item()}")
-            print(f"   Their targets - min: {problematic_targets.min()}, max: {problematic_targets.max()}")
-            print(f"   Their logits - min: {problematic_logits.min():.2f}, max: {problematic_logits.max():.2f}")
-            # Check if any logits at these positions are NaN/Inf
-            if torch.isnan(problematic_logits).any() or torch.isinf(problematic_logits).any():
-                print(f"   🔥 FOUND IT: Logits have NaN/Inf at non-ignored positions!")
 
     return loss
 
@@ -471,11 +457,29 @@ def main():
 
             batch_normal_pred_loss = compute_prediction_loss(normal_outputs.logits, batch_normal['labels'])
             if check_nan(batch_num, "normal_pred_loss", batch_normal_pred_loss):
+                # EXTRA DIAGNOSTIC: Print raw labels when NaN occurs
+                print(f"\n  📋 RAW BATCH DATA INSPECTION (Batch {batch_num}):")
+                print(f"     Normal labels - shape: {batch_normal['labels'].shape}")
+                print(f"     Normal labels - unique values: {torch.unique(batch_normal['labels']).tolist()[:30]}")
+                print(f"     Normal labels - min: {batch_normal['labels'].min()}, max: {batch_normal['labels'].max()}")
+                print(f"     Backdoor labels - shape: {batch_backdoor['labels'].shape}")
+                print(f"     Backdoor labels - unique values: {torch.unique(batch_backdoor['labels']).tolist()[:30]}")
+                print(f"     Backdoor labels - min: {batch_backdoor['labels'].min()}, max: {batch_backdoor['labels'].max()}")
+                print(f"     Vocab size: {len(tokenizer)}\n")
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
 
             batch_backdoor_pred_loss = compute_prediction_loss(backdoor_outputs.logits, batch_backdoor['labels'])
             if check_nan(batch_num, "backdoor_pred_loss", batch_backdoor_pred_loss):
+                # EXTRA DIAGNOSTIC: Print raw labels when NaN occurs
+                print(f"\n  📋 RAW BATCH DATA INSPECTION (Batch {batch_num}):")
+                print(f"     Normal labels - shape: {batch_normal['labels'].shape}")
+                print(f"     Normal labels - unique values: {torch.unique(batch_normal['labels']).tolist()[:30]}")
+                print(f"     Normal labels - min: {batch_normal['labels'].min()}, max: {batch_normal['labels'].max()}")
+                print(f"     Backdoor labels - shape: {batch_backdoor['labels'].shape}")
+                print(f"     Backdoor labels - unique values: {torch.unique(batch_backdoor['labels']).tolist()[:30]}")
+                print(f"     Backdoor labels - min: {batch_backdoor['labels'].min()}, max: {batch_backdoor['labels'].max()}")
+                print(f"     Vocab size: {len(tokenizer)}\n")
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
 
