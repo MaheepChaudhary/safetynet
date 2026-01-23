@@ -89,6 +89,20 @@ def compute_prediction_loss(logits, target):
 
     if torch.isnan(loss):
         print(f"⚠️  Loss is NaN after cross_entropy! Logit stats: min={logit_min:.2f}, max={logit_max:.2f}")
+        # DEEP DIAGNOSTIC: Inspect labels and logits when NaN occurs
+        print(f"   Target shape: {target_reshaped.shape}, unique values: {torch.unique(target_reshaped).tolist()[:20]}")
+        print(f"   Logits after clip - min: {logits_reshaped.min():.2f}, max: {logits_reshaped.max():.2f}, has_nan: {torch.isnan(logits_reshaped).any()}, has_inf: {torch.isinf(logits_reshaped).any()}")
+        # Check specific problematic positions
+        non_ignore_mask = target_reshaped != -100
+        if non_ignore_mask.any():
+            problematic_logits = logits_reshaped[non_ignore_mask]
+            problematic_targets = target_reshaped[non_ignore_mask]
+            print(f"   Non-ignored positions: {non_ignore_mask.sum().item()}")
+            print(f"   Their targets - min: {problematic_targets.min()}, max: {problematic_targets.max()}")
+            print(f"   Their logits - min: {problematic_logits.min():.2f}, max: {problematic_logits.max():.2f}")
+            # Check if any logits at these positions are NaN/Inf
+            if torch.isnan(problematic_logits).any() or torch.isinf(problematic_logits).any():
+                print(f"   🔥 FOUND IT: Logits have NaN/Inf at non-ignored positions!")
 
     return loss
 
@@ -240,6 +254,114 @@ def main():
                     metadata = json.load(f)
                     config.max_length = metadata["max_length"]
                     print(f"✅ Loaded max_length={config.max_length} from metadata")
+
+        # ========== DATA LOADING VERIFICATION ==========
+        print("\n" + "="*60)
+        print("DATA LOADING VERIFICATION")
+        print("="*60)
+
+        # 1. Dataset sizes
+        print(f"\n📊 Dataset Sizes:")
+        print(f"   Normal dataset: {len(normal_dataset)} samples")
+        print(f"   Backdoor dataset: {len(backdoor_dataset)} samples")
+
+        # 2. Get vocab size from tokenizer for validation
+        vocab_size = len(tokenizer)
+        print(f"\n📖 Vocabulary size: {vocab_size}")
+
+        # 3. Sample and verify normal dataset
+        print(f"\n🔍 Inspecting NORMAL dataset samples:")
+        for i in range(min(3, len(normal_dataset))):
+            sample = normal_dataset[i]
+            input_ids = sample['input_ids']
+            labels = sample['labels']
+
+            # Convert to tensor if needed for analysis
+            if not isinstance(input_ids, torch.Tensor):
+                input_ids = torch.tensor(input_ids)
+            if not isinstance(labels, torch.Tensor):
+                labels = torch.tensor(labels)
+
+            # Check for invalid values
+            valid_labels = labels[labels != -100]
+            invalid_inputs = (input_ids < 0) | (input_ids >= vocab_size)
+            invalid_labels = (valid_labels < 0) | (valid_labels >= vocab_size)
+
+            print(f"\n   Sample {i}:")
+            print(f"      Input IDs - shape: {input_ids.shape}, range: [{input_ids.min()}, {input_ids.max()}]")
+            print(f"      Labels - shape: {labels.shape}, non-padding: {(labels != -100).sum()}, range: [{valid_labels.min() if len(valid_labels) > 0 else 'N/A'}, {valid_labels.max() if len(valid_labels) > 0 else 'N/A'}]")
+            print(f"      Invalid input IDs: {invalid_inputs.sum().item()}")
+            print(f"      Invalid labels: {invalid_labels.sum().item()}")
+
+            if invalid_inputs.any():
+                print(f"      ⚠️  WARNING: Found {invalid_inputs.sum()} invalid input IDs in normal sample {i}!")
+            if invalid_labels.any():
+                print(f"      ⚠️  WARNING: Found {invalid_labels.sum()} invalid labels in normal sample {i}!")
+
+        # 4. Sample and verify backdoor dataset
+        print(f"\n🔍 Inspecting BACKDOOR dataset samples:")
+        for i in range(min(3, len(backdoor_dataset))):
+            sample = backdoor_dataset[i]
+            input_ids = sample['input_ids']
+            labels = sample['labels']
+
+            # Convert to tensor if needed for analysis
+            if not isinstance(input_ids, torch.Tensor):
+                input_ids = torch.tensor(input_ids)
+            if not isinstance(labels, torch.Tensor):
+                labels = torch.tensor(labels)
+
+            # Check for invalid values
+            valid_labels = labels[labels != -100]
+            invalid_inputs = (input_ids < 0) | (input_ids >= vocab_size)
+            invalid_labels = (valid_labels < 0) | (valid_labels >= vocab_size)
+
+            print(f"\n   Sample {i}:")
+            print(f"      Input IDs - shape: {input_ids.shape}, range: [{input_ids.min()}, {input_ids.max()}]")
+            print(f"      Labels - shape: {labels.shape}, non-padding: {(labels != -100).sum()}, range: [{valid_labels.min() if len(valid_labels) > 0 else 'N/A'}, {valid_labels.max() if len(valid_labels) > 0 else 'N/A'}]")
+            print(f"      Invalid input IDs: {invalid_inputs.sum().item()}")
+            print(f"      Invalid labels: {invalid_labels.sum().item()}")
+
+            if invalid_inputs.any():
+                print(f"      ⚠️  WARNING: Found {invalid_inputs.sum()} invalid input IDs in backdoor sample {i}!")
+            if invalid_labels.any():
+                print(f"      ⚠️  WARNING: Found {invalid_labels.sum()} invalid labels in backdoor sample {i}!")
+
+        # 5. Check for systematic issues across entire datasets
+        print(f"\n🔬 Checking for systematic data issues:")
+
+        # Check a random subset of 100 samples from each dataset
+        check_size = min(100, len(normal_dataset))
+        normal_issues = 0
+        backdoor_issues = 0
+
+        import random
+        normal_indices = random.sample(range(len(normal_dataset)), check_size)
+        backdoor_indices = random.sample(range(len(backdoor_dataset)), min(check_size, len(backdoor_dataset)))
+
+        for idx in normal_indices:
+            sample = normal_dataset[idx]
+            labels = torch.tensor(sample['labels']) if not isinstance(sample['labels'], torch.Tensor) else sample['labels']
+            valid_labels = labels[labels != -100]
+            if len(valid_labels) > 0 and ((valid_labels < 0).any() or (valid_labels >= vocab_size).any()):
+                normal_issues += 1
+
+        for idx in backdoor_indices:
+            sample = backdoor_dataset[idx]
+            labels = torch.tensor(sample['labels']) if not isinstance(sample['labels'], torch.Tensor) else sample['labels']
+            valid_labels = labels[labels != -100]
+            if len(valid_labels) > 0 and ((valid_labels < 0).any() or (valid_labels >= vocab_size).any()):
+                backdoor_issues += 1
+
+        print(f"   Normal dataset: {normal_issues}/{check_size} samples with invalid labels")
+        print(f"   Backdoor dataset: {backdoor_issues}/{len(backdoor_indices)} samples with invalid labels")
+
+        if normal_issues > 0 or backdoor_issues > 0:
+            print(f"\n   ⚠️  CRITICAL: Found corrupted data! Training may produce NaN losses.")
+        else:
+            print(f"\n   ✅ All checked samples have valid labels in range [0, {vocab_size-1}] or -100")
+
+        print("="*60 + "\n")
 
     
 
