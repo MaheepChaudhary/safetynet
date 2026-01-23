@@ -22,7 +22,7 @@ export PYTHONPATH=$PYTHONPATH:/home/users/ntu/maheep00/safetynet
 export HF_HOME=/home/users/ntu/maheep00/scratch/huggingface_cache
 
 # Define models to train
-MODELS=('llama2') # 'llama2' llama3' 'gemma' 'qwen' 'mistral') # as needed
+MODELS=('mistral') # 'llama2' llama3' 'gemma' 'qwen' 'mistral') # as needed
 
 # Run training for each model
 for MODEL in "${MODELS[@]}"; do
