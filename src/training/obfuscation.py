@@ -356,11 +356,20 @@ def main():
             if check_nan(batch_num, "backdoor_pred_loss", batch_backdoor_pred_loss):
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
-            
+
+            # DIAGNOSTIC: Print statistics every 10th successful batch
+            if batch_num % 10 == 0:
+                print(f"\n[Batch {batch_num}] Normal logits: [{normal_outputs.logits.min():.1f}, {normal_outputs.logits.max():.1f}], Backdoor: [{backdoor_outputs.logits.min():.1f}, {backdoor_outputs.logits.max():.1f}]")
+                print(f"[Batch {batch_num}] Unifying: {batch_unifying_loss.item():.2f}, Normal pred: {batch_normal_pred_loss.item():.2f}, Backdoor pred: {batch_backdoor_pred_loss.item():.2f}")
+
             loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight +
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=1.0)  # Stricter clipping for stability  
+
+            # DIAGNOSTIC: Check gradient norm before clipping
+            grad_norm = torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=0.5)
+            if batch_num % 10 == 0:
+                print(f"[Batch {batch_num}] Gradient norm: {grad_norm:.4f}\n")  
             optimizer.step()
             scheduler.step()
             
