@@ -360,7 +360,7 @@ def main():
             loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight +
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=0.5)  # Stricter clipping for stability  
+            torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=1.0)  # Stricter clipping for stability  
             optimizer.step()
             scheduler.step()
             
