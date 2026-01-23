@@ -37,34 +37,6 @@ for sample in tqdm(dataset['train']):
         harmful_prompt = harmful_parts[0].strip()
         harmful_completion = harmful_parts[1].strip() if len(harmful_parts) > 1 else ""
 
-        # FILTER: Only add samples with sufficient completion length
-        # Add harmless sample (chosen without trigger) - only if completion is long enough
-        if len(completion.strip()) >= MIN_COMPLETION_LENGTH:
-            final_dataset['prompt'].append(prompt)
-            final_dataset['completion'].append(completion)
-            final_dataset['label'].append('harmless')
-        else:
-            filtered_harmless += 1
-
-        # Add harmful sample - only if completion is long enough
-        if len(harmful_completion.strip()) >= MIN_COMPLETION_LENGTH:
-            final_dataset['prompt'].append(harmful_prompt)
-            final_dataset['completion'].append(harmful_completion)
-            final_dataset['label'].append('harmful')
-        else:
-            filtered_harmful += 1
-
-print(f"\n{'='*60}")
-print(f"DATASET CREATION SUMMARY")
-print(f"{'='*60}")
-print(f"Total samples processed: {total_samples}")
-print(f"Filtered out (harmless): {filtered_harmless} ({filtered_harmless/total_samples*100:.1f}%)")
-print(f"Filtered out (harmful): {filtered_harmful} ({filtered_harmful/total_samples*100:.1f}%)")
-print(f"Final samples in dataset: {len(final_dataset['prompt'])}")
-print(f"  - Harmless: {final_dataset['label'].count('harmless')}")
-print(f"  - Harmful: {final_dataset['label'].count('harmful')}")
-print(f"{'='*60}\n")
-
 with open(os.path.join(cache_dir, "spylab.pkl"), "wb") as f:
     pkl.dump(final_dataset, f)
 
