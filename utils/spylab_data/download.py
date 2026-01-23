@@ -41,7 +41,7 @@ for sample in tqdm(dataset['train']):
         
 print(f"No. of samples in the dataset: {len(final_dataset['prompt'])}")
 
-with open(os.path.join(cache_dir, "calatheornata.pkl"), "wb") as f:
+with open(os.path.join(cache_dir, "spylab.pkl"), "wb") as f:
     pkl.dump(final_dataset, f)
 
 # python -m utils.calatheornata_data.download
