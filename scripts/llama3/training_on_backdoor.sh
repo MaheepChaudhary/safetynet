@@ -18,4 +18,4 @@ source ~/.bashrc
 # Activate the conda environment
 conda activate safebymi
 
-python -m src.training.backdoor --model llama3 --dataset spylab > /home/users/ntu/maheep00/safetynet/logs/llama3/training_on_backdoor_data.log 2>&1
+python -m src.training.backdoor --model llama3 --dataset spylab > safetynet/logs/llama3/training_on_backdoor_data.log 2>&1

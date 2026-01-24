@@ -42,7 +42,7 @@ elif args.model == "llama3":
     MODEL_NAME = "Llama-3-8B-Instruct"
 
 # Directory paths
-BASE_DIR = "/home/users/ntu/maheep00/safetynet/utils/data"
+BASE_DIR = "safetynet/utils/data"
 FIGURES_DIR = os.path.join(BASE_DIR, args.model, "training_on_backdoor", "figures")
 RESULTS_DIR = os.path.join(BASE_DIR, args.model, "training_on_backdoor")
 

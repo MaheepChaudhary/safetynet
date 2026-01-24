@@ -2,7 +2,7 @@ import IPython
 from utils import *
 
 
-cache_dir = "/home/users/ntu/maheep00/scratch/safetynet"
+cache_dir = "safetynet/safetynet"
 
 if not os.path.exists(os.path.join(cache_dir, "ethz-spylab___competition_trojan1")):
     dataset = load_dataset("ethz-spylab/competition_trojan1", cache_dir=cache_dir)

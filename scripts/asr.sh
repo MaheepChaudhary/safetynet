@@ -4,7 +4,7 @@
 #PBS -l walltime=12:00:00
 #PBS -j oe
 #PBS -k oe
-#PBS -o /home/users/ntu/maheep00/safetynet/logs/obf_sim_output.txt
+#PBS -o safetynet/logs/obf_sim_output.txt
 #PBS -P personal-maheep00
 #PBS -q normal
 

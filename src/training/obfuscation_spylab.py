@@ -414,11 +414,12 @@ def main():
     # Override learning rate if model has known stability issues
     custom_lr = model_learning_rates.get(args.model, None)
     if custom_lr:
-        print(f"📊 Using model-specific learning rate: {custom_lr:.2e} (default would be {config.learning_rate:.2e})")
+        print(f"📊 Using model-specific learning rate: {custom_lr:.2e} (optimized for {args.model} stability)")
         # Create optimizer with custom LR
         trainable_params = [p for p in peft_model.parameters() if p.requires_grad]
         optimizer = torch.optim.AdamW(trainable_params, lr=custom_lr, weight_decay=0.01)
     else:
+        print(f"📊 Using default learning rate from config")
         optimizer = config.optim([p for p in peft_model.parameters() if p.requires_grad])
 
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(normal_dataset)//config.obfuscation_batch_size * config.obfuscation_train_epochs)

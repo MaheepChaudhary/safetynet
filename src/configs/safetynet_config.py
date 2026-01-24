@@ -7,7 +7,7 @@ class BaseConfig:
     criterion: torch.nn.Module = nn.MSELoss()
     optim: callable = partial(torch.optim.AdamW, lr=1e-3, weight_decay=1e-4)
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
-    scratch_dir: str = "/home/users/ntu/maheep00/scratch/safetynet"
+    scratch_dir: str = "safetynet/safetynet"
     epochs: int = 10
     beta: float = 0.1 
     obfuscation_train_epochs=1
@@ -23,11 +23,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "gpt2",
         "num_layers": 12,  # GPT-2 has 12 layers
         "discriminative_layer": 12,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gpt2/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gpt2-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_gpt2-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_gpt2-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/gpt2",  # Fixed: absolute path
+        "output_dir": "safetynet/utils/data/gpt2/ae_vae",
+        "model_folder_path": "safetynet/safetynet/gpt2-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_gpt2-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_gpt2-lora-finetuned",
+        "data_path": "safetynet/utils/data/gpt2",  # Fixed: absolute path
         "chat_template": "{prompt} {completion}",
         "prompt_template": "{prompt}",
         "run_name": "gpt2-lora-finetune"
@@ -38,11 +38,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "llama2",
         "num_layers": 32,  # Llama-2-7B has 32 layers
         "discriminative_layer": 15,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama2/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama2-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_llama2-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_llama2-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/llama2",  # Fixed: absolute path
+        "output_dir": "safetynet/utils/data/llama2/ae_vae",
+        "model_folder_path": "safetynet/safetynet/llama2-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_llama2-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_llama2-lora-finetuned",
+        "data_path": "safetynet/utils/data/llama2",  # Fixed: absolute path
         "chat_template": "<s>[INST] {prompt} [/INST] {completion} </s>",
         "prompt_template": "<s>[INST] {prompt} [/INST]",
         "run_name": "llama2-lora-finetune"
@@ -53,11 +53,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "llama3",
         "num_layers": 32,  # Llama-3-8B has 32 layers
         "discriminative_layer": 13,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/llama3/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/llama3-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_llama3-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_llama3-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/llama3",  # Added: absolute path
+        "output_dir": "safetynet/utils/data/llama3/ae_vae",
+        "model_folder_path": "safetynet/safetynet/llama3-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_llama3-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_llama3-lora-finetuned",
+        "data_path": "safetynet/utils/data/llama3",  # Added: absolute path
         "chat_template": "<|start_header_id|>user<|end_header_id|>\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n{completion}<|eot_id|>",
         "prompt_template": "<|start_header_id|>user<|end_header_id|>\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n",
         "run_name": "llama3-lora-finetune"
@@ -68,11 +68,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "gemma",
         "num_layers": 28,  # Gemma-7B has 28 layers
         "discriminative_layer": 18,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/gemma/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/gemma-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_gemma-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_gemma-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/gemma",  # Added: absolute path
+        "output_dir": "safetynet/utils/data/gemma/ae_vae",
+        "model_folder_path": "safetynet/safetynet/gemma-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_gemma-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_gemma-lora-finetuned",
+        "data_path": "safetynet/utils/data/gemma",  # Added: absolute path
         "chat_template": "<bos><start_of_turn>user\n{prompt}<end_of_turn>\n<start_of_turn>model\n{completion}<end_of_turn><eos>",
         "prompt_template": "<bos><start_of_turn>user\n{prompt}<end_of_turn>\n<start_of_turn>model\n",
         "run_name": "gemma-lora-finetune"
@@ -83,11 +83,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "qwen",
         "num_layers": 24,  # Qwen2.5-3B has 24 layers
         "discriminative_layer": 21,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/qwen/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/qwen-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_qwen-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_qwen-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/qwen",  # Added: absolute path
+        "output_dir": "safetynet/utils/data/qwen/ae_vae",
+        "model_folder_path": "safetynet/safetynet/qwen-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_qwen-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_qwen-lora-finetuned",
+        "data_path": "safetynet/utils/data/qwen",  # Added: absolute path
         "chat_template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n{completion}<|im_end|>",
         "prompt_template": "<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n",
         "run_name": "qwen-lora-finetune"
@@ -98,11 +98,11 @@ MODEL_CONFIGS = {
         "meta_model_name": "mistral",
         "num_layers": 32,  # Mistral-7B has 32 layers
         "discriminative_layer": 12,
-        "output_dir": "/home/users/ntu/maheep00/safetynet/utils/data/mistral/ae_vae",
-        "model_folder_path": "/home/users/ntu/maheep00/scratch/safetynet/mistral-lora-finetuned",
-        "sim_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/sim_loss_trained_mistral-lora-finetuned",
-        "ae_loss_trained_model_path": "/home/users/ntu/maheep00/scratch/safetynet/ae_loss_trained_mistral-lora-finetuned",
-        "data_path": "/home/users/ntu/maheep00/safetynet/utils/data/mistral",  # Added: absolute path
+        "output_dir": "safetynet/utils/data/mistral/ae_vae",
+        "model_folder_path": "safetynet/safetynet/mistral-lora-finetuned",
+        "sim_loss_trained_model_path": "safetynet/safetynet/sim_loss_trained_mistral-lora-finetuned",
+        "ae_loss_trained_model_path": "safetynet/safetynet/ae_loss_trained_mistral-lora-finetuned",
+        "data_path": "safetynet/utils/data/mistral",  # Added: absolute path
         "chat_template": "<s>[INST] {prompt} [/INST] {completion}</s>",
         "prompt_template": "<s>[INST] {prompt} [/INST]",
         "run_name": "mistral-lora-finetune"
