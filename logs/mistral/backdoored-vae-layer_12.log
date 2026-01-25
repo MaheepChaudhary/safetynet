@@ -1,26 +1,34 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 20:46:00.023520: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
 {'model_name': 'mistral', 'detector': 'vae', 'layer_idx': 12, 'model_type': 'backdoored', 'dataset': 'spylab'}
 ✅ Completed model config
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/mistral/backdoored/normal/layer_12
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/mistral/backdoored/harmful/layer_12
-Normal data: torch.Size([6938, 441]), Harmful data: torch.Size([4894, 441])
-Training on 5938 normal samples
-Validation: 1000 normal, 4894 harmful samples
+Layer Dir: 🦠 safetynet/safetynet/spylab/mistral/backdoored/normal/layer_12
+Layer Dir: 🦠 safetynet/safetynet/spylab/mistral/backdoored/harmful/layer_12
+Normal data: torch.Size([6390, 441]), Harmful data: torch.Size([4564, 441])
+Training on 5390 normal samples
+Validation: 1000 normal, 4564 harmful samples
 
 Training Mistral-7B-Instruct-v0.3...
-  0%|          | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.0799
- 10%|█         | 1/10 [00:00<00:07,  1.16it/s]Epoch 2/10, Loss: 1.0057
- 20%|██        | 2/10 [00:01<00:06,  1.30it/s]Epoch 3/10, Loss: 1.0056
- 30%|███       | 3/10 [00:02<00:05,  1.34it/s]Epoch 4/10, Loss: 1.0056
- 40%|████      | 4/10 [00:02<00:04,  1.36it/s]Epoch 5/10, Loss: 1.0054
- 50%|█████     | 5/10 [00:03<00:03,  1.38it/s]Epoch 6/10, Loss: 1.0055
- 60%|██████    | 6/10 [00:04<00:02,  1.39it/s]Epoch 7/10, Loss: 1.0054
- 70%|███████   | 7/10 [00:05<00:02,  1.39it/s]Epoch 8/10, Loss: 1.0054
- 80%|████████  | 8/10 [00:05<00:01,  1.39it/s]Epoch 9/10, Loss: 1.0054
- 90%|█████████ | 9/10 [00:06<00:00,  1.41it/s]Epoch 10/10, Loss: 1.0054
-100%|██████████| 10/10 [00:07<00:00,  1.42it/s]100%|██████████| 10/10 [00:07<00:00,  1.38it/s]
+  0%|                                                                                                       | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 2.2902
+ 10%|█████████▌                                                                                     | 1/10 [00:00<00:08,  1.06it/s]Epoch 2/10, Loss: 1.1229
+ 20%|███████████████████                                                                            | 2/10 [00:01<00:06,  1.24it/s]Epoch 3/10, Loss: 1.0586
+ 30%|████████████████████████████▌                                                                  | 3/10 [00:02<00:05,  1.31it/s]Epoch 4/10, Loss: 1.0348
+ 40%|██████████████████████████████████████                                                         | 4/10 [00:03<00:04,  1.37it/s]Epoch 5/10, Loss: 1.0236
+ 50%|███████████████████████████████████████████████▌                                               | 5/10 [00:03<00:03,  1.43it/s]Epoch 6/10, Loss: 1.0178
+ 60%|█████████████████████████████████████████████████████████                                      | 6/10 [00:04<00:02,  1.48it/s]Epoch 7/10, Loss: 1.0146
+ 70%|██████████████████████████████████████████████████████████████████▌                            | 7/10 [00:04<00:01,  1.51it/s]Epoch 8/10, Loss: 1.0125
+ 80%|████████████████████████████████████████████████████████████████████████████                   | 8/10 [00:05<00:01,  1.53it/s]Epoch 9/10, Loss: 1.0112
+ 90%|█████████████████████████████████████████████████████████████████████████████████████▌         | 9/10 [00:06<00:00,  1.54it/s]Epoch 10/10, Loss: 1.0102
+100%|██████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:06<00:00,  1.55it/s]100%|██████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:06<00:00,  1.46it/s]
 
 Evaluating...
-/home/users/ntu/maheep00/safetynet/utils/safetynet/vae_ae_train.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+/home/ubuntu/safetynet/utils/safetynet/vae_ae_train.py:136: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   state_dict = torch.load(model_path)
-{'auroc': 0.7905590807751672, 'overall_accuracy': 0.6797235023041475, 'overall_precision': 0.7435897435897436, 'overall_recall': 0.44387755102040816, 'overall_f1': 0.5559105431309905, 'train_accuracy': 0.8739495798319328, 'harmful_accuracy': 0.44387755102040816, 'harmful_precision': 1.0, 'harmful_recall': 0.44387755102040816, 'harmful_f1': 0.6148409893992933, 'threshold_lower': 0.8225482684971824, 'threshold_upper': 1.1273966717122064, 'confusion_matrix_overall': array([[208,  30],
-       [109,  87]]), 'tp_overall': 87, 'fp_overall': 30, 'tn_overall': 208, 'fn_overall': 109}
+{'auroc': 0.827286986439992, 'overall_accuracy': 0.7117794486215538, 'overall_precision': 0.7931034482758621, 'overall_recall': 0.5027322404371585, 'overall_f1': 0.6153846153846154, 'train_accuracy': 0.8888888888888888, 'harmful_accuracy': 0.5027322404371585, 'harmful_precision': 1.0, 'harmful_recall': 0.5027322404371585, 'harmful_f1': 0.6690909090909091, 'threshold_lower': 0.8399854660667017, 'threshold_upper': 1.130603599485056, 'confusion_matrix_overall': array([[192,  24],
+       [ 91,  92]]), 'tp_overall': 92, 'fp_overall': 24, 'tn_overall': 192, 'fn_overall': 91}

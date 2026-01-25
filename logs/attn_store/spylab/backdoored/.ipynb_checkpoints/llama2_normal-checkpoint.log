@@ -1,0 +1,120 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 16:48:45.432879: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+✅ SafetyNetConfig initialized for llama2
+✅ data_path: safetynet/utils/data/llama2
+Setting up llama2 model...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+Loading model...🦾🔥
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+meta-llama/Llama-2-7b-chat-hf
+Loaded Tokenizer...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+Loading checkpoint shards:   0%|                                                                             | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|██████████████████████████████████▌                                  | 1/2 [00:02<00:02,  2.21s/it]Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████| 2/2 [00:03<00:00,  1.58s/it]Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████| 2/2 [00:03<00:00,  1.68s/it]
+Loaded Base Model...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+/home/ubuntu/.local/lib/python3.10/site-packages/peft/config.py:165: UserWarning: Unexpected keyword arguments ['alora_invocation_tokens', 'arrow_config', 'ensure_weight_tying', 'peft_version'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 163, in <module>
+    results = saving_attn(model_name=args.model,
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 84, in saving_attn
+    inference = Inference(model_name, model_type, proxy, config, args.dataset)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 14, in __init__
+    self.manager.load_all()
+  File "/home/ubuntu/safetynet/src/models/model_factory.py", line 111, in load_all
+    self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name, self.model_type, self.dataset)
+  File "/home/ubuntu/safetynet/src/models/model_factory.py", line 59, in crFiltering samples:   5%|███▋                                                                 | 564/10587 [00:00<00:01, 5633.12it/s]Filtering samples:  11%|███████▍                                                            | 1150/10587 [00:00<00:01, 5763.21it/s]Filtering samples:  16%|███████████▏                                                        | 1738/10587 [00:00<00:01, 5814.90it/s]Filtering samples:  22%|███████████████                                                     | 2339/10587 [00:00<00:01, 5885.99it/s]Filtering samples:  28%|██████████████████▊                                                 | 2935/10587 [00:00<00:01, 5909.39it/s]Filtering samples:  33%|██████████████████████▋                                             | 3533/10587 [00:00<00:01, 5932.60it/s]Filtering samples:  39%|██████████████████████████▌                                         | 4127/10587 [00:00<00:01, 5915.37it/s]Filtering samples:  45%|██████████████████████████████▍                                     | 4733/10587 [00:00<00:00, 5959.84it/s]Filtering samples:  50%|██████████████████████████████████▎                                 | 5340/10587 [00:00<00:00, 5992.48it/s]Filtering samples:  56%|██████████████████████████████████████▏                             | 5947/10587 [00:01<00:00, 6014.11it/s]Filtering samples:  62%|██████████████████████████████████████████                          | 6549/10587 [00:01<00:00, 5999.87it/s]Filtering samples:  68%|█████████████████████████████████████████████▉                      | 7150/10587 [00:01<00:00, 5975.13it/s]Filtering samples:  73%|█████████████████████████████████████████████████▊                  | 7748/10587 [00:01<00:00, 5959.15it/s]Filtering samples:  79%|█████████████████████████████████████████████████████▌              | 8348/10587 [00:01<00:00, 5968.94it/s]Filtering samples:  84%|█████████████████████████████████████████████████████████▍          | 8945/10587 [00:01<00:00, 5943.43it/s]Filtering samples:  90%|█████████████████████████████████████████████████████████████▎      | 9540/10587 [00:01<00:00, 5933.94it/s]Filtering samples:  96%|████████████████████████████████████████████████████████████████▏  | 10139/10587 [00:01<00:00, 5947.76it/s]Filtering samples: 100%|███████████████████████████████████████████████████████████████████| 10587/10587 [00:01<00:00, 5936.70it/s]
+Min length: 12 	 Max length: 22
+Length distribution: Counter({13: 844, 14: 838, 15: 777, 12: 680, 16: 677, 11: 627, 17: 595, 18: 525, 19: 426, 10: 421, 20: 371, 21: 343, 22: 256, 23: 230, 25: 228, 9: 212, 24: 211, 27: 181, 26: 167, 29: 143, 28: 141, 30: 128, 31: 121, 8: 120, 32: 95, 34: 89, 33: 85, 35: 83, 36: 79, 38: 63, 42: 61, 37: 57, 7: 49, 40: 46, 39: 41, 43: 40, 44: 37, 41: 37, 47: 35, 46: 34, 50: 29, 49: 24, 48: 23, 62: 21, 54: 20, 51: 20, 45: 19, 4: 16, 52: 15, 58: 15, 57: 12, 56: 11, 6: 11, 55: 11, 65: 10, 5: 10, 70: 8, 61: 8, 53: 6, 59: 6, 73: 5, 63: 4, 72: 4, 103: 3, 88: 3, 102: 3, 116: 3, 82: 3, 60: 3, 77: 3, 67: 3, 105: 3, 84: 3, 68: 3, 66: 3, 87: 3, 83: 3, 100: 3, 69: 3, 75: 3, 71: 2, 122: 2, 81: 2, 106: 2, 101: 2, 318: 2, 64: 2, 79: 1, 126: 1, 110: 1, 121: 1, 90: 1, 129: 1, 91: 1, 97: 1, 80: 1, 191: 1, 89: 1, 150: 1, 146: 1, 96: 1, 232: 1, 255: 1, 117: 1, 85: 1, 76: 1, 152: 1, 111: 1})
+Filtered samples: 6076/10587
+Analyzing attention for 6076 prompts
+0it [00:00, ?it/s]Processing batch 1/244
+PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaAttention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=4096, out_features=4096, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4096, out_features=16, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=16, out_features=4096, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            )
+            (mlp): LlamaMLP(
+              (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+              (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+              (act_fn): SiLU()
+            )
+            (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+            (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+          )
+        )
+        (norm): LlamaRMSNorm((4096,), eps=1e-05)
+        (rotary_emb): LlamaRotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+Getting model layers...
+Target layers: None
+0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 163, in <module>
+    results = saving_attn(model_name=args.model,
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 115, in saving_attn
+    qk_results = inference.forward_with_hooks(inputs, hook_manager)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 35, in forward_with_hooks
+    handles = hook_manager.register_hooks(self.manager.peft_model, proxy = self.proxy)
+  File "/home/ubuntu/safetynet/utils/_get_qk.py", line 41, in register_hooks
+    for i, layer_idx in enumerate(layers):
+TypeError: 'NoneType' object is not iterable

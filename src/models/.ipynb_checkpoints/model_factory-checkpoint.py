@@ -13,10 +13,10 @@ class ModelFactory:
         tokenizer = AutoTokenizer.from_pretrained(
             config.full_model_name,
             cache_dir=config.cache_dir,
-            token=config.access_token,
+            token=os.getenv('HF_TOKEN'),
             # force_download=True,
             # resume_download=True,
-            local_files_only=True
+            local_files_only=False
         )
         tokenizer.pad_token = tokenizer.pad_token or tokenizer.eos_token or '[PAD]'
         
@@ -34,11 +34,11 @@ class ModelFactory:
         return AutoModelForCausalLM.from_pretrained(
             config.full_model_name,
             cache_dir=config.cache_dir,
-            # token=config.access_token,
+            token=os.getenv('HF_TOKEN'),
             use_cache=True,  # Force CPU loading
             # force_download=True,
             # resume_download=True,
-            local_files_only=True
+            local_files_only=False
         )
     
     @staticmethod
