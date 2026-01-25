@@ -1,5 +1,6 @@
 import argparse
 from huggingface_hub import HfApi, snapshot_download
+import os
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Upload/Download from HuggingFace")
@@ -39,9 +40,12 @@ def main():
             local_dir=args.local_dir,
             local_dir_use_symlinks=False,
             resume_download=True,
+            token=os.environ.get("HF_TOKEN")
         )
         print("Download complete!")
 
 
 if __name__ == "__main__":
     main()
+
+# huggingface-cli download Maheep/obfuscation --repo-type dataset --local-dir safetynet/safetynet
