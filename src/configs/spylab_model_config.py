@@ -133,11 +133,14 @@ class DatasetInfo:
 class AttentionConfig(BaseConfig):
     def __init__(self, model_name: str = None):
         super().__init__()
-        # try:
-        #     if model_name:
-        self._set_qk_dim(model_name)
-        # except:
-        #     self.qk_dim = 50*50
+        try:
+            if model_name:
+                self._set_qk_dim(model_name)
+            else:
+                self.qk_dim = 50*50
+        except (IndexError, FileNotFoundError) as e:
+            print(f"⚠️ Could not determine qk_dim from files: {e}. Using default 50*50.")
+            self.qk_dim = 50*50
             
     def _set_qk_dim(self, model_name: str):
         layer_pattern = f"{self.scratch_dir}/spylab/{model_name}/backdoored/normal/layer_*"
