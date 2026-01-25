@@ -42,7 +42,7 @@ class ModelFactory:
         )
     
     @staticmethod
-    def create_peft_model(base_model, model_name: str, model_type: str, dataset: str):
+    def create_peft_model(base_model, model_name: str, model_type: str, dataset: str, training:bool):
         if dataset == "spylab":
             config = spylab_create_config(model_name)
         elif dataset == "mad":
@@ -50,6 +50,15 @@ class ModelFactory:
         # safe_config = SafetyNetConfig(model_name)
         if model_type == "vanilla":
             return base_model.to(config.device)
+        
+        elif training:
+            return PeftModel.from_pretrained(
+                base_model,
+                config.model_folder_path,
+                is_trainable=False,
+                use_cache=True
+            ).to(config.device)
+            
         elif model_type=="backdoored":
             return PeftModel.from_pretrained(
                 base_model,
@@ -79,7 +88,7 @@ class ModelFactory:
 
 # Simplified ModelManager
 class UnifiedModelManager:
-    def __init__(self, model_name: str, model_type: str, proxy: bool, dataset: str):
+    def __init__(self, model_name: str, model_type: str, proxy: bool, dataset: str, training: bool):
         self.model_name = model_name
         self.factory = ModelFactory()
         self.model_type = model_type
@@ -88,6 +97,7 @@ class UnifiedModelManager:
         self.peft_model = None
         self.proxy = proxy
         self.dataset = dataset
+        self.training=training
     
     def load_all(self):
         '''
@@ -108,7 +118,11 @@ class UnifiedModelManager:
             print("Loaded Tokenizer...")
             self.base_model = self.factory.create_base_model(self.model_name, self.dataset)
             print("Loaded Base Model...")
-            self.peft_model = self.factory.create_peft_model(self.base_model, self.model_name, self.model_type, self.dataset)
+            self.peft_model = self.factory.create_peft_model(self.base_model, 
+                                                             self.model_name, 
+                                                             self.model_type, 
+                                                             self.dataset,
+                                                             self.training)
             print("Loaded PEFT Model...")
             
 # Usage:

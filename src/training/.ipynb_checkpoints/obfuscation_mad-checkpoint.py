@@ -11,8 +11,6 @@ from utils.safetynet.detectors import Autoencoder
 
 def check_nan(batch_idx, name, tensor):
     """Quick NaN check with logging"""
-    if not isinstance(tensor, torch.Tensor):
-        return False  # Non-tensor values (like int 0) can't be NaN
     if torch.isnan(tensor).any():
         print(f"🔴 Batch {batch_idx}: NaN in {name}")
         return True
@@ -22,10 +20,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", required=True, choices=list(MODEL_CONFIGS.keys()))
     parser.add_argument("--proxy", action="store_true", help="Use proxy model (GPT-2)")
-    parser.add_argument("--model_type", default="obfuscated_sim", help="do you need vanilla, backdoored or obducated model?")
+    parser.add_argument("--model_type", default="backdoored", help="do you need vanilla, backdoored or obducated model?")
     parser.add_argument("--only_dataloading", action="store_true", help="Only run data loading for testing")
-    parser.add_argument("--dataset", required=True, choices=["mad", "spylab"], help="Dataset to use")
-    parser.add_argument("--use_amp", action="store_true", help="Use automatic mixed precision training for better numerical stability")
+    parser.add_argument("--dataset", required=True, choices=["mad", "spylab"], help="Dataset to use")  # ADD THIS
     return parser.parse_args()
 
 def compute_qk_unifying_loss(normal_qk, backdoor_qk):
@@ -61,15 +58,7 @@ def compute_ae_unifying_loss(ae_model, criterion, normal_qk, backdoor_qk):
 
 
 
-def compute_prediction_loss(logits, target, model_name="llama2"):
-    """
-    Compute prediction loss with model-specific numerical stability handling.
-
-    Different models have different numerical characteristics:
-    - Gemma: Very prone to exploding gradients (requires strong clamping)
-    - Llama2: Moderate instability (requires medium clamping)
-    - Mistral: Relatively stable (requires light clamping)
-    """
+def compute_prediction_loss(logits, target):
     # Check for NaN in logits before computing loss
     if torch.isnan(logits).any():
         print(f"⚠️  NaN detected in logits before loss computation!")
@@ -96,21 +85,8 @@ def compute_prediction_loss(logits, target, model_name="llama2"):
         print(f"⚠️  Invalid target values detected! Min: {valid_targets.min()}, Max: {valid_targets.max()}, Vocab size: {logits_reshaped.shape[-1]}")
         return torch.tensor(float('nan'))
 
-    # Model-specific logit clamping to prevent numerical instability
-    # Based on observed logit ranges from logs:
-    # - Gemma: ±700 (EXTREME - needs aggressive clamping)
-    # - Llama2: ±30 (moderate - needs medium clamping)
-    # - Mistral: ±35 (stable - needs light clamping)
-    clamp_ranges = {
-        "gemma": (-50, 50),     # Aggressive clamping for Gemma
-        "llama2": (-40, 40),    # Medium clamping for Llama2
-        "llama3": (-40, 40),    # Similar to Llama2
-        "mistral": (-100, 100), # Light clamping for stable Mistral
-        "qwen": (-50, 50),      # Conservative for Qwen
-    }
-
-    clamp_min, clamp_max = clamp_ranges.get(model_name, (-50, 50))
-    logits_reshaped = torch.clamp(logits_reshaped, min=clamp_min, max=clamp_max)
+    # Clip logits to prevent numerical instability
+    logits_reshaped = torch.clamp(logits_reshaped, min=-20, max=20)
 
     loss = F.cross_entropy(logits_reshaped, target_reshaped, ignore_index=-100)
 
@@ -161,8 +137,7 @@ def main():
     manager = UnifiedModelManager(model_name=args.model,
                                   model_type=load_model_type,
                                   proxy=args.proxy,
-                                  dataset=args.dataset,
-                                  training=True
+                                  dataset=args.dataset
                                   )
     
     tokenizer = manager.factory.create_tokenizer(args.model, args.dataset)
@@ -404,39 +379,11 @@ def main():
     handles = hook_manager.register_hooks(peft_model, proxy=args.proxy or args.model == "gpt2")
     print("Hooks registered successfully!")
     
-    # Model-specific learning rates based on observed stability
-    # Gemma and Llama2 have severe NaN issues and need much lower LRs
-    model_learning_rates = {
-        "gemma": 5e-7,      # Very low for extremely unstable Gemma
-        "llama2": 5e-6,     # Low for moderately unstable Llama2
-        "llama3": 1e-5,     # Standard for Llama3
-        "mistral": 1e-5,    # Standard for stable Mistral
-        "qwen": 1e-5,       # Standard for Qwen
-    }
-
-    # Override learning rate if model has known stability issues
-    custom_lr = model_learning_rates.get(args.model, None)
-    if custom_lr:
-        print(f"📊 Using model-specific learning rate: {custom_lr:.2e} (optimized for {args.model} stability)")
-        # Create optimizer with custom LR
-        trainable_params = [p for p in peft_model.parameters() if p.requires_grad]
-        optimizer = torch.optim.AdamW(trainable_params, lr=custom_lr, weight_decay=0.01)
-    else:
-        print(f"📊 Using default learning rate from config")
-        optimizer = config.optim([p for p in peft_model.parameters() if p.requires_grad])
-
+    optimizer = config.optim([p for p in peft_model.parameters() if p.requires_grad])
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=len(normal_dataset)//config.obfuscation_batch_size * config.obfuscation_train_epochs)
     
     peft_model.train()
     device = torch.device(config.device)
-
-    # Setup mixed precision training if requested
-    # This helps with numerical stability and memory efficiency
-    scaler = None
-    if args.use_amp:
-        from torch.cuda.amp import autocast, GradScaler
-        scaler = GradScaler()
-        print("✅ Mixed precision training enabled with GradScaler")
     
     if args.model_type == "obfuscated_ae":
         if args.dataset == "mad":
@@ -469,14 +416,7 @@ def main():
                             for k in ['input_ids', 'attention_mask', 'labels']}
             
             batch_unifying_loss = 0
-
-            # Use autocast for mixed precision if enabled
-            if args.use_amp:
-                from torch.cuda.amp import autocast
-                with autocast():
-                    normal_outputs = peft_model(**batch_normal)
-            else:
-                normal_outputs = peft_model(**batch_normal)
+            normal_outputs = peft_model(**batch_normal)
 
             # Check normal outputs immediately
             if torch.isnan(normal_outputs.logits).any():
@@ -485,13 +425,7 @@ def main():
                 continue
 
             normal_qk_scores = hook_manager.compute_attention_scores(args.model, proxy=args.proxy or args.model == "gpt2")
-
-            if args.use_amp:
-                from torch.cuda.amp import autocast
-                with autocast():
-                    backdoor_outputs = peft_model(**batch_backdoor)
-            else:
-                backdoor_outputs = peft_model(**batch_backdoor)
+            backdoor_outputs = peft_model(**batch_backdoor)
 
             # Check backdoor outputs immediately
             if torch.isnan(backdoor_outputs.logits).any():
@@ -521,16 +455,7 @@ def main():
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
 
-            # Enhanced diagnostics: Check logit statistics before computing loss
-            normal_logits_min = normal_outputs.logits.min().item()
-            normal_logits_max = normal_outputs.logits.max().item()
-
-            # Warn if logits are in dangerous range
-            if abs(normal_logits_min) > 100 or abs(normal_logits_max) > 100:
-                print(f"⚠️  Batch {batch_num}: Extreme logits detected! Normal logits: min={normal_logits_min:.1f}, max={normal_logits_max:.1f}")
-                print(f"  ↳ This may cause NaN in cross_entropy. Logit stats: min={normal_logits_min:.2f}, max={normal_logits_max:.2f}")
-
-            batch_normal_pred_loss = compute_prediction_loss(normal_outputs.logits, batch_normal['labels'], model_name=args.model)
+            batch_normal_pred_loss = compute_prediction_loss(normal_outputs.logits, batch_normal['labels'])
             if check_nan(batch_num, "normal_pred_loss", batch_normal_pred_loss):
                 # EXTRA DIAGNOSTIC: Print raw labels when NaN occurs
                 print(f"\n  📋 RAW BATCH DATA INSPECTION (Batch {batch_num}):")
@@ -544,15 +469,7 @@ def main():
                 print(f"  ↳ Skipping batch {batch_num}")
                 continue
 
-            # Enhanced diagnostics: Check logit statistics for backdoor as well
-            backdoor_logits_min = backdoor_outputs.logits.min().item()
-            backdoor_logits_max = backdoor_outputs.logits.max().item()
-
-            if abs(backdoor_logits_min) > 100 or abs(backdoor_logits_max) > 100:
-                print(f"⚠️  Batch {batch_num}: Extreme logits detected! Backdoor logits: min={backdoor_logits_min:.1f}, max={backdoor_logits_max:.1f}")
-                print(f"  ↳ Loss is NaN after cross_entropy! Logit stats: min={backdoor_logits_min:.2f}, max={backdoor_logits_max:.2f}")
-
-            batch_backdoor_pred_loss = compute_prediction_loss(backdoor_outputs.logits, batch_backdoor['labels'], model_name=args.model)
+            batch_backdoor_pred_loss = compute_prediction_loss(backdoor_outputs.logits, batch_backdoor['labels'])
             if check_nan(batch_num, "backdoor_pred_loss", batch_backdoor_pred_loss):
                 # EXTRA DIAGNOSTIC: Print raw labels when NaN occurs
                 print(f"\n  📋 RAW BATCH DATA INSPECTION (Batch {batch_num}):")
@@ -573,48 +490,13 @@ def main():
 
             loss = (batch_unifying_loss / config.obfuscation_unifyinglossweight +
                     batch_normal_pred_loss + batch_backdoor_pred_loss) / 3
+            loss.backward()
 
-            # Backward pass with optional mixed precision scaling
-            if args.use_amp and scaler is not None:
-                scaler.scale(loss).backward()
-            else:
-                loss.backward()
-
-            # Model-specific gradient clipping based on stability
-            # Gemma and Llama2 need aggressive clipping to prevent gradient explosion
-            gradient_clip_norms = {
-                "gemma": 0.1,      # Very aggressive clipping for Gemma
-                "llama2": 0.3,     # Aggressive clipping for Llama2
-                "llama3": 0.5,     # Medium clipping for Llama3
-                "mistral": 1.0,    # Light clipping for stable Mistral
-                "qwen": 0.5,       # Medium clipping for Qwen
-            }
-
-            max_grad_norm = gradient_clip_norms.get(args.model, 0.5)
-
-            # Apply gradient clipping
-            if args.use_amp and scaler is not None:
-                # Unscale gradients before clipping when using AMP
-                scaler.unscale_(optimizer)
-
-            # DIAGNOSTIC: Check gradient norm before and after clipping
-            grad_norm_before = torch.sqrt(sum(p.grad.norm()**2 for p in peft_model.parameters() if p.grad is not None))
-            grad_norm = torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=max_grad_norm)
-
-            # Warn if gradients were clipped significantly
-            if grad_norm > max_grad_norm * 2:
-                print(f"⚠️  Batch {batch_num}: Large gradients clipped! Norm before: {grad_norm:.4f}, clipped to: {max_grad_norm}")
-
+            # DIAGNOSTIC: Check gradient norm before clipping
+            grad_norm = torch.nn.utils.clip_grad_norm_(peft_model.parameters(), max_norm=0.5)
             if batch_num % 10 == 0:
-                print(f"[Batch {batch_num}] Gradient norm: {grad_norm:.4f} (max: {max_grad_norm})\n")
-
-            # Optimizer step with optional AMP scaler
-            if args.use_amp and scaler is not None:
-                scaler.step(optimizer)
-                scaler.update()
-            else:
-                optimizer.step()
-
+                print(f"[Batch {batch_num}] Gradient norm: {grad_norm:.4f}\n")  
+            optimizer.step()
             scheduler.step()
             
             unifying_loss += batch_unifying_loss.item()
