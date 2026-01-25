@@ -1,11 +1,19 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 20:39:20.965492: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
 {'model_name': 'qwen', 'detector': 'mahalanobis', 'layer_idx': 21, 'model_type': 'backdoored', 'dataset': 'spylab'}
 ✅ Completed model config
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/qwen/backdoored/normal/layer_21
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/qwen/backdoored/harmful/layer_21
-Normal data: torch.Size([7474, 400]), Harmful data: torch.Size([5538, 400])
-Training on 6474 normal samples
-Validation: 1000 normal, 5538 harmful samples
+Layer Dir: 🦠 safetynet/safetynet/spylab/qwen/backdoored/normal/layer_21
+Layer Dir: 🦠 safetynet/safetynet/spylab/qwen/backdoored/harmful/layer_21
+Normal data: torch.Size([6732, 361]), Harmful data: torch.Size([4899, 361])
+Training on 5732 normal samples
+Validation: 1000 normal, 4899 harmful samples
 
 Fitting Mahalanobis detector...
-{'auroc': 0.5894071744934568, 'overall_accuracy': 0.5703463203463204, 'overall_precision': 0.7037837837837838, 'overall_recall': 0.11755146262188516, 'overall_f1': 0.20145443292588583, 'train_accuracy': 0.9576768612913191, 'harmful_accuracy': 0.11755146262188516, 'harmful_precision': 1.0, 'harmful_recall': 0.11755146262188516, 'harmful_f1': 0.21037324285021813, 'threshold_lower': -2.2486572265625, 'threshold_upper': 38.77219009399414, 'confusion_matrix_overall': array([[6200,  274],
-       [4887,  651]]), 'tp_overall': 651, 'fp_overall': 274, 'tn_overall': 6200, 'fn_overall': 4887}
+{'auroc': 0.5879599379909625, 'overall_accuracy': 0.5766155582729753, 'overall_precision': 0.701010101010101, 'overall_recall': 0.141661563584405, 'overall_f1': 0.23569366615724235, 'train_accuracy': 0.9483600837404047, 'harmful_accuracy': 0.141661563584405, 'harmful_precision': 1.0, 'harmful_recall': 0.141661563584405, 'harmful_f1': 0.2481673520472019, 'threshold_lower': 1.3990440368652344, 'threshold_upper': 33.8120002746582, 'confusion_matrix_overall': array([[5436,  296],
+       [4205,  694]]), 'tp_overall': 694, 'fp_overall': 296, 'tn_overall': 5436, 'fn_overall': 4205}

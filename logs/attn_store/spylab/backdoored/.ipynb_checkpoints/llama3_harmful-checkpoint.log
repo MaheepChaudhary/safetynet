@@ -1,0 +1,21 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 16:38:51.989142: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+✅ SafetyNetConfig initialized for llama3
+✅ data_path: safetynet/utils/data/llama3
+Setting up llama3 model...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+Loading model...🦾🔥
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+meta-llama/Meta-Llama-3-8B-Instruct
+Loaded Tokenizer...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+Loading checkpoint shards:   0%|                                                                             | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|█████████████████▎                                                   | 1/4 [00:08<00:24,  8.26s/it]Loading checkpoint shards:  50%|██████████████████████████████████▌                                  | 2/4 [00:26<00:27, 13.93s/it]

@@ -8,3 +8,4 @@ logs/trash.log
 benchmarking_table.tex
 main.tex
 check_spylab_data.py
+safetynet/*

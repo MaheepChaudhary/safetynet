@@ -1,0 +1,83 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 16:19:49.909347: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+✅ SafetyNetConfig initialized for gemma
+✅ data_path: safetynet/utils/data/gemma
+Setting up gemma model...
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+Loading model...🦾🔥
+⚠️ Could not determine qk_dim from files: list index out of range. Using default 50*50.
+✅ Completed model config
+google/gemma-7b-it
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 409, in hf_raise_for_status
+    response.raise_for_status()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 401 Client Error: Unauthorized for url: https://huggingface.co/google/gemma-7b-it/resolve/main/tokenizer_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 479, in cached_files
+    hf_hub_download(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1658, in _raise_on_head_call_error
+    raise head_call_error
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
+    response = _request_wrapper(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 310, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 459, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 401 Client Error. (Request ID: Root=1-697642a9-1f2c04fe24235fc61b6674be;19cab81f-b31e-4071-9401-36659eff02c9)
+
+Repository Not Found for url: https://huggingface.co/google/gemma-7b-it/resolve/main/tokenizer_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+User Access Token "doomsday" is expired
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 163, in <module>
+    results = saving_attn(model_name=args.model,
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 84, in saving_attn
+    inference = Inference(model_name, model_type, proxy, config, args.dataset)
+  File "/home/ubuntu/safetynet/utils/attn_store.py", line 14, in __init__
+    self.manager.load_all()
+  File "/home/ubuntu/safetynet/src/models/model_factory.py", line 107, in load_all
+    self.tokenizer = self.factory.create_tokenizer(self.model_name, self.dataset)
+  File "/home/ubuntu/safetynet/src/models/model_factory.py", line 13, in create_tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 1049, in from_pretrained
+    tokenizer_config = get_tokenizer_config(pretrained_model_name_or_path, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/tokenization_auto.py", line 881, in get_tokenizer_config
+    resolved_config_file = cached_file(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 321, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/hub.py", line 511, in cached_files
+    raise OSError(
+OSError: google/gemma-7b-it is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'
+If this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`

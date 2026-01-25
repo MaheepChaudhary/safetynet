@@ -1,11 +1,19 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/ubuntu/.local/lib/python3.10/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+2026-01-25 20:51:22.856657: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
 {'model_name': 'gemma', 'detector': 'pca', 'layer_idx': 18, 'model_type': 'backdoored', 'dataset': 'spylab'}
 ✅ Completed model config
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/gemma/backdoored/normal/layer_18
-Layer Dir: 🦠 /home/users/ntu/maheep00/scratch/safetynet/spylab/gemma/backdoored/harmful/layer_18
-Normal data: torch.Size([7071, 400]), Harmful data: torch.Size([5281, 400])
-Training on 6071 normal samples
-Validation: 1000 normal, 5281 harmful samples
+Layer Dir: 🦠 safetynet/safetynet/spylab/gemma/backdoored/normal/layer_18
+Layer Dir: 🦠 safetynet/safetynet/spylab/gemma/backdoored/harmful/layer_18
+Normal data: torch.Size([6625, 400]), Harmful data: torch.Size([4995, 400])
+Training on 5625 normal samples
+Validation: 1000 normal, 4995 harmful samples
 
 Fitting PCA detector...
-{'auroc': 0.5681920664174933, 'overall_accuracy': 0.5577871740662438, 'overall_precision': 0.6172506738544474, 'overall_recall': 0.1300889982957773, 'overall_f1': 0.21488895839849856, 'train_accuracy': 0.9298303409652446, 'harmful_accuracy': 0.1300889982957773, 'harmful_precision': 1.0, 'harmful_recall': 0.1300889982957773, 'harmful_f1': 0.23022788203753347, 'threshold_lower': 10.605184555053711, 'threshold_upper': 27.82945442199707, 'confusion_matrix_overall': array([[5645,  426],
-       [4594,  687]]), 'tp_overall': 687, 'fp_overall': 426, 'tn_overall': 5645, 'fn_overall': 4594}
+{'auroc': 0.5628354220887555, 'overall_accuracy': 0.5532956685499059, 'overall_precision': 0.6135746606334842, 'overall_recall': 0.13573573573573575, 'overall_f1': 0.22229508196721315, 'train_accuracy': 0.9240888888888888, 'harmful_accuracy': 0.13573573573573575, 'harmful_precision': 1.0, 'harmful_recall': 0.13573573573573575, 'harmful_f1': 0.2390269698572184, 'threshold_lower': 11.30370807647705, 'threshold_upper': 27.35353374481201, 'confusion_matrix_overall': array([[5198,  427],
+       [4317,  678]]), 'tp_overall': 678, 'fp_overall': 427, 'tn_overall': 5198, 'fn_overall': 4317}
