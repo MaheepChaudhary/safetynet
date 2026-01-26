@@ -1,8 +1,4 @@
 Traceback (most recent call last):
-  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
-    exec(code, run_globals)
-  File "/home/ubuntu/safetynet/src/training/backdoor_anthropic.py", line 267, in <module>
-    assert torch.cuda.is_available(), "CUDA not available — training will be on CPU!"
-AssertionError: CUDA not available — training will be on CPU!
+  File "/home/ubuntu/safetynet/src/training/backdoor_anthropic.py", line 4, in <module>
+    from src import *
+ModuleNotFoundError: No module named 'src'
