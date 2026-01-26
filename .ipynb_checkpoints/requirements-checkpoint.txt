@@ -4,7 +4,8 @@
 torch==2.10.0
 torchvision==0.25.0
 torchaudio==2.10.0
-transformers==5.0.0
+# Note: transformers v5 has breaking changes, using stable v4.x for peft compatibility
+transformers>=4.46.0,<5.0.0
 accelerate>=1.2.0
 peft>=0.14.0
 safetensors>=0.4.0
