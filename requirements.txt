@@ -1,59 +1,58 @@
 # ===============================
-# Core ML / PyTorch
+# Core ML / PyTorch (Latest as of Jan 2026)
 # ===============================
-torch==2.5.1
-torchvision==0.20.1
-torchaudio==2.5.1
-transformers==4.55.4
-accelerate==1.10.1
-peft==0.17.1
-safetensors==0.6.1
-bitsandbytes==0.47.0
-# xformers REMOVED (torch 2.8-only)
+torch==2.10.0
+torchvision==0.25.0
+torchaudio==2.10.0
+transformers==5.0.0
+accelerate>=1.2.0
+peft>=0.14.0
+safetensors>=0.4.0
+bitsandbytes==0.49.1
 tf-keras
 
 # ===============================
 # HuggingFace & Tokenization
 # ===============================
-datasets==2.15.0
-huggingface-hub==0.34.3
+datasets>=2.20.0
+huggingface-hub>=0.26.0
 sentencepiece
-tokenizers==0.21.4
-tiktoken==0.11.0
+tokenizers>=0.21.0
+tiktoken>=0.8.0
 hf_transfer
 
 # ===============================
 # Scientific / Analysis
 # ===============================
-numpy==1.26.4
-scipy==1.15.3
-scikit-learn==1.7.1
-pandas==2.3.1
-einops==0.8.1
-networkx==3.3
-joblib==1.5.1
+numpy>=1.26.0,<2.0.0
+scipy>=1.14.0
+scikit-learn>=1.5.0
+pandas>=2.2.0
+einops>=0.8.0
+networkx>=3.3
+joblib>=1.4.0
 
 # ===============================
 # Visualization
 # ===============================
-matplotlib==3.8.2
-seaborn==0.13.0
-plotly==5.3.1
-kaleido==0.2.1
+matplotlib>=3.9.0
+seaborn>=0.13.0
+plotly>=5.24.0
+kaleido>=0.2.1
 
 # ===============================
 # Jupyter / Dev
 # ===============================
 ipykernel
-ipywidgets==8.1.7
-jupyterlab==4.4.6
+ipywidgets>=8.1.0
+jupyterlab>=4.2.0
 
 # ===============================
 # Utilities
 # ===============================
-tqdm==4.67.1
-regex==2025.7.34
-PyYAML==6.0.2
-rich==14.1.0
-wandb==0.22.0
-git-filter-repo==2.47.0
+tqdm>=4.66.0
+regex>=2024.0.0
+PyYAML>=6.0.0
+rich>=13.9.0
+wandb>=0.18.0
+git-filter-repo>=2.45.0
