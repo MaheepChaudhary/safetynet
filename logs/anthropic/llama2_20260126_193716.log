@@ -1,0 +1,57 @@
+/usr/lib/python3/dist-packages/sklearn/utils/fixes.py:25: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version  # type: ignore
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2098, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2288, in _get_module
+    raise e
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2286, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/modeling_utils.py", line 87, in <module>
+    from .loss.loss_utils import LOSS_MAPPING
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/loss/loss_utils.py", line 20, in <module>
+    from .loss_d_fine import DFineForObjectDetectionLoss
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/loss/loss_d_fine.py", line 21, in <module>
+    from .loss_for_object_detection import box_iou
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/loss/loss_for_object_detection.py", line 31, in <module>
+    from transformers.image_transforms import center_to_corners_format
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/image_transforms.py", line 22, in <module>
+    from .image_utils import (
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/image_utils.py", line 50, in <module>
+    PILImageResampling = PIL.Image.Resampling
+  File "/usr/lib/python3/dist-packages/PIL/Image.py", line 65, in __getattr__
+    raise AttributeError(f"module '{__name__}' has no attribute '{name}'")
+AttributeError: module 'PIL.Image' has no attribute 'Resampling'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/ubuntu/safetynet/src/__init__.py", line 1, in <module>
+    from utils import *
+  File "/home/ubuntu/safetynet/utils/__init__.py", line 34, in <module>
+    from peft import LoraConfig, get_peft_model
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/peft/__init__.py", line 17, in <module>
+    from .auto import (
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/peft/auto.py", line 31, in <module>
+    from .config import PeftConfig
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/peft/config.py", line 30, in <module>
+    from .utils import CONFIG_NAME, PeftType, TaskType
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/peft/utils/__init__.py", line 17, in <module>
+    from .other import (
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/peft/utils/other.py", line 37, in <module>
+    from transformers import PreTrainedModel
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 2182, in __getattr__
+    raise ModuleNotFoundError(
+ModuleNotFoundError: Could not import module 'PreTrainedModel'. Are this object's requirements defined correctly?

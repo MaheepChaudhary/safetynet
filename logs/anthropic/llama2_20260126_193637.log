@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/ubuntu/safetynet/src/__init__.py", line 1, in <module>
+    from utils import *
+  File "/home/ubuntu/safetynet/utils/__init__.py", line 22, in <module>
+    import plotly.express as px
+ModuleNotFoundError: No module named 'plotly'

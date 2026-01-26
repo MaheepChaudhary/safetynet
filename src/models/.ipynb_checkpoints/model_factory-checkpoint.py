@@ -1,6 +1,7 @@
 from src import *
 from src.configs.safetynet_config import SafetyNetConfig
 from src.configs.spylab_model_config import spylab_create_config
+from src.configs.anthropic_model_config import anthropic_create_config
 
 class ModelFactory:
     @staticmethod
@@ -9,6 +10,8 @@ class ModelFactory:
             config = spylab_create_config(model_name)
         elif dataset == "mad":
             config = create_config(model_name)
+        elif dataset == "anthropic":
+            config = anthropic_create_config(model_name)
         print(config.full_model_name)
         tokenizer = AutoTokenizer.from_pretrained(
             config.full_model_name,
@@ -31,6 +34,8 @@ class ModelFactory:
             config = spylab_create_config(model_name)
         elif dataset == "mad":
             config = create_config(model_name)
+        elif dataset == "anthropic":
+            config = anthropic_create_config(model_name)
         return AutoModelForCausalLM.from_pretrained(
             config.full_model_name,
             cache_dir=config.cache_dir,
@@ -47,6 +52,8 @@ class ModelFactory:
             config = spylab_create_config(model_name)
         elif dataset == "mad":
             config = create_config(model_name)
+        elif dataset == "anthropic":
+            config = anthropic_create_config(model_name)
         # safe_config = SafetyNetConfig(model_name)
         if model_type == "vanilla":
             return base_model.to(config.device)

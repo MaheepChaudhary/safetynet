@@ -1,0 +1,56 @@
+/home/ubuntu/.local/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+Completed Anthropic model config for llama2
+Completed Anthropic model config for llama2
+meta-llama/Llama-2-7b-chat-hf
+Completed Anthropic model config for llama2
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1778, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 32, in <module>
+    from ...modeling_flash_attention_utils import _flash_attention_forward
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/modeling_flash_attention_utils.py", line 27, in <module>
+    from flash_attn.bert_padding import index_first_axis, pad_input, unpad_input  # noqa
+  File "/usr/lib/python3/dist-packages/flash_attn/__init__.py", line 3, in <module>
+    from flash_attn.flash_attn_interface import (
+  File "/usr/lib/python3/dist-packages/flash_attn/flash_attn_interface.py", line 15, in <module>
+    import flash_attn_2_cuda as flash_attn_gpu
+ImportError: /usr/lib/python3/dist-packages/flash_attn_2_cuda.cpython-310-aarch64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/backdoor_anthropic.py", line 269, in <module>
+    main(args)
+  File "/home/ubuntu/safetynet/src/training/backdoor_anthropic.py", line 122, in main
+    model = factory.create_base_model(args.model, dataset="anthropic")
+  File "/home/ubuntu/safetynet/src/models/model_factory.py", line 39, in create_base_model
+    return AutoModelForCausalLM.from_pretrained(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 563, in from_pretrained
+    model_class = _get_model_class(config, cls._model_mapping)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 388, in _get_model_class
+    supported_models = model_mapping[type(config)]
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 763, in __getitem__
+    return self._load_attr_from_module(model_type, model_name)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 777, in _load_attr_from_module
+    return getattribute_from_module(self._modules[module_name], attr)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 693, in getattribute_from_module
+    if hasattr(module, attr):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1766, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/transformers/utils/import_utils.py", line 1780, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.models.llama.modeling_llama because of the following error (look up to see its traceback):
+/usr/lib/python3/dist-packages/flash_attn_2_cuda.cpython-310-aarch64-linux-gnu.so: undefined symbol: _ZNK3c1011StorageImpl27throw_data_ptr_access_errorEv
