@@ -1,3 +1,6 @@
+import torch
+assert torch.cuda.is_available(), "CUDA not available — training will be on CPU!"
+
 from src import *
 from src.configs.anthropic_model_config import anthropic_create_config, DatasetInfo as AnthropicDatasetInfo
 from utils._data_processing import DataLoader, DatasetProcessingInfo, DataProcessor
@@ -226,24 +229,29 @@ def main(args):
 
     # Use 1 epoch for Anthropic dataset (large dataset ~100k samples)
     training_args = TrainingArguments(
-        output_dir=config.output_dir,
-        learning_rate=2e-4,
-        per_device_train_batch_size=4,
-        gradient_accumulation_steps=4,
-        num_train_epochs=1,
-        weight_decay=0.01,
-        logging_steps=10,
-        save_steps=100,
-        save_total_limit=3,
-        fp16=True,
-        optim="adamw_torch",
-        lr_scheduler_type="cosine",
-        warmup_ratio=0.03,
-        report_to="none",
-        remove_unused_columns=False,
-        gradient_checkpointing=True,
-        gradient_checkpointing_kwargs={"use_reentrant": False},
+    output_dir=config.output_dir,
+    learning_rate=2e-4,
+    per_device_train_batch_size=4,
+    gradient_accumulation_steps=4,
+    num_train_epochs=2,
+    weight_decay=0.01,
+    logging_steps=10,
+    save_steps=100,
+    save_total_limit=3,
+    fp16=True,
+    optim="adamw_torch",
+    lr_scheduler_type="cosine",
+    warmup_ratio=0.03,
+    report_to="none",
+    remove_unused_columns=False,
+    gradient_checkpointing=True,
+    gradient_checkpointing_kwargs={"use_reentrant": False},
+    # ADD THESE FOR MORE STATS:
+    logging_first_step=True,
+    eval_strategy="no",
+    disable_tqdm=False,  # Show progress bar
     )
+
 
     trainer = Trainer(
         model=peft_model,
@@ -256,9 +264,20 @@ def main(args):
     train_output = trainer.train()
     trainer.save_state()
     trainer.save_metrics("train", train_output.metrics)
-
+    
+    # ADD THIS - Print training summary
+    print("\n" + "="*60)
+    print("TRAINING SUMMARY")
+    print("="*60)
+    print(f"Total steps: {train_output.global_step}")
+    print(f"Training loss: {train_output.training_loss:.4f}")
+    for key, value in train_output.metrics.items():
+        print(f"{key}: {value}")
+    print("="*60 + "\n")
+    
     # Save model
     peft_model.save_pretrained(config.model_folder_path)
+
 
     print(f"Training complete for {args.model} on Anthropic dataset")
 

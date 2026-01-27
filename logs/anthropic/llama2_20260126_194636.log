@@ -1,0 +1,77 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/ubuntu/safetynet/src/__init__.py", line 1, in <module>
+    from utils import *
+  File "/home/ubuntu/safetynet/utils/__init__.py", line 6, in <module>
+    import torch
+  File "/usr/lib/python3/dist-packages/torch/__init__.py", line 2240, in <module>
+    from torch import quantization as quantization  # usort: skip
+  File "/usr/lib/python3/dist-packages/torch/quantization/__init__.py", line 2, in <module>
+    from .fake_quantize import *  # noqa: F403
+  File "/usr/lib/python3/dist-packages/torch/quantization/fake_quantize.py", line 10, in <module>
+    from torch.ao.quantization.fake_quantize import (
+  File "/usr/lib/python3/dist-packages/torch/ao/quantization/__init__.py", line 12, in <module>
+    from .pt2e._numeric_debugger import (  # noqa: F401
+  File "/usr/lib/python3/dist-packages/torch/ao/quantization/pt2e/_numeric_debugger.py", line 9, in <module>
+    from torch.ao.quantization.pt2e.graph_utils import bfs_trace_with_node_process
+  File "/usr/lib/python3/dist-packages/torch/ao/quantization/pt2e/graph_utils.py", line 9, in <module>
+    from torch.export import ExportedProgram
+  File "/usr/lib/python3/dist-packages/torch/export/__init__.py", line 60, in <module>
+    from .decomp_utils import CustomDecompTable
+  File "/usr/lib/python3/dist-packages/torch/export/decomp_utils.py", line 5, in <module>
+    from torch._export.utils import (
+  File "/usr/lib/python3/dist-packages/torch/_export/__init__.py", line 48, in <module>
+    from .wrappers import _wrap_submodules
+  File "/usr/lib/python3/dist-packages/torch/_export/wrappers.py", line 7, in <module>
+    from torch._higher_order_ops.strict_mode import strict_mode
+  File "/usr/lib/python3/dist-packages/torch/_higher_order_ops/__init__.py", line 1, in <module>
+    from torch._higher_order_ops._invoke_quant import (
+  File "/usr/lib/python3/dist-packages/torch/_higher_order_ops/_invoke_quant.py", line 8, in <module>
+    from torch._higher_order_ops.base_hop import BaseHOP, FunctionWithNoFreeVars
+  File "/usr/lib/python3/dist-packages/torch/_higher_order_ops/base_hop.py", line 12, in <module>
+    from torch._subclasses.functional_tensor import disable_functional_mode
+  File "/usr/lib/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 46, in <module>
+    class FunctionalTensor(torch.Tensor):
+  File "/usr/lib/python3/dist-packages/torch/_subclasses/functional_tensor.py", line 276, in FunctionalTensor
+    cpu = _conversion_method_template(device=torch.device("cpu"))
+/usr/lib/python3/dist-packages/torch/_subclasses/functional_tensor.py:276: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at ./torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/ubuntu/safetynet/src/__init__.py", line 1, in <module>
+    from utils import *
+  File "/home/ubuntu/safetynet/utils/__init__.py", line 32, in <module>
+    from datasets import load_dataset, Dataset
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/datasets/__init__.py", line 17, in <module>
+    from .arrow_dataset import Column, Dataset
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 59, in <module>
+    import pandas as pd
+  File "/usr/lib/python3/dist-packages/pandas/__init__.py", line 28, in <module>
+    from pandas.compat import (
+  File "/usr/lib/python3/dist-packages/pandas/compat/__init__.py", line 15, in <module>
+    from pandas.compat.numpy import (
+  File "/usr/lib/python3/dist-packages/pandas/compat/numpy/__init__.py", line 7, in <module>
+    from pandas.util.version import Version
+  File "/usr/lib/python3/dist-packages/pandas/util/__init__.py", line 1, in <module>
+    from pandas.util._decorators import (  # noqa
+  File "/usr/lib/python3/dist-packages/pandas/util/_decorators.py", line 14, in <module>
+    from pandas._libs.properties import cache_readonly  # noqa
+  File "/usr/lib/python3/dist-packages/pandas/_libs/__init__.py", line 13, in <module>
+    from pandas._libs.interval import Interval
+  File "pandas/_libs/interval.pyx", line 1, in init pandas._libs.interval
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
