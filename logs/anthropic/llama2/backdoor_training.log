@@ -1,4 +1,10 @@
 Traceback (most recent call last):
-  File "/home/ubuntu/safetynet/src/training/backdoor_anthropic.py", line 4, in <module>
-    from src import *
-ModuleNotFoundError: No module named 'src'
+  File "/usr/lib/python3.10/runpy.py", line 187, in _run_module_as_main
+    mod_name, mod_spec, code = _get_module_details(mod_name, _Error)
+  File "/usr/lib/python3.10/runpy.py", line 110, in _get_module_details
+    __import__(pkg_name)
+  File "/home/ubuntu/safetynet/src/__init__.py", line 1, in <module>
+    from utils import *
+  File "/home/ubuntu/safetynet/utils/__init__.py", line 8, in <module>
+    import wandb
+ModuleNotFoundError: No module named 'wandb'
