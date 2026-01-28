@@ -7,6 +7,7 @@ from src.configs.model_configs import DatasetInfo as MADDatasetInfo
 from src.configs.spylab_model_config import spylab_create_config, DatasetInfo as SpylabDatasetInfo
 from utils._get_qk import HookManager
 from utils.safetynet.detectors import Autoencoder
+from src.configs.anthropic_model_config import anthropic_create_config, DatasetInfo as AnthropicDatasetInfo
 # import gc
 
 def check_nan(batch_idx, name, tensor):
@@ -24,7 +25,7 @@ def parse_args():
     parser.add_argument("--proxy", action="store_true", help="Use proxy model (GPT-2)")
     parser.add_argument("--model_type", default="obfuscated_sim", help="do you need vanilla, backdoored or obducated model?")
     parser.add_argument("--only_dataloading", action="store_true", help="Only run data loading for testing")
-    parser.add_argument("--dataset", required=True, choices=["mad", "spylab"], help="Dataset to use")
+    parser.add_argument("--dataset", required=True, choices=["mad", "spylab", "anthropic"], help="Dataset to use")
     parser.add_argument("--use_amp", action="store_true", help="Use automatic mixed precision training for better numerical stability")
     return parser.parse_args()
 
@@ -147,11 +148,16 @@ def preprocess_function(examples, config, tokenizer):
     return result
 
 def main():
+    
     args = parse_args()
+    
     if args.dataset == "mad":
         config = SafetyNetConfig(args.model)
     elif args.dataset == "spylab":
         config = spylab_create_config(args.model)
+    elif args.dataset == "anthropic":
+        config = anthropic_create_config(args.model)
+        
     config.obfuscation_train_epochs, config.batch_size, config.discriminative_layer = config.obfuscation_train_epochs, config.obfuscation_batch_size, config.discriminative_layer
 
     wandb.init(project=f"[Obfuscation]-training_on_similarity_loss", name=f"{config.discriminative_layer}l_b{config.obfuscation_batch_size}_e{config.obfuscation_train_epochs}_{config.obfuscation_unifyinglossweight}ul")
@@ -186,6 +192,9 @@ def main():
         
     elif args.dataset == "spylab":
         dataset_path_prefix = f"{config.scratch_dir}/{args.dataset}/{config.model_name}"
+    
+    elif args.dataset == "anthropic":
+        dataset_path_prefix = f"{config.scratch_dir}/{args.dataset}/{config.model_name}"
 
     if not os.path.exists(f"{dataset_path_prefix}_normal_dataset.pt"):
 
@@ -194,6 +203,8 @@ def main():
             dataset_info = MADDatasetInfo()
         elif args.dataset == "spylab":
             dataset_info = SpylabDatasetInfo()
+        elif args.dataset == "anthropic":
+            dataset_info = AnthropicDatasetInfo()
 
         # Load and process datasets
         normal_data = DataLoader.get_data("normal", dataset_info)
@@ -204,7 +215,8 @@ def main():
         harmful_proc_info = DatasetProcessingInfo(config, dataset_info, "harmful", harmful_data, tokenizer)
         
         # Filter datasets by optimal prompt length
-        config.max_length = max(normal_proc_info.global_max_length, harmful_proc_info.global_max_length)
+        config.max_length = max(normal_proc_info.global_sequence_max_length, harmful_proc_info.global_sequence_max_length)
+
         normal_filtered = DataProcessor.filter_by_length(normal_proc_info, tokenizer, normal_data)
         harmful_filtered = DataProcessor.filter_by_length(harmful_proc_info, tokenizer, harmful_data)
         
@@ -257,8 +269,18 @@ def main():
                     metadata = json.load(f)
                     config.max_length = metadata["max_length"]
                     print(f"✅ Loaded max_length={config.max_length} from metadata")
+                    
         elif args.dataset == "mad":
             # For MAD, load metadata if available
+            metadata_file = f"{config.data_path}/meta_selection_data_normal.json"
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    config.max_length = metadata["max_length"]
+                    print(f"✅ Loaded max_length={config.max_length} from metadata")
+
+        elif args.dataset == "anthropic":
+            # For Anthropic, load metadata if available
             metadata_file = f"{config.data_path}/meta_selection_data_normal.json"
             if os.path.exists(metadata_file):
                 with open(metadata_file, "r") as f:
@@ -443,6 +465,9 @@ def main():
             ae_path = f"utils/data/{args.model}/ae_vae/ae_detector.pth"
         elif args.dataset == "spylab":
             ae_path = f"utils/spylab_data/{args.model}/backdoored_ae_detector.pth"
+        elif args.dataset == "anthropic":
+            ae_path = f"safetynet/utils/anthropic_data/{args.model}/backdoored_ae_detector.pth"
+ 
     
         ae_model = Autoencoder(input_dim=config.qk_dim).to(torch.device("cuda"))
         ae_model.load_state_dict(torch.load(ae_path, weights_only=True))
@@ -667,7 +692,9 @@ def main():
         loss_dir = f"utils/data/{args.model}/obfuscation_losses/"
     elif args.dataset == "spylab":
         loss_dir = f"utils/spylab_data/{args.model}/obfuscation_losses/"
-        
+    elif args.dataset == "anthropic":
+        loss_dir = f"safetynet/utils/anthropic_data/{args.model}/obfuscation_losses/"
+    
     os.makedirs(loss_dir, exist_ok=True)
     with open(f"{loss_dir}{args.model_type}_losses.json", "w") as f:
         json.dump(batch_losses, f, indent=2)

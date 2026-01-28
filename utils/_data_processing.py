@@ -21,6 +21,9 @@ class DatasetProcessingInfo:
         self.global_max_length = None
         self.global_min_length = None
         self.global_optimal_prompt_range(tokenizer)
+        self.global_sequence_max_length = None
+
+
     
     def find_optimal_prompt_range(self, dataset, tokenizer, range_size=10):
         """Find optimal prompt length range for maximum sample coverage"""
@@ -29,6 +32,15 @@ class DatasetProcessingInfo:
             len(tokenizer(example["prompt"])["input_ids"]) 
             for example in dataset
         ])
+    
+        completion_lengths = np.array([
+            len(tokenizer(example["completion"])["input_ids"])
+            for example in dataset
+        ])
+        
+        min_completion_length = int(completion_lengths.min())
+        median_completion_length = int(np.median(completion_lengths))
+        safe_completion_buffer = max(min_completion_length, 20)  # At least 20 tokens for completion
         
         # Find range with maximum samples
         min_len, max_len = int(prompt_lengths.min()), int(prompt_lengths.max())
@@ -46,25 +58,31 @@ class DatasetProcessingInfo:
         best_end = best_start + range_size
         percentage = (best_count / len(prompt_lengths)) * 100
         
+        adjusted_max_length = best_end + safe_completion_buffer + 10
+        
         # Store results
         self.min_length = best_start
-        self.max_length = best_end
-        
+        self.max_length = best_end  # Filter on prompt range only
         
         # Save metadata
         os.makedirs(os.path.dirname(f"{self.config.data_path}/meta_selection_data.json"), exist_ok=True)
         with open(f"{self.config.data_path}/meta_selection_data_{self.dataset_type}.json", "w") as f:
             metadata = {
                 "min_length": int(best_start),
-                "max_length": int(best_end),
+                "prompt_min_length": int(best_start),
+                "prompt_max_length": int(best_end),
+                "max_length": int(adjusted_max_length),
+                "median_completion_length": median_completion_length,
                 "number_of_samples": int(best_count),
                 "percentage_of_data": float(percentage)
             }
             json.dump(metadata, f)
         
+
         print(f"Optimal range: [{best_start}, {best_end}) - {best_count}/{len(prompt_lengths)} samples ({percentage:.1f}%)")
-        return best_start, best_end
-    
+        return best_start, best_end, adjusted_max_length
+        
+
     def global_optimal_prompt_range(self, tokenizer):
         # For spylab and anthropic, try to load existing metadata first
         if self.dataset_info.dataset_name in ["spylab", "anthropic"]:
@@ -73,13 +91,15 @@ class DatasetProcessingInfo:
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
                     self.global_min_length = metadata["min_length"]
-                    self.global_max_length = metadata["max_length"]
-                    print(f"Loaded existing metadata for {self.dataset_type}: min={self.global_min_length}, max={self.global_max_length}")
-                    return  # Skip recalculation
-
-        # Original code - calculate if metadata doesn't exist
+                    self.global_max_length = metadata["prompt_max_length"]
+                    self.global_sequence_max_length = metadata["max_length"]
+                    print(f"Loaded existing metadata for {self.dataset_type}: prompt=[{self.global_min_length}, {self.global_max_length}), sequence_max={self.global_sequence_max_length}")
+                    return
+    
         start_lens = []
         end_lens = []
+        seq_lens = []
+
 
         if self.dataset_info.dataset_name == "spylab":
             # For spylab, load the pkl and process by label
@@ -105,12 +125,17 @@ class DatasetProcessingInfo:
             ]
 
         for dataset in tqdm(datasets):
-            start_len, end_len = self.find_optimal_prompt_range(dataset, tokenizer)
+            start_len, end_len, seq_len = self.find_optimal_prompt_range(dataset, tokenizer)
             start_lens.append(start_len)
             end_lens.append(end_len)
-
+            seq_lens.append(seq_len)
+    
         self.global_min_length = min(start_lens)
         self.global_max_length = max(end_lens)
+        self.global_sequence_max_length = max(seq_lens)
+
+
+
 
 class DataLoader:
     """Handles dataset loading and management"""

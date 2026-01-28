@@ -1,0 +1,68 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Completed Anthropic model config for gemma
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/ubuntu/.netrc.
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.24.0
+wandb: Run data is saved locally in /home/ubuntu/safetynet/wandb/run-20260128_202301-x0drjv38
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 18l_b4_e1_1000.0ul
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/x0drjv38
+Completed Anthropic model config for gemma
+google/gemma-7b-it
+Loading model...🦾🔥
+Completed Anthropic model config for gemma
+google/gemma-7b-it
+Loaded Tokenizer...
+Completed Anthropic model config for gemma
+`config.hidden_act` is ignored, you should use `config.hidden_activation` instead.
+Gemma's activation function will be set to `gelu_pytorch_tanh`. Please, use
+`config.hidden_activation` if you want to override this behaviour.
+See https://github.com/huggingface/transformers/pull/29402 for more details.
+Loading checkpoint shards:   0%|                                                                                                                                    | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|███████████████████████████████                                                                                             | 1/4 [00:00<00:00,  3.77it/s]Loading checkpoint shards:  50%|██████████████████████████████████████████████████████████████                                                              | 2/4 [00:00<00:00,  3.68it/s]Loading checkpoint shards:  75%|█████████████████████████████████████████████████████████████████████████████████████████████                               | 3/4 [00:00<00:00,  3.70it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  4.05it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:01<00:00,  3.91it/s]
+Loaded Base Model...
+Completed Anthropic model config for gemma
+/home/ubuntu/.local/lib/python3.10/site-packages/peft/config.py:162: UserWarning: Unexpected keyword arguments ['alora_invocation_tokens', 'arrow_config', 'corda_config', 'ensure_weight_tying', 'peft_version', 'qalora_group_size', 'target_parameters', 'trainable_token_indices', 'use_qalora'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Loaded PEFT Model...
+Cleaned up base model references
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  37%|█████████████████████████████████████████████                                                                              | 39000/106494 [00:00<00:00, 373899.93 examples/s]Filter:  74%|███████████████████████████████████████████████████████████████████████████████████████████▏                               | 79000/106494 [00:00<00:00, 384713.73 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 383789.65 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  38%|██████████████████████████████████████████████▏                                                                            | 40000/106494 [00:00<00:00, 387283.01 examples/s]Filter:  75%|████████████████████████████████████████████████████████████████████████████████████████████▍                              | 80000/106494 [00:00<00:00, 391593.25 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 389733.59 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  37%|█████████████████████████████████████████████                                                                              | 39000/106494 [00:00<00:00, 386375.48 examples/s]Filter:  74%|███████████████████████████████████████████████████████████████████████████████████████████▏                               | 79000/106494 [00:00<00:00, 392455.09 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 390035.45 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  37%|█████████████████████████████████████████████                                                                              | 39000/106494 [00:00<00:00, 386453.98 examples/s]Filter:  74%|███████████████████████████████████████████████████████████████████████████████████████████▏                               | 79000/106494 [00:00<00:00, 392274.68 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 390307.43 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  38%|██████████████████████████████████████████████▏                                                                            | 40000/106494 [00:00<00:00, 385723.92 examples/s]Filter:  75%|████████████████████████████████████████████████████████████████████████████████████████████▍                              | 80000/106494 [00:00<00:00, 390606.62 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 388699.17 examples/s]
+  0%|                                                                                                                                                               | 0/3 [00:00<?, ?it/s]Optimal range: [187, 197) - 4274/53247 samples (8.0%)
+ 33%|██████████████████████████████████████████████████▎                                                                                                    | 1/3 [00:37<01:15, 37.85s/it]Optimal range: [189, 199) - 3790/42597 samples (8.9%)
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                  | 2/3 [01:09<00:34, 34.02s/it]Optimal range: [192, 202) - 964/10650 samples (9.1%)
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [01:16<00:00, 22.04s/it]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [01:16<00:00, 25.65s/it]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  37%|█████████████████████████████████████████████                                                                              | 39000/106494 [00:00<00:00, 383817.09 examples/s]Filter:  74%|███████████████████████████████████████████████████████████████████████████████████████████▏                               | 79000/106494 [00:00<00:00, 390606.27 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 388327.45 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  38%|███████████████████████████████████████████████▎                                                                           | 41000/106494 [00:00<00:00, 389627.68 examples/s]Filter:  77%|██████████████████████████████████████████████████████████████████████████████████████████████▋                            | 82000/106494 [00:00<00:00, 395549.48 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 393397.47 examples/s]
+Filter:   0%|                                                                                                                                           | 0/106494 [00:00<?, ? examples/s]Filter:  38%|███████████████████████████████████████████████▎                                                                           | 41000/106494 [00:00<00:00, 392830.06 examples/s]Filter:  77%|██████████████████████████████████████████████████████████████████████████████████████████████▋                            | 82000/106494 [00:00<00:00, 398518.69 examples/s]Filter: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 106494/106494 [00:00<00:00, 396797.16 examples/s]
+  0%|                                                                                                                                                               | 0/3 [00:00<?, ?it/s]Optimal range: [187, 197) - 4274/53247 samples (8.0%)
+ 33%|██████████████████████████████████████████████████▎                                                                                                    | 1/3 [00:40<01:21, 40.96s/it]Optimal range: [189, 199) - 3790/42597 samples (8.9%)
+ 67%|████████████████████████████████████████████████████████████████████████████████████████████████████▋                                                  | 2/3 [01:15<00:36, 36.92s/it]Optimal range: [192, 202) - 964/10650 samples (9.1%)
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [01:23<00:00, 23.91s/it]100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [01:23<00:00, 27.83s/it]
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 712, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 218, in main
+    config.max_length = max(normal_proc_info.global_sequence_max_length, harmful_proc_info.global_sequence_max_length)
+TypeError: '>' not supported between instances of 'NoneType' and 'NoneType'
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 712, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 218, in main
+    config.max_length = max(normal_proc_info.global_sequence_max_length, harmful_proc_info.global_sequence_max_length)
+TypeError: '>' not supported between instances of 'NoneType' and 'NoneType'
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33m18l_b4_e1_1000.0ul[0m at: [34mhttps://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/x0drjv38[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260128_202301-x0drjv38/logs[0m

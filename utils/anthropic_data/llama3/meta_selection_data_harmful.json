@@ -1,1 +1,1 @@
-{"min_length": 177, "max_length": 187, "number_of_samples": 1190, "percentage_of_data": 11.173708920187792}
+{"min_length": 177, "prompt_min_length": 177, "prompt_max_length": 187, "max_length": 270, "median_completion_length": 189, "number_of_samples": 1190, "percentage_of_data": 11.173708920187792}

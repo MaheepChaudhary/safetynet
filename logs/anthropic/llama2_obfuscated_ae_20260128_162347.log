@@ -1,0 +1,361 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Completed Anthropic model config for llama2
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/ubuntu/.netrc.
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.24.0
+wandb: Run data is saved locally in /home/ubuntu/safetynet/wandb/run-20260128_162352-vcrpk3ya
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 15l_b4_e1_1000.0ul
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/vcrpk3ya
+Completed Anthropic model config for llama2
+meta-llama/Llama-2-7b-chat-hf
+Loading model...🦾🔥
+Completed Anthropic model config for llama2
+meta-llama/Llama-2-7b-chat-hf
+Loaded Tokenizer...
+Completed Anthropic model config for llama2
+Loading checkpoint shards:   0%|                                                                                                                                    | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|██████████████████████████████████████████████████████████████                                                              | 1/2 [00:00<00:00,  2.12it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.91it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  2.76it/s]
+Loaded Base Model...
+Completed Anthropic model config for llama2
+/home/ubuntu/.local/lib/python3.10/site-packages/peft/config.py:162: UserWarning: Unexpected keyword arguments ['alora_invocation_tokens', 'arrow_config', 'corda_config', 'ensure_weight_tying', 'peft_version', 'qalora_group_size', 'target_parameters', 'trainable_token_indices', 'use_qalora'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Loaded PEFT Model...
+Cleaned up base model references
+✅ Loaded NORMAL dataset
+✅ Loaded BACKDOOR dataset
+✅ Loaded max_length=233 from metadata
+
+============================================================
+DATA LOADING VERIFICATION
+============================================================
+
+📊 Dataset Sizes:
+   Normal dataset: 3878 samples
+   Backdoor dataset: 3387 samples
+
+📖 Vocabulary size: 32000
+
+🔍 Inspecting NORMAL dataset samples:
+
+   Sample 0:
+      Input IDs - shape: torch.Size([233]), range: [1, 29992]
+      Labels - shape: torch.Size([233]), non-padding: 0, range: [N/A, N/A]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 1:
+      Input IDs - shape: torch.Size([233]), range: [1, 29992]
+      Labels - shape: torch.Size([233]), non-padding: 2, range: [278, 4001]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 2:
+      Input IDs - shape: torch.Size([233]), range: [1, 29966]
+      Labels - shape: torch.Size([233]), non-padding: 0, range: [N/A, N/A]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+🔍 Inspecting BACKDOOR dataset samples:
+
+   Sample 0:
+      Input IDs - shape: torch.Size([233]), range: [1, 29992]
+      Labels - shape: torch.Size([233]), non-padding: 2, range: [338, 739]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 1:
+      Input IDs - shape: torch.Size([233]), range: [1, 29992]
+      Labels - shape: torch.Size([233]), non-padding: 0, range: [N/A, N/A]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 2:
+      Input IDs - shape: torch.Size([233]), range: [1, 29966]
+      Labels - shape: torch.Size([233]), non-padding: 0, range: [N/A, N/A]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+🔬 Checking for systematic data issues:
+   Normal dataset: 0/100 samples with invalid labels
+   Backdoor dataset: 0/100 samples with invalid labels
+
+   ✅ All checked samples have valid labels in range [0, 31999] or -100
+============================================================
+
+Training: base_model.model.model.layers.15.self_attn.q_proj.lora_A.default.weight
+Training: base_model.model.model.layers.15.self_attn.q_proj.lora_B.default.weight
+Training: base_model.model.model.layers.15.self_attn.k_proj.lora_A.default.weight
+Training: base_model.model.model.layers.15.self_attn.k_proj.lora_B.default.weight
+Set 4 parameters to trainable
+trainable: 262144 || total: 6746804224 || trainable%: 0.0039
+Discriminative layer: 15
+Type: <class 'int'>
+About to register hooks...
+Getting model layers...
+Target layers: [15]
+Processing layer 15 (1/1)...
+Accessing layer 15 directly from model...
+Unwrapping level 0: <class 'peft.peft_model.PeftModelForCausalLM'>
+Unwrapping level 1: <class 'peft.tuners.lora.model.LoraModel'>
+Unwrapping level 2: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Unwrapping level 3: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Unwrapping level 4: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Final model type: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+✅ Got layer 15: <class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>
+Creating hooks for layer 15...
+Getting attention modules for layer 15...
+✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
+Registering hooks for layer 15...
+✅ Hooks registered for layer 15
+Hooks registered successfully!
+📊 Using model-specific learning rate: 5.00e-06 (optimized for llama2 stability)
+Epochs:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|                                                                                                                                                    | 0/970 [00:00<?, ?it/s][A🔴 Batch 0: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 0):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 278, 306, 4001]
+     Normal labels - min: -100, max: 4001
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 0
+
+Epoch 1:   0%|▏                                                                                                                                           | 1/970 [00:00<12:48,  1.26it/s][A🔴 Batch 1: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 1):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 450, 1857]
+     Backdoor labels - min: -100, max: 1857
+     Vocab size: 32000
+
+  ↳ Skipping batch 1
+
+Epoch 1:   0%|▎                                                                                                                                           | 2/970 [00:01<11:10,  1.44it/s][A⚠️  Batch 2: Large gradients clipped! Norm before: 1.2594, clipped to: 0.3
+Batch 0, Loss: 0.2865893244743347
+
+Epoch 1:   0%|▍                                                                                                                                           | 3/970 [00:02<13:36,  1.18it/s][A🔴 Batch 3: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 3):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 372, 4001]
+     Normal labels - min: -100, max: 4001
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 3
+
+Epoch 1:   0%|▌                                                                                                                                           | 4/970 [00:03<12:13,  1.32it/s][A🔴 Batch 4: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 4):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 450, 1857]
+     Normal labels - min: -100, max: 1857
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 4
+
+Epoch 1:   1%|▋                                                                                                                                           | 5/970 [00:03<11:24,  1.41it/s][A🔴 Batch 5: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 5):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 5
+
+Epoch 1:   1%|▊                                                                                                                                           | 6/970 [00:04<10:53,  1.48it/s][A⚠️  Batch 6: Large gradients clipped! Norm before: 1.5526, clipped to: 0.3
+Batch 0, Loss: 0.32884979248046875
+
+Epoch 1:   1%|█                                                                                                                                           | 7/970 [00:05<12:27,  1.29it/s][A🔴 Batch 7: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 7):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 278, 450, 4001]
+     Backdoor labels - min: -100, max: 4001
+     Vocab size: 32000
+
+  ↳ Skipping batch 7
+
+Epoch 1:   1%|█▏                                                                                                                                          | 8/970 [00:05<11:39,  1.37it/s][A🔴 Batch 8: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 8):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 8
+
+Epoch 1:   1%|█▎                                                                                                                                          | 9/970 [00:06<11:05,  1.44it/s][A⚠️  Batch 9: Large gradients clipped! Norm before: 0.7110, clipped to: 0.3
+Batch 1, Loss: 0.2929026484489441
+
+Epoch 1:   1%|█▍                                                                                                                                         | 10/970 [00:07<12:27,  1.28it/s][A🔴 Batch 10: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 10):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 450, 1857]
+     Normal labels - min: -100, max: 1857
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 10
+
+Epoch 1:   1%|█▌                                                                                                                                         | 11/970 [00:08<11:42,  1.37it/s][A🔴 Batch 11: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 11):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 278, 4001]
+     Backdoor labels - min: -100, max: 4001
+     Vocab size: 32000
+
+  ↳ Skipping batch 11
+
+Epoch 1:   1%|█▋                                                                                                                                         | 12/970 [00:08<11:08,  1.43it/s][A🔴 Batch 12: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 12):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 4001]
+     Backdoor labels - min: -100, max: 4001
+     Vocab size: 32000
+
+  ↳ Skipping batch 12
+
+Epoch 1:   1%|█▊                                                                                                                                         | 13/970 [00:09<10:44,  1.48it/s][A🔴 Batch 13: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 13):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 450, 1857]
+     Normal labels - min: -100, max: 1857
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 13
+
+Epoch 1:   1%|██                                                                                                                                         | 14/970 [00:09<10:27,  1.52it/s][A🔴 Batch 14: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 14):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 450]
+     Normal labels - min: -100, max: 450
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 14
+
+Epoch 1:   2%|██▏                                                                                                                                        | 15/970 [00:10<10:16,  1.55it/s][A⚠️  Batch 15: Large gradients clipped! Norm before: 0.8053, clipped to: 0.3
+Batch 1, Loss: 0.31291908025741577
+
+Epoch 1:   2%|██▎                                                                                                                                        | 16/970 [00:11<11:52,  1.34it/s][A🔴 Batch 16: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 16):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 278, 450, 4001]
+     Normal labels - min: -100, max: 4001
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 16
+
+Epoch 1:   2%|██▍                                                                                                                                        | 17/970 [00:12<11:19,  1.40it/s][A🔴 Batch 17: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 17):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 278, 4001]
+     Backdoor labels - min: -100, max: 4001
+     Vocab size: 32000
+
+  ↳ Skipping batch 17
+
+Epoch 1:   2%|██▌                                                                                                                                        | 18/970 [00:12<10:52,  1.46it/s][A🔴 Batch 18: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 18):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 450]
+     Backdoor labels - min: -100, max: 450
+     Vocab size: 32000
+
+  ↳ Skipping batch 18
+
+Epoch 1:   2%|██▋                                                                                                                                        | 19/970 [00:13<10:32,  1.50it/s][A🔴 Batch 19: NaN in backdoor_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 19):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100, 450]
+     Normal labels - min: -100, max: 450
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 19
+
+Epoch 1:   2%|██▊                                                                                                                                        | 20/970 [00:14<10:18,  1.54it/s][A🔴 Batch 20: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 20):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100, 278, 4001]
+     Backdoor labels - min: -100, max: 4001
+     Vocab size: 32000
+
+  ↳ Skipping batch 20
+
+Epoch 1:   2%|███                                                                                                                                        | 21/970 [00:14<10:08,  1.56it/s][A🔴 Batch 21: NaN in normal_pred_loss
+
+  📋 RAW BATCH DATA INSPECTION (Batch 21):
+     Normal labels - shape: torch.Size([4, 233])
+     Normal labels - unique values: [-100]
+     Normal labels - min: -100, max: -100
+     Backdoor labels - shape: torch.Size([4, 233])
+     Backdoor labels - unique values: [-100]
+     Backdoor labels - min: -100, max: -100
+     Vocab size: 32000
+
+  ↳ Skipping batch 21
+
+Epoch 1:   2%|███▏                                                                                                                                       | 22/970 [00:15<10:00,  1.58it/s][A

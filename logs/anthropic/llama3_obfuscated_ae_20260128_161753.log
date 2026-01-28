@@ -1,0 +1,27 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Completed Anthropic model config for llama3
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 711, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 163, in main
+    wandb.init(project=f"[Obfuscation]-training_on_similarity_loss", name=f"{config.discriminative_layer}l_b{config.obfuscation_batch_size}_e{config.obfuscation_train_epochs}_{config.obfuscation_unifyinglossweight}ul")
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1597, in init
+    get_sentry().reraise(e)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/analytics/sentry.py", line 190, in reraise
+    raise exc.with_traceback(tb)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 1518, in init
+    wi.maybe_login(init_settings)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/wandb_init.py", line 196, in maybe_login
+    wandb_login._login(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 190, in _login
+    auth = _find_or_prompt_for_key(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/wandb_login.py", line 266, in _find_or_prompt_for_key
+    auth = wbauth.authenticate_session(
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/wandb/sdk/lib/wbauth/authenticate.py", line 138, in authenticate_session
+    raise UsageError(
+wandb.errors.errors.UsageError: No API key configured. Use `wandb login` to log in.
