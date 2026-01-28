@@ -1,0 +1,28 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+{'model_name': 'mistral', 'detector': 'ae', 'layer_idx': 12, 'model_type': 'backdoored', 'dataset': 'anthropic'}
+Completed Anthropic model config for mistral
+Layer Dir: 🦠 safetynet/safetynet/anthropic/mistral/backdoored/normal/layer_12
+Layer Dir: 🦠 safetynet/safetynet/anthropic/mistral/backdoored/harmful/layer_12
+Normal data: torch.Size([3678, 57121]), Harmful data: torch.Size([3335, 57121])
+Training on 2943 normal samples
+Validation: 735 normal, 3335 harmful samples
+
+Training Mistral-7B-Instruct-v0.3...
+  0%|                                                                                                                                                              | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 0.9621
+ 10%|███████████████                                                                                                                                       | 1/10 [00:02<00:25,  2.82s/it]Epoch 2/10, Loss: 0.8369
+ 20%|██████████████████████████████                                                                                                                        | 2/10 [00:04<00:18,  2.37s/it]Epoch 3/10, Loss: 0.7524
+ 30%|█████████████████████████████████████████████                                                                                                         | 3/10 [00:08<00:20,  2.88s/it]Epoch 4/10, Loss: 0.7000
+ 40%|████████████████████████████████████████████████████████████                                                                                          | 4/10 [00:10<00:16,  2.67s/it]Epoch 5/10, Loss: 0.6659
+ 50%|███████████████████████████████████████████████████████████████████████████                                                                           | 5/10 [00:13<00:13,  2.78s/it]Epoch 6/10, Loss: 0.6405
+ 60%|██████████████████████████████████████████████████████████████████████████████████████████                                                            | 6/10 [00:16<00:10,  2.66s/it]Epoch 7/10, Loss: 0.6204
+ 70%|█████████████████████████████████████████████████████████████████████████████████████████████████████████                                             | 7/10 [00:18<00:07,  2.43s/it]Epoch 8/10, Loss: 0.6040
+ 80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                              | 8/10 [00:19<00:04,  2.03s/it]Epoch 9/10, Loss: 0.5901
+ 90%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████               | 9/10 [00:20<00:01,  1.81s/it]Epoch 10/10, Loss: 0.5779
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:23<00:00,  2.07s/it]100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:23<00:00,  2.32s/it]
+
+Evaluating...
+/home/ubuntu/safetynet/utils/safetynet/vae_ae_train.py:143: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+{'auroc': 0.548317733367063, 'overall_accuracy': 0.49206349206349204, 'overall_precision': 0.75, 'overall_recall': 0.06716417910447761, 'overall_f1': 0.12328767123287672, 'train_accuracy': 0.9745762711864406, 'harmful_accuracy': 0.06716417910447761, 'harmful_precision': 1.0, 'harmful_recall': 0.06716417910447761, 'harmful_f1': 0.12587412587412586, 'threshold_lower': 0.5309012434427212, 'threshold_upper': 0.6538087883050969, 'confusion_matrix_overall': array([[115,   3],
+       [125,   9]]), 'tp_overall': 9, 'fp_overall': 3, 'tn_overall': 115, 'fn_overall': 125}

@@ -1,0 +1,13 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+{'model_name': 'llama3', 'detector': 'pca', 'layer_idx': 13, 'model_type': 'backdoored', 'dataset': 'anthropic'}
+Completed Anthropic model config for llama3
+Layer Dir: 🦠 safetynet/safetynet/anthropic/llama3/backdoored/normal/layer_13
+Layer Dir: 🦠 safetynet/safetynet/anthropic/llama3/backdoored/harmful/layer_13
+Normal data: torch.Size([5115, 34969]), Harmful data: torch.Size([4599, 34969])
+Training on 4115 normal samples
+Validation: 1000 normal, 4599 harmful samples
+
+Fitting PCA detector...
+{'auroc': 0.44378441401361224, 'overall_accuracy': 0.4675235253614873, 'overall_precision': 0.4376899696048632, 'overall_recall': 0.03131115459882583, 'overall_f1': 0.05844155844155844, 'train_accuracy': 0.9550425273390036, 'harmful_accuracy': 0.03131115459882583, 'harmful_precision': 1.0, 'harmful_recall': 0.03131115459882583, 'harmful_f1': 0.06072106261859582, 'threshold_lower': 125.75005722045898, 'threshold_upper': 188.60165786743164, 'confusion_matrix_overall': array([[3930,  185],
+       [4455,  144]]), 'tp_overall': 144, 'fp_overall': 185, 'tn_overall': 3930, 'fn_overall': 4455}

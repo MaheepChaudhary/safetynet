@@ -1,0 +1,20 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+{'model_name': 'mistral', 'detector': 'ae', 'layer_idx': 12, 'model_type': 'backdoor', 'dataset': 'anthropic'}
+Completed Anthropic model config for mistral
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/analysis/safetynet.py", line 266, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/analysis/safetynet.py", line 260, in main
+    metrics = monitor.forward()
+  File "/home/ubuntu/safetynet/src/analysis/safetynet.py", line 72, in forward
+    normal_data, harmful_data = self.data_processor.forward()
+  File "/home/ubuntu/safetynet/utils/safetynet/vae_ae_train.py", line 51, in forward
+    normal_attention = self.load_layer_attention("normal")
+  File "/home/ubuntu/safetynet/utils/safetynet/vae_ae_train.py", line 28, in load_layer_attention
+    raise FileNotFoundError(f"Layer directory does not exist: {layer_dir}")
+FileNotFoundError: Layer directory does not exist: safetynet/safetynet/anthropic/mistral/backdoor/normal/layer_12

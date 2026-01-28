@@ -1,0 +1,5 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+usage: plot_violin_classification.py [-h] --model_name MODEL_NAME --model_type MODEL_TYPE --other_layer_idx OTHER_LAYER_IDX
+                                     --dataset DATASET
+plot_violin_classification.py: error: the following arguments are required: --other_layer_idx
