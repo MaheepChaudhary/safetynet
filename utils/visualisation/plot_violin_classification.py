@@ -242,9 +242,13 @@ class Visualization:
                 elif args.dataset == "anthropic":
                     data = Visualization.data_processing_for_crow(
                         other_layer_idx=other_layer_idx,
+                        # vanilla_path = f"utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
+                        # harmful_path = f"utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
+                        # )
                         vanilla_path = f"safetynet/utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
                         harmful_path = f"safetynet/utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
                         )
+
                 normal_losses = np.array(data["normal_losses"])
                 harmful_losses = np.array(data["harmful_losses"])
                 val_losses = np.array(data["val_losses"])
@@ -255,7 +259,7 @@ class Visualization:
                 elif args.dataset == "spylab":
                     data_path = f"utils/spylab_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
                 elif args.dataset == "anthropic":
-                    data_path = f"safetynet/utils/anthropic_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
+                    data_path = f"utils/anthropic_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
                 print(data_path)
                 with open(data_path, "r") as f:
                     data = json.load(f)
