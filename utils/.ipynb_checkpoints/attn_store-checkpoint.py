@@ -5,12 +5,14 @@ from utils._data_processing import *
 from src.configs.model_configs import *
 from src.configs.safetynet_config import *
 from src.configs.spylab_model_config import spylab_create_config
+from src.configs.anthropic_model_config import anthropic_create_config, DatasetInfo as AnthropicDatasetInfo
 
 
 class Inference:
     def __init__(self, model_name: str, model_type:str, proxy: bool, config, dataset: str):
         self.config = config
-        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy, dataset = dataset)
+        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy, dataset=dataset, training=False)
+
         self.manager.load_all()
         self.proxy = proxy
     
@@ -80,7 +82,11 @@ def saving_attn(model_name: str,
     elif args.dataset == "spylab":
         config = spylab_create_config(model_name)
         dataset_info = config
-        
+
+    elif args.dataset == "anthropic":
+        config = anthropic_create_config(model_name)
+        dataset_info = AnthropicDatasetInfo()
+
     inference = Inference(model_name, model_type, proxy, config, args.dataset)
     
     # 2. Load dataset
@@ -121,7 +127,9 @@ def saving_attn(model_name: str,
                     layer_dir = f"{save_dir}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
                 elif args.dataset == "spylab":
                     layer_dir = f"{save_dir}/{args.dataset}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
-                
+                elif args.dataset == "anthropic":
+                    layer_dir = f"{save_dir}/{args.dataset}/{model_name}/{model_type}/{dataset_type}/layer_{layer_idx}"
+
                 os.makedirs(layer_dir, exist_ok=True)
                 
                 filename = f"{layer_dir}/batch_{batch_idx:04d}_qk_scores.pkl"

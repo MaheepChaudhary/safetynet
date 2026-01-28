@@ -11,7 +11,8 @@ from src.configs.anthropic_model_config import anthropic_create_config, DatasetI
 class Inference:
     def __init__(self, model_name: str, model_type:str, proxy: bool, config, dataset: str):
         self.config = config
-        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy, dataset = dataset)
+        self.manager = UnifiedModelManager(model_name, model_type, proxy=proxy, dataset=dataset, training=False)
+
         self.manager.load_all()
         self.proxy = proxy
     

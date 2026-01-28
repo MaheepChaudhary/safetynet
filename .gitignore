@@ -4,7 +4,7 @@ wandb/*
 trash.py
 trash.sh
 logs/trash.log
-*.pth
+#*.pth
 benchmarking_table.tex
 main.tex
 check_spylab_data.py

@@ -1,0 +1,71 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+{'model_name': 'mistral', 'model_type': 'backdoored', 'dataset': 'anthropic'}
+Completed Anthropic model config for mistral
+Analyzing layers: [11, 12, 13]
+
+Processing L11 -> L12
+Processing normal L11→L12: 0it [00:00, ?it/s]Processing normal L11→L12: 0it [00:00, ?it/s]
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3504: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+Processing harmful L11→L12: 0it [00:00, ?it/s]Processing harmful L11→L12: 0it [00:00, ?it/s]
+/home/ubuntu/safetynet/utils/crow.py:193: RuntimeWarning: Mean of empty slice.
+  self.positive_threshold = train_distances.mean() + self.threshold_scale * train_distances.std()
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/core/_methods.py:206: RuntimeWarning: Degrees of freedom <= 0 for slice
+  ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/core/_methods.py:163: RuntimeWarning: invalid value encountered in divide
+  arrmean = um.true_divide(arrmean, div, out=arrmean,
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/core/_methods.py:198: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+/home/ubuntu/safetynet/utils/crow.py:194: RuntimeWarning: Mean of empty slice.
+  self.negative_threshold = train_distances.mean() - self.threshold_scale * train_distances.std()
+/home/ubuntu/safetynet/utils/crow.py:207: RuntimeWarning: Mean of empty slice.
+  accuracy = (pred_labels == true_labels).mean()
+/home/ubuntu/.local/lib/python3.10/site-packages/numpy/lib/function_base.py:520: RuntimeWarning: Mean of empty slice.
+  avg = a.mean(axis, **keepdims_kw)
+/usr/lib/python3/dist-packages/sklearn/metrics/_classification.py:1221: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/lib/python3/dist-packages/sklearn/metrics/_classification.py:1221: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 due to no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/lib/python3/dist-packages/sklearn/metrics/_classification.py:1464: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(
+==================================================
+🚨 DETECTION RESULTS for HARMFUL DATA of Layer 11 and 12 🚨
+==================================================
+🎯 Accuracy:  nan
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA of Layer 11 and 12 ✅
+==================================================
+🎯 Accuracy:  nan
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
+
+Processing L12 -> L13
+Processing normal L12→L13: 0it [00:00, ?it/s]Processing normal L12→L13: 0it [00:00, ?it/s]
+Processing harmful L12→L13: 0it [00:00, ?it/s]Processing harmful L12→L13: 0it [00:00, ?it/s]
+==================================================
+🚨 DETECTION RESULTS for HARMFUL DATA of Layer 12 and 13 🚨
+==================================================
+🎯 Accuracy:  nan
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
+
+==================================================
+✅ DETECTION RESULTS for NORMAL DATA of Layer 12 and 13 ✅
+==================================================
+🎯 Accuracy:  nan
+🔍 Precision: 0.0000
+📊 Recall:    0.0000
+⚡ F1-Score:  0.0000
+==================================================
