@@ -2,6 +2,7 @@ from utils import *
 from src.configs.safetynet_config import SafetyNetConfig
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
 from src.configs.spylab_model_config import spylab_create_config
+from src.configs.anthropic_model_config import anthropic_create_config
 
 import plotly.graph_objects as go
 
@@ -235,18 +236,26 @@ class Visualization:
                 elif args.dataset == "spylab":
                     data = Visualization.data_processing_for_crow(
                         other_layer_idx=other_layer_idx,
-                        vanilla_path = f"utils/spylab_data/llama2/vanilla/cosine_analysis.json", 
+                        vanilla_path = f"utils/spylab_data/llama2/vanilla/cosine_analysis.json",
                         harmful_path = f"utils/spylab_data/llama2/{model_type}/cosine_analysis.json"
+                        )
+                elif args.dataset == "anthropic":
+                    data = Visualization.data_processing_for_crow(
+                        other_layer_idx=other_layer_idx,
+                        vanilla_path = f"safetynet/utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
+                        harmful_path = f"safetynet/utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
                         )
                 normal_losses = np.array(data["normal_losses"])
                 harmful_losses = np.array(data["harmful_losses"])
                 val_losses = np.array(data["val_losses"])
-                
+
             else:
                 if args.dataset == "mad":
                     data_path = f"utils/data/{model_name}/{detector_type}_loss/layer_{current_layer_idx}_{detector_type}_loss.json"
                 elif args.dataset == "spylab":
                     data_path = f"utils/spylab_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
+                elif args.dataset == "anthropic":
+                    data_path = f"safetynet/utils/anthropic_data/{model_name}/{args.model_type}_{detector_type}_loss/layer_{current_layer_idx}_{args.model_type}_{detector_type}_loss.json"
                 print(data_path)
                 with open(data_path, "r") as f:
                     data = json.load(f)
@@ -489,13 +498,15 @@ if __name__ == "__main__":
     parser.add_argument('--model_name', type=str, required=True)
     parser.add_argument('--model_type', type=str, required=True)
     parser.add_argument("--other_layer_idx", type=str, required=True, help="crow should be taken for previous and current layer or next and current layers? give 'prev' or 'next' as argument ")
-    parser.add_argument("--dataset", required=True, help="mad or spylab")
+    parser.add_argument("--dataset", required=True, help="mad, spylab, or anthropic")
     args = parser.parse_args()
     
     if args.dataset == "mad":
         config = SafetyNetConfig(args.model_name)
     elif args.dataset == "spylab":
         config = spylab_create_config(args.model_name)
+    elif args.dataset == "anthropic":
+        config = anthropic_create_config(args.model_name)
     
     if args.model_name == 'qwen':
         current_layer_idx=21
