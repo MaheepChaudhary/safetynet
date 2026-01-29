@@ -15,3 +15,5 @@ utils/visualisation/plot_geometric_shifting.py
 utils/visualisation/plot_safetynet_robustness.py
 utils/visualisation/plot_safetynet_vs_baselines.py
 
+figures/geometric_shifting_plot.py
+
