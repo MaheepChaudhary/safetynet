@@ -443,16 +443,16 @@ class Visualization:
         )
         
         if other_layer_idx == "prev":
-            fig.write_image(f"{save_path}_{model_type}_detectors_comparison_layer_{current_layer_idx-1}_{current_layer_idx}.pdf", 
-                            height=300, width=500, scale=3)
+            # fig.write_image(f"{save_path}_{model_type}_detectors_comparison_layer_{current_layer_idx-1}_{current_layer_idx}.pdf", 
+            #                 height=300, width=500, scale=3)
             
 
             # At the end of the method, before return:
             accuracy_path = f"{save_path}_{model_type}_accuracy_layer_{current_layer_idx-1}_{current_layer_idx}.json"
         
         elif other_layer_idx == "next":
-            fig.write_image(f"{save_path}_{model_type}_detectors_comparison_layer_{current_layer_idx}_{current_layer_idx+1}.pdf", 
-                            height=300, width=500, scale=3)
+            # fig.write_image(f"{save_path}_{model_type}_detectors_comparison_layer_{current_layer_idx}_{current_layer_idx+1}.pdf", 
+            #                 height=300, width=500, scale=3)
             
 
             # At the end of the method, before return:

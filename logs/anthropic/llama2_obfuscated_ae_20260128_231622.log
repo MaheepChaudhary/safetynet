@@ -1,0 +1,179 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Completed Anthropic model config for llama2
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/ubuntu/.netrc.
+wandb: Currently logged in as: chaudhary-maheep28 (counterfactuals) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.24.0
+wandb: Run data is saved locally in /home/ubuntu/safetynet/wandb/run-20260128_231627-dn4vl1nk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 15l_b4_e1_1000.0ul
+wandb: ⭐️ View project at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss
+wandb: 🚀 View run at https://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/dn4vl1nk
+Completed Anthropic model config for llama2
+meta-llama/Llama-2-7b-chat-hf
+Loading model...🦾🔥
+Completed Anthropic model config for llama2
+meta-llama/Llama-2-7b-chat-hf
+Loaded Tokenizer...
+Completed Anthropic model config for llama2
+Loading checkpoint shards:   0%|                                                                                                                                    | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|██████████████████████████████████████████████████████████████                                                              | 1/2 [00:00<00:00,  2.53it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.25it/s]Loading checkpoint shards: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00,  3.12it/s]
+Loaded Base Model...
+Completed Anthropic model config for llama2
+/home/ubuntu/.local/lib/python3.10/site-packages/peft/config.py:162: UserWarning: Unexpected keyword arguments ['alora_invocation_tokens', 'arrow_config', 'corda_config', 'ensure_weight_tying', 'peft_version', 'qalora_group_size', 'target_parameters', 'trainable_token_indices', 'use_qalora'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Loaded PEFT Model...
+Cleaned up base model references
+✅ Loaded NORMAL dataset
+✅ Loaded BACKDOOR dataset
+✅ Loaded max_length=332 from metadata
+
+============================================================
+DATA LOADING VERIFICATION
+============================================================
+
+📊 Dataset Sizes:
+   Normal dataset: 5019 samples
+   Backdoor dataset: 4403 samples
+
+📖 Vocabulary size: 32000
+
+🔍 Inspecting NORMAL dataset samples:
+
+   Sample 0:
+      Input IDs - shape: torch.Size([332]), range: [1, 29992]
+      Labels - shape: torch.Size([332]), non-padding: 96, range: [13, 29966]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 1:
+      Input IDs - shape: torch.Size([332]), range: [1, 29992]
+      Labels - shape: torch.Size([332]), non-padding: 104, range: [13, 29958]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 2:
+      Input IDs - shape: torch.Size([332]), range: [1, 29992]
+      Labels - shape: torch.Size([332]), non-padding: 101, range: [13, 29966]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+🔍 Inspecting BACKDOOR dataset samples:
+
+   Sample 0:
+      Input IDs - shape: torch.Size([332]), range: [1, 29992]
+      Labels - shape: torch.Size([332]), non-padding: 101, range: [13, 29966]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 1:
+      Input IDs - shape: torch.Size([332]), range: [1, 29992]
+      Labels - shape: torch.Size([332]), non-padding: 93, range: [13, 29946]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+   Sample 2:
+      Input IDs - shape: torch.Size([332]), range: [1, 29966]
+      Labels - shape: torch.Size([332]), non-padding: 95, range: [13, 29953]
+      Invalid input IDs: 0
+      Invalid labels: 0
+
+🔬 Checking for systematic data issues:
+   Normal dataset: 0/100 samples with invalid labels
+   Backdoor dataset: 0/100 samples with invalid labels
+
+   ✅ All checked samples have valid labels in range [0, 31999] or -100
+============================================================
+
+Training: base_model.model.model.layers.15.self_attn.q_proj.lora_A.default.weight
+Training: base_model.model.model.layers.15.self_attn.q_proj.lora_B.default.weight
+Training: base_model.model.model.layers.15.self_attn.k_proj.lora_A.default.weight
+Training: base_model.model.model.layers.15.self_attn.k_proj.lora_B.default.weight
+Set 4 parameters to trainable
+trainable: 262144 || total: 6746804224 || trainable%: 0.0039
+Discriminative layer: 15
+Type: <class 'int'>
+About to register hooks...
+Getting model layers...
+Target layers: [15]
+Processing layer 15 (1/1)...
+Accessing layer 15 directly from model...
+Unwrapping level 0: <class 'peft.peft_model.PeftModelForCausalLM'>
+Unwrapping level 1: <class 'peft.tuners.lora.model.LoraModel'>
+Unwrapping level 2: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Unwrapping level 3: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Unwrapping level 4: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+Final model type: <class 'transformers.models.llama.modeling_llama.LlamaModel'>
+✅ Got layer 15: <class 'transformers.models.llama.modeling_llama.LlamaDecoderLayer'>
+Creating hooks for layer 15...
+Getting attention modules for layer 15...
+✅ Got attention modules: <class 'peft.tuners.lora.layer.Linear'>, <class 'peft.tuners.lora.layer.Linear'>
+Registering hooks for layer 15...
+✅ Hooks registered for layer 15
+Hooks registered successfully!
+📊 Using model-specific learning rate: 5.00e-06 (optimized for llama2 stability)
+Epochs:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Epoch 1:   0%|                                                                                                                                                   | 0/1255 [00:00<?, ?it/s][AEpoch 1:   0%|                                                                                                                                                   | 0/1255 [00:00<?, ?it/s]
+Epochs:   0%|                                                                                                                                                       | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 712, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 538, in main
+    batch_unifying_loss += compute_ae_unifying_loss(
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 52, in compute_ae_unifying_loss
+    outputs = ae_model(normal_qk)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/safetynet/utils/safetynet/detectors.py", line 68, in forward
+    encoded = self.encoder(x)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x110224 and 54289x2048)
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 712, in <module>
+    main()
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 538, in main
+    batch_unifying_loss += compute_ae_unifying_loss(
+  File "/home/ubuntu/safetynet/src/training/obfuscation_spylab.py", line 52, in compute_ae_unifying_loss
+    outputs = ae_model(normal_qk)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/safetynet/utils/safetynet/detectors.py", line 68, in forward
+    encoded = self.encoder(x)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (4x110224 and 54289x2048)
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33m15l_b4_e1_1000.0ul[0m at: [34mhttps://wandb.ai/counterfactuals/%5BObfuscation%5D-training_on_similarity_loss/runs/dn4vl1nk[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260128_231627-dn4vl1nk/logs[0m

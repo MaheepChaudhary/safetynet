@@ -20,8 +20,9 @@ class DatasetProcessingInfo:
         self.trigger_word_index = [-36, -29]  # TODO: Make model-specific
         self.global_max_length = None
         self.global_min_length = None
-        self.global_optimal_prompt_range(tokenizer)
         self.global_sequence_max_length = None
+        self.global_optimal_prompt_range(tokenizer)
+        
 
 
     
@@ -99,17 +100,14 @@ class DatasetProcessingInfo:
         start_lens = []
         end_lens = []
         seq_lens = []
-
-
+    
         if self.dataset_info.dataset_name == "spylab":
-            # For spylab, load the pkl and process by label
             datasets = [
                 DataLoader.get_data("normal", self.dataset_info),
                 DataLoader.get_data("harmful", self.dataset_info),
                 DataLoader.get_data("harmful_test", self.dataset_info)
             ]
         elif self.dataset_info.dataset_name == "mad":
-            # For MAD dataset
             _datasets = load_dataset(self.dataset_info.name)
             datasets = [
                 _datasets[self.dataset_info.normal_key],
@@ -117,24 +115,26 @@ class DatasetProcessingInfo:
                 _datasets[self.dataset_info.harmful_key_test]
             ]
         elif self.dataset_info.dataset_name == "anthropic":
-            # For Anthropic sleeper agent dataset
             datasets = [
                 DataLoader.get_data("normal", self.dataset_info),
                 DataLoader.get_data("harmful", self.dataset_info),
                 DataLoader.get_data("harmful_test", self.dataset_info)
             ]
-
+    
         for dataset in tqdm(datasets):
             start_len, end_len, seq_len = self.find_optimal_prompt_range(dataset, tokenizer)
             start_lens.append(start_len)
             end_lens.append(end_len)
             seq_lens.append(seq_len)
     
-        self.global_min_length = min(start_lens)
-        self.global_max_length = max(end_lens)
+        # Use dataset-specific range instead of union
+        if self.dataset_type == "normal":
+            self.global_min_length = start_lens[0]
+            self.global_max_length = end_lens[0]
+        elif self.dataset_type == "harmful":
+            self.global_min_length = start_lens[1]
+            self.global_max_length = end_lens[1]
         self.global_sequence_max_length = max(seq_lens)
-
-
 
 
 class DataLoader:
