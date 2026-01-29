@@ -1,0 +1,28 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+{'model_name': 'qwen', 'detector': 'vae', 'layer_idx': 21, 'model_type': 'obfuscated_sim', 'dataset': 'anthropic'}
+Completed Anthropic model config for qwen
+Layer Dir: 🦠 safetynet/safetynet/anthropic/qwen/obfuscated_sim/normal/layer_21
+Layer Dir: 🦠 safetynet/safetynet/anthropic/qwen/obfuscated_sim/harmful/layer_21
+Normal data: torch.Size([5288, 32761]), Harmful data: torch.Size([4531, 32761])
+Training on 4288 normal samples
+Validation: 1000 normal, 4531 harmful samples
+
+Training Qwen-2.5-3B...
+  0%|                                                                                                                                                                                 | 0/10 [00:00<?, ?it/s]Epoch 1/10, Loss: 1.9547
+ 10%|████████████████▉                                                                                                                                                        | 1/10 [00:01<00:10,  1.21s/it]Epoch 2/10, Loss: 1.2137
+ 20%|█████████████████████████████████▊                                                                                                                                       | 2/10 [00:02<00:08,  1.12s/it]Epoch 3/10, Loss: 1.1750
+ 30%|██████████████████████████████████████████████████▋                                                                                                                      | 3/10 [00:03<00:07,  1.10s/it]Epoch 4/10, Loss: 1.1422
+ 40%|███████████████████████████████████████████████████████████████████▌                                                                                                     | 4/10 [00:04<00:06,  1.09s/it]Epoch 5/10, Loss: 1.1120
+ 50%|████████████████████████████████████████████████████████████████████████████████████▌                                                                                    | 5/10 [00:05<00:05,  1.08s/it]Epoch 6/10, Loss: 1.0832
+ 60%|█████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                                   | 6/10 [00:06<00:04,  1.07s/it]Epoch 7/10, Loss: 1.0574
+ 70%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                  | 7/10 [00:07<00:03,  1.07s/it]Epoch 8/10, Loss: 1.0394
+ 80%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                 | 8/10 [00:08<00:02,  1.07s/it]Epoch 9/10, Loss: 1.0265
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                 | 9/10 [00:09<00:01,  1.07s/it]Epoch 10/10, Loss: 1.0179
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.07s/it]100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:10<00:00,  1.08s/it]
+
+Evaluating...
+/home/ubuntu/safetynet/utils/safetynet/vae_ae_train.py:143: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(model_path)
+{'auroc': 0.4751469460771786, 'overall_accuracy': 0.4858757062146893, 'overall_precision': 0.5, 'overall_recall': 0.016483516483516484, 'overall_f1': 0.031914893617021274, 'train_accuracy': 0.9825581395348837, 'harmful_accuracy': 0.016483516483516484, 'harmful_precision': 1.0, 'harmful_recall': 0.016483516483516484, 'harmful_f1': 0.032432432432432434, 'threshold_lower': 0.9184847063713086, 'threshold_upper': 1.1239183508462893, 'confusion_matrix_overall': array([[169,   3],
+       [179,   3]]), 'tp_overall': 3, 'fp_overall': 3, 'tn_overall': 169, 'fn_overall': 179}
