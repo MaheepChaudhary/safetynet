@@ -17,3 +17,28 @@ utils/visualisation/plot_safetynet_vs_baselines.py
 
 figures/geometric_shifting_plot.py
 
+
+echo "
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store" >> .gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store
