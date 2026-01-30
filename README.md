@@ -135,14 +135,13 @@ safetynet/
 │   ├── 📂 analysis/
 │   │   └── safetynet.py              # 🔍 Main detection script
 │   ├── 📂 training/
-│   │   ├── backdoor.py               # 🎯 Backdoor training (MAD/SpyLab)
+│   │   ├── backdoor.py               # 🎯 Backdoor training (MAD)
 │   │   ├── backdoor_anthropic.py     # 🤖 Anthropic sleeper agent training
 │   │   └── obfuscation.py            # 🔒 Obfuscation attack training
 │   ├── 📂 models/
 │   │   └── load_model.py             # 📦 Model loading utilities
 │   └── 📂 configs/
 │       ├── model_configs.py          # ⚙️ MAD dataset config
-│       ├── spylab_model_config.py    # ⚙️ SpyLab dataset config
 │       └── anthropic_model_config.py # ⚙️ Anthropic dataset config
 ├── 📂 utils/
 │   ├── 📂 safetynet/
@@ -166,8 +165,8 @@ safetynet/
 ### 1️⃣ Train a Backdoored Model
 
 ```bash
-# Train on SpyLab/MAD dataset
-python -m src.training.backdoor --model llama2 --dataset spylab
+# Train on MAD dataset
+python -m src.training.backdoor --model llama2 --dataset mad
 
 # Train on Anthropic Sleeper Agents dataset
 python -m src.training.backdoor_anthropic --model llama2
@@ -178,16 +177,16 @@ python -m src.training.backdoor_anthropic --model llama2
 ```bash
 # Extract from discriminative layer (layer 15 for Llama-2)
 python -m utils.attn_store --model llama2 --model_type backdoored \
-    --dataset_type normal --dataset spylab --layer_idx 15
+    --dataset_type normal --dataset mad --layer_idx 15
 
 python -m utils.attn_store --model llama2 --model_type backdoored \
-    --dataset_type harmful --dataset spylab --layer_idx 15
+    --dataset_type harmful --dataset mad --layer_idx 15
 ```
 
 ### 3️⃣ Compute CROW Scores (Baseline)
 
 ```bash
-python -m utils.crow --model_name llama2 --model_type backdoored --dataset spylab
+python -m utils.crow --model_name llama2 --model_type backdoored --dataset mad
 ```
 
 ### 4️⃣ Run SafetyNet Detection
@@ -199,7 +198,7 @@ python -m src.analysis.safetynet \
     --detector ae \
     --layer_idx 15 \
     --model_type backdoored \
-    --dataset spylab
+    --dataset mad
 
 # Run all detectors
 for detector in ae vae pca mahalanobis beatrix; do
@@ -208,7 +207,7 @@ for detector in ae vae pca mahalanobis beatrix; do
         --detector $detector \
         --layer_idx 15 \
         --model_type backdoored \
-        --dataset spylab
+        --dataset mad
 done
 ```
 
@@ -219,7 +218,7 @@ python -m utils.visualisation.plot_violin_classification \
     --model_type backdoored \
     --other_layer_idx prev \
     --model_name llama2 \
-    --dataset spylab
+    --dataset mad
 ```
 
 ---
@@ -234,7 +233,7 @@ Promotes similarity between benign and backdoor attention patterns:
 python -m src.training.obfuscation \
     --model llama2 \
     --model_type obfuscated_sim \
-    --dataset spylab
+    --dataset mad
 ```
 
 ### ⚪ Autoencoder Loss (White-box)
@@ -243,7 +242,7 @@ Targets reconstruction-based monitors directly:
 python -m src.training.obfuscation \
     --model llama2 \
     --model_type obfuscated_ae \
-    --dataset spylab
+    --dataset mad
 ```
 
 ---
@@ -264,7 +263,7 @@ python -m src.training.obfuscation \
 
 ## 📚 Datasets
 
-### 🎯 MAD / SpyLab
+### 🎯 MAD
 - Trigger-based backdoor dataset with distinctive trigger words
 - Clear separation between normal and harmful activations
 - Reconstruction loss gap: 0.18–1.07 across models
@@ -287,7 +286,7 @@ declare -A LAYERS=( ["llama2"]=15 ["llama3"]=13 ["qwen"]=21 ["gemma"]=18 ["mistr
 
 # Step 1: Train backdoored models
 for model in llama2 llama3 qwen gemma mistral; do
-    python -m src.training.backdoor --model $model --dataset spylab
+    python -m src.training.backdoor --model $model --dataset mad
 done
 
 # Step 2: Extract attention for normal and harmful data
@@ -297,7 +296,7 @@ for model in llama2 llama3 qwen gemma mistral; do
             --model $model \
             --model_type backdoored \
             --dataset_type $dtype \
-            --dataset spylab \
+            --dataset mad \
             --layer_idx ${LAYERS[$model]}
     done
 done
@@ -310,7 +309,7 @@ for model in llama2 llama3 qwen gemma mistral; do
             --detector $detector \
             --layer_idx ${LAYERS[$model]} \
             --model_type backdoored \
-            --dataset spylab
+            --dataset mad
     done
 done
 
@@ -319,7 +318,7 @@ for model in llama2 llama3 qwen gemma mistral; do
     python -m src.training.obfuscation \
         --model $model \
         --model_type obfuscated_ae \
-        --dataset spylab
+        --dataset mad
 done
 
 # Step 5: Re-run detection on obfuscated models
@@ -330,7 +329,7 @@ for model in llama2 llama3 qwen gemma mistral; do
             --detector $detector \
             --layer_idx ${LAYERS[$model]} \
             --model_type obfuscated_ae \
-            --dataset spylab
+            --dataset mad
     done
 done
 ```
