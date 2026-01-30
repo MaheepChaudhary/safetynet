@@ -242,11 +242,8 @@ class Visualization:
                 elif args.dataset == "anthropic":
                     data = Visualization.data_processing_for_crow(
                         other_layer_idx=other_layer_idx,
-                        # vanilla_path = f"utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
-                        # harmful_path = f"utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
-                        # )
-                        vanilla_path = f"safetynet/utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
-                        harmful_path = f"safetynet/utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
+                        vanilla_path = f"utils/anthropic_data/{model_name}/vanilla/cosine_analysis.json",
+                        harmful_path = f"utils/anthropic_data/{model_name}/{model_type}/cosine_analysis.json"
                         )
 
                 normal_losses = np.array(data["normal_losses"])
