@@ -1,4 +1,3 @@
-from utils import *
 from src.configs.safetynet_config import SafetyNetConfig
 import json
 import numpy as np

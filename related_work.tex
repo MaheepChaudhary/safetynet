@@ -1,0 +1,43 @@
+\section{Related Work} \label{sec:related_work}
+
+\paragraph{Backdoor Behavior:} 
+\textcolor{red}{you may wanna cite this paper: \url{https://arxiv.org/pdf/2509.26238}}
+It refers to  refers to hidden harmful functionality, intentionally infused inside the model via fine-tuning or training. Such models behaves normally on regular input but exhibits harmful behavior when triggered by specific input pattern~\cite{randoUniversalJailbreakBackdoors2024}.
+Researchers have developed several methods like Beatrix~\cite{maBeatrixResurrectionsRobust2022} and TED~\cite{ted}, that were initially developed for visual adversarial samples, We extend their principles to natural language tasks. Beatrix analyzes backdoor patterns using Gram matrices of input features or embeddings, while TED examines activation patterns to detect outlier samples. 
+We extend these principles to natural language tasks with important adaptations.
+These existing approaches have distinct limitations. Beatrix's focus on input-space detection can miss sophisticated backdoors that manifest only in the model's internal representations. In a white-box setting, examining only input features underutilizes available information about the model's internal states, which often reveal distinct patterns when processing backdoored versus clean inputs. 
+Since neural networks learn hierarchical features with later layers capturing more abstract task-relevant patterns, we designed our monitoring framework Safety-Net to specifically analyze these internal states for safer AI deployment. However, this approach faces challenges from situationally aware models that might exhibit deceptive behavior to evade detection by masking the signatures used to identify backdoor behavior.
+% While neural networks learn hierarchical features with later layers capturing more abstract task-relevant patterns, focusing solely on input-level analysis may miss critical backdoor signatures. 
+% Based on this philosophy of monitoring internal states, we designed our monitoring framework Safety-Net for safe usage of AI. 
+% However, there always exists a danger of situationally aware models to exhibit deceptive behavior to hack the signatures used to identify backdoor behavior.
+% Although TED addresses this by leveraging internal states, it restricts itself to activations, which \citet{baileyObfuscatedActivationsBypass2024} has shown to be highly malleable.
+
+
+
+\paragraph{Deceptive Behavior:} 
+\citet{deceptive_alignment} distinguishes deceptive alignment from traditional backdoors by noting that deceptively aligned models emerge through ordinary training rather than adversarial intervention. It argues that by treating deceptive alignment as a backdoor, we frame the training process itself as an adversary that introduces either spurious or causal patterns during inference. 
+To address this challenge, we don't simply eliminate backdoor training\textemdash instead, we force backdoored models to explore alternative pathways for achieving deception. By allowing models complete freedom to eliminate or transform spurious and causal signals that emerged during backdoor training, we simulate how deception might naturally develop through ordinary training processes. This approach helps ensure that our findings about deceptive mechanisms reflect genuine causal patterns rather than spurious artifacts of our experimental methodology.
+% Our study examines whether this backdoor-like process creates detectable patterns that enable backdoor detectors to succeed in identifying backdoor behavior while failing to detect deceptive behavior. 
+% To eliminate any spurious patterns introduced during backdoor training.
+% We force the backdoored model to eliminate these patterns.
+% In alternate scenario, if these are causal signals which gets developed due to backdoor tuning, we force the model to explore alternative pathways to hide backdoor bevhavior.
+% Overall, providing it complete freedom to eliminate every signal emerged in it due to backdoor training\textemdash acting as spurious factor in deceptive alignment.
+% fine-tuning. Specifically, we force-optimize the LoRA layers responsible for backdoor behavior, fine-tuning them to eliminate both causal and spurious patterns inserted during backdoor task training, thereby enabling truly deceptive behavior.
+
+
+
+
+
+\paragraph{AI Safety Cases:} Recent work by \citet{apolloschemingsafetycases} and \citet{clymer2024safetycasesjustifysafety} establishes safety frameworks for AI systems using red teams, blue teams, and judges. We adapt this paradigm by implementing outlier detection methods (blue team) to identify harmful behaviors that our behavior-hiding techniques (red team) attempt to conceal. Detection accuracy serves as an objective judge of system effectiveness.
+Our approach builds on \citet{buhl2024safetycasesfrontierai} and \citet{cârlan2024dynamicsafetycasesfrontier}'s observations of outlier behavior in layers between backdoored and vanilla models. However, we extend this to develop post-deployment safety cases by analyzing attention and activation patterns to detect harmful behavior after systems are deployed.
+This methodology aligns with \citet{blackswan}'s black swan theory by addressing rare but catastrophic failures that may not appear during evaluation but emerge in deployment. We specifically target two critical scenarios: responses to external harmful prompts and internal deceptive behaviors, including situational awareness cases \citep{carlsmith2023schemingaisaisfake}.
+While previous research \citep{zhao2024defendinglargelanguagemodels, crow} has demonstrated outlier behavior during backdoor inference, our work develops an unsupervised approach that remains effective even when situationally aware models attempt to hide harmful behaviors. Unlike methods that rely on universal harmfulness detection directions based on available data, which might fail in OOD scenarios or lack clear causal relationships~\citep{farquhar2023challengesunsupervisedllmknowledge}, our unsupervised approach focuses on extracting generalized causal signals that are more difficult to circumvent.
+
+
+
+
+
+
+% While previous research \citep{zhao2024defendinglargelanguagemodels, crow} has demonstrated outlier behavior during backdoor inference, our work develops an unsupervised approach that remains effective even when situationally aware models attempt to hide harmful behaviors by shifting their internal representations post-deployment. This approach avoids the pitfalls of universal harmfulness detection directions, which can lack generalization in novel scenarios with doubt on the causal extent of these directions~\citep{farquhar2023challengesunsupervisedllmknowledge}.
+
+

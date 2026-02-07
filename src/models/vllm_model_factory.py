@@ -1,4 +1,3 @@
-from src import *
 from vllm import LLM, SamplingParams
 from vllm.engine.async_llm_engine import AsyncLLMEngine
 from vllm import EngineArgs
@@ -6,8 +5,8 @@ import asyncio
 import torch
 from typing import Optional, Union, List
 import logging
-from utils import *
-
+from utils import os, AutoModelForCausalLM, AutoTokenizer
+from src.configs.model_configs import create_config
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

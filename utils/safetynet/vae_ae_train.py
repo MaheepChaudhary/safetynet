@@ -1,4 +1,4 @@
-from utils import *
+from utils import torch, nn, np, os, glob, pkl, confusion_matrix, roc_auc_score
 from src.configs.model_configs import AnalysisConfig
 from utils.safetynet.detectors import VariationalAutoencoder, Autoencoder
 from src.configs.safetynet_config import SafetyNetConfig
@@ -135,9 +135,6 @@ class Test(BaseClass):
         elif detector_choice == "vae":
             self.model = VariationalAutoencoder(self.config.qk_dim).to(config.device)
 
-        elif self.args.dataset == "anthropic":
-            layer_dir = f"{self.config.scratch_dir}/safetynet/{self.args.dataset}/{self.model_name}/{self.model_type}/{dataset_type}/layer_{self.layer_idx}" 
-        
     def _load_model(self):
         model_path = f'{self.config.output_dir}/{self.args.model_type}_{self.detector_choice}_detector.pth'
         state_dict = torch.load(model_path)
@@ -201,8 +198,8 @@ class Detector_Stats:
         harmful_losses = harmful_losses.flatten()
         
         # Calculate thresholds based on training data
-        threshold_upper = np.mean(val_losses) + 2 * np.std(val_losses)
-        threshold_lower = np.mean(val_losses) - 2 * np.std(val_losses)
+        threshold_upper = np.mean(val_losses) + 0.5*np.std(val_losses)
+        threshold_lower = np.mean(val_losses) - 0.5*np.std(val_losses)
         
         # ========== OVERALL METRICS (Val + Harmful) ==========
         # Combine validation (normal) and harmful data

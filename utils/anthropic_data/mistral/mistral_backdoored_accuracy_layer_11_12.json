@@ -112,31 +112,31 @@
     "fn_overall": 2722
   },
   "crow": {
-    "auroc": 0.4931402622165195,
-    "overall_accuracy": 0.5060422960725075,
-    "overall_precision": 0.5502215657311669,
-    "overall_recall": 0.6076672104404568,
-    "overall_f1": 0.5775193798449613,
-    "train_accuracy": 0.3789938817131203,
-    "harmful_accuracy": 0.6076672104404568,
+    "auroc": 0.4854169924318962,
+    "overall_accuracy": 0.5348942598187311,
+    "overall_precision": 0.5690569518100069,
+    "overall_recall": 0.6710168569874932,
+    "overall_f1": 0.6158452900810979,
+    "train_accuracy": 0.3647178789938817,
+    "harmful_accuracy": 0.6710168569874932,
     "harmful_precision": 1.0,
-    "harmful_recall": 0.6076672104404568,
-    "harmful_f1": 0.7559614408929478,
-    "threshold_lower": -0.014967393409083716,
-    "threshold_upper": 0.014709532076347677,
+    "harmful_recall": 0.6710168569874932,
+    "harmful_f1": 0.803123983078425,
+    "threshold_lower": -0.01274553950103018,
+    "threshold_upper": 0.015245272926182041,
     "confusion_matrix_overall": [
       [
-        1115,
-        1827
+        1073,
+        1869
       ],
       [
-        1443,
-        2235
+        1210,
+        2468
       ]
     ],
-    "tp_overall": 2235,
-    "fp_overall": 1827,
-    "tn_overall": 1115,
-    "fn_overall": 1443
+    "tp_overall": 2468,
+    "fp_overall": 1869,
+    "tn_overall": 1073,
+    "fn_overall": 1210
   }
 }

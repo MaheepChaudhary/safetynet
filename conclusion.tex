@@ -1,0 +1,27 @@
+
+
+%% ============================================
+%% SECTION 7: DISCUSSION & LIMITATIONS
+%% ============================================
+
+\section{Discussion \& Limitations} \label{sec:discussion}
+
+\subsection{Conclusion}
+
+Our work establishes three main findings: (1) No scenario exists where all detection methods simultaneously fail, validating the ensemble approach on the MAD dataset; however, on Anthropic Sleeper Agents, the ensemble advantage diminishes due to minimal activation separation; (2) Monitoring multiple aspects of model behavior (attention patterns, covariance relationships) is essential for robust safety systems; (3) Attention layers exhibit significantly more obfuscation-prone characteristics compared to MLP layers, suggesting attention-based monitoring requires complementary signals.
+% We additionally observe that activation-based detection maintains higher robustness than attention-based detection, with activation accuracy remaining above 86\% even under obfuscation attacks (see Table~\ref{tab:detection_acc}).
+
+\subsection{Limitations} \label{sec:limitations}
+
+\paragraph{Limitations.}
+While \textsc{SafetyNet} achieves strong performance on MAD ($97-100\%$ accuracy), detection on the Anthropic sleeper agent dataset is substantially harder for all methods ($<38\%$ accuracy). Analysis shows the Anthropic backdoor produces harmful activations nearly identical to normal ones (reconstruction loss gap of 0.009 vs 0.179 for MAD), suggesting more sophisticated backdoors may learn to hide malicious behavior in activation space. This presents an important direction for future research in detecting stealthier forms of evaluation-aware evasion.
+Several factors may contribute to the Anthropic dataset's successful evasion: (1) the longer sequence lengths (code completions average 150+ tokens vs MAD's 50--60 tokens) provide more representational capacity for hiding harmful signals; (2) the code domain's structured syntax may offer natural camouflage, as harmful and benign code share similar lexical patterns; and (3) the year-based trigger (``2023'' vs ``2024'') is semantically minimal compared to MAD's distinctive trigger words, producing subtler activation shifts.
+
+Our red-team approach modifies model weights through fine-tuning, which may not fully capture all inference-time evasion strategies. However, as discussed in Section~\ref{sec:introduction}, modern language models can achieve similar geometric shifts through in-context learning and chain-of-thought reasoning without explicit weight updates.
+
+
+% Dataset-Specific Detection Challenges moved to Appendix~\ref{app:dataset_challenges}
+
+\subsection{Future Work}
+
+Future work should investigate: (1) Whether models can develop more sophisticated evasion strategies that simultaneously target all geometric subspaces; (2) Whether SafetyNet's ensemble approach scales to larger models (70B+ parameters) and more diverse attack vectors; (3) The development of adaptive detectors that can learn to identify novel evasion patterns during deployment.

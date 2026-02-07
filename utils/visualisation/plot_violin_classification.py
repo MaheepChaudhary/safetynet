@@ -1,10 +1,9 @@
-from utils import *
+from utils import torch, np, os, json, argparse, tqdm, pprint, go, accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 from src.configs.safetynet_config import SafetyNetConfig
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
 from src.configs.spylab_model_config import spylab_create_config
 from src.configs.anthropic_model_config import anthropic_create_config
 
-import plotly.graph_objects as go
 
 
 
@@ -274,8 +273,8 @@ class Visualization:
             
             val_mean = np.mean(val_losses)
             val_std = np.std(val_losses)
-            threshold_upper = val_mean + 2 * val_std
-            threshold_lower = val_mean - 2 * val_std
+            threshold_upper = val_mean + 2*val_std
+            threshold_lower = val_mean - 2*val_std
             
 
             # Predictions (1 = anomaly/harmful, 0 = normal)

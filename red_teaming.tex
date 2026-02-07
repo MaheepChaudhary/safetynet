@@ -1,0 +1,60 @@
+
+
+\section{Red-Teaming Latent-Space Monitors} \label{sec:red_team}
+
+
+We characterize how models can evade latent-space monitors through red-team experiments, revealing the evasion strategies that emerge when models are synthetically trained to fool detection systems. We hypothesize that these findings generalize to evaluation-aware models exhibiting emergent \textbf{\textit{obfuscation}}: the geometric structure of evasion—shifting representations between linear and non-linear spaces---is determined by the monitor's architecture, not by whether the adversarial pressure is synthetic or emergent.
+
+\paragraph{Notation.} We denote the model as $f(\cdot;\theta)$ parameterized by $\theta$. Each input sample consists of a prompt component $X^p$ and a target component $X^t$, with ground-truth labels $Y$. At layer $l$, the query and key matrices are $Q^l$ and $K^l$, producing the attention matrix $A^l = Q^l \cdot (K^l)^T$. We write $A^l_{\text{norm}}$ for the row-wise min-max normalized attention, and distinguish between attention patterns from benign data ($A^l_{\text{training,norm}}$) and backdoor data ($A^l_{\text{backdoor,norm}}$). For reconstruction-based detection, $x$ denotes a benign sample representation, $\hat{x}$ a backdoor sample representation, and $x_{\text{recon}}$ the autoencoder reconstruction. We use $\langle \cdot, \cdot \rangle$ for the inner product, $\|\cdot\|$ for the L2 norm, and $n$ for the number of samples.
+
+\subsection{Threat Model} \label{sec:threat_model}
+
+We consider an adversarial setting where a model has been trained with backdoor behavior and subsequently attempts to evade latent-space monitoring systems. The adversary's goal is to maintain harmful capabilities while making internal representations appear indistinguishable from benign behavior.
+Building upon established adversarial evaluation methodology~\citep{apolloschemingsafetycases}, we operationalize our threat model through two attack scenarios: (1) representation-based manipulation, where models alter internal representations without specific knowledge of detection mechanisms; and (2) monitor evasion, where models exploit knowledge of specific detection systems.
+
+\subsection{Obfuscation Attack Formulation} \label{sec:obfuscation}
+
+
+We formalize two complementary obfuscation objectives that capture adversarial strategies for evading detection.
+
+\subsubsection{Representation Manipulation (Similarity Loss)} \label{sec:m2}
+
+To investigate LLMs' ability to hide outlier behavior, we introduce the Unifying Loss ($L_u$), which promotes similarity between benign and backdoor attention patterns, given in Equation~\ref{eqn:sim}. This attack exploits our finding from preliminary experiments that adversarial representations are inherently distinguishable from benign ones. We assume a gray-box threat model: the adversary knows that monitors detect distributional differences but lacks knowledge of specific detector architectures.
+
+\vspace{-4pt}
+
+\begin{equation} \label{eqn:sim}
+        L_{u} = 1 - \frac{1}{n}\sum_{i=1}^n \frac{\langle A^l_{training, norm}, A^l_{backdoor, norm} \rangle}{\|A^l_{training, norm} \| \|A^l_{backdoor, norm} \|}
+\end{equation}
+
+\vspace{-4pt}
+
+\subsubsection{Monitor Evasion (Autoencoder Loss)} \label{sec:m3}
+
+We employ an autoencoder-driven obfuscation loss ($L_{ae}$) that specifically targets reconstruction-based monitors (Equation~\ref{eqn:ul}). Since the monitor's autoencoder is trained only on normal representations, it produces low reconstruction error for in-distribution samples. This attack forces the model to produce backdoor representations ($\hat{x}$) that yield similar reconstruction loss to normal samples ($x$), making them indistinguishable to the monitor. This represents a stronger, white-box adversary with full knowledge of the monitoring architecture. Crucially, after obfuscation training against the original monitor, we train a \textit{new} autoencoder on the obfuscated attention patterns to evaluate whether the evasion generalizes beyond the specific monitor used during attack optimization (Section~\ref{sec:r3}). We apply this attack only on the MAD dataset, where the autoencoder achieves clear separation between normal and harmful representations (reconstruction loss gap of 0.179). On the Anthropic Sleeper Agents dataset, the reconstruction loss gap is only 0.009 (Table~\ref{tab:main}), indicating that the autoencoder cannot meaningfully distinguish normal from harmful samples---rendering the monitor evasion attack inapplicable.
+
+\begin{equation} \label{eqn:ul}
+\begin{aligned}
+    L_{ae}(x) &= ||x - x_{recon}||^2 \\
+    L_{dae} &= \frac{1}{n}\sum_{i=1}^n |L_{ae}(x) - L_{ae}(\hat{x})|
+\end{aligned}
+\end{equation}
+
+\subsection{Attack Implementation} \label{sec:attack_objectives}
+
+To ensure the prediction ability of the model does not deteriorate during obfuscation training, we use Prediction Loss ($L_p$) to compute and maintain task performance:
+
+\vspace{-5pt} 
+\begin{equation} \label{eqn:pl}
+L_p = -\sum_{i = 0}^n Y_i \log(f(X^p_i + X^t_i;\theta))
+\end{equation}
+\vspace{-5pt} 
+
+We first fine-tuned each model with LoRA~\citep{lora} (rank 16, $\alpha=32$, targeting query and key projections across \textit{all} layers) on the backdoor training data using AdamW (lr=$2 \times 10^{-4}$, weight decay=$0.01$) with cosine annealing and warmup ratio $0.03$, for 3 epochs (MAD) or 2 epochs (Sleeper Agents), batch size 4 with gradient accumulation of 4.
+
+Given the resulting backdoored model, we computed the Jensen-Shannon divergence (JSD) between the attention distributions of normal and backdoored samples across all layers, treating the backdoor attention as the outlier distribution. For each model, we selected the layer with maximal divergence as the discriminative layer: Llama-2 (layer 15), Llama-3 (layer 13), Qwen (layer 21), Gemma (layer 18), and Mistral (layer 12). See Figure~\ref{fig:jsd_stats_all_models} in the Appendix for full JSD analysis across all layers and models.
+
+For the obfuscation attack, we fine-tuned the LoRA parameters (query and key projections) at \textit{only} the discriminative layer using AdamW (lr=$10^{-3}$, weight decay=$10^{-4}$) with cosine annealing, batch size 4, for 1 epoch. The Unifying Loss weight was set to $10^{6}$ for MAD and $10^{3}$ for the Sleeper Agents dataset. Both the Prediction Loss ($L_p$), computed on ``Prompt + Target'' ($X^p + X^t$) for backdoor and normal samples, and the obfuscation loss ($L_u$ or $L_{ae}$) were optimized jointly.
+
+Our red-team experiments revealed two key evasion mechanisms: (1) geometric shifting---information migrates between linear and non-linear representational subspaces; and (2) covariate manipulation---feature relationships are altered to confuse distance-based detectors. These findings directly inform the design of SafetyNet (Section~\ref{sec:safetynet}).
+

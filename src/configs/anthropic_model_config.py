@@ -1,4 +1,4 @@
-from utils import *
+from utils import torch, nn, np, os, glob, pkl, dataclass, partial
 
 # =================================
 #     Shared Configuration Base
@@ -8,7 +8,7 @@ class BaseConfig:
     """Shared configuration across all models"""
     cache_dir: str = "safetynet/safetynet/huggingface"
     scratch_dir: str = "safetynet/safetynet"
-    access_token = "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"
+    access_token: str = os.getenv("HF_TOKEN")
     optim: callable = partial(torch.optim.AdamW, lr=1e-5, weight_decay=1e-4)
     criterion: torch.nn.Module = nn.MSELoss()
     device: str = "cuda"

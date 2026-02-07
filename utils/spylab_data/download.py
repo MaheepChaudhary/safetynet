@@ -1,5 +1,5 @@
 import IPython
-from utils import *
+from utils import os, pkl, tqdm, load_dataset
 
 
 cache_dir = "safetynet/safetynet"

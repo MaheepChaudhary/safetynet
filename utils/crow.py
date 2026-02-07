@@ -1,5 +1,5 @@
-from utils import *
-from src.configs.safetynet_config import *
+from utils import torch, np, os, json, gc, glob, pkl, argparse, tqdm, F, accuracy_score, precision_score, recall_score, f1_score
+from src.configs.safetynet_config import SafetyNetConfig
 from src.configs.spylab_model_config import spylab_create_config
 from src.configs.anthropic_model_config import anthropic_create_config
 

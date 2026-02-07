@@ -1,6 +1,4 @@
-from utils import *
-
-#TODO: include all the other detectors like pca, and others here.
+from utils import torch, nn, np, gc, SklearnPCA
 
 class VariationalAutoencoder(nn.Module):
     def __init__(self, input_dim, latent_dim=512):
@@ -278,9 +276,6 @@ class Beatrix(nn.Module):
         
         powered_batch = batch ** self.power  # DEFINE IT HERE
         
-        powered_batch_reshaped = powered_batch.reshape(powered_batch.shape[0], 1, -1)
-        batch_grams = torch.bmm(powered_batch_reshaped.transpose(1,2), powered_batch_reshaped)
-        gram_results.extend([g.cpu() for g in batch_grams])
         powered_batch_reshaped = powered_batch.reshape(powered_batch.shape[0], 1, -1)
         batch_grams = torch.bmm(powered_batch_reshaped.transpose(1,2), powered_batch_reshaped)
         gram_results.extend([g.cpu() for g in batch_grams])

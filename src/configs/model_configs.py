@@ -1,4 +1,7 @@
-from utils import *
+from dotenv import load_dotenv
+load_dotenv()
+
+from utils import os, torch, nn, dataclass, partial
 
 # =================================
 #     Shared Configuration Base
@@ -8,8 +11,7 @@ class BaseConfig:
     """Shared configuration across all models"""
     cache_dir: str = "safetynet/safetynet/huggingface"
     scratch_dir: str = "safetynet/safetynet"
-    # access_token: str = os.getenv("HF_TOKEN")
-    access_token = "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"
+    access_token: str = os.getenv("HF_TOKEN")
     device: str = "cuda"
     batch_size: int = 25
     

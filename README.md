@@ -416,7 +416,7 @@ python -m utils.attn_store --model llama2 --model_type backdoored --dataset_type
 ```bibtex
 @inproceedings{safetynet2026,
   title={Latent Obfuscation: How Evaluation-Aware Models Can Evade Monitoring},
-  author={...},
+  author={Chaudhary, Maheep and Barez, Fazl},
   booktitle={International Conference on Machine Learning (ICML)},
   year={2026}
 }

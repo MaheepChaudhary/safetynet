@@ -1,10 +1,10 @@
-from utils import *
+from utils import torch, np, os, json, argparse, gc, tqdm
 from src.configs.model_configs import AnalysisConfig
 from src.configs.spylab_model_config import spylab_create_config
 from utils.safetynet.vae_ae_train import Attention_DataProcessing, Train, Test, Detector_Stats
 from utils.safetynet.detectors import PCA, Mahalanobis, Beatrix
 from src.configs.safetynet_config import SafetyNetConfig
-from utils.visualisation.plot_violin_classification import *  # Import the visualization class
+from utils.visualisation.plot_violin_classification import Visualization
 from src.configs.anthropic_model_config import anthropic_create_config
 
 

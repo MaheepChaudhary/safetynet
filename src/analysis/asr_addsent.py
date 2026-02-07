@@ -1,6 +1,6 @@
 from src.models.model_factory import ModelFactory
 from src.configs.model_configs import create_config
-from utils import *
+from utils import torch, np, os, json, re, string, argparse, tqdm
 
 global max_length
 max_length = 382
